@@ -5,17 +5,31 @@
 
 static esp_netif_t *sta_netif;
 
-int8_t wifi_last_index = -1;  // Stores the last connected Wi-Fi index
-lv_obj_t *wifi_last_Button;  // Stores the last button associated with the Wi-Fi
+//int8_t wifi_last_index = -1;  // Stores the last connected Wi-Fi index
+//lv_obj_t *wifi_last_Button;  // Stores the last button associated with the Wi-Fi
 bool connection_flag = false; // Flag to track if a connection was successfully made previously
 bool connection_last_flag = false; // Flag to check if the STA is reconnecting while in AP mode
 static esp_netif_ip_info_t ip_info; // Stores IP information
 
-extern bool found_saved_ap;
 extern char saved_ssid[32] ;
 extern char saved_password[64];
 
-int wf_connected=0;
+extern bool found_saved_ap;
+
+//extern lv_obj_t *wifi_last_Button;
+
+static void wifi_connected_cb(lv_timer_t *timer)
+{
+    if (wifi_last_Button != NULL) {
+        lv_obj_clean(wifi_last_Button);
+        lv_obj_t *img = lv_img_create(wifi_last_Button);
+        lv_img_set_src(img, &ui_img_ok_png);   // icon Wi-Fi OK
+        lv_obj_align(img, LV_ALIGN_RIGHT_MID, -10, 0);
+    }
+}
+
+ extern lv_obj_t *saved_wifi_button;
+
 
 //////////////// lưu ssid,pass và bssid
 
@@ -35,45 +49,16 @@ void save_wifi_credentials (const char *ssid, const char *password, const uint8_
 }
 
 
-///////////////
 
-//extern void wifi_mesh_task(uint8_t* CONFIG_MESH_ROUTER_SSID, uint8_t* CONFIG_MESH_ROUTER_PASSWD);
-/*
-void update_main_screen_wifi_status() {
-    if (connection_flag && WIFI_CONNECTION != -1) {
-        int rssi = ap_info[WIFI_CONNECTION].rssi;
-        const lv_img_dsc_t *wifi_symbol = NULL;
 
-        if (rssi > -25) {
-            //wifi_symbol = &ui_img_wifi_4_png; 
-            wifi_symbol = &wifi_1_20x20; 
-        } else if ((rssi > -50)&&(rssi<-25)) {
-            //wifi_symbol = &ui_img_wifi_3_png; 
-            wifi_symbol = &wifi_2_20x20;
-        } else if ((rssi > -75)&&(rssi<-50)) {
-            //wifi_symbol = &ui_img_wifi_2_png; 
-            wifi_symbol = &wifi_3_20x20;
-        } else {
-            //wifi_symbol = &ui_img_wifi_1_png; 
-            wifi_symbol = &wifi_4_20x20; //
-        }
-
-        lv_img_set_src(ui_Screen1_WifiIcon, wifi_symbol);
-        lv_label_set_text(ui_Screen1_WifiLabel, (const char *)ap_info[WIFI_CONNECTION].ssid);
-        _ui_flag_modify(ui_Screen1_WifiIcon, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_Screen1_WifiLabel, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-    } else {
-        _ui_flag_modify(ui_Screen1_WifiIcon, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_Screen1_WifiLabel, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    }
-}
-
-*/
 // Callback function triggered when Wi-Fi connection is successful
 static void wifi_ok_cb(lv_timer_t * timer) 
 {
     if (connection_flag)
-    { 
+    {    
+
+       ESP_LOGI("NVS", "last index: %d",wifi_last_index);//
+       ESP_LOGI("NVS", "wifi index: %d",wifi_index);//
         if (connection_last_flag)
         {    
 
@@ -84,7 +69,9 @@ static void wifi_ok_cb(lv_timer_t * timer)
              _ui_flag_modify(ui_WIFI_Details_Win, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);  // Hide details window
              WIFI_CONNECTION = wifi_last_index;  // Save the connection index
              connection_last_flag = false;  // Reset the reconnect flag
+
         }
+        
         else
         {
             // Update the icon and IP display when manually connecting
@@ -101,8 +88,17 @@ static void wifi_ok_cb(lv_timer_t * timer)
             WIFI_CONNECTION_DONE = true; 
             if (wifi_last_index != -1 && wifi_last_index != wifi_index)
             {  
-                // Update the Wi-Fi signal icon based on RSSI
+
+//////
+                if (found_saved_ap){//
+                    img=lv_obj_get_child(saved_wifi_button ,0);
+                    found_saved_ap=false;
+                }//
+                else {//
+                                    // Update the Wi-Fi signal icon based on RSSI
                 img = lv_obj_get_child(wifi_last_Button, 0);
+                }//
+//////
                 if(img != NULL)
                 {
                     if(ap_info[wifi_last_index].rssi > -25)
@@ -135,7 +131,8 @@ static void wifi_ok_cb(lv_timer_t * timer)
         _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
         WIFI_CONNECTION_DONE = true; 
         if (wifi_last_index != -1 && wifi_last_index != wifi_index)
-        {
+        {   
+            
             // Update the Wi-Fi signal icon based on RSSI for the last connection
             lv_obj_t *img = lv_obj_get_child(wifi_last_Button, 0);
             if(img != NULL)
@@ -155,7 +152,6 @@ static void wifi_ok_cb(lv_timer_t * timer)
         WIFI_CONNECTION = -1;  // Reset Wi-Fi connection
         wifi_last_index = wifi_index;  // Update the last Wi-Fi index
         wifi_last_Button = WIFI_List_Button;  // Update the last Wi-Fi button object
-        //update_main_screen_wifi_status();//
     }
 }
 
@@ -188,14 +184,24 @@ static void wif_disconnected_cb()
 // Event handler for Wi-Fi events
 static void wifi_event_handler(void *arg, esp_event_base_t event_base,
                                int32_t event_id, void *event_data)
-{
-    if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED)
+
+{    
+
+     if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED)
     {          
         ESP_LOGI(TAG_STA, "WIFI STA_DISCONNECTED.");
         
         lv_timer_t *t = lv_timer_create(wif_disconnected_cb, 100, NULL); // Create a timer to handle disconnection
         lv_timer_set_repeat_count(t, 1);  // Run the callback once
-    }   
+    }  
+
+    
+      else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
+        ESP_LOGI(TAG_STA, "WIFI GOT_IP.");
+
+       // lv_timer_t *t = lv_timer_create(wifi_connected_cb, 100, NULL);
+        //lv_timer_set_repeat_count(t, 1);
+    }
 
    
 }
@@ -252,13 +258,11 @@ void wifi_wait_connect()
 
                 // Log the obtained IP address and indicate successful connection
                 ESP_LOGI("WiFi", "Connected with IP: " IPSTR, IP2STR(&ip_info.ip));
-               // ESP_LOGI(TAG_STA, "Connected to AP SSID:%s, password:%s", sta_config.sta.ssid, sta_config.sta.password);
-
-               ESP_LOGI(TAG_STA, "Connected to AP SSID:%s, password:%s, bssid:%s", sta_config.sta.ssid, sta_config.sta.password,ap_info_bssid);
+                ESP_LOGI(TAG_STA, "Connected to AP SSID:%s, password:%s, bssid:%s", sta_config.sta.ssid, sta_config.sta.password,(uint8_t*)ap_info_bssid);
                 connection_flag = true;  // Set the connection flag to true
 
                 //////////////////
-                save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,(uint8_t*)ap_info_bssid);// lưu ssid và password của wifi kết nối thành công vào nvs
+                save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,ap_info.bssid);// lưu ssid, password và của wifi kết nối thành công vào nvs
 
                 ///////////////////////
 
@@ -300,7 +304,7 @@ void wifi_wait_connect()
 }
 
 
-void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode)
+void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode,  const uint8_t *bssid)
 {
     if (connection_flag)  // Check if already connected
     {
@@ -316,15 +320,10 @@ void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode)
     };
     
    
-    //strcpy((char *)wifi_config.sta.ssid, (const char *)ssid);
-    //strcpy((char *)wifi_config.sta.password, (const char *)pwd);
-
-    //strcpy((char *)wifi_config.sta.ssid, (const char *)saved_ssid);
-    //strcpy((char *)wifi_config.sta.password, (const char *)saved_password);
-  //  strncpy((char *)wifi_config.sta.ssid, ( char *)saved_ssid, sizeof(wifi_config.sta.ssid));
-    //strncpy((char *)wifi_config.sta.password,( char *) saved_password, sizeof(wifi_config.sta.password));
 
 if (found_saved_ap){//
+     
+    //found_saved_ap=false;
 
     strncpy((char *)wifi_config.sta.ssid, (const char *)saved_ssid, sizeof(wifi_config.sta.ssid) - 1);
     wifi_config.sta.ssid[sizeof(wifi_config.sta.ssid) - 1] = '\0';
@@ -333,8 +332,8 @@ if (found_saved_ap){//
     wifi_config.sta.password[sizeof(wifi_config.sta.password) - 1] = '\0';
 
 
-}  //
-
+}  
+//
   else {//
 
     strncpy((char *)wifi_config.sta.ssid, (const char *)ssid, sizeof(wifi_config.sta.ssid) - 1);
@@ -342,10 +341,24 @@ if (found_saved_ap){//
 
     strncpy((char *)wifi_config.sta.password, (const char *)pwd, sizeof(wifi_config.sta.password) - 1);
     wifi_config.sta.password[sizeof(wifi_config.sta.password) - 1] = '\0';
-  }//
+    
+ }//
 
 
     ///////////////////
+
+
+    if (bssid != NULL) {
+        wifi_config.sta.bssid_set = true;  // Bật chế độ chỉ định BSSID
+        memcpy(wifi_config.sta.bssid, bssid, 6);  // Copy BSSID (6 bytes)
+        
+        ESP_LOGI(TAG_STA, "Connecting to specific BSSID: %02X:%02X:%02X:%02X:%02X:%02X",
+                 bssid[0], bssid[1], bssid[2],
+                bssid[3],bssid[4], bssid[5]);
+    } else {
+        wifi_config.sta.bssid_set = false;  // Kết nối đến bất kỳ AP nào có SSID phù hợp
+    }
+
 
     // Set WiFi configuration
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
@@ -359,7 +372,6 @@ if (found_saved_ap){//
         vTaskDelay(pdMS_TO_TICKS(100));
     }
     WIFI_CONNECTION_DONE = false;
-    wf_connected=1;
     
 }
 
@@ -402,7 +414,7 @@ void wifi_close_sta()
     {
         if (connection_flag)  // If already connected
         {
-            // stop_wifi_events();  // Optional: Stop WiFi events if implemented
+            //stop_wifi_events();  // Optional: Stop WiFi events if implemented
             WIFI_CONNECTION = -1;
             wifi_last_index = -1;
             esp_wifi_disconnect();  // Disconnect from WiFi

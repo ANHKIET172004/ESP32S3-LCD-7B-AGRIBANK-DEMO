@@ -1,129 +1,499 @@
-Command: ninja flash
-[1/11] Performing build step for 'bootloader'
-[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/bootloader/bootloader.bin""
-Bootloader binary size 0x5800 bytes. 0x2800 bytes (31%) free.
-[2/11] No install step for 'bootloader'
-[3/11] Completed 'bootloader'
-[4/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/user/wifi/wifi_sta.c.obj
-[5/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/user/wifi/wifi_scan.c.obj
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi_scan.c: In function 'wifi_update_list_cb':
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi_scan.c:298:27: warning: unused variable 'label' [-Wunused-variable]
-  298 |                 lv_obj_t *label = lv_obj_get_child(WIFI_List_Button, 1); // Get the label object  //
-      |                           ^~~~~
-[6/11] Linking C static library esp-idf\main\libmain.a
-[7/11] Generating esp-idf/esp_system/ld/sections.ld
-[8/11] Linking CXX executable 16_LVGL_UI.elf
-[9/11] Generating binary image from built executable
-esptool.py v4.9.1
-Creating esp32s3 image...
-Merged 2 ELF sections
-Successfully created esp32s3 image.
-Generated D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin
-[10/11] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/partition_table/partition-table.bin" "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin""
-16_LVGL_UI.bin binary size 0x216210 bytes. Smallest app partition is 0x800000 bytes. 0x5e9df0 bytes (74%) free.
-[10/11] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\components\esptool_py && D:\ESP32_IDF\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5 -D SERIAL_TOOL=D:/ESP32_IDF/Espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build" -P D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/run_serial_tool.cmake"
-esptool.py --chip esp32s3 -p COM7 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 16_LVGL_UI.bin 0x8000 partition_table/partition-table.bin
-esptool.py v4.9.1
-Serial port COM7
-Connecting...
-Chip is ESP32-S3 (QFN56) (revision v0.2)
-Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
-Crystal is 40MHz
-MAC: 10:20:ba:05:9b:9c
-Uploading stub...
-Running stub...
-Stub running...
-Changing baud rate to 460800
-Changed.
-Configuring flash size...
-Flash will be erased from 0x00000000 to 0x00005fff...
-Flash will be erased from 0x00010000 to 0x00226fff...
-Flash will be erased from 0x00008000 to 0x00008fff...
-SHA digest in image updated
-Compressed 22528 bytes to 14317...
-Writing at 0x00000000... (100 %)
-Wrote 22528 bytes (14317 compressed) at 0x00000000 in 0.5 seconds (effective 370.8 kbit/s)...
-Hash of data verified.
-Compressed 2187792 bytes to 1183940...
-Writing at 0x00010000... (1 %)
-Writing at 0x0001d1f8... (2 %)
-Writing at 0x0002d99f... (4 %)
-Writing at 0x000398c8... (5 %)
-Writing at 0x00042c0a... (6 %)
-Writing at 0x000497fc... (8 %)
-Writing at 0x0007274f... (9 %)
-Writing at 0x000879ce... (10 %)
-Writing at 0x0009b52a... (12 %)
-Writing at 0x000adfb4... (13 %)
-Writing at 0x000bb800... (15 %)
-Writing at 0x000c39f1... (16 %)
-Writing at 0x000cc9a7... (17 %)
-Writing at 0x000d87c2... (19 %)
-Writing at 0x000df124... (20 %)
-Writing at 0x000e500d... (21 %)
-Writing at 0x000ea9a8... (23 %)
-Writing at 0x000f09dd... (24 %)
-Writing at 0x000f66b0... (26 %)
-Writing at 0x000fbb4a... (27 %)
-Writing at 0x001015a4... (28 %)
-Writing at 0x00106878... (30 %)
-Writing at 0x0010be32... (31 %)
-Writing at 0x00112147... (32 %)
-Writing at 0x0011799a... (34 %)
-Writing at 0x0011d96c... (35 %)
-Writing at 0x00123945... (36 %)
-Writing at 0x0012930b... (38 %)
-Writing at 0x0012f2ba... (39 %)
-Writing at 0x00134993... (41 %)
-Writing at 0x0013a62e... (42 %)
-Writing at 0x0013ff9e... (43 %)
-Writing at 0x00145880... (45 %)
-Writing at 0x0014b297... (46 %)
-Writing at 0x00150ea5... (47 %)
-Writing at 0x00156c96... (49 %)
-Writing at 0x0015c51d... (50 %)
-Writing at 0x001619fd... (52 %)
-Writing at 0x0016804b... (53 %)
-Writing at 0x0016cfa6... (54 %)
-Writing at 0x00172434... (56 %)
-Writing at 0x001776b2... (57 %)
-Writing at 0x0017cb94... (58 %)
-Writing at 0x00182417... (60 %)
-Writing at 0x001879e9... (61 %)
-Writing at 0x0018d1e3... (63 %)
-Writing at 0x001928b4... (64 %)
-Writing at 0x00197d0e... (65 %)
-Writing at 0x0019d107... (67 %)
-Writing at 0x001a2187... (68 %)
-Writing at 0x001a78ee... (69 %)
-Writing at 0x001ad058... (71 %)
-Writing at 0x001b24a5... (72 %)
-Writing at 0x001b788b... (73 %)
-Writing at 0x001bcf0c... (75 %)
-Writing at 0x001c2d7a... (76 %)
-Writing at 0x001c7e13... (78 %)
-Writing at 0x001cd013... (79 %)
-Writing at 0x001d2233... (80 %)
-Writing at 0x001d7391... (82 %)
-Writing at 0x001dc4f2... (83 %)
-Writing at 0x001e1693... (84 %)
-Writing at 0x001e6dd9... (86 %)
-Writing at 0x001ecec1... (87 %)
-Writing at 0x001f72e5... (89 %)
-Writing at 0x001fdca9... (90 %)
-Writing at 0x0020341b... (91 %)
-Writing at 0x002090cf... (93 %)
-Writing at 0x0020e17a... (94 %)
-Writing at 0x00213986... (95 %)
-Writing at 0x00219519... (97 %)
-Writing at 0x0021f3d0... (98 %)
-Writing at 0x0022445f... (100 %)
-Wrote 2187792 bytes (1183940 compressed) at 0x00010000 in 26.9 seconds (effective 649.7 kbit/s)...
-Hash of data verified.
-Compressed 3072 bytes to 105...
-Writing at 0x00008000... (100 %)
-Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 888.7 kbit/s)...
-Hash of data verified.
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Sep 18 2025 13:59:10[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c130020 size=c4c5ch (805980) map[0m
+[0;32mI (211) esp_image: segment 1: paddr=000d4c84 vaddr=3fca6300 size=05f94h ( 24468) load[0m
+[0;32mI (215) esp_image: segment 2: paddr=000dac20 vaddr=40374000 size=053f8h ( 21496) load[0m
+[0;32mI (220) esp_image: segment 3: paddr=000e0020 vaddr=42000020 size=1299a4h (1218980) map[0m
+[0;32mI (403) esp_image: segment 4: paddr=002099cc vaddr=403793f8 size=1ce54h (118356) load[0m
+[0;32mI (426) esp_image: segment 5: paddr=00226828 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (439) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (439) boot: Disabling RNG early entropy source...[0m
+[0;33mW (450) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (450) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (457) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (464) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (469) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (473) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (478) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (482) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (486) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (491) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (495) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (500) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (505) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (509) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (514) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (526) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (526) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (527) esp_psram: Speed: 120MHz[0m
+[0;32mI (564) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (627) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (627) cpu_start: Multicore app[0m
+[0;32mI (781) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (789) cpu_start: Pro cpu start user code[0m
+[0;32mI (789) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (789) app_init: Application information:[0m
+[0;32mI (789) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (793) app_init: App version:      1[0m
+[0;32mI (797) app_init: Compile time:     Sep 18 2025 13:55:49[0m
+[0;32mI (802) app_init: ELF file SHA256:  d953bb062...[0m
+[0;32mI (806) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (810) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (814) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (818) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (822) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (828) heap_init: At 3FCB65C8 len 00033148 (204 KiB): RAM[0m
+[0;32mI (833) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (839) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (844) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (849) esp_psram: Adding pool of 6144K of PSRAM memory to heap allocator[0m
+[0;32mI (856) esp_psram: Adding pool of 44K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (867) spi_flash: detected chip: generic[0m
+[0;32mI (870) spi_flash: flash io: qio[0m
+[0;32mI (874) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (880) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (886) coexist: coex firmware version: 831ec70[0m
+[0;32mI (899) coexist: coexist rom version e7ae62f[0m
+[0;32mI (900) main_task: Started on CPU0[0m
+[0;32mI (901) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (906) main_task: Calling app_main()[0m
+[0;33mW (919) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1325) GT911: Initialize I2C panel IO[0m
+[0;32mI (1325) GT911: Initialize touch controller GT911[0m
+[0;33mW (1325) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1327) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1330) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1334) example: Install RGB LCD panel driver[0m
+[0;32mI (1374) example: Initialize RGB LCD panel[0m
+[0;32mI (1376) lv_port: Create LVGL task[0m
+[0;32mI (1403) main: Display LVGL demos[0m
+[0;32mI (1571) pp: pp rom version: e7ae62f[0m
+[0;32mI (1571) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1572) BLE_INIT: BT controller compile version [4713a69][0m
+[0;32mI (1573) wifi:wifi driver task: 3fcd6670, prio:23, stack:6656, core=0I (1573) main_task: Returned from app_main()[0m
+[0;32mI (1573) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
 
-Leaving...
-Hard resetting via RTS pin...
+[0;32mI (1592) BLE_INIT: Bluetooth MAC: 10:20:ba:01:48:aa[0m
+[0;32mI (1598) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1605) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1606) wifi:wifi certification version: v7.0[0m
+[0;32mI (1610) wifi:config NVS flash: enabled[0m
+[0;32mI (1613) wifi:config nano formatting: disabled[0m
+[0;32mI (1617) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1622) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1627) wifi:Init management short buffer num: 32[0m
+[0;32mI (1631) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1633) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1636) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1649) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1653) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1657) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1661) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1683) wifi_init: rx ba win: 16[0m
+[0;32mI (1684) wifi_init: accept mbox: 6[0m
+[0;32mI (1684) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1684) wifi_init: udp mbox: 6[0m
+[0;32mI (1685) wifi_init: tcp mbox: 6[0m
+[0;32mI (1688) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1691) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1695) wifi_init: tcp mss: 1440[0m
+[0;32mI (1697) BLE_SERVER: REGISTER_APP_EVT, status 0, app_id 0[0m
+[0;32mI (1696) BLE_SERVER: ***** BLE GATT SERVER STARTED *****[0m
+[0;33mW (1703) BT_BTM: BTM_BleWriteAdvData, Partial data write into ADV[0m
+[0;32mI (1708) BLE_SERVER: ***** WAITING FOR CLIENT CONNECTION *****[0m
+[0;33mW (1714) BT_BTM: BTM_BleWriteScanRsp, Partial data write into ADV[0m
+[0;32mI (1698) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1726) BLE_SERVER: CREATE_SERVICE_EVT, status 0,  service_handle 40[0m
+[0;32mI (1729) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1737) BLE_SERVER: Advertising started successfully[0m
+[0;32mI (1739) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1743) BLE_SERVER: ADD_CHAR_EVT, status 0,  attr_handle 42, service_handle 40[0m
+Wi-Fi event handler registered.
+[0;32mI (1758) wifi:mode : null[0m
+[0;32mI (7542) wifi:flush txq[0m
+[0;32mI (7542) wifi:stop sw txq[0m
+[0;32mI (7542) wifi:lmac stop hw txq[0m
+STA:STA 
+[0;32mI (7545) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (7545) wifi:enable tsf[0m
+[0;32mI (12455) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (12455) wifi_scan: Total APs scanned = 12, actual AP number ap_info holds = 12[0m
+[0;32mI (12566) NVS: có SSID đã lưu trong nvs[0m
+[0;32mI (12569) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (12569) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12570) wifi_scan: Saved BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12576) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (12578) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12584) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12589) wifi_scan: BSSID D4:9A:A0:AB:DA:18[0m
+[0;32mI (12592) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12597) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12603) wifi_scan: BSSID 9E:65:F9:4C:59:15[0m
+[0;32mI (12605) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12611) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12617) wifi_scan: BSSID 64:85:05:AA:BF:46[0m
+[0;32mI (12619) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12624) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12630) wifi_scan: BSSID 9E:65:F9:4C:4B:90[0m
+[0;32mI (12632) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12638) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12644) wifi_scan: BSSID 10:5F:02:75:32:0E[0m
+[0;32mI (12646) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12651) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12657) wifi_scan: BSSID 12:5F:02:15:32:0E[0m
+[0;32mI (12659) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12665) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12671) wifi_scan: BSSID 72:85:C4:81:0E:34[0m
+[0;32mI (12673) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12679) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12685) wifi_scan: BSSID 9E:65:F9:4C:59:58[0m
+[0;32mI (12686) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12692) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12698) wifi_scan: BSSID 72:85:C4:81:19:1F[0m
+[0;32mI (12700) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12706) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (12712) wifi_scan: BSSID 72:85:C4:81:88:28[0m
+[0;32mI (12714) wifi_scan: Không trùng khớp với wifi đã lưu[0m
+[0;32mI (12719) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+index:0
+[0;32mI (15115) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (15115) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (15116) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (15118) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (24107) WiFi Sta: Connecting to specific BSSID: 10:5F:02:75:1E:9A[0m
+[0;32mI (24108) wifi:flush txq[0m
+[0;32mI (24108) wifi:stop sw txq[0m
+[0;32mI (24108) wifi:lmac stop hw txq[0m
+[0;32mI (24110) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (24113) wifi:enable tsf[0m
+[0;32mI (24116) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (24120) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (24277) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (24277) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (24287) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (24305) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (24326) wifi:connected with NamTrung, aid = 18, channel 1, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (24326) wifi:security: WPA2-PSK, phy: bgn, rssi: -52[0m
+[0;32mI (24329) wifi:pm start, type: 1[0m
+
+[0;32mI (24331) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (24339) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (24379) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (25134) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (25134) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (25370) esp_netif_handlers: sta ip: 10.10.1.15, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (25705) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:8, winSize:64[0m
+[0;32mI (26144) WiFi: Connected with IP: 10.10.1.15[0m
+[0;32mI (26144) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (26146) NVS: Saved wifi credentials successfully![0m
+index:1
+[0;32mI (47577) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (47577) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (47578) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (47580) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+esp_wifi_disconnect 
+[0;32mI (57743) wifi:state: run -> init (0x0)[0m
+[0;32mI (57744) wifi:pm stop, total sleep time: 23645815 us / 33413140 us[0m
+
+[0;32mI (57744) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (57747) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (57754) WiFi Sta: Connecting to specific BSSID: 12:5F:02:15:1E:9A[0m
+[0;32mI (57754) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (57776) wifi:flush txq[0m
+[0;32mI (57777) wifi:stop sw txq[0m
+[0;32mI (57777) wifi:lmac stop hw txq[0m
+[0;32mI (57777) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (57778) wifi:enable tsf[0m
+[0;32mI (57780) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (57784) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (58096) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (58097) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (58100) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (58120) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (58798) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (58798) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (59125) wifi:connected with Namtrung 2.4G, aid = 18, channel 1, BW20, bssid = 12:5f:02:15:1e:9a[0m
+[0;32mI (59125) wifi:security: WPA2-PSK, phy: bgn, rssi: -56[0m
+[0;32mI (59130) wifi:pm start, type: 1[0m
+
+[0;32mI (59130) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (59199) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (59808) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (59808) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (60163) esp_netif_handlers: sta ip: 10.10.1.15, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (60818) WiFi: Connected with IP: 10.10.1.15[0m
+[0;32mI (60818) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
+[0;32mI (60843) NVS: Saved wifi credentials successfully![0m
+index:0
+[0;32mI (78517) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (78517) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (78518) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (78520) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+esp_wifi_disconnect 
+[0;32mI (87774) wifi:state: run -> init (0x0)[0m
+[0;32mI (87775) wifi:pm stop, total sleep time: 21287477 us / 28644691 us[0m
+
+[0;32mI (87776) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (87782) WiFi Sta: Connecting to specific BSSID: 10:5F:02:75:1E:9A[0m
+[0;32mI (87782) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (87800) wifi:flush txq[0m
+[0;32mI (87800) wifi:stop sw txq[0m
+[0;32mI (87800) wifi:lmac stop hw txq[0m
+[0;32mI (87801) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (87803) wifi:enable tsf[0m
+[0;32mI (87806) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (87810) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (87815) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (87822) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (87835) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (87845) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (87864) wifi:connected with NamTrung, aid = 18, channel 1, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (87865) wifi:security: WPA2-PSK, phy: bgn, rssi: -50[0m
+[0;32mI (87868) wifi:pm start, type: 1[0m
+
+[0;32mI (87869) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (87878) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (88824) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (88824) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (88904) esp_netif_handlers: sta ip: 10.10.1.15, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (89806) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:14, winSize:64[0m
+[0;32mI (89834) WiFi: Connected with IP: 10.10.1.15[0m
+[0;32mI (89834) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (89840) NVS: Saved wifi credentials successfully![0m
+index:0
+[0;32mI (91213) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (91213) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (91213) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (91216) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:2
+[0;32mI (93080) wifi_scan: BSSID D4:9A:A0:AB:DA:18[0m
+[0;32mI (93080) wifi_scan: Authmode 	WIFI_AUTH_WPA_WPA2_PSK[0m
+[0;32mI (93081) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (93083) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:1
+[0;32mI (93509) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (93509) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (93510) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (93512) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:3
+[0;32mI (93864) wifi_scan: BSSID 9E:65:F9:4C:59:15[0m
+[0;32mI (93864) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (93865) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (93867) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:6
+[0;32mI (95210) wifi_scan: BSSID 10:5F:02:75:32:0E[0m
+[0;32mI (95210) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (95211) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (95213) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+esp_wifi_disconnect 
+[0;32mI (110377) wifi:state: run -> init (0x0)[0m
+[0;32mI (110378) wifi:pm stop, total sleep time: 16244006 us / 22508898 us[0m
+
+[0;32mI (110378) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (110381) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (110388) WiFi Sta: Connecting to specific BSSID: 10:5F:02:75:32:0E[0m
+[0;32mI (110388) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (110406) wifi:flush txq[0m
+[0;32mI (110406) wifi:stop sw txq[0m
+[0;32mI (110406) wifi:lmac stop hw txq[0m
+[0;32mI (110407) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (110410) wifi:enable tsf[0m
+[0;32mI (110413) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (110417) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (111431) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (111431) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (112441) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (112441) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (113451) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (113451) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (114461) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (114461) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (115220) wifi:Coexist: Wi-Fi connect fail, apply reconnect coex policy[0m
+
+[0;32mI (115220) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (115471) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (115471) WiFi Sta: Failed to connect to SSID:NamTrung, password:nt@14092011[0m
+index:3
+[0;32mI (117746) wifi_scan: BSSID 9E:65:F9:4C:59:15[0m
+[0;32mI (117746) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (117747) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (117749) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:8
+[0;32mI (118962) wifi_scan: BSSID 72:85:C4:81:0E:34[0m
+[0;32mI (118962) wifi_scan: Authmode 	WIFI_AUTH_WPA_WPA2_PSK[0m
+[0;32mI (118963) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (118966) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:6
+[0;32mI (121049) wifi_scan: BSSID 10:5F:02:75:32:0E[0m
+[0;32mI (121049) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (121050) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (121052) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:7
+[0;32mI (148125) wifi_scan: BSSID 12:5F:02:15:32:0E[0m
+[0;32mI (148125) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (148126) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (148128) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (159271) WiFi Sta: Connecting to specific BSSID: 12:5F:02:15:32:0E[0m
+[0;32mI (159287) wifi:flush txq[0m
+[0;32mI (159287) wifi:stop sw txq[0m
+[0;32mI (159287) wifi:lmac stop hw txq[0m
+[0;32mI (159288) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (159288) wifi:enable tsf[0m
+[0;32mI (159291) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (159295) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (159385) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (159386) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (159395) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (159444) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (159508) wifi:connected with Namtrung 2.4G, aid = 34, channel 1, BW20, bssid = 12:5f:02:15:32:0e[0m
+[0;32mI (159508) wifi:security: WPA2-PSK, phy: bgn, rssi: -70[0m
+[0;32mI (159512) wifi:pm start, type: 1[0m
+
+[0;32mI (159514) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (159590) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (160309) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (160309) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (160628) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:32:0e), tid:7, ssn:8, winSize:64[0m
+[0;32mI (160630) esp_netif_handlers: sta ip: 10.10.1.15, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (161319) WiFi: Connected with IP: 10.10.1.15[0m
+[0;32mI (161319) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:32:0E[0m
+[0;32mI (161325) NVS: Saved wifi credentials successfully![0m
+index:7
+[0;32mI (165352) wifi_scan: BSSID 12:5F:02:15:32:0E[0m
+[0;32mI (165352) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (165352) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (165355) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:6
+[0;32mI (168329) wifi_scan: BSSID 10:5F:02:75:32:0E[0m
+[0;32mI (168329) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (168330) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (168332) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+esp_wifi_disconnect 
+[0;32mI (182079) wifi:state: run -> init (0x0)[0m
+[0;32mI (182080) wifi:pm stop, total sleep time: 16363499 us / 22566521 us[0m
+
+[0;32mI (182080) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (182083) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (182090) WiFi Sta: Connecting to specific BSSID: 10:5F:02:75:32:0E[0m
+[0;32mI (182090) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (182109) wifi:flush txq[0m
+[0;32mI (182109) wifi:stop sw txq[0m
+[0;32mI (182109) wifi:lmac stop hw txq[0m
+[0;32mI (182110) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (182112) wifi:enable tsf[0m
+[0;32mI (182115) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (182119) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (183134) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (183134) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (184144) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (184144) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (185154) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (185154) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (186164) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (186164) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (186922) wifi:Coexist: Wi-Fi connect fail, apply reconnect coex policy[0m
+
+[0;32mI (186922) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (187174) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (187174) WiFi Sta: Failed to connect to SSID:NamTrung, password:nt@14092011[0m
+index:4
+[0;32mI (193103) wifi_scan: BSSID 64:85:05:AA:BF:46[0m
+[0;32mI (193103) wifi_scan: Authmode 	WIFI_AUTH_WPA_WPA2_PSK[0m
+[0;32mI (193104) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (193107) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:4
+[0;32mI (195758) wifi_scan: BSSID 64:85:05:AA:BF:46[0m
+[0;32mI (195758) wifi_scan: Authmode 	WIFI_AUTH_WPA_WPA2_PSK[0m
+[0;32mI (195758) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (195761) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:8
+[0;32mI (198052) wifi_scan: BSSID 72:85:C4:81:0E:34[0m
+[0;32mI (198052) wifi_scan: Authmode 	WIFI_AUTH_WPA_WPA2_PSK[0m
+[0;32mI (198053) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (198056) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:7
+[0;32mI (198979) wifi_scan: BSSID 12:5F:02:15:32:0E[0m
+[0;32mI (198979) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (198980) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (198982) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:6
+[0;32mI (199922) wifi_scan: BSSID 10:5F:02:75:32:0E[0m
+[0;32mI (199922) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (199923) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (199925) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (210154) WiFi Sta: Connecting to specific BSSID: 10:5F:02:75:32:0E[0m
+[0;32mI (210154) wifi:flush txq[0m
+[0;32mI (210154) wifi:stop sw txq[0m
+[0;32mI (210155) wifi:lmac stop hw txq[0m
+[0;32mI (210157) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (210161) wifi:enable tsf[0m
+[0;32mI (210164) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (210167) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (210173) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (210180) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (210286) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (210304) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (210396) wifi:connected with NamTrung, aid = 34, channel 1, BW20, bssid = 10:5f:02:75:32:0e[0m
+[0;32mI (210396) wifi:security: WPA2-PSK, phy: bgn, rssi: -76[0m
+[0;32mI (210399) wifi:pm start, type: 1[0m
+
+[0;32mI (210401) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (210480) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (211182) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (211182) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (211648) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:32:0e), tid:7, ssn:10, winSize:64[0m
+[0;32mI (212022) esp_netif_handlers: sta ip: 10.10.1.15, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (212192) WiFi: Connected with IP: 10.10.1.15[0m
+[0;32mI (212192) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:32:0E[0m
+[0;32mI (212198) NVS: Saved wifi credentials successfully![0m
+index:6
+[0;32mI (227055) wifi_scan: BSSID 10:5F:02:75:32:0E[0m
+[0;32mI (227055) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (227056) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (227058) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:3
+[0;32mI (228647) wifi_scan: BSSID 9E:65:F9:4C:59:15[0m
+[0;32mI (228647) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (228648) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (228650) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:7
+[0;32mI (229797) wifi_scan: BSSID 12:5F:02:15:32:0E[0m
+[0;32mI (229797) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (229798) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (229800) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:6
+[0;32mI (230509) wifi_scan: BSSID 10:5F:02:75:32:0E[0m
+[0;32mI (230509) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (230510) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (230512) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:6
+[0;32mI (230956) wifi_scan: BSSID 10:5F:02:75:32:0E[0m
+[0;32mI (230956) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (230957) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (230959) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (246152) Feedback: diem danh gia : 4[0m
+

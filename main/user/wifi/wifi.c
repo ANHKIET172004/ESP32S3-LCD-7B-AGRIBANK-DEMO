@@ -16,16 +16,24 @@ TaskHandle_t wifi_TaskHandle;
 static wifi_sta_list_t sta_list;  // List to hold connected stations information
 
 
-//////////
+////////// các biến liên quan đến cấu hình wifi
 
-extern bool found_saved_ap;
 extern wifi_config_t wifi_config;
 extern char saved_ssid[32];
 extern char saved_password[64];//
 //////////
+extern bool found_saved_ap;
 
 // Callback function to update UI when Wi-Fi connection is established
+/*
 static void wifi_connection_cb(lv_timer_t *timer)
+{
+    // Hide the "waiting for connection" spinner and enable Wi-Fi related buttons
+    _ui_flag_modify(ui_WIFI_Wait_CONNECTION, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+    _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_REMOVE);
+}
+*/
+ void wifi_connection_cb(lv_timer_t *timer)
 {
     // Hide the "waiting for connection" spinner and enable Wi-Fi related buttons
     _ui_flag_modify(ui_WIFI_Wait_CONNECTION, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
@@ -140,15 +148,18 @@ void wifi_task(void *arg)
         if (WIFI_STA_FLAG)
         {
             WIFI_STA_FLAG = false;
+            
             waveahre_rgb_lcd_set_pclk(12 * 1000 * 1000);  // Set pixel clock for the LCD
             vTaskDelay(20);  // Delay for a short while
               if (found_saved_ap)///// khi reset lại/ switch on thì kết nối lại với wifi được lưu trong nvs
             {/////
-               wifi_sta_init((uint8_t*)saved_ssid, (uint8_t*)saved_password, ap_info[wifi_index].authmode);        
-               found_saved_ap=false; // dừng kết nối cho các lần sau cho tới khi reset/swtich on  
+               //found_saved_ap=false; // dừng kết nối cho các lần sau cho tới khi reset/swtich on 
+               wifi_sta_init((uint8_t*)saved_ssid, (uint8_t*)saved_password, ap_info[wifi_index].authmode,ap_info[wifi_index].bssid);        
+                
              }/////// 
               else {// kết nối tới wifi chọn thủ công
-            wifi_sta_init(ap_info[wifi_index].ssid, wifi_pwd, ap_info[wifi_index].authmode);  // Initialize Wi-Fi as STA and connect
+            wifi_sta_init(ap_info[wifi_index].ssid, wifi_pwd, ap_info[wifi_index].authmode,NULL);  // Initialize Wi-Fi as STA and connect
+            wifi_sta_init(ap_info[wifi_index].ssid, wifi_pwd, ap_info[wifi_index].authmode,ap_info[wifi_index].bssid);  // Initialize Wi-Fi as STA and connect//
              }//
             waveahre_rgb_lcd_set_pclk(EXAMPLE_LCD_PIXEL_CLOCK_HZ);  // Restore original pixel clock
 

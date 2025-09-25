@@ -67,7 +67,6 @@ void app_main()
     // This ensures that user data and settings are retained even after power loss.
   //  init_nvs();
   //////////////
-
     esp_err_t err = nvs_flash_init();
     if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND) {
         // Erase and re-initialize if no free pages or new version found
@@ -75,7 +74,7 @@ void app_main()
         err = nvs_flash_init();
     }
 
- //ble_init();
+   //ble_init();
     
     // Open NVS for reading
     /*
@@ -156,7 +155,7 @@ void app_main()
 
     xTaskCreate(ble_server_task, "ble_server_task", 8 * 1024, NULL, 10, NULL);
 
-   //TaskCreate(send_message_task, "send_message_task", 8 * 1024, NULL, 10, NULL);
+   //xTaskCreate(send_message_task, "send_message_task", 8 * 1024, NULL, 10, NULL);
 
     
 

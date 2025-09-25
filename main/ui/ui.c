@@ -162,7 +162,7 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
 
         ///////
 
-         cnt=0;
+        // cnt=0;
         ///////
         // Remove the hidden flag from the Wifi scan list (show the list)
         _ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); 
@@ -217,7 +217,7 @@ void ui_WIFI_list_event_cb(lv_event_t * e)
                               ap_info[wifi_index].bssid[2],ap_info[wifi_index].bssid[3],ap_info[wifi_index].bssid[4],ap_info[wifi_index].bssid[5]);
 
         lv_label_set_text(ui_WIFI_Name,bssid_str);
-        print_bssid(*ap_info);
+        print_bssid(ap_info[wifi_index]);
         //
 
         // Print authentication mode (e.g., WPA2, WPA3)
@@ -304,7 +304,8 @@ void ui_event_WIFI_Button2(lv_event_t * e)
     // Triggered when the back button is clicked
     if(event_code == LV_EVENT_CLICKED) {
         // Change the screen back to the main screen with a fade animation
-       // _ui_screen_change(&ui_Main, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Wifi_Screen_init);
+       //_ui_screen_change(&ui_Main, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Wifi_Screen_init);
+       _ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Wifi_Screen_init);
     }
 }
 

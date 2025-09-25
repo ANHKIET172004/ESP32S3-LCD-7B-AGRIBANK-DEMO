@@ -10,6 +10,10 @@
 
 #include "esp_mac.h"
 
+extern lv_obj_t *wifi_last_Button;//
+extern int8_t wifi_last_index ;  //
+
+
 // Tag for SoftAP and STA mode logging
 extern const char *TAG_AP ;
 extern const char *TAG_STA;
@@ -71,7 +75,7 @@ extern bool connection_last_flag;
 void start_wifi_events();
 
 // Initialize Wi-Fi in STA mode with SSID, password, and auth mode
-void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode);
+void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode, const uint8_t *bssid);
 
 // Wait for Wi-Fi connection to be established
 void wifi_wait_connect();
