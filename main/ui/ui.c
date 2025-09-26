@@ -90,6 +90,7 @@ void ui_WIFI_list_event_cb(lv_event_t * e);
 
 
 char bssid_str[18];
+extern bool found_saved_ap;
 
 
 /////wifi
@@ -161,8 +162,8 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
     if(event_code == LV_EVENT_VALUE_CHANGED && lv_obj_has_state(target, LV_STATE_CHECKED)) {
 
         ///////
-
-        // cnt=0;
+       
+        found_saved_ap=false;
         ///////
         // Remove the hidden flag from the Wifi scan list (show the list)
         _ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); 

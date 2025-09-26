@@ -89,16 +89,11 @@ static void wifi_ok_cb(lv_timer_t * timer)
             if (wifi_last_index != -1 && wifi_last_index != wifi_index)
             {  
 
-//////
-                if (found_saved_ap){//
-                    img=lv_obj_get_child(saved_wifi_button ,0);
-                    found_saved_ap=false;
-                }//
-                else {//
-                                    // Update the Wi-Fi signal icon based on RSSI
+
+                // Update the Wi-Fi signal icon based on RSSI
                 img = lv_obj_get_child(wifi_last_Button, 0);
-                }//
-//////
+
+
                 if(img != NULL)
                 {
                     if(ap_info[wifi_last_index].rssi > -25)
@@ -267,6 +262,11 @@ void wifi_wait_connect()
                 ///////////////////////
 
                 s_retry_num = 0;  // Reset retry counter on successful connection
+                ////
+                 if (found_saved_ap){
+                    found_saved_ap=false;
+                 }
+                ////
                 break;  // Exit the loop since the connection is successful
             } else {
                 // Log the failure to connect or obtain an IP address
@@ -285,6 +285,12 @@ void wifi_wait_connect()
                     lv_timer_set_repeat_count(t, 1);
                     ESP_LOGI(TAG_STA, "Failed to connect to SSID:%s, password:%s",
                             sta_config.sta.ssid, sta_config.sta.password);
+
+                     ////
+                 if (found_saved_ap){
+                    found_saved_ap=false;
+                 }
+                ////
                     break;  // Exit the loop after failed retries
                 }
 
