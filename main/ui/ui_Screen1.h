@@ -37,6 +37,13 @@ extern lv_obj_t * ui_Image5;
 extern lv_obj_t * ui_Label6;
 extern lv_obj_t * ui_Panel8;
 extern lv_obj_t * ui_Image6;
+extern lv_obj_t * ui_Image7;
+extern lv_obj_t * ui_Image19;
+extern lv_obj_t * ui_Image20;
+extern lv_obj_t * ui_Image24 ;
+extern lv_obj_t * ui_Image31 ;
+extern lv_obj_t * ui_Image32 ;
+extern lv_obj_t * ui_Image34 ;
 
 /////////
 extern lv_obj_t *ui_Screen1_WifiIcon;

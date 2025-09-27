@@ -137,6 +137,13 @@ LV_IMG_DECLARE(wifi_1_20x20);
 LV_IMG_DECLARE(wifi_2_20x20);
 LV_IMG_DECLARE(wifi_3_20x20);
 LV_IMG_DECLARE(wifi_4_20x20);
+LV_IMG_DECLARE(ui_img_nowifi_50x50_png);
+LV_IMG_DECLARE(ui_img_wifiicon2_50x50_png);
+LV_IMG_DECLARE(ui_img_nowifi3_50x50_trans_png);    // assets/nowifi3 50x50 trans.png
+LV_IMG_DECLARE(ui_img_wifi1_tran_png);    // assets/wifi1 tran.png
+LV_IMG_DECLARE(ui_img_785059581);    // assets/wifi_2_100x100-removebg-preview (1).png
+LV_IMG_DECLARE(ui_img_1279478591);    // assets/wifi_3_100x100-removebg-preview (2).png
+LV_IMG_DECLARE(ui_img_776640815);    // assets/wifi_4_100x100-removebg-preview.png
 
 
 // FONTS

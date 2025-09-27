@@ -92,6 +92,7 @@ void ui_WIFI_list_event_cb(lv_event_t * e);
 char bssid_str[18];
 extern bool found_saved_ap;
 
+bool user_selected_wifi = false;
 
 /////wifi
 
@@ -161,10 +162,8 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
     // When the switch is turned ON (checked state)
     if(event_code == LV_EVENT_VALUE_CHANGED && lv_obj_has_state(target, LV_STATE_CHECKED)) {
 
-        ///////
-       
-        found_saved_ap=false;
-        ///////
+        found_saved_ap=false;//
+        cnt=0;//
         // Remove the hidden flag from the Wifi scan list (show the list)
         _ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); 
         WIFIOPEN(e);  // Open Wifi functionality
@@ -172,8 +171,12 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
     
     // When the switch is turned OFF (unchecked state)
     if(event_code == LV_EVENT_VALUE_CHANGED && !lv_obj_has_state(target, LV_STATE_CHECKED)) {
+        found_saved_ap=false;//
+        cnt=0;//
         // Add the hidden flag to the Wifi scan list (hide the list)
         _ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+
+        
         WIFICLOSE(e);  // Close Wifi functionality
     }
 }
@@ -270,6 +273,7 @@ void ui_event_WIFI_INPUT_PWD(lv_event_t * e)
     
     // Triggered when the user has finished entering the password
     if(event_code == LV_EVENT_READY) {
+        user_selected_wifi=true;
         // Attempt to connect to Wifi with the provided password
         WIFIConnection(e);
         // Hide the keyboard and password field after connection attempt

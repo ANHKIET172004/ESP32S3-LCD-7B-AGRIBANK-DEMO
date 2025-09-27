@@ -9,12 +9,12 @@ static const char *TAG = "wifi_scan";
 wifi_ap_record_t ap_info[DEFAULT_SCAN_LIST_SIZE];
 
 extern void wifi_connection_cb(lv_timer_t *timer);//
-//extern lv_obj_t *wifi_last_Button;
+
 
 //////////////////
 char saved_ssid[32] = {0};
 char saved_password[64] = {0};;
-//uint8_t saved_bssid[18];
+
 uint8_t saved_bssid[6];
 size_t ssid_len = sizeof(saved_ssid);
 size_t password_len = sizeof(saved_password);
@@ -24,7 +24,9 @@ int found=-1;
 
  lv_obj_t *saved_wifi_button = NULL;
 
-//extern int8_t wifi_last_index;
+ int cnt=0;
+
+
 
 // Cấu trúc để truyền tham số an toàn 
 typedef struct {
@@ -35,20 +37,10 @@ typedef struct {
     bool use_bssid;
 } wifi_reconnect_params_t;
 
-//int cnt=0;
  lv_obj_t *wifi_last_Button = NULL;   //
  int8_t wifi_last_index;//
-/////
-//static lv_obj_t *wifi_buttons[DEFAULT_SCAN_LIST_SIZE];//
 
-/*
-static void clear_wifi_list(lv_obj_t *list) {
-    while (lv_obj_get_child_cnt(list) > 0) {
-        lv_obj_t *child = lv_obj_get_child(list, 0);
-        lv_obj_del(child);
-    }
-}
-*/
+
 
 void wifi_set_last_button(lv_obj_t *btn) {
     wifi_last_Button = btn;
@@ -60,116 +52,6 @@ lv_obj_t* wifi_get_last_button(void) {
 
 void wifi_set_last_index(int idx) {
     wifi_last_index = idx;
-}
-
-
-//////////
-
-
-
-
-// Hàm callback để cập nhật UI sau khi kết nối thành công
-/*
-static void update_wifi_ui_cb(lv_timer_t *timer) {
-    
-    wifi_reconnect_params_t *params = (wifi_reconnect_params_t *)timer->user_data;
-    if (connection_flag&&found_saved_ap) {
-        found_saved_ap=false;
-        //ESP_LOGI(TAG, "Kết nối Wi-Fi thành công: %s", params->ssid);
-        
-          if (wifi_last_Button) {
-    
-                //lv_obj_t *img = lv_obj_get_child(WIFI_List_Button, 0);  // Get the image object  //
-                lv_obj_t *img = lv_obj_get_child(wifi_last_Button, 0);  // Get the image object  //
-                lv_img_set_src(img, &ui_img_ok_png);  // Set success icon  //
-          }
-
-
-    } else {
-        ESP_LOGE(TAG, "Kết nối Wi-Fi thất bại: %s", params->ssid);
-    }
-
-    //    lv_obj_t *btn = wifi_get_last_button(); // lấy đúng button đã lưu
-       if (btn) {
-            
-            //lv_obj_t *img = lv_obj_get_child(btn, 0);
-            lv_obj_t  *img = lv_obj_get_child(saved_wifi_button, 0);//
-
-            lv_img_set_src(img, &ui_img_ok_png);
-      }
-
-    //free(params); // Giải phóng bộ nhớ
-    lv_timer_del(timer); // Xóa timer
-}
-
-
-}
-*/
-
-void wifi_reconnect_task(void *pvParameters) {
-    wifi_reconnect_params_t *params = (wifi_reconnect_params_t *)pvParameters;
-    
-    ESP_LOGI(TAG, "Connecting to SSID: %s ...", params->ssid);
-    
-
-    wifi_sta_init((uint8_t*)params->ssid, 
-                  (uint8_t*)params->password, 
-                  params->authmode,
-                  params->use_bssid ? params->bssid : NULL);
-
-
-   // _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    
-
-    
-    // Tạo timer để cập nhật UI trên luồng chính của LVGL
-    //lv_timer_t *timer = lv_timer_create(update_wifi_ui_cb, 100, params);
-    //lv_timer_t *timer = lv_timer_create(update_wifi_ui_cb, 100, NULL);
-
-    //lv_timer_set_repeat_count(timer, 1);
-       // Giải phóng memory sau khi sử dụng
-    free(params); 
-    // Xóa task
-    vTaskDelete(NULL);
-}
-
-// Hàm helper để tạo task kết nối lại
-void start_wifi_reconnect_task(const char *ssid, const char *password, 
-                              const uint8_t *bssid, wifi_auth_mode_t authmode) {
-    // Cấp phát memory cho tham số
-    wifi_reconnect_params_t *params = malloc(sizeof(wifi_reconnect_params_t));
-    if (params == NULL) {
-        ESP_LOGE(TAG, "Failed to allocate memory for wifi reconnect params");
-        return;
-    }
-    
-    // Copy dữ liệu vào struct
-    strncpy(params->ssid, ssid, sizeof(params->ssid) - 1);
-    params->ssid[sizeof(params->ssid) - 1] = '\0';
-    
-    strncpy(params->password, password, sizeof(params->password) - 1);
-    params->password[sizeof(params->password) - 1] = '\0';
-    
-    params->authmode = authmode;
-    
-    if (bssid != NULL) {
-        memcpy(params->bssid, bssid, 6);
-        params->use_bssid = true;
-    } else {
-        params->use_bssid = false;
-    }
-    
-    // Tạo task
-   // BaseType_t result = xTaskCreate(wifi_reconnect_task, "wifi_reconnect_task", 4096, params, 5, NULL);
-     xTaskCreate(wifi_reconnect_task, "wifi_reconnect_task", 4096, params, 5, NULL);
-  
- /*   
-    if (result != pdPASS) {
-        ESP_LOGE(TAG, "Failed to create wifi reconnect task");
-        free(params);
-    }
-     */   
-         
 }
 
 
@@ -203,17 +85,11 @@ esp_err_t read_wifi_credentials_from_nvs(char *ssid, size_t *ssid_len, char *pas
 
 
 
-//////////
-
 void print_bssid(wifi_ap_record_t ap_info){
          ESP_LOGI(TAG, "BSSID %02X:%02X:%02X:%02X:%02X:%02X",ap_info.bssid[0]
             ,ap_info.bssid[1],ap_info.bssid[2],ap_info.bssid[3],ap_info.bssid[4],ap_info.bssid[5]);
 
 }
-
-
-////////////
-
 
 
 void print_auth_mode(int authmode)
@@ -372,8 +248,6 @@ void print_cipher_type(int pairwise_cipher, int group_cipher)
 
 static void wifi_update_list_cb(lv_timer_t * timer) {
 
-      //  clear_wifi_list(ui_WIFI_SCAN_List);
-/////////////////
            // đọc ssid và password của wifi đã lưu trước đó
           esp_err_t err = read_wifi_credentials_from_nvs(saved_ssid, &ssid_len, saved_password, &password_len,saved_bssid);
           if (err==ESP_OK){
@@ -381,15 +255,13 @@ static void wifi_update_list_cb(lv_timer_t * timer) {
             
         }
 
-////////////////
-
     // Show the loading spinner while updating the Wi-Fi list
     _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     // Disable the Wi-Fi open button and AP open button while scanning
     _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_REMOVE);
     _ui_state_modify(ui_WIFI_AP_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_REMOVE);
     
-   // wifi_last_index = -1;//
+   
     // Iterate through the scanned AP list
     for (int i = 0; i < DEFAULT_SCAN_LIST_SIZE; i++)
     {
@@ -429,10 +301,9 @@ static void wifi_update_list_cb(lv_timer_t * timer) {
         lv_obj_add_event_cb(WIFI_List_Button, ui_WIFI_list_event_cb, LV_EVENT_ALL, (void *)i);  // Pass index as user data
 
           ////////////
-       // wifi_buttons[i] = lv_list_add_btn(ui_WIFI_SCAN_List, icon, (const char *)ap_info[i].ssid);
 
         //if (strcmp((const char *)ap_info[i].ssid, saved_ssid) == 0) {
-        //lv_obj_t *btn = lv_obj_get_child(ui_WIFI_SCAN_List, i);  // i là index của AP trong ap_info
+        
 
 
         if (memcmp(ap_info[i].bssid, saved_bssid, 6) == 0) {   //
@@ -445,25 +316,12 @@ static void wifi_update_list_cb(lv_timer_t * timer) {
                 found_saved_ap = true;
                  
                wifi_set_last_button(WIFI_List_Button);
-               // saved_wifi_button = WIFI_List_Button; 
-               // saved_wifi_button = btn; 
-                 //wifi_set_last_button(btn);
-                // saved_wifi_button=WIFI_List_Button;  
-
-                // WIFI_CONNECTION = wifi_index;  // Update connection index
-                // wifi_last_index = i;  // Save the current Wi-Fi index
-
-                wifi_set_last_index(i);
-                
-                 //wifi_last_Button = wifi_get_last_button();
-                
-                
+              wifi_set_last_index(i);
                  wifi_index=i;
+                 cnt++;//
+                 if (cnt<2){//
                  WIFI_STA_FLAG = true;//
-               
-
-             
-              
+                 }//
 
               
 
@@ -477,13 +335,13 @@ static void wifi_update_list_cb(lv_timer_t * timer) {
             }
 
 
-        ///////////
+        
     }
-///////////////
+
 if (found_saved_ap){
    WIFI_List_Button = wifi_get_last_button();
 }
-    //////////////
+   
 }
 
 /* Initialize Wi-Fi as STA (Station mode) and set the scan method */

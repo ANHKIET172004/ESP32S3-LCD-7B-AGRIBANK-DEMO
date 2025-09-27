@@ -28,8 +28,8 @@
 
 // các file header hỗ trợ gatt
 
-#include "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/gatt_server/gatt_server.h"
-//#include "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/gatt_client/gatt_client.h"
+//#include "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/gatt_server/gatt_server.h"
+#include "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/gatt_client/gatt_client.h"
 
 
 
@@ -59,7 +59,90 @@ static esp_lcd_touch_handle_t tp_handle = NULL;    // Handle for the touch panel
 
 ////////////gatt
 
+void mainscreen_wifi_rssi_task(void *pvParameters) {
+    wifi_ap_record_t ap_info;
 
+    while (1) {
+        if (esp_wifi_sta_get_ap_info(&ap_info) == ESP_OK) {
+            ESP_LOGI("RSSI", "Connected SSID:%s, BSSID:%02X:%02X:%02X:%02X:%02X:%02X, RSSI:%d dBm",
+                     ap_info.ssid,
+                     ap_info.bssid[0], ap_info.bssid[1], ap_info.bssid[2],
+                     ap_info.bssid[3], ap_info.bssid[4], ap_info.bssid[5],
+                     ap_info.rssi);
+
+
+              if (ap_info.rssi == 0 && ap_info.ssid[0] == '\0')
+        {    
+            //if (lvgl_port_lock(0)) {
+            lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );  
+            lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+
+            //lvgl_port_unlock();
+           // }   
+            //break;
+            //vTaskDelete(NULL);
+        }
+         
+         else if(ap_info.rssi > -25)  // Strong signal (RSSI > -25)
+        {   
+            lv_obj_clear_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+            //lvgl_port_unlock();
+            // Add button with strong signal icon
+          //  WIFI_List_Button = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_4_png, (const char *)ap_info[i].ssid);
+        }
+        else if ((ap_info.rssi < -25) && (ap_info.rssi > -50))  // Medium signal
+        { 
+            lv_obj_clear_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+            //lvgl_port_unlock();
+            // Add button with medium signal icon
+          //  WIFI_List_Button = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_3_png, (const char *)ap_info[i].ssid);
+        }
+        else if ((ap_info.rssi < -50) && (ap_info.rssi > -75))  // Weak signal
+        { 
+            lv_obj_clear_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+            //lvgl_port_unlock();
+            // Add button with weak signal icon
+           // WIFI_List_Button = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_2_png, (const char *)ap_info[i].ssid);
+        }
+        else  // Very weak signal (RSSI < -75)
+        { 
+            lv_obj_clear_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            //lvgl_port_unlock();
+            // Add button with very weak signal icon
+              //_ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);      
+   }         
+        } else {
+            ESP_LOGW("RSSI", "Not connected to any AP");
+            lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );  
+            lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+        }
+      
+        
+        vTaskDelay(pdMS_TO_TICKS(5000)); // Delay 5s
+    }
+}
 
 void app_main()
 {
@@ -74,7 +157,7 @@ void app_main()
         err = nvs_flash_init();
     }
 
-   //ble_init();
+   ble_init();
     
     // Open NVS for reading
     /*
@@ -153,9 +236,10 @@ void app_main()
     xTaskCreate(wifi_task, "wifi_task", 6 * 1024, NULL, 9, &wifi_TaskHandle);
     
 
-    xTaskCreate(ble_server_task, "ble_server_task", 8 * 1024, NULL, 10, NULL);
+   // xTaskCreate(ble_server_task, "ble_server_task", 8 * 1024, NULL, 10, NULL);
+     xTaskCreate(mainscreen_wifi_rssi_task, "mainscreen_wifi_rssi_task", 8 * 1024, NULL, 9, NULL);
 
-   //xTaskCreate(send_message_task, "send_message_task", 8 * 1024, NULL, 10, NULL);
+   xTaskCreate(send_message_task, "send_message_task", 8 * 1024, NULL, 10, NULL);
 
     
 

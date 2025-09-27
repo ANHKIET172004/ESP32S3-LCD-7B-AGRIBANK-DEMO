@@ -33,6 +33,15 @@ SET(SOURCES ui_Screen1.c
     images/wifi_2_20x20.c
     images/wifi_3_20x20.c
     images/wifi_4_20x20.c
+    images/ui_img_nowifi_50x50_png.c
+    images/ui_img_wifiicon2_50x50_png.c
+    ui_img_776640815.c
+    images/ui_img_785059581.c
+    images/ui_img_1279478591.c
+    images/ui_img_wifi1_tran_png.c
+    images/ui_img_nowifi3_50x50_trans_png.c
+
+
     
     fonts/ui_font_Chinese_Font.c
 

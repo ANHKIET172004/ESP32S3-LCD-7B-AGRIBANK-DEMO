@@ -146,7 +146,7 @@ void wifi_task(void *arg)
 
         // Connect to a Wi-Fi network if the station flag is set
         if (WIFI_STA_FLAG)
-        {
+        {   
             WIFI_STA_FLAG = false;
             
             waveahre_rgb_lcd_set_pclk(12 * 1000 * 1000);  // Set pixel clock for the LCD
@@ -158,7 +158,7 @@ void wifi_task(void *arg)
                 
              }/////// 
               else {// kết nối tới wifi chọn thủ công
-            wifi_sta_init(ap_info[wifi_index].ssid, wifi_pwd, ap_info[wifi_index].authmode,NULL);  // Initialize Wi-Fi as STA and connect
+            //wifi_sta_init(ap_info[wifi_index].ssid, wifi_pwd, ap_info[wifi_index].authmode,NULL);  // Initialize Wi-Fi as STA and connect
             wifi_sta_init(ap_info[wifi_index].ssid, wifi_pwd, ap_info[wifi_index].authmode,ap_info[wifi_index].bssid);  // Initialize Wi-Fi as STA and connect//
              }//
             waveahre_rgb_lcd_set_pclk(EXAMPLE_LCD_PIXEL_CLOCK_HZ);  // Restore original pixel clock
@@ -168,6 +168,7 @@ void wifi_task(void *arg)
             lv_timer_t *t = lv_timer_create(wifi_connection_cb, 100, NULL);  // Update UI every 100ms
             
             lv_timer_set_repeat_count(t, 1);  // Run only once
+            
         }
 
         // Handle the SoftAP mode if the flag is set
