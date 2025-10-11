@@ -313,7 +313,7 @@ void ui_Wifi_Screen_init(void)
     lv_obj_set_x(ui_WIFI_PWD_Error, 0);                                                                      // Set x position to 0
     lv_obj_set_y(ui_WIFI_PWD_Error, 80);                                                                     // Set y position to 80
     lv_obj_set_align(ui_WIFI_PWD_Error, LV_ALIGN_TOP_MID);                                                   // Align label to the top center of parent container
-    lv_label_set_text(ui_WIFI_PWD_Error, "Wrong password");                                                  // Set label text to "Wrong password"
+    lv_label_set_text(ui_WIFI_PWD_Error, "Connection failed");                                                  // Set label text to "Wrong password"
     lv_obj_add_flag(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN);                                                  // Initially hide the error label
     lv_obj_set_style_text_color(ui_WIFI_PWD_Error, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT); // Set text color to red
     lv_obj_set_style_text_opa(ui_WIFI_PWD_Error, 255, LV_PART_MAIN | LV_STATE_DEFAULT);                      // Set text opacity to 255 (fully opaque)

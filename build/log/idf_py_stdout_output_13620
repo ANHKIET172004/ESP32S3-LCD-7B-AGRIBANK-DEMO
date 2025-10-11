@@ -1,0 +1,601 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c150020 size=dcb1ch (903964) map[0m
+[0;32mI (225) esp_image: segment 1: paddr=000ecb44 vaddr=3fca6400 size=034d4h ( 13524) load[0m
+[0;32mI (228) esp_image: segment 2: paddr=000f0020 vaddr=42000020 size=1447c0h (1329088) map[0m
+[0;32mI (427) esp_image: segment 3: paddr=002347e8 vaddr=3fca98d4 size=02af0h ( 10992) load[0m
+[0;32mI (429) esp_image: segment 4: paddr=002372e0 vaddr=40374000 size=2230ch (140044) load[0m
+[0;32mI (457) esp_image: segment 5: paddr=002595f4 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (470) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (470) boot: Disabling RNG early entropy source...[0m
+[0;33mW (481) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (481) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (488) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (495) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (500) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (504) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (509) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (513) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (517) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (522) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (526) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (531) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (536) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (540) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (545) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (557) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (557) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (558) esp_psram: Speed: 120MHz[0m
+[0;32mI (597) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (667) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (667) cpu_start: Multicore app[0m
+[0;32mI (816) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (825) cpu_start: Pro cpu start user code[0m
+[0;32mI (825) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (825) app_init: Application information:[0m
+[0;32mI (825) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (829) app_init: App version:      b442d3f-dirty[0m
+[0;32mI (833) app_init: Compile time:     Oct  8 2025 13:29:38[0m
+[0;32mI (838) app_init: ELF file SHA256:  503aba6c6...[0m
+[0;32mI (843) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (847) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (851) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (855) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (858) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (865) heap_init: At 3FCB6D88 len 00032988 (202 KiB): RAM[0m
+[0;32mI (870) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (875) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (880) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (886) esp_psram: Adding pool of 5952K of PSRAM memory to heap allocator[0m
+[0;32mI (892) esp_psram: Adding pool of 13K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (903) spi_flash: detected chip: generic[0m
+[0;32mI (907) spi_flash: flash io: qio[0m
+[0;32mI (910) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (916) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (923) coexist: coex firmware version: 831ec70[0m
+[0;32mI (936) coexist: coexist rom version e7ae62f[0m
+[0;32mI (936) main_task: Started on CPU0[0m
+[0;32mI (937) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (942) main_task: Calling app_main()[0m
+[0;33mW (955) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1361) GT911: Initialize I2C panel IO[0m
+[0;32mI (1361) GT911: Initialize touch controller GT911[0m
+[0;33mW (1361) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1363) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1366) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1370) example: Install RGB LCD panel driver[0m
+[0;32mI (1410) example: Initialize RGB LCD panel[0m
+[0;32mI (1412) lv_port: Create LVGL task[0m
+[0;32mI (1439) main: Display LVGL demos[0m
+[0;32mI (1600) pp: pp rom version: e7ae62f[0m
+[0;32mI (1600) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1601) BLE_INIT: BT controller compile version [4713a69][0m
+[0;32mI (1602) wifi:wifi driver task: 3fcd7cdc, prio:23, stack:6656, core=0[0m
+[0;32mI (1602) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1616) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1620) wifi:W (1602) RSSI: Not connected to any AP[0m
+wifi certification version: v7.0
+[0;32mI (1628) wifi:I (1602) main: MQTT Rety Publish Task started[0m
+config NVS flash: enabled
+[0;32mI (1635) wifi:config nano formatting: disabled[0m
+[0;32mI (1640) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1645) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1649) wifi:Init management short buffer num: 32[0m
+[0;32mI (1654) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1618) BLE_INIT: Bluetooth MAC: 10:20:ba:01:48:aa[0m
+[0;32mI (1660) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1664) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1666) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1676) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1680) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1684) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1602) main_task: Returned from app_main()[0m
+[0;32mI (1704) wifi_init: rx ba win: 16[0m
+[0;32mI (1705) wifi_init: accept mbox: 6[0m
+[0;32mI (1705) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1705) wifi_init: udp mbox: 6[0m
+[0;32mI (1705) wifi_init: tcp mbox: 6[0m
+[0;32mI (1708) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1712) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1715) wifi_init: tcp mss: 1440[0m
+[0;32mI (1718) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1717) BLE_SERVER: REGISTER_APP_EVT, status 0, app_id 0[0m
+[0;32mI (1717) BLE_SERVER: ***** BLE GATT SERVER STARTED *****[0m
+[0;33mW (1727) BT_BTM: BTM_BleWriteAdvData, Partial data write into ADV[0m
+[0;32mI (1732) BLE_SERVER: ***** WAITING FOR CLIENT CONNECTION *****[0m
+[0;33mW (1738) BT_BTM: BTM_BleWriteScanRsp, Partial data write into ADV[0m
+[0;32mI (1722) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1750) BLE_SERVER: CREATE_SERVICE_EVT, status 0,  service_handle 40[0m
+[0;32mI (1753) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1761) BLE_SERVER: Advertising started successfully[0m
+Wi-Fi event handler registered.
+[0;32mI (1771) wifi:mode : null[0m
+[0;32mI (1768) BLE_SERVER: ADD_CHAR_EVT, status 0,  attr_handle 42, service_handle 40[0m
+[0;33mW (3625) RSSI: Not connected to any AP[0m
+[0;32mI (4336) wifi:flush txq[0m
+[0;32mI (4336) wifi:stop sw txq[0m
+[0;32mI (4336) wifi:lmac stop hw txq[0m
+STA:STA 
+[0;32mI (4339) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (4339) wifi:enable tsf[0m
+[0;33mW (5625) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (5625) RSSI: Not connected to any AP[0m
+[0;33mW (7625) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (7625) RSSI: Not connected to any AP[0m
+[0;32mI (9248) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (9248) wifi_scan: Total APs scanned = 12, actual AP number ap_info holds = 12[0m
+[0;32mI (9351) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (9358) wifi_scan: [0m
+[0;32mI (9358) wifi_scan: Found saved wifi network in scan list, ssid: Namtrung 2.4G[0m
+[0;32mI (9358) wifi_scan: BSSID 12:5F:02:15:27:1E[0m
+[0;32mI (9389) WiFi Sta: Connecting to wifi network, BSSID: 12:5F:02:15:27:1E[0m
+[0;32mI (9390) wifi:flush txq[0m
+[0;32mI (9390) wifi:stop sw txq[0m
+[0;32mI (9390) wifi:lmac stop hw txq[0m
+[0;32mI (9392) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (9395) wifi:enable tsf[0m
+[0;32mI (9398) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (9403) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (9407) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (9547) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (9548) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (9559) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (9567) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (9595) wifi:connected with Namtrung 2.4G, aid = 17, channel 1, BW20, bssid = 12:5f:02:15:27:1e[0m
+[0;32mI (9595) wifi:security: WPA2-PSK, phy: bgn, rssi: -60[0m
+[0;32mI (9598) wifi:pm start, type: 1[0m
+
+[0;32mI (9600) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (9608) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (9617) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:1[0m
+[1;31mE (9622) mqtt_client: Error create mqtt task[0m
+[0;32mI (9625) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[0;32mI (9649) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (10422) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (10422) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (10609) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:27:1e), tid:7, ssn:7, winSize:64[0m
+[0;32mI (10639) esp_netif_handlers: sta ip: 10.10.1.64, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (10697) wifi:<ba-add>idx:1 (ifx:0, 12:5f:02:15:27:1e), tid:0, ssn:1, winSize:64[0m
+[0;32mI (11432) WiFi: Connected with IP: 10.10.1.64[0m
+[0;32mI (11432) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:27:1E[0m
+[0;32mI (11531) NVS: last index: 2[0m
+[0;32mI (11531) NVS: wifi index: 2[0m
+[0;32mI (11633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[0;32mI (11633) main: Found 3 backup messages to send[0m
+[0;32mI (11634) main: Attempting to send backup: msg_0 -> feedback[0m
+[1;31mE (11639) mqtt_client: Client was not initialized[0m
+[0;33mW (11643) main: Send failed (attempt 1/5): msg_0[0m
+[1;31mE (12647) mqtt_client: Client was not initialized[0m
+[0;33mW (12647) main: Send failed (attempt 2/5): msg_0[0m
+[0;32mI (13633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-61 dBm[0m
+[1;31mE (13647) mqtt_client: Client was not initialized[0m
+[0;33mW (13647) main: Send failed (attempt 3/5): msg_0[0m
+[1;31mE (14647) mqtt_client: Client was not initialized[0m
+[0;33mW (14647) main: Send failed (attempt 4/5): msg_0[0m
+[0;32mI (15633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[1;31mE (15647) mqtt_client: Client was not initialized[0m
+[0;33mW (15647) main: Send failed (attempt 5/5): msg_0[0m
+[0;32mI (17633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-59 dBm[0m
+[0;32mI (17647) main: Attempting to send backup: msg_1 -> feedback[0m
+[1;31mE (17647) mqtt_client: Client was not initialized[0m
+[0;33mW (17647) main: Send failed (attempt 1/5): msg_1[0m
+[1;31mE (18650) mqtt_client: Client was not initialized[0m
+[0;33mW (18650) main: Send failed (attempt 2/5): msg_1[0m
+[0;32mI (19633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-61 dBm[0m
+[1;31mE (19650) mqtt_client: Client was not initialized[0m
+[0;33mW (19650) main: Send failed (attempt 3/5): msg_1[0m
+[1;31mE (20650) mqtt_client: Client was not initialized[0m
+[0;33mW (20650) main: Send failed (attempt 4/5): msg_1[0m
+[0;32mI (21633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[1;31mE (21650) mqtt_client: Client was not initialized[0m
+[0;33mW (21650) main: Send failed (attempt 5/5): msg_1[0m
+[0;32mI (23633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-59 dBm[0m
+[0;32mI (23650) main: Attempting to send backup: msg_2 -> feedback[0m
+[1;31mE (23650) mqtt_client: Client was not initialized[0m
+[0;33mW (23650) main: Send failed (attempt 1/5): msg_2[0m
+[1;31mE (24653) mqtt_client: Client was not initialized[0m
+[0;33mW (24653) main: Send failed (attempt 2/5): msg_2[0m
+[0;32mI (25633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-59 dBm[0m
+[1;31mE (25653) mqtt_client: Client was not initialized[0m
+[0;33mW (25653) main: Send failed (attempt 3/5): msg_2[0m
+[1;31mE (26653) mqtt_client: Client was not initialized[0m
+[0;33mW (26653) main: Send failed (attempt 4/5): msg_2[0m
+[0;32mI (27633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-59 dBm[0m
+[1;31mE (27653) mqtt_client: Client was not initialized[0m
+[0;33mW (27653) main: Send failed (attempt 5/5): msg_2[0m
+[0;32mI (29633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-59 dBm[0m
+[0;32mI (31633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-58 dBm[0m
+[0;32mI (33633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-59 dBm[0m
+[0;32mI (35633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-57 dBm[0m
+[0;32mI (37633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-59 dBm[0m
+[0;32mI (39633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[0;32mI (39653) main: Found 3 backup messages to send[0m
+[0;32mI (39653) main: Attempting to send backup: msg_0 -> feedback[0m
+[1;31mE (39654) mqtt_client: Client was not initialized[0m
+[0;33mW (39656) main: Send failed (attempt 1/5): msg_0[0m
+[1;31mE (40660) mqtt_client: Client was not initialized[0m
+[0;33mW (40660) main: Send failed (attempt 2/5): msg_0[0m
+[0;32mI (41633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[1;31mE (41660) mqtt_client: Client was not initialized[0m
+[0;33mW (41660) main: Send failed (attempt 3/5): msg_0[0m
+[1;31mE (42660) mqtt_client: Client was not initialized[0m
+[0;33mW (42660) main: Send failed (attempt 4/5): msg_0[0m
+[0;32mI (43633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-61 dBm[0m
+[1;31mE (43660) mqtt_client: Client was not initialized[0m
+[0;33mW (43660) main: Send failed (attempt 5/5): msg_0[0m
+[0;32mI (44967) Feedback: diem danh gia : 4[0m
+
+[0;33mW (44967) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[1;31mE (44967) MQTT: Failed to send data[0m
+[0;32mI (44994) main: Saved successfully, key=msg_3, next_id=4[0m
+[0;32mI (45633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[0;32mI (45660) main: Attempting to send backup: msg_1 -> feedback[0m
+[1;31mE (45660) mqtt_client: Client was not initialized[0m
+[0;33mW (45660) main: Send failed (attempt 1/5): msg_1[0m
+[1;31mE (46663) mqtt_client: Client was not initialized[0m
+[0;33mW (46663) main: Send failed (attempt 2/5): msg_1[0m
+[0;32mI (47633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[Error]	(46.222, +46222)	 _lv_inv_area: detected modifying dirty areas in render 	(in lv_refr.c line #212)
+[1;31mE (47663) mqtt_client: Client was not initialized[0m
+[0;33mW (47663) main: Send failed (attempt 3/5): msg_1[0m
+[1;31mE (48663) mqtt_client: Client was not initialized[0m
+[0;33mW (48663) main: Send failed (attempt 4/5): msg_1[0m
+[0;32mI (49639) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[1;31mE (49663) mqtt_client: Client was not initialized[0m
+[0;33mW (49663) main: Send failed (attempt 5/5): msg_1[0m
+[0;32mI (51639) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-61 dBm[0m
+[0;32mI (51649) Feedback: diem danh gia : 4[0m
+
+[0;33mW (51649) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[1;31mE (51649) MQTT: Failed to send data[0m
+[0;32mI (51654) main: Saved successfully, key=msg_4, next_id=5[0m
+[0;32mI (51663) main: Attempting to send backup: msg_2 -> feedback[0m
+[1;31mE (51663) mqtt_client: Client was not initialized[0m
+[0;33mW (51666) main: Send failed (attempt 1/5): msg_2[0m
+[1;31mE (52671) mqtt_client: Client was not initialized[0m
+[0;33mW (52671) main: Send failed (attempt 2/5): msg_2[0m
+[0;32mI (53639) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[1;31mE (53671) mqtt_client: Client was not initialized[0m
+[0;33mW (53671) main: Send failed (attempt 3/5): msg_2[0m
+[1;31mE (54671) mqtt_client: Client was not initialized[0m
+[0;33mW (54671) main: Send failed (attempt 4/5): msg_2[0m
+[0;32mI (55639) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-61 dBm[0m
+[1;31mE (55671) mqtt_client: Client was not initialized[0m
+[0;33mW (55671) main: Send failed (attempt 5/5): msg_2[0m
+[0;32mI (57639) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-61 dBm[0m
+[0;32mI (59516) Feedback: diem danh gia : 4[0m
+
+[0;33mW (59517) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[1;31mE (59517) MQTT: Failed to send data[0m
+[0;32mI (59521) main: Saved successfully, key=msg_5, next_id=6[0m
+[0;32mI (59639) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-63 dBm[0m
+[0;32mI (61640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-61 dBm[0m
+[0;32mI (63640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-62 dBm[0m
+[0;32mI (65640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-62 dBm[0m
+[0;32mI (67640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-61 dBm[0m
+[0;32mI (67671) main: Found 6 backup messages to send[0m
+[0;32mI (67671) main: Attempting to send backup: msg_0 -> feedback[0m
+[1;31mE (67671) mqtt_client: Client was not initialized[0m
+[0;33mW (67674) main: Send failed (attempt 1/5): msg_0[0m
+[1;31mE (68678) mqtt_client: Client was not initialized[0m
+[0;33mW (68678) main: Send failed (attempt 2/5): msg_0[0m
+[0;32mI (69640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-63 dBm[0m
+[1;31mE (69678) mqtt_client: Client was not initialized[0m
+[0;33mW (69678) main: Send failed (attempt 3/5): msg_0[0m
+[1;31mE (70678) mqtt_client: Client was not initialized[0m
+[0;33mW (70678) main: Send failed (attempt 4/5): msg_0[0m
+[0;32mI (71640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-62 dBm[0m
+[1;31mE (71678) mqtt_client: Client was not initialized[0m
+[0;33mW (71678) main: Send failed (attempt 5/5): msg_0[0m
+[0;32mI (73640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-62 dBm[0m
+[0;32mI (73678) main: Attempting to send backup: msg_1 -> feedback[0m
+[1;31mE (73678) mqtt_client: Client was not initialized[0m
+[0;33mW (73679) main: Send failed (attempt 1/5): msg_1[0m
+[1;31mE (74681) mqtt_client: Client was not initialized[0m
+[0;33mW (74681) main: Send failed (attempt 2/5): msg_1[0m
+[0;32mI (75640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-62 dBm[0m
+[1;31mE (75681) mqtt_client: Client was not initialized[0m
+[0;33mW (75681) main: Send failed (attempt 3/5): msg_1[0m
+[0;32mI (76246) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (76246) wifi_scan: Total APs scanned = 10, actual AP number ap_info holds = 10[0m
+[0;32mI (76347) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (76350) wifi_scan: [0m
+[0;32mI (76350) wifi_scan: Found saved wifi network in scan list, ssid: Namtrung 2.4G[0m
+[0;32mI (76350) wifi_scan: BSSID 12:5F:02:15:27:1E[0m
+[1;31mE (76681) mqtt_client: Client was not initialized[0m
+[0;33mW (76681) main: Send failed (attempt 4/5): msg_1[0m
+[0;32mI (77640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-63 dBm[0m
+[1;31mE (77681) mqtt_client: Client was not initialized[0m
+[0;33mW (77681) main: Send failed (attempt 5/5): msg_1[0m
+index:3
+[0;32mI (77754) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (77754) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (77754) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (77757) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (79640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-60 dBm[0m
+[0;32mI (79681) main: Attempting to send backup: msg_2 -> feedback[0m
+[1;31mE (79681) mqtt_client: Client was not initialized[0m
+[0;33mW (79681) main: Send failed (attempt 1/5): msg_2[0m
+[1;31mE (80684) mqtt_client: Client was not initialized[0m
+[0;33mW (80684) main: Send failed (attempt 2/5): msg_2[0m
+[0;32mI (81640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-64 dBm[0m
+[1;31mE (81684) mqtt_client: Client was not initialized[0m
+[0;33mW (81684) main: Send failed (attempt 3/5): msg_2[0m
+[1;31mE (82684) mqtt_client: Client was not initialized[0m
+[0;33mW (82684) main: Send failed (attempt 4/5): msg_2[0m
+[0;32mI (83640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-64 dBm[0m
+[1;31mE (83684) mqtt_client: Client was not initialized[0m
+[0;33mW (83684) main: Send failed (attempt 5/5): msg_2[0m
+[0;33mW (85327) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (85327) MQTT: MQTT stopped before Wi-Fi reconnect[0m
+esp_wifi_disconnect 
+[0;32mI (85328) wifi:state: run -> init (0x0)[0m
+[0;32mI (85333) wifi:pm stop, total sleep time: 51053137 us / 75733244 us[0m
+
+[0;32mI (85338) wifi:<ba-del>idx:1, tid:0[0m
+[0;32mI (85341) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (85344) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (85352) WiFi Sta: Connecting to wifi network, BSSID: 12:5F:02:15:1E:9A[0m
+[0;32mI (85352) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (85362) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;33mW (85366) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (85358) wifi:flush txq[0m
+[0;32mI (85374) wifi:stop sw txq[0m
+[0;32mI (85376) wifi:lmac stop hw txq[0m
+[0;32mI (85380) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (85383) wifi:enable tsf[0m
+[0;33mW (85386) wifi:m f probe req l=0[0m
+
+[0;32mI (85389) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (85395) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (85399) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (85529) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (85529) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (85558) wifi:state: auth -> assoc (0x0)[0m
+[0;33mW (85558) wifi:m f assoc req l=221[0m
+
+[0;32mI (85640) RSSI: Connected SSID:, BSSID:12:5F:02:15:27:1E, RSSI:-63 dBm[0m
+[0;32mI (85684) main: Attempting to send backup: msg_3 -> feedback[0m
+[1;31mE (85684) mqtt_client: Client was not initialized[0m
+[0;33mW (85684) main: Send failed (attempt 1/5): msg_3[0m
+[0;32mI (86413) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (86413) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (86558) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (86560) wifi:Coexist: Wi-Fi connect fail, apply reconnect coex policy[0m
+
+[0;32mI (86560) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (86565) WiFi Sta: STA disconnected, reason=4[0m
+[0;32mI (86569) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;33mW (86573) mqtt_client: Client asked to stop, but was not started[0m
+[1;31mE (86687) mqtt_client: Client was not initialized[0m
+[0;33mW (86687) main: Send failed (attempt 2/5): msg_3[0m
+[0;32mI (87423) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (87423) WiFi Sta: Retrying to connect to the AP[0m
+[0;33mW (87640) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (87640) RSSI: Not connected to any AP[0m
+[1;31mE (87687) mqtt_client: Client was not initialized[0m
+[0;33mW (87687) main: Send failed (attempt 3/5): msg_3[0m
+[0;32mI (88433) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (88433) WiFi Sta: Retrying to connect to the AP[0m
+[1;31mE (88687) mqtt_client: Client was not initialized[0m
+[0;33mW (88687) main: Send failed (attempt 4/5): msg_3[0m
+[0;32mI (89443) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (89443) WiFi Sta: Retrying to connect to the AP[0m
+[0;33mW (89640) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (89640) RSSI: Not connected to any AP[0m
+[1;31mE (89687) mqtt_client: Client was not initialized[0m
+[0;33mW (89687) main: Send failed (attempt 5/5): msg_3[0m
+[0;32mI (90453) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (90453) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (91463) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (91463) WiFi Sta: Retrying to connect to the AP[0m
+[0;33mW (91640) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (91640) RSSI: Not connected to any AP[0m
+[0;32mI (91687) main: Attempting to send backup: msg_4 -> feedback[0m
+[1;31mE (91687) mqtt_client: Client was not initialized[0m
+[0;33mW (91687) main: Send failed (attempt 1/5): msg_4[0m
+[0;32mI (92473) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (92473) WiFi Sta: Failed to connect to SSID:Namtrung 2.4G, password:nt@14092011[0m
+[1;31mE (92690) mqtt_client: Client was not initialized[0m
+[0;33mW (92690) main: Send failed (attempt 2/5): msg_4[0m
+index:1
+[0;32mI (93278) wifi_scan: BSSID 10:5F:02:75:27:1E[0m
+[0;32mI (93278) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (93278) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (93281) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;33mW (93640) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (93640) RSSI: Not connected to any AP[0m
+[1;31mE (93690) mqtt_client: Client was not initialized[0m
+[0;33mW (93690) main: Send failed (attempt 3/5): msg_4[0m
+[1;31mE (94690) mqtt_client: Client was not initialized[0m
+[0;33mW (94690) main: Send failed (attempt 4/5): msg_4[0m
+[0;33mW (95640) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (95640) RSSI: Not connected to any AP[0m
+[1;31mE (95690) mqtt_client: Client was not initialized[0m
+[0;33mW (95690) main: Send failed (attempt 5/5): msg_4[0m
+[0;33mW (97640) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (97640) RSSI: Not connected to any AP[0m
+[0;32mI (97690) main: Attempting to send backup: msg_5 -> feedback[0m
+[1;31mE (97691) mqtt_client: Client was not initialized[0m
+[0;33mW (97691) main: Send failed (attempt 1/5): msg_5[0m
+[1;31mE (98694) mqtt_client: Client was not initialized[0m
+[0;33mW (98694) main: Send failed (attempt 2/5): msg_5[0m
+[0;33mW (99640) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (99640) RSSI: Not connected to any AP[0m
+[1;31mE (99694) mqtt_client: Client was not initialized[0m
+[0;33mW (99694) main: Send failed (attempt 3/5): msg_5[0m
+[1;31mE (100694) mqtt_client: Client was not initialized[0m
+[0;33mW (100694) main: Send failed (attempt 4/5): msg_5[0m
+[0;33mW (101213) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (101213) MQTT: MQTT stopped before Wi-Fi reconnect[0m
+[0;32mI (101213) WiFi Sta: Connecting to wifi network, BSSID: 10:5F:02:75:27:1E[0m
+[0;32mI (101229) wifi:flush txq[0m
+[0;32mI (101229) wifi:stop sw txq[0m
+[0;32mI (101229) wifi:lmac stop hw txq[0m
+[0;32mI (101230) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (101231) wifi:enable tsf[0m
+[0;32mI (101234) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (101239) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (101243) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (101296) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (101296) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (101306) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (101314) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (101335) wifi:connected with NamTrung, aid = 17, channel 1, BW20, bssid = 10:5f:02:75:27:1e[0m
+[0;32mI (101336) wifi:security: WPA2-PSK, phy: bgn, rssi: -63[0m
+[0;32mI (101339) wifi:pm start, type: 1[0m
+
+[0;32mI (101341) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (101350) WiFi Sta: Connected to SSID:NamTrung, channel:1[0m
+[1;31mE (101355) mqtt_client: Error create mqtt task[0m
+[0;32mI (101396) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (101640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[1;31mE (101694) mqtt_client: Client was not initialized[0m
+[0;33mW (101694) main: Send failed (attempt 5/5): msg_5[0m
+[0;32mI (102257) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (102257) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (102374) esp_netif_handlers: sta ip: 10.10.1.64, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (103267) WiFi: Connected with IP: 10.10.1.64[0m
+[0;32mI (103267) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:27:1E[0m
+[0;32mI (103273) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (103274) WiFi Sta: Saved AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:27:1E[0m
+[0;32mI (103424) NVS: last index: 3[0m
+[0;32mI (103424) NVS: wifi index: 1[0m
+[0;32mI (103640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (105640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (107640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-61 dBm[0m
+[0;32mI (109640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (111640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (113640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (113676) Feedback: diem danh gia : 4[0m
+
+[0;33mW (113676) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[1;31mE (113677) MQTT: Failed to send data[0m
+[0;32mI (113681) main: Saved successfully, key=msg_6, next_id=7[0m
+[0;32mI (113694) main: Found 7 backup messages to send[0m
+[0;32mI (113694) main: Attempting to send backup: msg_0 -> feedback[0m
+[1;31mE (113695) mqtt_client: Client was not initialized[0m
+[0;33mW (113698) main: Send failed (attempt 1/5): msg_0[0m
+[1;31mE (114703) mqtt_client: Client was not initialized[0m
+[0;33mW (114703) main: Send failed (attempt 2/5): msg_0[0m
+[0;32mI (115640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[1;31mE (115703) mqtt_client: Client was not initialized[0m
+[0;33mW (115703) main: Send failed (attempt 3/5): msg_0[0m
+[1;31mE (116703) mqtt_client: Client was not initialized[0m
+[0;33mW (116703) main: Send failed (attempt 4/5): msg_0[0m
+[0;32mI (117640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[1;31mE (117703) mqtt_client: Client was not initialized[0m
+[0;33mW (117703) main: Send failed (attempt 5/5): msg_0[0m
+[0;32mI (119640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (119703) main: Attempting to send backup: msg_1 -> feedback[0m
+[1;31mE (119703) mqtt_client: Client was not initialized[0m
+[0;33mW (119703) main: Send failed (attempt 1/5): msg_1[0m
+[1;31mE (120707) mqtt_client: Client was not initialized[0m
+[0;33mW (120707) main: Send failed (attempt 2/5): msg_1[0m
+[0;32mI (121640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[1;31mE (121707) mqtt_client: Client was not initialized[0m
+[0;33mW (121707) main: Send failed (attempt 3/5): msg_1[0m
+[1;31mE (122707) mqtt_client: Client was not initialized[0m
+[0;33mW (122707) main: Send failed (attempt 4/5): msg_1[0m
+[0;32mI (123640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[1;31mE (123707) mqtt_client: Client was not initialized[0m
+[0;33mW (123707) main: Send failed (attempt 5/5): msg_1[0m
+[0;32mI (125640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (125707) main: Attempting to send backup: msg_2 -> feedback[0m
+[1;31mE (125707) mqtt_client: Client was not initialized[0m
+[0;33mW (125707) main: Send failed (attempt 1/5): msg_2[0m
+[1;31mE (126711) mqtt_client: Client was not initialized[0m
+[0;33mW (126711) main: Send failed (attempt 2/5): msg_2[0m
+[0;32mI (127640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-60 dBm[0m
+[1;31mE (127711) mqtt_client: Client was not initialized[0m
+[0;33mW (127711) main: Send failed (attempt 3/5): msg_2[0m
+[1;31mE (128711) mqtt_client: Client was not initialized[0m
+[0;33mW (128711) main: Send failed (attempt 4/5): msg_2[0m
+[0;32mI (129640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-61 dBm[0m
+[1;31mE (129711) mqtt_client: Client was not initialized[0m
+[0;33mW (129711) main: Send failed (attempt 5/5): msg_2[0m
+[0;32mI (131640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-58 dBm[0m
+[0;32mI (131711) main: Attempting to send backup: msg_3 -> feedback[0m
+[1;31mE (131711) mqtt_client: Client was not initialized[0m
+[0;33mW (131711) main: Send failed (attempt 1/5): msg_3[0m
+[1;31mE (132715) mqtt_client: Client was not initialized[0m
+[0;33mW (132715) main: Send failed (attempt 2/5): msg_3[0m
+[0;32mI (133640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-58 dBm[0m
+[1;31mE (133715) mqtt_client: Client was not initialized[0m
+[0;33mW (133715) main: Send failed (attempt 3/5): msg_3[0m
+[1;31mE (134715) mqtt_client: Client was not initialized[0m
+[0;33mW (134715) main: Send failed (attempt 4/5): msg_3[0m
+[0;32mI (135640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-60 dBm[0m
+[1;31mE (135715) mqtt_client: Client was not initialized[0m
+[0;33mW (135715) main: Send failed (attempt 5/5): msg_3[0m
+[0;32mI (137640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (137715) main: Attempting to send backup: msg_4 -> feedback[0m
+[1;31mE (137715) mqtt_client: Client was not initialized[0m
+[0;33mW (137715) main: Send failed (attempt 1/5): msg_4[0m
+[1;31mE (138718) mqtt_client: Client was not initialized[0m
+[0;33mW (138718) main: Send failed (attempt 2/5): msg_4[0m
+[0;32mI (139640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-60 dBm[0m
+[1;31mE (139718) mqtt_client: Client was not initialized[0m
+[0;33mW (139718) main: Send failed (attempt 3/5): msg_4[0m
+[1;31mE (140718) mqtt_client: Client was not initialized[0m
+[0;33mW (140718) main: Send failed (attempt 4/5): msg_4[0m
+[0;32mI (141640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-61 dBm[0m
+[1;31mE (141718) mqtt_client: Client was not initialized[0m
+[0;33mW (141718) main: Send failed (attempt 5/5): msg_4[0m
+[0;32mI (143640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-61 dBm[0m
+[0;32mI (143718) main: Attempting to send backup: msg_5 -> feedback[0m
+[1;31mE (143718) mqtt_client: Client was not initialized[0m
+[0;33mW (143718) main: Send failed (attempt 1/5): msg_5[0m
+[1;31mE (144721) mqtt_client: Client was not initialized[0m
+[0;33mW (144721) main: Send failed (attempt 2/5): msg_5[0m
+[0;32mI (145640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-61 dBm[0m
+[1;31mE (145721) mqtt_client: Client was not initialized[0m
+[0;33mW (145721) main: Send failed (attempt 3/5): msg_5[0m
+[1;31mE (146721) mqtt_client: Client was not initialized[0m
+[0;33mW (146721) main: Send failed (attempt 4/5): msg_5[0m
+[0;32mI (147640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-60 dBm[0m
+[1;31mE (147721) mqtt_client: Client was not initialized[0m
+[0;33mW (147721) main: Send failed (attempt 5/5): msg_5[0m
+[0;32mI (149640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-59 dBm[0m
+[0;32mI (149721) main: Attempting to send backup: msg_6 -> feedback[0m
+[1;31mE (149721) mqtt_client: Client was not initialized[0m
+[0;33mW (149721) main: Send failed (attempt 1/5): msg_6[0m
+[1;31mE (150724) mqtt_client: Client was not initialized[0m
+[0;33mW (150724) main: Send failed (attempt 2/5): msg_6[0m
+[0;32mI (151640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-61 dBm[0m
+[1;31mE (151724) mqtt_client: Client was not initialized[0m
+[0;33mW (151724) main: Send failed (attempt 3/5): msg_6[0m
+[1;31mE (152724) mqtt_client: Client was not initialized[0m
+[0;33mW (152724) main: Send failed (attempt 4/5): msg_6[0m
+[0;32mI (153640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-58 dBm[0m
+[1;31mE (153724) mqtt_client: Client was not initialized[0m
+[0;33mW (153724) main: Send failed (attempt 5/5): msg_6[0m
+[0;32mI (155640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-58 dBm[0m
+[0;32mI (157640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-56 dBm[0m
+[0;32mI (159640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-56 dBm[0m
+[0;32mI (161640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-57 dBm[0m
+[0;32mI (163640) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-59 dBm[0m

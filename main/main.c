@@ -36,25 +36,9 @@
 #include "cJSON.h"
 #include "freertos/event_groups.h"
 
-// API Configuration
-#define API_BASE_URL "http://10.10.1.46:12001/api"  
-#define DEVICE_ID "5"
-#define DEVICE_NAME2 "ESP32-SN100010"
-#define DEVICE_SERIAL "SN100010"
-#define DEVICE_MAC "00:1A:2B:3C:4D:10"
-
-// Authentication
-#define API_EMAIL "john@example.com"     
-#define API_PASSWORD "password123"       
-//#define API_TOKEN "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjEyMDAxL2FwaS9sb2dpbiIsImlhdCI6MTc1OTIwODEyNywiZXhwIjoxNzU5Mjk0NTI3LCJuYmYiOjE3NTkyMDgxMjcsImp0aSI6IjdhSmhXMWtZMUFYT05rYnIiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.ZDfUOCN-PdhGfdb1ThwVbFfHBn_CGLYWZRGqHjUHmLA"                     
-#define API_TOKEN ""
-#define MAX_HTTP_OUTPUT_BUFFER 2048
-char http_response_buffer[MAX_HTTP_OUTPUT_BUFFER] = {0};
-char auth_token[512] = {0};
 
 
 static const char *TAG = "main"; // Tag used for ESP log output
-static const char *API_TAG = "API_CLIENT";
 static const char *MQTT_TAG ="MQTT";
 
 static esp_lcd_panel_handle_t panel_handle = NULL; // Handle for the LCD panel
@@ -68,12 +52,23 @@ extern int mesh_enb;
  extern EventGroupHandle_t wifi_event_group;
 extern int WIFI_CONNECTED_BIT ;
 
- extern int start_api;
 
 esp_mqtt_client_handle_t mqttClient;
 
 int mqtt=0;
 
+int connect_success=0;
+
+
+uint8_t key_id=0;
+
+extern lv_obj_t * ui_Image37;
+extern lv_obj_t * ui_Image36;
+extern lv_obj_t * ui_Image38;
+
+
+
+#include "esp_sleep.h"
 
  //LV_USE_PERF_MONITOR 
 
@@ -141,29 +136,580 @@ const char mqtt_ca_cert_pem[] = "-----BEGIN CERTIFICATE-----\n"
  */
 
 
-///////// mqtt
+#include <stdio.h>
+#include <string.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_log.h"
+#include "nvs_flash.h"
+#include "nvs.h"
+#include "cJSON.h"
+#include "mqtt_client.h" // Thư viện MQTT client của ESP-IDF
+
+/*
+#define TAG_RETRY "MQTT_RETRY"
+#define NVS_NAMESPACE "wifi_cred" 
+#define MAX_MISSED_MESSAGES 100   
+#define RETRY_DELAY_SEC 60        
+*/
 
 
-void mqtt_publish_task (void *pvParameters)
+/**
+ * @brief Đọc, Publish và Xóa tin nhắn bị lỡ từ NVS
+ */
+
+#define MQTT_RETRY_TASK_STACK_SIZE 4096
+#define MQTT_RETRY_TASK_PRIORITY 5
+
+static TaskHandle_t mqtt_retry_task_handle = NULL;
+
+
+
+esp_err_t read_backup_message(nvs_handle_t nvs_handle, const char *key, char **topic, char **payload)
 {
-	char datatoSend[20];
-	
-        if (mesh_enb&&mqtt){
-            mesh_enb=0;
-		int val = esp_random()%100;
-		//sprintf(datatoSend, "%d", val);
-        sprintf(datatoSend, "%s", "con cho Duy");
-		//int msg_id = esp_mqtt_client_publish(mqttClient, "controllerstech/test1", datatoSend, 0, 0, 0);
-		int msg_id = esp_mqtt_client_publish(mqttClient, "demo/laravel-001", datatoSend, 0, 0, 0);
+    size_t required_size = 0;
+    esp_err_t err = nvs_get_str(nvs_handle, key, NULL, &required_size);
+    
+    if (err != ESP_OK) {
+        return err;
+    }
 
-        if (msg_id == 0) ESP_LOGI(TAG, "Sent Data: %d", val);
-		else ESP_LOGI(TAG, "Error msg_id:%d while sending data", msg_id);
-        }
-    while (1){
-		vTaskDelay(pdMS_TO_TICKS(2000));
-	}
+    char *backup_data = malloc(required_size);
+    if (backup_data == NULL) {
+        ESP_LOGE(TAG, "Failed to allocate memory");
+        return ESP_ERR_NO_MEM;
+    }
 
+    err = nvs_get_str(nvs_handle, key, backup_data, &required_size);
+    if (err != ESP_OK) {
+        free(backup_data);
+        return err;
+    }
+
+    cJSON *json = cJSON_Parse(backup_data);
+    free(backup_data);
+    
+    if (json == NULL) {
+        ESP_LOGE(TAG, "Failed to parse JSON");
+        return ESP_FAIL;
+    }
+
+    cJSON *topic_item = cJSON_GetObjectItem(json, "topic");
+    cJSON *payload_item = cJSON_GetObjectItem(json, "payload");
+
+    if (topic_item == NULL || payload_item == NULL) {
+        ESP_LOGE(TAG, "Invalid JSON structure");
+        cJSON_Delete(json);
+        return ESP_FAIL;
+    }
+
+    *topic = strdup(topic_item->valuestring);
+    *payload = strdup(payload_item->valuestring);
+
+    cJSON_Delete(json);
+    return ESP_OK;
 }
+
+esp_err_t delete_backup_message(nvs_handle_t nvs_handle, const char *key)
+{
+    esp_err_t err = nvs_erase_key(nvs_handle, key);
+    if (err == ESP_OK) {
+        err = nvs_commit(nvs_handle);
+    }
+    return err;
+}
+
+uint32_t get_backup_count(nvs_handle_t nvs_handle)
+{
+    uint32_t key_id = 0;
+    esp_err_t err = nvs_get_u32(nvs_handle, "key_id", &key_id);
+    if (err != ESP_OK) {
+        return 0;
+    }
+    return key_id;
+}
+
+
+
+void mqtt_retry_publish(void)
+{
+    ESP_LOGI(TAG, "MQTT Retry Publish started");
+
+    nvs_handle_t nvs_handle;
+    esp_err_t err = nvs_open("MQTT_BACKUP", NVS_READWRITE, &nvs_handle);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to open NVS: %s", esp_err_to_name(err));
+        return;
+    }
+
+    uint32_t total_messages = get_backup_count(nvs_handle);
+    if (total_messages == 0) {
+        ESP_LOGI(TAG, "No backup messages to send");
+        nvs_close(nvs_handle);
+        return;
+    }
+
+    ESP_LOGI(TAG, "Found %lu backup messages to send", total_messages);
+
+    if (mqttClient) {
+        for (uint32_t i = 0; i < total_messages; i++) {
+            char key[16];
+            snprintf(key, sizeof(key), "msg_%lu", i);
+
+            char *topic = NULL;
+            char *payload = NULL;
+
+            err = read_backup_message(nvs_handle, key, &topic, &payload);
+            if (err != ESP_OK) {
+                ESP_LOGW(TAG, "Skip key %s: %s", key, esp_err_to_name(err));
+                continue;
+            }
+
+            ESP_LOGI(TAG, "Attempting to send backup: %s -> %s", key, topic);
+
+            bool sent_success = false;
+            for (int retry = 0; retry < 5; retry++) {
+                int msg_id = esp_mqtt_client_publish(mqttClient, topic, payload, 0, 1, 0);
+                if (msg_id >= 0) {
+                    ESP_LOGI(TAG, "Sent successfully: key=%s, msg_id=%d", key, msg_id);
+                    sent_success = true;
+                    break;
+                } else {
+                    ESP_LOGW(TAG, "Send failed (attempt %d/%d): %s", retry + 1, 5, key);
+                    vTaskDelay(pdMS_TO_TICKS(1000));
+                }
+            }
+
+            if (sent_success) {
+                err = delete_backup_message(nvs_handle, key);
+                if (err == ESP_OK) {
+                    ESP_LOGI(TAG, "Deleted backup: %s", key);
+                } else {
+                    ESP_LOGE(TAG, "Failed to delete backup: %s", key);
+                }
+            }
+
+            free(topic);
+            free(payload);
+            vTaskDelay(pdMS_TO_TICKS(500)); // nhỏ hơn để mượt hơn
+        }
+    }
+
+    // Kiểm tra còn lại tin nào không
+    uint32_t remaining = 0;
+    for (uint32_t i = 0; i < total_messages; i++) {
+        char key[16];
+        snprintf(key, sizeof(key), "msg_%lu", i);
+        size_t required_size;
+        if (nvs_get_str(nvs_handle, key, NULL, &required_size) == ESP_OK) {
+            remaining++;
+        }
+    }
+
+    if (remaining == 0) {
+        ESP_LOGI(TAG, "All backups sent, resetting key_id");
+        nvs_set_u32(nvs_handle, "key_id", 0);
+        nvs_commit(nvs_handle);
+    }
+
+    nvs_close(nvs_handle);
+    ESP_LOGI(TAG, "MQTT Retry Publish finished");
+}
+
+
+
+
+void client_mqtt_retry_publish(void)
+{
+    ESP_LOGI(TAG, "Client MQTT Retry Publish started");
+
+    nvs_handle_t nvs_handle;
+    esp_err_t err = nvs_open("MQTT_BACKUP2", NVS_READWRITE, &nvs_handle);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to open NVS: %s", esp_err_to_name(err));
+        return;
+    }
+
+    uint32_t total_messages = get_backup_count(nvs_handle);
+    if (total_messages == 0) {
+        ESP_LOGI(TAG, "No backup messages to send");
+        nvs_close(nvs_handle);
+        return;
+    }
+
+    ESP_LOGI(TAG, "Found %lu backup messages to send", total_messages);
+
+    if (mqttClient) {
+        for (uint32_t i = 0; i < total_messages; i++) {
+            char key[16];
+            snprintf(key, sizeof(key), "msg_%lu", i);
+
+            char *topic = NULL;
+            char *payload = NULL;
+
+            err = read_backup_message(nvs_handle, key, &topic, &payload);
+            if (err != ESP_OK) {
+                ESP_LOGW(TAG, "Skip key %s: %s", key, esp_err_to_name(err));
+                continue;
+            }
+
+            ESP_LOGI(TAG, "Attempting to send backup: %s -> %s", key, topic);
+
+            bool sent_success = false;
+            for (int retry = 0; retry < 5; retry++) {
+                int msg_id = esp_mqtt_client_publish(mqttClient, topic, payload, 0, 1, 0);
+                if (msg_id >= 0) {
+                    ESP_LOGI(TAG, "Sent successfully: key=%s, msg_id=%d", key, msg_id);
+                    sent_success = true;
+                    break;
+                } else {
+                    ESP_LOGW(TAG, "Send failed (attempt %d/%d): %s", retry + 1, 5, key);
+                    vTaskDelay(pdMS_TO_TICKS(1000));
+                }
+            }
+
+            if (sent_success) {
+                err = delete_backup_message(nvs_handle, key);
+                if (err == ESP_OK) {
+                    ESP_LOGI(TAG, "Deleted backup: %s", key);
+                } else {
+                    ESP_LOGE(TAG, "Failed to delete backup: %s", key);
+                }
+            }
+
+            free(topic);
+            free(payload);
+            vTaskDelay(pdMS_TO_TICKS(500)); // nhỏ hơn để mượt hơn
+        }
+    }
+
+    // Kiểm tra còn lại tin nào không
+    uint32_t remaining = 0;
+    for (uint32_t i = 0; i < total_messages; i++) {
+        char key[16];
+        snprintf(key, sizeof(key), "msg_%lu", i);
+        size_t required_size;
+        if (nvs_get_str(nvs_handle, key, NULL, &required_size) == ESP_OK) {
+            remaining++;
+        }
+    }
+
+    if (remaining == 0) {
+        ESP_LOGI(TAG, "All backups sent, resetting key_id");
+        nvs_set_u32(nvs_handle, "key_id", 0);
+        nvs_commit(nvs_handle);
+    }
+
+    nvs_close(nvs_handle);
+    ESP_LOGI(TAG, "MQTT Retry Publish finished");
+}
+
+
+
+
+
+
+
+
+void backup_mqtt_data(const char *topic, const char *payload)
+{   
+    nvs_handle_t nvs_handle;
+    esp_err_t err = nvs_open("MQTT_BACKUP", NVS_READWRITE, &nvs_handle);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to open NVS handle: %s", esp_err_to_name(err));
+        return;
+    }
+
+    uint32_t current_key_id = 0;
+    err = nvs_get_u32(nvs_handle, "key_id", &current_key_id);
+    if (err != ESP_OK && err != ESP_ERR_NVS_NOT_FOUND) {
+        ESP_LOGE(TAG, "Failed to read key_id: %s", esp_err_to_name(err));
+        nvs_close(nvs_handle);
+        return;
+    }
+
+    char key[16];
+    snprintf(key, sizeof(key), "msg_%lu", current_key_id);
+    
+    cJSON *msg_json = cJSON_CreateObject();
+    if (msg_json == NULL) {
+        ESP_LOGE(TAG, "Failed to create JSON object");
+        nvs_close(nvs_handle);
+        return;
+    }
+    
+    cJSON_AddStringToObject(msg_json, "topic", topic);
+    cJSON_AddStringToObject(msg_json, "payload", payload);
+    char *backup_data = cJSON_PrintUnformatted(msg_json);
+    
+    if (backup_data == NULL) {
+        ESP_LOGE(TAG, "Failed to print JSON");
+        cJSON_Delete(msg_json);
+        nvs_close(nvs_handle);
+        return;
+    }
+
+    err = nvs_set_str(nvs_handle, key, backup_data);
+    if (err == ESP_OK) {
+        current_key_id++;
+        err = nvs_set_u32(nvs_handle, "key_id", current_key_id);
+        
+        if (err == ESP_OK) {
+            err = nvs_commit(nvs_handle);
+            if (err == ESP_OK) {
+                ESP_LOGI(TAG, "Saved successfully, key=%s, next_id=%lu", key, current_key_id);
+            } else {
+                ESP_LOGE(TAG, "Commit failed: %s", esp_err_to_name(err));
+            }
+        } else {
+            ESP_LOGE(TAG, "Failed to update key_id: %s", esp_err_to_name(err));
+        }
+    } else {
+        ESP_LOGE(TAG, "Save failed: %s", esp_err_to_name(err));
+    }
+
+    cJSON_Delete(msg_json);
+    free(backup_data);
+    nvs_close(nvs_handle);
+}
+
+
+
+void backup_client_mqtt_data(const char *topic, const char *payload)
+{   
+    nvs_handle_t nvs_handle;
+    esp_err_t err = nvs_open("MQTT_BACKUP2", NVS_READWRITE, &nvs_handle);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to open NVS handle: %s", esp_err_to_name(err));
+        return;
+    }
+
+    uint32_t current_key_id = 0;
+    err = nvs_get_u32(nvs_handle, "key_id", &current_key_id);
+    if (err != ESP_OK && err != ESP_ERR_NVS_NOT_FOUND) {
+        ESP_LOGE(TAG, "Failed to read key_id: %s", esp_err_to_name(err));
+        nvs_close(nvs_handle);
+        return;
+    }
+
+    char key[16];
+    snprintf(key, sizeof(key), "msg_%lu", current_key_id);
+    
+    cJSON *msg_json = cJSON_CreateObject();
+    if (msg_json == NULL) {
+        ESP_LOGE(TAG, "Failed to create JSON object");
+        nvs_close(nvs_handle);
+        return;
+    }
+    
+    cJSON_AddStringToObject(msg_json, "topic", topic);
+    cJSON_AddStringToObject(msg_json, "payload", payload);
+    char *backup_data = cJSON_PrintUnformatted(msg_json);
+    
+    if (backup_data == NULL) {
+        ESP_LOGE(TAG, "Failed to print JSON");
+        cJSON_Delete(msg_json);
+        nvs_close(nvs_handle);
+        return;
+    }
+
+    err = nvs_set_str(nvs_handle, key, backup_data);
+    if (err == ESP_OK) {
+        current_key_id++;
+        err = nvs_set_u32(nvs_handle, "key_id", current_key_id);
+        
+        if (err == ESP_OK) {
+            err = nvs_commit(nvs_handle);
+            if (err == ESP_OK) {
+                ESP_LOGI(TAG, "Saved successfully, key=%s, next_id=%lu", key, current_key_id);
+            } else {
+                ESP_LOGE(TAG, "Commit failed: %s", esp_err_to_name(err));
+            }
+        } else {
+            ESP_LOGE(TAG, "Failed to update key_id: %s", esp_err_to_name(err));
+        }
+    } else {
+        ESP_LOGE(TAG, "Save failed: %s", esp_err_to_name(err));
+    }
+
+    cJSON_Delete(msg_json);
+    free(backup_data);
+    nvs_close(nvs_handle);
+}
+
+
+
+
+
+
+void check_device_message(const char *json_string) {
+    cJSON *root = cJSON_Parse(json_string);
+
+    if (root == NULL) {
+        const char *error_ptr = cJSON_GetErrorPtr();
+        if (error_ptr != NULL) {
+            printf("cJSON Parse Error!");
+        }
+        return;
+    }
+
+    cJSON *name_item = cJSON_GetObjectItemCaseSensitive(root, "name");
+
+    if (cJSON_IsString(name_item) && (name_item->valuestring != NULL)) {
+        const char *device_name = name_item->valuestring;
+        
+
+        if (strcmp(device_name, "Device-01") == 0) {
+            printf("Found Device-01's message\n");
+        } 
+    } 
+
+    cJSON_Delete(root);
+}
+
+
+
+
+void mqtt_retry_publish_task(void *pvParameters)
+{
+    ESP_LOGI(TAG, "MQTT Retry Publish Task started");
+
+    while (1) {
+        // Chờ notification để bắt đầu retry
+        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+
+        ESP_LOGI(TAG, "Starting MQTT retry process");
+
+        nvs_handle_t nvs_handle;
+        esp_err_t err = nvs_open("MQTT_BACKUP", NVS_READWRITE, &nvs_handle);
+        if (err != ESP_OK) {
+            ESP_LOGE(TAG, "Failed to open NVS: %s", esp_err_to_name(err));
+            continue;
+        }
+
+        uint32_t total_messages = get_backup_count(nvs_handle);
+        if (total_messages == 0) {
+            ESP_LOGI(TAG, "No backup messages to send");
+            nvs_close(nvs_handle);
+            continue;
+        }
+
+        ESP_LOGI(TAG, "Found %lu backup messages to send", total_messages);
+
+        if (mqttClient) {
+            for (uint32_t i = 0; i < total_messages; i++) {
+                char key[16];
+                snprintf(key, sizeof(key), "msg_%lu", i);
+
+                char *topic = NULL;
+                char *payload = NULL;
+
+                err = read_backup_message(nvs_handle, key, &topic, &payload);
+                if (err != ESP_OK) {
+                    ESP_LOGW(TAG, "Skip key %s: %s", key, esp_err_to_name(err));
+                    continue;
+                }
+
+                ESP_LOGI(TAG, "Attempting to send backup: %s -> %s", key, topic);
+
+                bool sent_success = false;
+                for (int retry = 0; retry < 5; retry++) {
+                    int msg_id = esp_mqtt_client_publish(mqttClient, topic, payload, 0, 1, 0);
+                    if (msg_id >= 0) {
+                        ESP_LOGI(TAG, "Sent successfully: key=%s, msg_id=%d", key, msg_id);
+                        sent_success = true;
+                        break;
+                    } else {
+                        ESP_LOGW(TAG, "Send failed (attempt %d/%d): %s", retry + 1, 5, key);
+                        vTaskDelay(pdMS_TO_TICKS(1000));
+                    }
+                }
+
+                if (sent_success) {
+                    err = delete_backup_message(nvs_handle, key);
+                    if (err == ESP_OK) {
+                        ESP_LOGI(TAG, "Deleted backup: %s", key);
+                    } else {
+                        ESP_LOGE(TAG, "Failed to delete backup: %s", key);
+                    }
+                }
+
+                free(topic);
+                free(payload);
+                vTaskDelay(pdMS_TO_TICKS(500));
+            }
+        }
+
+        // Kiểm tra còn lại tin nào không
+        uint32_t remaining = 0;
+        for (uint32_t i = 0; i < total_messages; i++) {
+            char key[16];
+            snprintf(key, sizeof(key), "msg_%lu", i);
+            size_t required_size;
+            if (nvs_get_str(nvs_handle, key, NULL, &required_size) == ESP_OK) {
+                remaining++;
+            }
+        }
+
+        if (remaining == 0) {
+            ESP_LOGI(TAG, "All backups sent, resetting key_id");
+            nvs_set_u32(nvs_handle, "key_id", 0);
+            nvs_commit(nvs_handle);
+        }
+
+        nvs_close(nvs_handle);
+        ESP_LOGI(TAG, "MQTT Retry Publish finished");
+    }
+
+    vTaskDelete(NULL); // Không bao giờ đến đây
+}
+
+// Hàm khởi tạo task
+esp_err_t mqtt_retry_task_init(void)
+{
+    BaseType_t ret = xTaskCreate(
+        mqtt_retry_publish_task,
+        "mqtt_retry",
+        MQTT_RETRY_TASK_STACK_SIZE,
+        NULL,
+        MQTT_RETRY_TASK_PRIORITY,
+        &mqtt_retry_task_handle
+    );
+
+    if (ret != pdPASS) {
+        ESP_LOGE(TAG, "Failed to create MQTT retry task");
+        return ESP_FAIL;
+    }
+
+    ESP_LOGI(TAG, "MQTT retry task created successfully");
+    return ESP_OK;
+}
+
+// Hàm trigger retry từ bất kỳ đâu (ví dụ: khi MQTT reconnect)
+void mqtt_trigger_retry(void)
+{
+    if (mqtt_retry_task_handle != NULL) {
+        xTaskNotifyGive(mqtt_retry_task_handle);
+        ESP_LOGI(TAG, "MQTT retry triggered");
+    }
+}
+
+// Hàm dừng task (nếu cần)
+void mqtt_retry_task_stop(void)
+{
+    if (mqtt_retry_task_handle != NULL) {
+        vTaskDelete(mqtt_retry_task_handle);
+        mqtt_retry_task_handle = NULL;
+        ESP_LOGI(TAG, "MQTT retry task stopped");
+    }
+}
+
+
+
+
+
+
+///////// mqtt
 
 
 void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
@@ -176,12 +722,22 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
     case MQTT_EVENT_CONNECTED:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_CONNECTED");
         //xTaskCreate(mqtt_publish_task, "mqtt_publish_task", 4096, NULL, 7, NULL);
+        //mqtt_retry_publish();
+        //client_mqtt_retry_publish();
+        mqtt_trigger_retry();
+        lv_obj_add_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN ); 
+        msg_id = esp_mqtt_client_subscribe(client, "feedback", 0);
+
+
+
         mqtt=1;
 
         break;
         
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_DISCONNECTED");
+        lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN ); 
+         mqtt=0;
         break;
 
     case MQTT_EVENT_SUBSCRIBED:
@@ -200,6 +756,27 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_DATA");
         printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
         printf("DATA=%.*s\r\n", event->data_len, event->data);
+
+
+        char *json_buffer = NULL; 
+
+        if (event->data_len > 0) {
+            json_buffer = (char *)malloc(event->data_len + 1); 
+            if (json_buffer == NULL) {
+                ESP_LOGE(TAG, "Error!");
+                break;
+            }
+
+            memcpy(json_buffer, event->data, event->data_len);
+            json_buffer[event->data_len] = '\0';
+
+            ESP_LOGI(TAG, "MQTT_EVENT_DATA. Payload: %s", json_buffer);
+
+
+            free(json_buffer);
+        }
+
+
         break;
         
     case MQTT_EVENT_ERROR:
@@ -231,8 +808,8 @@ void mqtt_start(void)
             //.address.uri = "mqtt://broker.hivemq.com",// exam
             //.address.port = 1883 //exam
            // .address.uri = "mqtts://0b2c802533b54670a78953e3c5758528.s1.eu.hivemq.cloud",
-            .address.port = 1883,
-            .address.uri = "mqtt://10.10.1.45",
+            .address.port = 1883,//du sap cung deo dc keu dmm
+            .address.uri = "mqtt://10.10.1.27",
            // .address.port = 1883,
             //.verification.certificate = (const char *)trustid_x3_root_pem_start,
          //  .verification.certificate = (const char *)mqtt_ca_cert_pem,
@@ -245,7 +822,7 @@ void mqtt_start(void)
 
         .credentials = {
             .username = "appuser",
-            .authentication.password = "111111",
+            .authentication.password = "1111",
         },
         
     };
@@ -263,7 +840,6 @@ void mqtt_start(void)
 
 
 ////////////gatt
-int connect_success=0;
 void mainscreen_wifi_rssi_task(void *pvParameters) {
     wifi_ap_record_t ap_info;
    
@@ -315,7 +891,7 @@ void mainscreen_wifi_rssi_task(void *pvParameters) {
           //  WIFI_List_Button = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_3_png, (const char *)ap_info[i].ssid);
         }
         else if ((ap_info.rssi < -50) && (ap_info.rssi > -75))  // Weak signal
-        { 
+        {    
             lv_obj_clear_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
             lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );
             lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
@@ -339,6 +915,8 @@ void mainscreen_wifi_rssi_task(void *pvParameters) {
         } else {
             ESP_LOGW("RSSI", "Not connected to any AP");
             connect_success=0;
+            lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN ); //
+
             lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );  
             lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
             lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
@@ -351,361 +929,6 @@ void mainscreen_wifi_rssi_task(void *pvParameters) {
     }
 }
 
-
-
-
-
-//////////////////////////////
-
-// ==================== HTTP Event Handler ====================
-esp_err_t http_event_handler(esp_http_client_event_t *evt)
-{
-    switch(evt->event_id) {
-        case HTTP_EVENT_ON_DATA:
-            if (!esp_http_client_is_chunked_response(evt->client)) {
-                int copy_len = evt->data_len;
-                if (copy_len + strlen(http_response_buffer) < MAX_HTTP_OUTPUT_BUFFER) {
-                    strncat(http_response_buffer, (char*)evt->data, copy_len);
-                }
-            }
-            break;
-        default:
-            break;
-    }
-    return ESP_OK;
-}
-
-// ==================== Helper Functions ====================
-void set_auth_headers(esp_http_client_handle_t client)
-{
-    if (strlen(API_TOKEN) > 0) {
-        char auth_header[600];
-        snprintf(auth_header, sizeof(auth_header), "Bearer %s", API_TOKEN);
-        esp_http_client_set_header(client, "Authorization", auth_header);
-        ESP_LOGI(API_TAG, "Using predefined API token");
-        
-    } else if (strlen(auth_token) > 0) {
-        char auth_header[600];
-        snprintf(auth_header, sizeof(auth_header), "Bearer %s", auth_token);
-        esp_http_client_set_header(client, "Authorization", auth_header);
-        ESP_LOGI(API_TAG, "Using token from login");
-    } else {
-        ESP_LOGW(API_TAG, "No token available!");
-    }
-}
-
-// ==================== API Functions ====================
-
-// Login
-esp_err_t api_login(void)
-{
-    ESP_LOGI(API_TAG, "Logging in with email: %s", API_EMAIL);
-    memset(http_response_buffer, 0, MAX_HTTP_OUTPUT_BUFFER);
-    
-    char url[256];
-    snprintf(url, sizeof(url), "%s/login", API_BASE_URL);
-    
-    cJSON *root = cJSON_CreateObject();
-    cJSON_AddStringToObject(root, "email", API_EMAIL);
-    cJSON_AddStringToObject(root, "password", API_PASSWORD);
-    char *post_data = cJSON_PrintUnformatted(root);
-    
-    esp_http_client_config_t config = {
-        .url = url,
-        .method = HTTP_METHOD_POST,
-        .event_handler = http_event_handler,
-        .timeout_ms = 5000,
-        .buffer_size = 1024,
-    };
-    
-    esp_http_client_handle_t client = esp_http_client_init(&config);
-    esp_http_client_set_header(client, "Authorization",API_TOKEN);
-
-    esp_http_client_set_header(client, "Content-Type", "application/json");
-    esp_http_client_set_post_field(client, post_data, strlen(post_data));
-    
-    esp_err_t err = esp_http_client_perform(client);
-    
-    if (err == ESP_OK) {
-        int status = esp_http_client_get_status_code(client);
-        ESP_LOGI(API_TAG, "Login response. Status: %d, Response: %s", status, http_response_buffer);
-        
-        if (status == 200) {
-            cJSON *json = cJSON_Parse(http_response_buffer);
-            if (json != NULL) {
-                cJSON *token = cJSON_GetObjectItem(json, "token");
-                if (token && token->valuestring) {
-                    strncpy(auth_token, token->valuestring, sizeof(auth_token) - 1);
-                    ESP_LOGI(API_TAG, " Login successful! Token saved.");
-                } else {
-                    ESP_LOGW(API_TAG, "No token in response");
-                }
-                cJSON_Delete(json);
-            }
-        }
-    } else {
-        ESP_LOGE(API_TAG, "Failed to login: %s", esp_err_to_name(err));
-    }
-    
-    esp_http_client_cleanup(client);
-    cJSON_Delete(root);
-    free(post_data);
-    
-    return err;
-}
-
-// Register Device
-esp_err_t api_register_device(void)
-{
-    ESP_LOGI(API_TAG, "Registering device...");
-    memset(http_response_buffer, 0, MAX_HTTP_OUTPUT_BUFFER);
-    
-    char url[256];
-    snprintf(url, sizeof(url), "%s/device/register", API_BASE_URL);
-    
-    cJSON *root = cJSON_CreateObject();
-    cJSON_AddStringToObject(root, "name", DEVICE_NAME2);
-    cJSON_AddStringToObject(root, "serial", DEVICE_SERIAL);
-    cJSON_AddStringToObject(root, "mac", DEVICE_MAC);
-    char *post_data = cJSON_PrintUnformatted(root);
-    
-    esp_http_client_config_t config = {
-        .url = url,
-        .method = HTTP_METHOD_POST,
-        .event_handler = http_event_handler,
-        .timeout_ms = 5000,
-        .buffer_size = 1024,
-    };
-    
-    esp_http_client_handle_t client = esp_http_client_init(&config);
-    esp_http_client_set_header(client, "Content-Type", "application/json");
-    set_auth_headers(client);
-    esp_http_client_set_post_field(client, post_data, strlen(post_data));
-    
-    esp_err_t err = esp_http_client_perform(client);
-    
-    if (err == ESP_OK) {
-        int status = esp_http_client_get_status_code(client);
-        ESP_LOGI(API_TAG, "Device registered. Status: %d, Response: %s", status, http_response_buffer);
-    } else {
-        ESP_LOGE(API_TAG, "Failed to register device: %s", esp_err_to_name(err));
-    }
-    
-    esp_http_client_cleanup(client);
-    cJSON_Delete(root);
-    free(post_data);
-    
-    return err;
-}
-
-// Send Heartbeat
-esp_err_t api_send_heartbeat(void)
-{
-    ESP_LOGI(API_TAG, "Sending heartbeat...");
-    memset(http_response_buffer, 0, MAX_HTTP_OUTPUT_BUFFER);
-    
-    char url[256];
-    snprintf(url, sizeof(url), "%s/device/%s/heartbeat", API_BASE_URL, DEVICE_ID);
-    
-    cJSON *root = cJSON_CreateObject();
-    
-    cJSON_AddStringToObject(root, "status", "online");
-    char *post_data = cJSON_PrintUnformatted(root);
-    
-    esp_http_client_config_t config = {
-        .url = url,
-        .method = HTTP_METHOD_POST,
-        .event_handler = http_event_handler,
-        .timeout_ms = 5000,
-        .buffer_size = 1024,
-    };
-    
-    esp_http_client_handle_t client = esp_http_client_init(&config);
-    esp_http_client_set_header(client, "Content-Type", "application/json");
-    set_auth_headers(client);
-    esp_http_client_set_post_field(client, post_data, strlen(post_data));
-    
-    esp_err_t err = esp_http_client_perform(client);
-    
-    if (err == ESP_OK) {
-        int status = esp_http_client_get_status_code(client);
-        ESP_LOGI(API_TAG, "Heartbeat sent. Status: %d", status);
-    } else {
-        ESP_LOGE(API_TAG, "Failed to send heartbeat: %s", esp_err_to_name(err));
-    }
-    
-    esp_http_client_cleanup(client);
-    cJSON_Delete(root);
-    free(post_data);
-    
-    return err;
-}
-
-// Assign Service
-esp_err_t api_assign_service(int service_id)
-{
-    ESP_LOGI(API_TAG, "Assigning service %d...", service_id);
-    memset(http_response_buffer, 0, MAX_HTTP_OUTPUT_BUFFER);
-    
-    char url[256];
-    snprintf(url, sizeof(url), "%s/device/%s/assign-service", API_BASE_URL, DEVICE_ID);
-    
-    cJSON *root = cJSON_CreateObject();
-    cJSON_AddNumberToObject(root, "service_id", service_id);
-    char *post_data = cJSON_PrintUnformatted(root);
-    
-    esp_http_client_config_t config = {
-        .url = url,
-        .method = HTTP_METHOD_POST,
-        .event_handler = http_event_handler,
-        .timeout_ms = 5000,
-        .buffer_size = 1024,
-    };
-    
-    esp_http_client_handle_t client = esp_http_client_init(&config);
-    esp_http_client_set_header(client, "Content-Type", "application/json");
-    set_auth_headers(client);
-    esp_http_client_set_post_field(client, post_data, strlen(post_data));
-    
-    esp_err_t err = esp_http_client_perform(client);
-    
-    if (err == ESP_OK) {
-        int status = esp_http_client_get_status_code(client);
-        ESP_LOGI(API_TAG, "Service assigned. Status: %d", status);
-    } else {
-        ESP_LOGE(API_TAG, "Failed to assign service: %s", esp_err_to_name(err));
-    }
-    
-    esp_http_client_cleanup(client);
-    cJSON_Delete(root);
-    free(post_data);
-    
-    return err;
-}
-
-// Get Config
-esp_err_t api_get_config(void)
-{
-    ESP_LOGI(API_TAG, "Getting device config...");
-    memset(http_response_buffer, 0, MAX_HTTP_OUTPUT_BUFFER);
-    
-    char url[256];
-    snprintf(url, sizeof(url), "%s/device/%s/config", API_BASE_URL, DEVICE_ID);
-    
-    esp_http_client_config_t config = {
-        .url = url,
-        .method = HTTP_METHOD_GET,
-        .event_handler = http_event_handler,
-        .timeout_ms = 5000,
-        .buffer_size = 1024,
-    };
-    
-    esp_http_client_handle_t client = esp_http_client_init(&config);
-    set_auth_headers(client);
-    esp_err_t err = esp_http_client_perform(client);
-    
-    if (err == ESP_OK) {
-        int status = esp_http_client_get_status_code(client);
-        ESP_LOGI(API_TAG, "Config received. Status: %d, Response: %s", status, http_response_buffer);
-        
-        cJSON *json = cJSON_Parse(http_response_buffer);
-        if (json != NULL) {
-            cJSON *op_mode = cJSON_GetObjectItem(json, "op_mode");
-            if (op_mode) {
-                ESP_LOGI(TAG, "Operation Mode: %s", op_mode->valuestring);
-            }
-            cJSON_Delete(json);
-        }
-    } else {
-        ESP_LOGE(API_TAG, "Failed to get config: %s", esp_err_to_name(err));
-    }
-    
-    esp_http_client_cleanup(client);
-    return err;
-}
-
-// Store Feedback
-esp_err_t api_store_feedback(int service_id, int rating_value)
-{
-    ESP_LOGI(API_TAG, "Storing feedback: service=%d, value=%d", service_id, rating_value);
-    
-    memset(http_response_buffer, 0, MAX_HTTP_OUTPUT_BUFFER);
-    
-    char url[256];
-    snprintf(url, sizeof(url), "%s/feedback/store", API_BASE_URL);
-    
-    cJSON *root = cJSON_CreateObject();
-    cJSON_AddNumberToObject(root, "device_id", atoi(DEVICE_ID));
-    cJSON_AddNumberToObject(root, "service_id", service_id);
-    cJSON_AddNumberToObject(root, "value", rating_value);
-    char *post_data = cJSON_PrintUnformatted(root);
-    
-    esp_http_client_config_t config = {
-        .url = url,
-        .method = HTTP_METHOD_POST,
-        .event_handler = http_event_handler,
-        .timeout_ms = 5000,
-        .buffer_size = 1024,
-    };
-    
-    esp_http_client_handle_t client = esp_http_client_init(&config);
-    esp_http_client_set_header(client, "Content-Type", "application/json");
-    set_auth_headers(client);
-    esp_http_client_set_post_field(client, post_data, strlen(post_data));
-    
-    esp_err_t err = esp_http_client_perform(client);
-    
-    if (err == ESP_OK) {
-        int status = esp_http_client_get_status_code(client);
-        ESP_LOGI(API_TAG, "Feedback stored. Status: %d", status);
-        
-    } else {
-        ESP_LOGE(API_TAG, "Failed to store feedback: %s", esp_err_to_name(err));
-    }
-    
-    esp_http_client_cleanup(client);
-    cJSON_Delete(root);
-    free(post_data);
-    
-    return err;
-}
-void api_task(void *pvParameters)
-{
-    ESP_LOGI(TAG, "API task started");
-
-    while (!connection_flag) {
-        
-        ESP_LOGI(TAG, "Waiting for WiFi...");
-        vTaskDelay(pdMS_TO_TICKS(2000));
-    }
-   
-    
-    //xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_BIT, false, true, portMAX_DELAY);
-
-
-    if (api_login() == ESP_OK) {
-        
-      //  api_register_device();
-      //  api_assign_service(3);
-      //  api_get_config();
-      ESP_LOGE(TAG, "Login successfully");
-    } else {
-        ESP_LOGE(TAG, "Login failed, will retry later");
-    }
-
-    while (1) {
-        /*
-        api_send_heartbeat();
-
-        if (rate == 1) {
-            rate = 0;
-            api_store_feedback(3, score);
-        }
-*/         vTaskDelay(pdMS_TO_TICKS(2000)); 
-        
-    }
-    
-}
 
 
 void app_main()
@@ -804,12 +1027,15 @@ void app_main()
 
     // Start the WIFI task to handle Wi-Fi functionality
     // This task manages Wi-Fi connections and hotspot creation.
-    xTaskCreate(wifi_task, "wifi_task", 8 * 1024, NULL, 9, &wifi_TaskHandle);
+    xTaskCreate(wifi_task, "wifi_task", 8 * 1024, NULL, 12, &wifi_TaskHandle);
     
 
-     xTaskCreate(ble_server_task, "ble_server_task", 8 * 1024, NULL, 10, NULL);
+     xTaskCreate(ble_server_task, "ble_server_task", 8 * 1024, NULL, 9, NULL);
      xTaskCreate(mainscreen_wifi_rssi_task, "mainscreen_wifi_rssi_task", 4* 1024, NULL, 9, NULL);
- //    xTaskCreate(mqtt_publish_task, "mqtt_publish_task", 4096, NULL, 7, NULL);
+     mqtt_retry_task_init();
+
+    // xTaskCreate(mqtt_retry_publish_task, "MQTT_Retry_Task", 4096,  NULL,  5,    NULL);
+     //xTaskCreate(mqtt_publish_task, "mqtt_publish_task", 4096, NULL, 7, NULL);
      //xTaskCreate(&api_task, "api_task", 1024*4, NULL, 5, NULL);
      //xTaskCreate(send_message_task, "send_message_task", 8 * 1024, NULL, 10, NULL);
     // if (connection_flag){

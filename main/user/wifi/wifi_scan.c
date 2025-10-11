@@ -47,24 +47,7 @@ typedef struct {
 
  int refresh_index=-1;
 
-/////
-void swap_buttons(lv_obj_t *list, int idx1, int idx2) {
-    // Lấy đối tượng button
-    lv_obj_t *btn1 = lv_obj_get_child(list, idx1);
-    lv_obj_t *btn2 = lv_obj_get_child(list, idx2);
 
-    if(!btn1 || !btn2) return;
-
-    // Di chuyển btn1 sang vị trí idx2
-    lv_obj_move_to_index(btn1, idx2);
-
-    // Vì sau khi di chuyển btn1 thì index có thể thay đổi,
-    // ta cần lấy lại btn2 từ list
-    btn2 = lv_obj_get_child(list, idx1);
-
-    // Di chuyển btn2 sang vị trí idx1
-    lv_obj_move_to_index(btn2, idx1);
-}
 
 void wifi_set_last_button(lv_obj_t *btn) {
     wifi_last_Button = btn;
@@ -296,7 +279,7 @@ void print_cipher_type(int pairwise_cipher, int group_cipher)
             
         }
 
-        lv_obj_clean(ui_WIFI_SCAN_List);//
+       // lv_obj_clean(ui_WIFI_SCAN_List);//
 
 
       
@@ -345,7 +328,7 @@ void print_cipher_type(int pairwise_cipher, int group_cipher)
         
         
         // Add event callback for each button
-       // lv_obj_add_event_cb(WIFI_List_Button, ui_WIFI_list_event_cb, LV_EVENT_ALL, (void *)i);  // Pass index as user data
+        //lv_obj_add_event_cb(WIFI_List_Button, ui_WIFI_list_event_cb, LV_EVENT_ALL, (void *)i);  // Pass index as user data
 
           ////////////
 
@@ -363,19 +346,21 @@ void print_cipher_type(int pairwise_cipher, int group_cipher)
                 wifi_set_last_button(WIFI_List_Button);
                 wifi_set_last_index(i);
                  wifi_index=i;
+                 
                  if (cnt<10){
                     cnt++;//
                  }
                  else {
                     cnt=2;
                  }
+                    
                  
                  if (cnt<2){// chỉ reconnect khi reset/ switch wifi
                     WIFI_STA_FLAG = true;
                  }//
 
                  else {// cnt>1, đã chuyển từ main screen sang wifi screen sau khi reconnect và switch wifi đang on
-                    if ((reconnect==1)&&(refresh==0)&&connection_flag&&connect_success){// nếu đã reconnect wifi cũ thành công thì lần scan tiếp theo chỉ cập nhật icon ok cho button list của wifi được connect
+                    if ((reconnect==1)&&(refresh==0)&&(connection_flag==true)&&(connect_success==1)){// nếu đã reconnect wifi cũ thành công thì lần scan tiếp theo chỉ cập nhật icon ok cho button list của wifi được connect
                         reconnect=0;
                    
                        WIFI_CONNECTION = i;//
@@ -386,14 +371,15 @@ void print_cipher_type(int pairwise_cipher, int group_cipher)
                       lv_obj_move_to_index(WIFI_List_Button, 0);//
 
                     if(refresh<10){
-                     refresh++;
+                      refresh++;
                     }
                     else {
                         refresh=1;
                     }
+                        
                      
                     }
-                    else if ((refresh>0)&&connection_flag&&connect_success){//
+                    else if ((refresh>0)&&(connection_flag==true)&&(connect_success==1)){//
                       WIFI_CONNECTION = i;//
                       lv_obj_t *img = lv_obj_get_child(WIFI_List_Button, 0);
                       lv_img_set_src(img, &ui_img_ok_png);  // Set success icon
@@ -402,6 +388,7 @@ void print_cipher_type(int pairwise_cipher, int group_cipher)
                       
                      
                       refresh++;
+                      
 
                     }
                  }//

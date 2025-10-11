@@ -1,0 +1,120 @@
+Command: ninja flash
+[1/5] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/partition_table/partition-table.bin" "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin""
+16_LVGL_UI.bin binary size 0x2474c0 bytes. Smallest app partition is 0x800000 bytes. 0x5b8b40 bytes (72%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/bootloader/bootloader.bin""
+Bootloader binary size 0x5800 bytes. 0x2800 bytes (31%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\components\esptool_py && D:\ESP32_IDF\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5 -D SERIAL_TOOL=D:/ESP32_IDF/Espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build" -P D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32s3 -p COM10 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 16_LVGL_UI.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.9.1
+Serial port COM10
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: 10:20:ba:01:48:a8
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x00257fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 22528 bytes to 14318...
+Writing at 0x00000000... (100 %)
+Wrote 22528 bytes (14318 compressed) at 0x00000000 in 0.5 seconds (effective 364.6 kbit/s)...
+Hash of data verified.
+Compressed 2389184 bytes to 1279090...
+Writing at 0x00010000... (1 %)
+Writing at 0x0001d1b7... (2 %)
+Writing at 0x0002da7d... (3 %)
+Writing at 0x0003b0bc... (5 %)
+Writing at 0x00043bf6... (6 %)
+Writing at 0x0004beb8... (7 %)
+Writing at 0x000669a2... (8 %)
+Writing at 0x00084666... (10 %)
+Writing at 0x0009c794... (11 %)
+Writing at 0x000af4ff... (12 %)
+Writing at 0x000c3ef9... (13 %)
+Writing at 0x000d29a1... (15 %)
+Writing at 0x000da6c9... (16 %)
+Writing at 0x000e3a2c... (17 %)
+Writing at 0x000edcea... (18 %)
+Writing at 0x000f57a8... (20 %)
+Writing at 0x000fb187... (21 %)
+Writing at 0x0010164e... (22 %)
+Writing at 0x00106ff5... (24 %)
+Writing at 0x0010cc12... (25 %)
+Writing at 0x001120db... (26 %)
+Writing at 0x001178a0... (27 %)
+Writing at 0x0011ce70... (29 %)
+Writing at 0x00122250... (30 %)
+Writing at 0x00128564... (31 %)
+Writing at 0x0012e255... (32 %)
+Writing at 0x00134572... (34 %)
+Writing at 0x0013a1c1... (35 %)
+Writing at 0x0013fad7... (36 %)
+Writing at 0x00145743... (37 %)
+Writing at 0x0014b454... (39 %)
+Writing at 0x00150c2c... (40 %)
+Writing at 0x00156616... (41 %)
+Writing at 0x0015be64... (43 %)
+Writing at 0x001618c9... (44 %)
+Writing at 0x001676d3... (45 %)
+Writing at 0x0016d0f0... (46 %)
+Writing at 0x00172ce1... (48 %)
+Writing at 0x00177dc7... (49 %)
+Writing at 0x0017e54d... (50 %)
+Writing at 0x00183597... (51 %)
+Writing at 0x0018888c... (53 %)
+Writing at 0x0018db84... (54 %)
+Writing at 0x001931ae... (55 %)
+Writing at 0x00198944... (56 %)
+Writing at 0x0019dfca... (58 %)
+Writing at 0x001a39ab... (59 %)
+Writing at 0x001a8ce1... (60 %)
+Writing at 0x001ae206... (62 %)
+Writing at 0x001b38b6... (63 %)
+Writing at 0x001b8d94... (64 %)
+Writing at 0x001be03c... (65 %)
+Writing at 0x001c346e... (67 %)
+Writing at 0x001c851f... (68 %)
+Writing at 0x001cdd3e... (69 %)
+Writing at 0x001d34e1... (70 %)
+Writing at 0x001d89d2... (72 %)
+Writing at 0x001ddd50... (73 %)
+Writing at 0x001e3387... (74 %)
+Writing at 0x001e8f94... (75 %)
+Writing at 0x001ee02c... (77 %)
+Writing at 0x001f31f8... (78 %)
+Writing at 0x001f83cb... (79 %)
+Writing at 0x001fd5ee... (81 %)
+Writing at 0x00202662... (82 %)
+Writing at 0x002077ba... (83 %)
+Writing at 0x0020cec9... (84 %)
+Writing at 0x002125e0... (86 %)
+Writing at 0x00218a09... (87 %)
+Writing at 0x002226f8... (88 %)
+Writing at 0x002297b8... (89 %)
+Writing at 0x0022eea8... (91 %)
+Writing at 0x00235ccc... (92 %)
+Writing at 0x0023b1ba... (93 %)
+Writing at 0x002403ef... (94 %)
+Writing at 0x00245c65... (96 %)
+Writing at 0x0024b994... (97 %)
+Writing at 0x0025151d... (98 %)
+Writing at 0x00256eea... (100 %)
+Wrote 2389184 bytes (1279090 compressed) at 0x00010000 in 29.1 seconds (effective 656.4 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 788.2 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

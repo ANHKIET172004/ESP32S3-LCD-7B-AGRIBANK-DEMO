@@ -92,6 +92,14 @@ struct gatts_profile_inst {
     .p_service_uuid = service_uuid,
     .flag = (ESP_BLE_ADV_FLAG_GEN_DISC | ESP_BLE_ADV_FLAG_BREDR_NOT_SPT),
 };
+
+//////////
+
+extern void backup_client_mqtt_data(const char *topic, const char *payload);
+
+
+
+/////////////
  void gap_event_handler(esp_gap_ble_cb_event_t event, esp_ble_gap_cb_param_t *param)
 {
     switch (event) {
@@ -182,6 +190,8 @@ struct gatts_profile_inst {
             
             esp_ble_gatts_send_indicate(gatts_if, param->write.conn_id, gl_profile_tab[PROFILE_A_APP_ID].char_handle,
                                        strlen(response), (uint8_t*)response, false);
+
+            backup_client_mqtt_data("feedback",received_msg);//
         }
         if (param->write.need_rsp){
             esp_ble_gatts_send_response(gatts_if, param->write.conn_id, param->write.trans_id, ESP_GATT_OK, NULL);

@@ -4,7 +4,6 @@
 #include "esp_wifi_types.h"
 #include "mqtt_client.h"
 
-#define WIFI_DISCONNECTED_BIT BIT1//
 
 
 static esp_netif_t *sta_netif;
@@ -27,7 +26,6 @@ extern bool user_selected_wifi;
 int reconnect=0;
 extern int cnt;
 
- EventGroupHandle_t wifi_event_group;
 
 int start_api=0;
 
@@ -60,27 +58,32 @@ void save_wifi_credentials(const char *ssid, const char *password, const uint8_t
     nvs_get_str(nvs_handle, "password", old_password, &pass_len);
     nvs_get_blob(nvs_handle, "bssid", old_bssid, &bssid_len);
 
-    bool need_update = false;
+    //bool need_update = false;
+    bool ssid_update = false;
+    bool pass_update = false;
+    bool bssid_update = false;
 
     if (strcmp(ssid, old_ssid) != 0) {
-        need_update = true;
+        ssid_update = true;
     }
     if (strcmp(password, old_password) != 0) {
-        need_update = true;
+        pass_update = true;
     }
     if (memcmp(bssid, old_bssid, 6) != 0) {
-        need_update = true;
+        bssid_update = true;
     }
-
-    if (!need_update) {
+/*
+    if (!ssid_update&&!pass_update&&!bssid_update) {
         ESP_LOGI(TAG_STA, "Wi-Fi credentials unchanged → skip saving");
         nvs_close(nvs_handle);
         return;
     }
-    nvs_erase_key(nvs_handle, "ssid");
+    
+   nvs_erase_key(nvs_handle, "ssid");
     nvs_erase_key(nvs_handle, "password");
     nvs_erase_key(nvs_handle, "bssid");
     ESP_LOGI(TAG_STA, "Updating Wi-Fi credentials in NVS...");
+    */
 
     nvs_set_str(nvs_handle, "ssid", ssid);
     nvs_set_str(nvs_handle, "password", password);
@@ -205,7 +208,9 @@ static void wifi_ok_cb(lv_timer_t * timer)
 
 // Callback for Wi-Fi disconnection event
 static void wif_disconnected_cb()
-{
+{ 
+
+    //vTaskDelay(pdMS_TO_TICKS(2000));//
     if (wifi_last_index != -1)
     {
         WIFI_CONNECTION = -1;  // Reset Wi-Fi connection
@@ -235,12 +240,6 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
 
 {    
 
-    wifi_event_group = xEventGroupCreate();
-    if (wifi_event_group == NULL) {
-        ESP_LOGE(TAG_STA, "Failed to create wifi_event_group!");
-        return;
-    }
-
 
     //wifi_event_sta_connected_t* event = (wifi_event_sta_connected_t*) event_data;//
     wifi_config_t sta_config;
@@ -251,22 +250,18 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
 
      if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED)
     {    
-
         wifi_event_sta_disconnected_t* event = (wifi_event_sta_disconnected_t*) event_data;//
         ESP_LOGI(TAG_STA, "STA disconnected, reason=%d", event->reason);
-
-   
         ESP_LOGI(TAG_STA, "WIFI STA_DISCONNECTED.");
        
-        //xEventGroupSetBits(wifi_event_group, WIFI_DISCONNECTED_BIT);
-
+        
         if (mqttClient) {
             esp_mqtt_client_stop(mqttClient);
         }
-
-        
+            
         lv_timer_t *t = lv_timer_create(wif_disconnected_cb, 100, NULL); // Create a timer to handle disconnection
         lv_timer_set_repeat_count(t, 1);  // Run the callback once
+        
 
         
     } 
@@ -278,19 +273,23 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
       else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
         ESP_LOGI(TAG_STA, "WIFI GOT_IP.");  
         
-        if (mqttClient) {
-            esp_mqtt_client_start(mqttClient); // dùng lại client cũ, không cần đăng ký lại event handler
+
+
+        }
+
+
+         else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_CONNECTED) {
+        wifi_event_sta_connected_t *event = (wifi_event_sta_connected_t *) event_data;
+        ESP_LOGI(TAG_STA, "Connected to SSID:%s, channel:%d", event->ssid, event->channel);
+        
+         if (mqttClient) {
+            esp_mqtt_client_start(mqttClient); 
         } else {
-            mqtt_start(); // tạo client mới nếu cần
+            mqtt_start(); 
         }
+            
 
-
-        //xEventGroupSetBits(wifi_event_group, WIFI_CONNECTED_BIT);//
-
-       // xTaskCreate(&api_task, "api_task", 8192, NULL, 5, NULL);
-
-
-        }
+    }
 /*
       else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_CONNECTED) {
     wifi_event_sta_connected_t* event = (wifi_event_sta_connected_t*) event_data;
@@ -306,7 +305,7 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
 }
   
 */
-   
+
 }
 
 // Start Wi-Fi event handling
@@ -363,15 +362,15 @@ void wifi_wait_connect()
                 ESP_LOGI("WiFi", "Connected with IP: " IPSTR, IP2STR(&ip_info.ip));
                 ESP_LOGI(TAG_STA, "Connected to AP SSID:%s, password:%s, bssid:%s", sta_config.sta.ssid, sta_config.sta.password,(uint8_t*)ap_info_bssid);
                 connection_flag = true;  // Set the connection flag to true
-                //mqtt_start();//
+               // mqtt_start();//
                 _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
                 if ((cnt==1)&&(reconnect==0)){// chip khởi động lại hoặc switch wifi on
                     reconnect=1;// đánh dấu đã reconnect thành công
                 }
                 if (user_selected_wifi){// nếu connect bằng cách nhập pass thì lưu pass, ngược lại ko lưu
                   user_selected_wifi=false;
-              //  save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,ap_info.bssid);// lưu ssid, password và của wifi kết nối thành công vào nvs
-                  save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,sta_config.sta.bssid);
+                  save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,ap_info.bssid);// lưu ssid, password và của wifi kết nối thành công vào nvs
+                //  save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,sta_config.sta.bssid);
                   ESP_LOGI(TAG_STA,"Saved AP SSID:%s, password:%s, bssid:%s",sta_config.sta.ssid, sta_config.sta.password,(uint8_t*)ap_info_bssid);
            }  
 
@@ -409,8 +408,7 @@ void wifi_wait_connect()
 
                  if (user_selected_wifi){// nếu connect bằng cách nhập pass thì lưu pass, ngược lại ko lưu
                   user_selected_wifi=false;
-                    // save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,ap_info->bssid);// lưu ssid, password và của wifi kết nối thành công vào nvs
-                  //save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,sta_config.sta.bssid);
+
              }  
                 ////
                     break;  // Exit the loop after failed retries
@@ -438,7 +436,11 @@ void wifi_wait_connect()
 void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode,  const uint8_t *bssid)
 {   
 
-       
+     if (mqttClient) {
+            esp_mqtt_client_stop(mqttClient);
+            ESP_LOGI("MQTT", "MQTT stopped before Wi-Fi reconnect");
+
+        }
 
 
 
@@ -447,25 +449,11 @@ void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode,  cons
         printf("esp_wifi_disconnect \r\n");  // Log disconnection
         esp_wifi_disconnect();  // Disconnect from the current WiFi
         connection_flag = false;  // Reset connection flag
-/*
-
-        EventBits_t bits = xEventGroupWaitBits(wifi_event_group,
-                                           WIFI_DISCONNECTED_BIT,
-                                           pdTRUE,     // clear bit sau khi nhận
-                                           pdFALSE,
-                                           pdMS_TO_TICKS(3000)); // timeout 3s
-
-    if (!(bits & WIFI_DISCONNECTED_BIT)) {
-    ESP_LOGW(TAG_STA, "Timeout waiting for disconnect event!");
-      }
-*/
 
     }
 
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));//
 
-
-    //vTaskDelay(pdMS_TO_TICKS(1000));  //
-    
     wifi_config_t wifi_config = {              
         .sta = {                                
             .threshold.authmode = authmode
@@ -475,40 +463,29 @@ void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode,  cons
     
    
 
-    strncpy((char *)wifi_config.sta.ssid, (const char *)ssid, sizeof(wifi_config.sta.ssid) - 1);
-    wifi_config.sta.ssid[sizeof(wifi_config.sta.ssid) - 1] = '\0';
+    strcpy((char *)wifi_config.sta.ssid, (const char *)ssid);
 
-    strncpy((char *)wifi_config.sta.password, (const char *)pwd, sizeof(wifi_config.sta.password) - 1);
-    wifi_config.sta.password[sizeof(wifi_config.sta.password) - 1] = '\0';
+    strcpy((char *)wifi_config.sta.password, (const char *)pwd);
 
-
-
-    if (bssid != NULL) {
-        wifi_config.sta.bssid_set = true;  // Bật chế độ chỉ định BSSID
-        memcpy(wifi_config.sta.bssid, bssid, 6);  // Copy BSSID (6 bytes)
+    memcpy(wifi_config.sta.bssid, bssid, 6); 
+   // wifi_config.sta.bssid_set = true;  
+   wifi_config.sta.bssid_set = false;  
         
-        ESP_LOGI(TAG_STA, "Connecting to specific BSSID: %02X:%02X:%02X:%02X:%02X:%02X",
+        
+    ESP_LOGI(TAG_STA, "Connecting to wifi network, BSSID: %02X:%02X:%02X:%02X:%02X:%02X",
                  bssid[0], bssid[1], bssid[2],
                 bssid[3],bssid[4], bssid[5]);
-   } else {
-        wifi_config.sta.bssid_set = false;  // Kết nối đến bất kỳ AP nào có SSID phù hợp
-    }
+
+
+        
 
   
-   // wifi_config.sta.bssid_set = false; 
-
-    //esp_mqtt_client_stop(mqttClient);
-    //ESP_LOGI("MQTT", "MQTT stopped before Wi-Fi reconnect");
-
-
-
-
+   // wifi_config.sta.bssid_set = true; 
 
     // Set WiFi configuration
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
     esp_wifi_stop();  // Stop WiFi module
-    //esp_wifi_disconnect();//
-    //vTaskDelay(pdMS_TO_TICKS(1000));  //
+
     esp_wifi_start(); // Start WiFi with the new configuration
     ESP_ERROR_CHECK(esp_wifi_connect());  // Attempt to connect to the WiFi
     wifi_wait_connect();  // Wait for the connection to establish

@@ -7,6 +7,7 @@
 #include "ui_helpers.h"
 #include "stdio.h"
 #include "wifi.h"
+#include "mqtt_client.h"
 
 
 
@@ -101,9 +102,15 @@ bool user_selected_wifi = false;
 
 extern int refresh_index;
 extern int rate;
+
+extern esp_mqtt_client_handle_t mqttClient;
+
+
+extern void mqtt_retry_publish_task(void *pvParameters);
+extern void mqtt_start(void);
 /////wifi
 
-extern int reconnect2;
+//extern int reconnect2;
 
 // EVENTS
 lv_obj_t * ui____initial_actions0;
@@ -172,6 +179,16 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
 
         found_saved_ap=false;//
         cnt=0;// 
+       ////
+
+  //if (mqttClient) {
+    //        esp_mqtt_client_start(mqttClient); 
+      //  } else {
+            mqtt_start(); 
+        //}
+
+
+       /////
         // Remove the hidden flag from the Wifi scan list (show the list)
         _ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); 
         WIFIOPEN(e);  // Open Wifi functionality
@@ -181,6 +198,16 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
     if(event_code == LV_EVENT_VALUE_CHANGED && !lv_obj_has_state(target, LV_STATE_CHECKED)) {
         found_saved_ap=false;//
         cnt=0;//
+/////
+
+     //if (mqttClient) {
+            esp_mqtt_client_stop(mqttClient);
+       // }
+        
+
+//////
+
+
         // Add the hidden flag to the Wifi scan list (hide the list)
         _ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
 
@@ -243,10 +270,12 @@ void ui_WIFI_list_event_cb(lv_event_t * e)
         sprintf(result, "SSID %s", ap_info[wifi_index].ssid);
         lv_label_set_text(ui_WIFI_Name,result);
         //Display BSSID
+        /*
         snprintf(bssid_str,sizeof(bssid_str),"%02X:%02X:%02X:%02X:%02X:%02X",ap_info[wifi_index].bssid[0],ap_info[wifi_index].bssid[1],
                               ap_info[wifi_index].bssid[2],ap_info[wifi_index].bssid[3],ap_info[wifi_index].bssid[4],ap_info[wifi_index].bssid[5]);
 
         lv_label_set_text(ui_WIFI_Name,bssid_str);
+        */
         print_bssid(ap_info[wifi_index]);
         //
 
@@ -489,4 +518,5 @@ void ui_destroy(void)
     //ui_Screen3_screen_destroy();
     //ui_Screen4_screen_destroy();
     ui_Screen5_screen_destroy();
+    
 }

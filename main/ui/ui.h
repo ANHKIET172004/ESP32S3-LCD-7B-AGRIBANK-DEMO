@@ -144,6 +144,10 @@ LV_IMG_DECLARE(ui_img_wifi1_tran_png);    // assets/wifi1 tran.png
 LV_IMG_DECLARE(ui_img_785059581);    // assets/wifi_2_100x100-removebg-preview (1).png
 LV_IMG_DECLARE(ui_img_1279478591);    // assets/wifi_3_100x100-removebg-preview (2).png
 LV_IMG_DECLARE(ui_img_776640815);    // assets/wifi_4_100x100-removebg-preview.png
+LV_IMG_DECLARE(ui_img_green_circle_2_70x70_png);    // assets/wifi_3_100x100-removebg-preview (2).png
+LV_IMG_DECLARE(ui_img_red_circle_70x70_png);    // assets/wifi_4_100x100-removebg-preview.png
+LV_IMG_DECLARE(ui_img_red_circle_20x20_png);    // assets/wifi_4_100x100-removebg-preview.png
+
 
 
 // FONTS

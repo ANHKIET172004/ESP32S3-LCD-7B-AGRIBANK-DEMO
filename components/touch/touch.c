@@ -16,6 +16,8 @@
 
 static const char *TAG = "TP";
 
+int lcd_touched=0;
+
 /*******************************************************************************
 * Function definitions
 *******************************************************************************/
@@ -70,7 +72,9 @@ bool esp_lcd_touch_get_coordinates(esp_lcd_touch_handle_t tp, uint16_t *x, uint1
     touched = tp->get_xy(tp, x, y, strength, point_num, max_point_num);
     if (!touched) {
         return false;
+        lcd_touched=0;//
     }
+    lcd_touched=1;//
 
     /* Process coordinates by user */
     if (tp->config.process_coordinates != NULL) {

@@ -36,6 +36,10 @@ lv_obj_t * ui_Image24 = NULL;
 lv_obj_t * ui_Image31 = NULL;
 lv_obj_t * ui_Image32 = NULL;
 lv_obj_t * ui_Image34 = NULL;
+lv_obj_t * ui_Image36 = NULL;
+lv_obj_t * ui_Image37 = NULL;
+lv_obj_t * ui_Image38 = NULL;
+
 
 
 /////////////
@@ -54,6 +58,8 @@ static int click_count = 0;
 static uint32_t last_click_time = 0;
 int change=0;
 int rate=0;
+ extern int connect_success;
+
 //////
 
  lv_timer_t* mytimer;
@@ -62,7 +68,7 @@ int rate=0;
 
 //
 
-char mess[20];
+char mess[128];
 int mesh_enb=0;
 
 const char *SCREEN1_TAG ="Feedback"; 
@@ -74,7 +80,7 @@ int score=0;
 
 extern esp_mqtt_client_handle_t mqttClient;
 
-
+extern void backup_mqtt_data(const char *topic, const char *payload);
 
 void change_screen(lv_timer_t *timer){
 
@@ -96,11 +102,11 @@ void ui_event_Image1(lv_event_t * e)
         score=4;
        // snprintf(mess,sizeof(mess),"client:%d",score);
 
-
+    
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
-       snprintf(mess,sizeof(mess),"%02X:%02X:%02X:%02X:%02X:%02X:%d",mac[0],mac[1],mac[2],
+       snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d}",mac[0],mac[1],mac[2],
                                      mac[3],mac[4],mac[5],score); 
 
        mesh_enb=1;
@@ -108,15 +114,21 @@ void ui_event_Image1(lv_event_t * e)
         lv_event_stop_bubbling(e);
         ESP_LOGI(SCREEN1_TAG, "diem danh gia : %d\n",score);
 
-		int msg_id = esp_mqtt_client_publish(mqttClient, "demo/laravel", mess, 0, 0, 0);
+        
+		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
 
 
-        if (msg_id == -1)
+        if (msg_id == -1){
          ESP_LOGE("MQTT", "Failed to send data");
+         backup_mqtt_data("feedback",mess);//
+        }
           else
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
 
-
+        
+        
+            
+        
 
         mytimer=lv_timer_create(change_screen, 2500, NULL);
         _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
@@ -130,18 +142,27 @@ void ui_event_Image2(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         rate=1;
         score=3;
+
+       
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
-       snprintf(mess,sizeof(mess),"%02X:%02X:%02X:%02X:%02X:%02X:%d",mac[0],mac[1],mac[2],
-                                     mac[3],mac[4],mac[5],score);         mesh_enb=1;
-        ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
-        int msg_id = esp_mqtt_client_publish(mqttClient, "demo/laravel", mess, 0, 0, 0);
 
-        if (msg_id == -1)
+       snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d}",mac[0],mac[1],mac[2],
+                                     mac[3],mac[4],mac[5],score);   
+        
+        mesh_enb=1;
+     
+        ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
+        int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
+
+        if (msg_id == -1){
          ESP_LOGE("MQTT", "Failed to send data");
+         backup_mqtt_data("feedback",mess);//
+         }
           else
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
+        
 
         mytimer=lv_timer_create(change_screen, 2500, NULL);
        _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
@@ -155,19 +176,26 @@ void ui_event_Image3(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         rate=1;
         score=2;
+        
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
-       snprintf(mess,sizeof(mess),"%02X:%02X:%02X:%02X:%02X:%02X:%d",mac[0],mac[1],mac[2],
-                                     mac[3],mac[4],mac[5],score);         mesh_enb=1;
+
+       snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d}",mac[0],mac[1],mac[2],
+                                     mac[3],mac[4],mac[5],score); 
+                                     
+        mesh_enb=1;
+                             
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
 
-		int msg_id = esp_mqtt_client_publish(mqttClient, "demo/laravel", mess, 0, 0, 0);
-        if (msg_id == -1)
+		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
+        if (msg_id == -1){
          ESP_LOGE("MQTT", "Failed to send data");
+         backup_mqtt_data("feedback",mess);//
+         }
           else
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
-
+        
 
         mytimer=lv_timer_create(change_screen, 2500, NULL);
         _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
@@ -191,19 +219,29 @@ void ui_event_Image5(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         rate=1;
         score=1;
+        
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
-       snprintf(mess,sizeof(mess),"%02X:%02X:%02X:%02X:%02X:%02X:%d",mac[0],mac[1],mac[2],
-                                     mac[3],mac[4],mac[5],score);         mesh_enb=1;
+
+        snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d}",mac[0],mac[1],mac[2],
+                                     mac[3],mac[4],mac[5],score);        
+        
+                                     
+        
+        mesh_enb=1;
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
 
-		int msg_id = esp_mqtt_client_publish(mqttClient, "demo/laravel", mess, 0, 0, 0);
+		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
 
-        if (msg_id == -1)
+        if (msg_id == -1){
          ESP_LOGE("MQTT", "Failed to send data");
+         backup_mqtt_data("feedback",mess);//
+         }
           else
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
+
+        
 
         mytimer=lv_timer_create(change_screen, 1000, NULL);
         _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
@@ -500,6 +538,42 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_align(ui_Image34, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_Image34, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+
+
+    ui_Image36 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image36, &ui_img_red_circle_70x70_png);
+    lv_obj_set_width(ui_Image36, LV_SIZE_CONTENT);   /// 70
+    lv_obj_set_height(ui_Image36, LV_SIZE_CONTENT);    /// 70
+    lv_obj_set_x(ui_Image36, -468);
+    lv_obj_set_y(ui_Image36, -254);
+    lv_obj_set_align(ui_Image36, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image36, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+   // lv_obj_add_flag(ui_Image36, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image36, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+    ui_Image37 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image37, &ui_img_green_circle_2_70x70_png);
+    lv_obj_set_width(ui_Image37, LV_SIZE_CONTENT);   /// 70
+    lv_obj_set_height(ui_Image37, LV_SIZE_CONTENT);    /// 70
+    lv_obj_set_x(ui_Image37, -468);
+    lv_obj_set_y(ui_Image37, -254);
+    lv_obj_set_align(ui_Image37, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image37, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image37, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+
+    ui_Image38 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image38, &ui_img_red_circle_20x20_png);
+    lv_obj_set_width(ui_Image38, LV_SIZE_CONTENT);   /// 20
+    lv_obj_set_height(ui_Image38, LV_SIZE_CONTENT);    /// 20
+    lv_obj_set_x(ui_Image38, 476);
+    lv_obj_set_y(ui_Image38, 275);
+    lv_obj_set_align(ui_Image38, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image38, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+
 
 
 
