@@ -8,6 +8,12 @@
 #include "esp_mac.h"
 #include "esp_log.h"
 
+#include "esp_timer.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/queue.h"
+#include "freertos/task.h"
+#include "esp_wifi.h"
+
 
 const char *TAG_AP = "WiFi SoftAP";  // Tag for SoftAP mode
 const char *TAG_STA = "WiFi Sta";    // Tag for Station mode
@@ -25,6 +31,39 @@ extern char saved_password[64];//
 extern bool found_saved_ap;
 extern int change;
 extern int cnt;
+int connect_success=0;
+
+extern lv_obj_t * ui_Image38;
+
+// bool rssi_task_running = false;
+
+
+
+//////////
+
+#define RSSI_UPDATE_INTERVAL_MS  5000
+
+static const char *TAG_RSSI = "WiFiRSSI";
+static TaskHandle_t wifi_rssi_task_handle = NULL;
+static EventGroupHandle_t wifi_rssi_event_group = NULL;
+
+#define WIFI_CONNECTED_BIT BIT0
+
+// Cache thông tin AP từ event (an toàn, không gọi driver)
+typedef struct {
+    uint8_t bssid[6];
+    char ssid[33];
+    int8_t rssi;
+    bool connected;
+    wifi_auth_mode_t authmode;
+    TickType_t last_update;
+} wifi_ap_cache_t;
+
+static wifi_ap_cache_t ap_cache = {
+    .connected = false,
+    .rssi = -127,
+    .last_update = 0
+};
 
 // Callback function to update UI when Wi-Fi connection is established
 /*
@@ -98,7 +137,20 @@ void wifi_init(void)
     ESP_ERROR_CHECK(esp_wifi_start());  // Start the Wi-Fi driver
 
 
-
+    ///////////////
+    /*
+     if (lvgl_port_lock(-1)) {
+                lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN);
+                
+                lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN);
+                
+                lvgl_port_unlock();
+            }
+                */
 
 
 
@@ -147,12 +199,15 @@ void wifi_task(void *arg)
         {
             wifi_scan();
             WIFI_SCAN_FLAG = false;
+            
         }
 
         // Connect to a Wi-Fi network if the station flag is set
         if (WIFI_STA_FLAG)
         {   
+           
             
+
             WIFI_STA_FLAG = false;
             
             waveahre_rgb_lcd_set_pclk(12 * 1000 * 1000);  // Set pixel clock for the LCD
@@ -175,6 +230,7 @@ void wifi_task(void *arg)
             lv_timer_t *t = lv_timer_create(wifi_connection_cb, 100, NULL);  // Update UI every 100ms
             
             lv_timer_set_repeat_count(t, 1);  // Run only once
+            
 
             
             
@@ -205,4 +261,323 @@ void wifi_task(void *arg)
 } 
 
 
+int8_t get_rssi_level(int8_t rssi){
 
+    if (rssi==0){
+        return 0; // no wifi
+    }
+    else if (rssi>-25){
+        return 1; // strong
+    }
+    else if ((rssi<-25)&&(rssi>-50)){
+        return 2; // medium
+    }
+    else if((rssi<-50)&&(rssi>-75)){
+        return 3; // weak
+
+    }
+
+    else {
+        return 4; // very weak
+    }
+
+}
+
+void mainscreen_wifi_rssi_task(void *pvParameters) {
+    wifi_ap_record_t ap_info;
+    int8_t rssi;
+    int8_t current_rssi_level=-1;
+    int8_t last_rssi_level=-1;
+
+
+   
+    while (1) {
+        if (esp_wifi_sta_get_ap_info(&ap_info) == ESP_OK) {
+
+            current_rssi_level=get_rssi_level(ap_info.rssi);// update rssi level
+        
+
+            connect_success=1;// đánh dấu đã kết nối wifi thành công
+            /*
+            ESP_LOGI("RSSI", "Connected SSID:%s, BSSID:%02X:%02X:%02X:%02X:%02X:%02X, RSSI:%d dBm",
+                     ap_info.ssid,
+                     ap_info.bssid[0], ap_info.bssid[1], ap_info.bssid[2],
+                     ap_info.bssid[3], ap_info.bssid[4], ap_info.bssid[5],
+                      
+                     ap_info.rssi);
+              */
+            
+         if (current_rssi_level!=last_rssi_level){     
+            lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );  
+            lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+              if (ap_info.rssi == 0 && ap_info.ssid[0] == '\0')
+         {    
+            if (lvgl_port_lock(-1)) {
+            lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );  
+           // lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+
+            lvgl_port_unlock();
+           }   
+          //  break;
+            //vTaskDelete(NULL);
+        }
+         
+         else if(ap_info.rssi > -25)  // Strong signal (RSSI > -25)
+        {   
+            if (lvgl_port_lock(-1)) {
+            lv_obj_clear_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+           // lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+            //lvgl_port_unlock();
+        }
+            // Add button with strong signal icon
+          //  WIFI_List_Button = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_4_png, (const char *)ap_info[i].ssid);
+        }
+        else if ((ap_info.rssi < -25) && (ap_info.rssi > -50))  // Medium signal
+        { 
+
+            if (lvgl_port_lock(-1)) {
+            lv_obj_clear_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+            //lvgl_port_unlock();
+        }
+   
+            // Add button with medium signal icon
+          //  WIFI_List_Button = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_3_png, (const char *)ap_info[i].ssid);
+        }
+        else if ((ap_info.rssi < -50) && (ap_info.rssi > -75))  // Weak signal
+        {     
+            if (lvgl_port_lock(-1)) {
+            lv_obj_clear_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+            lvgl_port_unlock();
+            }
+            // Add button with weak signal icon
+           // WIFI_List_Button = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_2_png, (const char *)ap_info[i].ssid);
+        }
+        else  // Very weak signal (RSSI < -75)
+        {   
+
+            if (lvgl_port_lock(-1)) {
+            lv_obj_clear_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            lvgl_port_unlock();
+            }
+            // Add button with very weak signal icon
+              //_ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);  
+        }    
+
+        last_rssi_level=current_rssi_level;
+   }         
+        } else {
+            ESP_LOGW("RSSI", "Not connected to any AP");
+            if (lvgl_port_lock(-1)) {
+            
+            lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN ); // không kết nối đến mqtt
+
+            lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );  
+            //lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+            //lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+            lvgl_port_unlock();
+            }
+        }
+      
+        
+        vTaskDelay(pdMS_TO_TICKS(2000)); // Delay 2s
+    }
+}
+
+/*
+void mainscreen_wifi_rssi_task(void *pvParameters) {
+    int rssi;
+    
+    while (rssi_task_running) {
+        esp_err_t ret = esp_wifi_sta_get_rssi(&rssi);
+        
+        if (ret == ESP_OK) {
+            connect_success = 1;
+            
+            ESP_LOGI("RSSI", "Current RSSI: %d dBm", rssi);
+            
+            if (lvgl_port_lock(-1)) {
+                
+                lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN);
+                
+                if (rssi >= -25) {
+                    lv_obj_clear_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN);
+                }
+                else if (rssi >= -50) {
+                    lv_obj_clear_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN);
+                }
+                else if (rssi >= -75) {
+                    lv_obj_clear_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN);
+                }
+                else {
+                    lv_obj_clear_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN);
+                }
+                
+                lvgl_port_unlock();
+            }
+            
+        } else {
+            connect_success = 0;
+            ESP_LOGW("RSSI", "Not connected to any AP");
+            
+            if (lvgl_port_lock(-1)) {
+                lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN);
+                
+                lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN);
+                
+                lvgl_port_unlock();
+            }
+        }
+        
+        vTaskDelay(pdMS_TO_TICKS(2000));
+    }
+}
+*/
+// Thêm vào file wifi.c (hoặc file hiện tại)
+
+//TaskHandle_t rssi_task_handle = NULL;  // Khai báo handle
+// bool rssi_task_running = false;  // Bạn đã có biến này rồi
+
+// Hàm khởi động RSSI task
+/*
+void start_rssi_task(void) {
+    if (rssi_task_handle == NULL) {
+        rssi_task_running = true;
+        xTaskCreate(mainscreen_wifi_rssi_task, 
+                    "rssi_monitor", 
+                    4096, 
+                    NULL, 
+                    3, 
+                    &rssi_task_handle);
+        ESP_LOGI("RSSI", "RSSI monitoring task started");
+    } else {
+        ESP_LOGW("RSSI", "RSSI task already running");
+    }
+}
+
+// Hàm dừng RSSI task
+void stop_rssi_task(void) {
+    if (rssi_task_handle != NULL) {
+        rssi_task_running = false;
+        ESP_LOGI("RSSI", "Stopping RSSI task...");
+        
+        // Chờ task tự thoát (tối đa 3 giây)
+        vTaskDelay(pdMS_TO_TICKS(3000));
+        
+        // Nếu task vẫn còn tồn tại, force delete
+        if (rssi_task_handle != NULL) {
+            vTaskDelete(rssi_task_handle);
+            rssi_task_handle = NULL;
+            ESP_LOGW("RSSI", "RSSI task force stopped");
+        }
+    } else {
+        ESP_LOGW("RSSI", "RSSI task not running");
+    }
+}
+
+// Hàm kiểm tra trạng thái
+bool is_rssi_task_running(void) {
+    return (rssi_task_handle != NULL && rssi_task_running);
+}
+
+void mainscreen_wifi_rssi_task(void *pvParameters) {
+    int rssi;
+    
+    ESP_LOGI("RSSI", "RSSI monitoring task started");
+    
+   // while (rssi_task_running) {
+    while (1) {
+        esp_err_t ret = esp_wifi_sta_get_rssi(&rssi);
+        
+        if (ret == ESP_OK) {
+            connect_success = 1;
+            
+            ESP_LOGI("RSSI", "Current RSSI: %d dBm", rssi);
+            
+            if (lvgl_port_lock(100)) {  // Thêm timeout 100ms thay vì -1
+                
+                lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN);
+                
+                if (rssi >= -25) {
+                    lv_obj_clear_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN);
+                }
+                else if (rssi >= -50) {
+                    lv_obj_clear_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN);
+                }
+                else if (rssi >= -75) {
+                    lv_obj_clear_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN);
+                }
+                else {
+                    lv_obj_clear_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN);
+                }
+                
+                lvgl_port_unlock();
+            } else {
+                ESP_LOGW("RSSI", "Failed to lock LVGL");
+            }
+            
+        } else {
+            connect_success = 0;
+            ESP_LOGW("RSSI", "Not connected to any AP");
+            
+            if (lvgl_port_lock(100)) {  // Timeout 100ms
+                lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN);
+                
+                lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN);
+                
+                lvgl_port_unlock();
+            }
+        }
+        
+        vTaskDelay(pdMS_TO_TICKS(2000));
+    }
+    
+    // Cleanup trước khi thoát
+    ESP_LOGI("RSSI", "RSSI monitoring task stopped");
+    rssi_task_handle = NULL;
+    vTaskDelete(NULL);
+}
+    */
+/////////////////
+
+ 

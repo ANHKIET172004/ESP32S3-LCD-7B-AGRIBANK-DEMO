@@ -82,6 +82,9 @@ extern esp_mqtt_client_handle_t mqttClient;
 
 extern void backup_mqtt_data(const char *topic, const char *payload);
 
+extern esp_err_t read_number(char *number, size_t max_len);
+
+
 void change_screen(lv_timer_t *timer){
 
     lv_timer_del(timer);
@@ -106,8 +109,20 @@ void ui_event_Image1(lv_event_t * e)
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
-       snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d}",mac[0],mac[1],mac[2],
-                                     mac[3],mac[4],mac[5],score); 
+        char number[32]; 
+        
+        esp_err_t err = read_number(number, sizeof(number));
+
+        if (err == ESP_OK) {
+        ESP_LOGI(SCREEN1_TAG, "Successfully read number: %s", number);
+    } else {
+        ESP_LOGE(SCREEN1_TAG, "Failed to read number");
+        strcpy(number, "0");
+        
+    }
+
+       snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",mac[0],mac[1],mac[2],
+                                     mac[3],mac[4],mac[5],score,number); 
 
        mesh_enb=1;
         
@@ -208,6 +223,7 @@ void ui_event_Image4(lv_event_t * e)
 
     if(event_code == LV_EVENT_CLICKED) {
         mytimer=lv_timer_create(change_screen, 2500, NULL);
+        _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
         _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
     }
 }
@@ -262,6 +278,7 @@ static void area_click_event_cb(lv_event_t *e) {
     if (click_count >= 7) {
         click_count = 0;
         change=1;//
+        _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
         _ui_screen_change(&ui_Main_WIFI, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Wifi_Screen_init);
 
 

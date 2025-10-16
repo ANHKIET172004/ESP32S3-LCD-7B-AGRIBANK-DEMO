@@ -39,6 +39,11 @@ struct gatts_profile_inst {
     esp_bt_uuid_t descr_uuid;
 };
 
+
+extern void trigger_mqtt_retry2(void);
+
+
+
  void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_if_t gatts_if, esp_ble_gatts_cb_param_t *param);
 
 /* One gatt-based profile one app_id and one gatts_if, this array will store the gatts_if returned by ESP_GATTS_REG_EVT */
@@ -192,6 +197,7 @@ extern void backup_client_mqtt_data(const char *topic, const char *payload);
                                        strlen(response), (uint8_t*)response, false);
 
             backup_client_mqtt_data("feedback",received_msg);//
+           // trigger_mqtt_retry2();
         }
         if (param->write.need_rsp){
             esp_ble_gatts_send_response(gatts_if, param->write.conn_id, param->write.trans_id, ESP_GATT_OK, NULL);

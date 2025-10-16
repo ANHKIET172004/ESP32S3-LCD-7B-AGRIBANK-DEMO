@@ -1,0 +1,392 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=c4094h (802964) map[0m
+[0;32mI (210) esp_image: segment 1: paddr=000d40bc vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (215) esp_image: segment 2: paddr=000d9864 vaddr=40374000 size=067b4h ( 26548) load[0m
+[0;32mI (220) esp_image: segment 3: paddr=000e0020 vaddr=42000020 size=dc084h (901252) map[0m
+[0;32mI (356) esp_image: segment 4: paddr=001bc0ac vaddr=4037a7b4 size=173fch ( 95228) load[0m
+[0;32mI (374) esp_image: segment 5: paddr=001d34b0 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (386) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (386) boot: Disabling RNG early entropy source...[0m
+[0;33mW (396) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (396) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (403) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (411) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (415) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (419) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (424) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (428) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (433) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (437) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (441) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (446) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (451) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (455) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (461) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (472) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (472) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (473) esp_psram: Speed: 120MHz[0m
+[0;32mI (510) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (556) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (557) cpu_start: Multicore app[0m
+[0;32mI (719) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (727) cpu_start: Pro cpu start user code[0m
+[0;32mI (727) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (727) app_init: Application information:[0m
+[0;32mI (727) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (731) app_init: App version:      43fcfab-dirty[0m
+[0;32mI (736) app_init: Compile time:     Oct 11 2025 10:32:00[0m
+[0;32mI (741) app_init: ELF file SHA256:  35b33b99b...[0m
+[0;32mI (745) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (749) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (753) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (757) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (761) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (767) heap_init: At 3FCAC798 len 0003CF78 (243 KiB): RAM[0m
+[0;32mI (772) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (777) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (783) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (788) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
+[0;32mI (794) esp_psram: Adding pool of 47K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (806) spi_flash: detected chip: generic[0m
+[0;32mI (809) spi_flash: flash io: qio[0m
+[0;32mI (812) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (819) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (825) coexist: coex firmware version: 831ec70[0m
+[0;32mI (838) coexist: coexist rom version e7ae62f[0m
+[0;32mI (838) main_task: Started on CPU0[0m
+[0;32mI (839) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (844) main_task: Calling app_main()[0m
+[0;33mW (857) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1263) GT911: Initialize I2C panel IO[0m
+[0;32mI (1263) GT911: Initialize touch controller GT911[0m
+[0;33mW (1263) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1265) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1268) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1272) example: Install RGB LCD panel driver[0m
+[0;32mI (1312) example: Initialize RGB LCD panel[0m
+[0;32mI (1314) lv_port: Create LVGL task[0m
+[0;32mI (1341) main: Display LVGL demos[0m
+[0;32mI (1500) pp: pp rom version: e7ae62f[0m
+[0;32mI (1500) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1501) RSSI: Not connected to any AP[0m
+[0;32mI (1501) MQTT_BACKUP: MQTT Retry Publish Task started[0m
+[0;32mI (1502) wifi:wifi driver task: 3fccd698, prio:23, stack:6656, core=0[0m
+[0;32mI (1518) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1518) wifi:wifi certification version: v7.0[0m
+[0;32mI (1519) wifi:config NVS flash: enabled[0m
+[0;32mI (1523) wifi:config nano formatting: disabled[0m
+[0;32mI (1527) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1533) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1537) wifi:Init management short buffer num: 32[0m
+[0;32mI (1541) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1546) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1549) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1554) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1557) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1561) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1566) wifi_init: rx ba win: 16[0m
+[0;32mI (1568) wifi_init: accept mbox: 6[0m
+[0;32mI (1571) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1574) wifi_init: udp mbox: 6[0m
+[0;32mI (1577) wifi_init: tcp mbox: 6[0m
+[0;32mI (1580) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1583) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1586) wifi_init: tcp mss: 1440[0m
+[0;32mI (1589) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1593) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1597) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1501) main_task: Returned from app_main()[0m
+Wi-Fi event handler registered.
+[0;32mI (1608) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1645) wifi:mode : null[0m
+[0;33mW (3519) RSSI: Not connected to any AP[0m
+[0;33mW (5519) RSSI: Not connected to any AP[0m
+[0;33mW (7519) RSSI: Not connected to any AP[0m
+[0;33mW (9519) RSSI: Not connected to any AP[0m
+[0;33mW (11519) RSSI: Not connected to any AP[0m
+[0;33mW (13519) RSSI: Not connected to any AP[0m
+[0;33mW (15519) RSSI: Not connected to any AP[0m
+[0;33mW (17519) RSSI: Not connected to any AP[0m
+[0;33mW (19519) RSSI: Not connected to any AP[0m
+[0;33mW (21519) RSSI: Not connected to any AP[0m
+[0;33mW (23519) RSSI: Not connected to any AP[0m
+[0;33mW (25519) RSSI: Not connected to any AP[0m
+[0;33mW (27519) RSSI: Not connected to any AP[0m
+[0;33mW (29519) RSSI: Not connected to any AP[0m
+[0;33mW (31519) RSSI: Not connected to any AP[0m
+[0;33mW (33519) RSSI: Not connected to any AP[0m
+[0;33mW (35519) RSSI: Not connected to any AP[0m
+[0;33mW (37519) RSSI: Not connected to any AP[0m
+[0;33mW (39519) RSSI: Not connected to any AP[0m
+[0;33mW (41519) RSSI: Not connected to any AP[0m
+[0;33mW (43519) RSSI: Not connected to any AP[0m
+[0;33mW (45519) RSSI: Not connected to any AP[0m
+[0;33mW (47519) RSSI: Not connected to any AP[0m
+[0;33mW (49519) RSSI: Not connected to any AP[0m
+[0;33mW (51519) RSSI: Not connected to any AP[0m
+[0;33mW (53519) RSSI: Not connected to any AP[0m
+[0;33mW (55519) RSSI: Not connected to any AP[0m
+[0;33mW (57519) RSSI: Not connected to any AP[0m
+[0;33mW (59519) RSSI: Not connected to any AP[0m
+[0;33mW (61519) RSSI: Not connected to any AP[0m
+[0;33mW (63519) RSSI: Not connected to any AP[0m
+[0;33mW (65519) RSSI: Not connected to any AP[0m
+[0;33mW (67519) RSSI: Not connected to any AP[0m
+[0;33mW (69519) RSSI: Not connected to any AP[0m
+[0;33mW (71519) RSSI: Not connected to any AP[0m
+[0;33mW (73519) RSSI: Not connected to any AP[0m
+[0;33mW (75519) RSSI: Not connected to any AP[0m
+[0;33mW (77519) RSSI: Not connected to any AP[0m
+[0;33mW (79519) RSSI: Not connected to any AP[0m
+[0;33mW (81519) RSSI: Not connected to any AP[0m
+[0;33mW (83519) RSSI: Not connected to any AP[0m
+[0;33mW (85519) RSSI: Not connected to any AP[0m
+[0;33mW (87519) RSSI: Not connected to any AP[0m
+[0;33mW (89519) RSSI: Not connected to any AP[0m
+[0;33mW (91519) RSSI: Not connected to any AP[0m
+[0;33mW (93519) RSSI: Not connected to any AP[0m
+[0;33mW (95519) RSSI: Not connected to any AP[0m
+[0;33mW (97519) RSSI: Not connected to any AP[0m
+[0;33mW (99519) RSSI: Not connected to any AP[0m
+[0;33mW (101519) RSSI: Not connected to any AP[0m
+[0;33mW (103519) RSSI: Not connected to any AP[0m
+[0;33mW (105519) RSSI: Not connected to any AP[0m
+[0;33mW (107519) RSSI: Not connected to any AP[0m
+[0;33mW (109519) RSSI: Not connected to any AP[0m
+[0;33mW (111519) RSSI: Not connected to any AP[0m
+[0;33mW (113519) RSSI: Not connected to any AP[0m
+[0;33mW (115519) RSSI: Not connected to any AP[0m
+[0;33mW (117519) RSSI: Not connected to any AP[0m
+[0;33mW (119519) RSSI: Not connected to any AP[0m
+[0;33mW (121519) RSSI: Not connected to any AP[0m
+[0;33mW (123519) RSSI: Not connected to any AP[0m
+[0;33mW (125519) RSSI: Not connected to any AP[0m
+[0;33mW (127519) RSSI: Not connected to any AP[0m
+[0;33mW (129519) RSSI: Not connected to any AP[0m
+[0;33mW (131519) RSSI: Not connected to any AP[0m
+[0;33mW (133519) RSSI: Not connected to any AP[0m
+[0;33mW (135519) RSSI: Not connected to any AP[0m
+[0;33mW (137519) RSSI: Not connected to any AP[0m
+[0;33mW (139519) RSSI: Not connected to any AP[0m
+[0;33mW (141519) RSSI: Not connected to any AP[0m
+[0;33mW (143519) RSSI: Not connected to any AP[0m
+[0;33mW (145519) RSSI: Not connected to any AP[0m
+[0;33mW (147519) RSSI: Not connected to any AP[0m
+[0;33mW (149519) RSSI: Not connected to any AP[0m
+[0;33mW (151519) RSSI: Not connected to any AP[0m
+[0;33mW (153519) RSSI: Not connected to any AP[0m
+[0;33mW (155519) RSSI: Not connected to any AP[0m
+[0;33mW (157519) RSSI: Not connected to any AP[0m
+[0;33mW (159519) RSSI: Not connected to any AP[0m
+[0;33mW (161519) RSSI: Not connected to any AP[0m
+[0;33mW (163519) RSSI: Not connected to any AP[0m
+[0;33mW (165519) RSSI: Not connected to any AP[0m
+[0;33mW (167519) RSSI: Not connected to any AP[0m
+[0;33mW (169519) RSSI: Not connected to any AP[0m
+[0;33mW (171519) RSSI: Not connected to any AP[0m
+[0;33mW (173519) RSSI: Not connected to any AP[0m
+[0;33mW (175519) RSSI: Not connected to any AP[0m
+[0;33mW (177519) RSSI: Not connected to any AP[0m
+[0;33mW (179519) RSSI: Not connected to any AP[0m
+[0;33mW (181519) RSSI: Not connected to any AP[0m
+[0;33mW (183519) RSSI: Not connected to any AP[0m
+[0;33mW (185519) RSSI: Not connected to any AP[0m
+[0;33mW (187519) RSSI: Not connected to any AP[0m
+[0;33mW (189519) RSSI: Not connected to any AP[0m
+[0;33mW (191519) RSSI: Not connected to any AP[0m
+[0;33mW (193519) RSSI: Not connected to any AP[0m
+[0;33mW (195519) RSSI: Not connected to any AP[0m
+[0;33mW (197519) RSSI: Not connected to any AP[0m
+[0;33mW (199519) RSSI: Not connected to any AP[0m
+[0;33mW (201519) RSSI: Not connected to any AP[0m
+[0;33mW (203519) RSSI: Not connected to any AP[0m
+[0;33mW (205519) RSSI: Not connected to any AP[0m
+[0;33mW (207519) RSSI: Not connected to any AP[0m
+[0;33mW (209519) RSSI: Not connected to any AP[0m
+[0;33mW (211519) RSSI: Not connected to any AP[0m
+[0;33mW (213519) RSSI: Not connected to any AP[0m
+[0;33mW (215519) RSSI: Not connected to any AP[0m
+[0;33mW (217519) RSSI: Not connected to any AP[0m
+[0;33mW (219519) RSSI: Not connected to any AP[0m
+[0;33mW (221519) RSSI: Not connected to any AP[0m
+[0;33mW (223519) RSSI: Not connected to any AP[0m
+[0;33mW (225519) RSSI: Not connected to any AP[0m
+[0;33mW (227519) RSSI: Not connected to any AP[0m
+[0;33mW (229519) RSSI: Not connected to any AP[0m
+[0;33mW (231519) RSSI: Not connected to any AP[0m
+[0;33mW (233519) RSSI: Not connected to any AP[0m
+[0;33mW (235519) RSSI: Not connected to any AP[0m
+[0;33mW (237519) RSSI: Not connected to any AP[0m
+[0;33mW (239519) RSSI: Not connected to any AP[0m
+[0;33mW (241519) RSSI: Not connected to any AP[0m
+[0;33mW (243519) RSSI: Not connected to any AP[0m
+[0;33mW (245519) RSSI: Not connected to any AP[0m
+[0;33mW (247519) RSSI: Not connected to any AP[0m
+[0;33mW (249519) RSSI: Not connected to any AP[0m
+[0;33mW (251519) RSSI: Not connected to any AP[0m
+[0;33mW (253519) RSSI: Not connected to any AP[0m
+[0;33mW (255519) RSSI: Not connected to any AP[0m
+[0;33mW (257519) RSSI: Not connected to any AP[0m
+[0;33mW (259519) RSSI: Not connected to any AP[0m
+[0;33mW (261519) RSSI: Not connected to any AP[0m
+[0;33mW (263519) RSSI: Not connected to any AP[0m
+[0;33mW (265519) RSSI: Not connected to any AP[0m
+[0;33mW (267519) RSSI: Not connected to any AP[0m
+[0;33mW (269519) RSSI: Not connected to any AP[0m
+[0;33mW (271519) RSSI: Not connected to any AP[0m
+[0;33mW (273519) RSSI: Not connected to any AP[0m
+[0;33mW (275519) RSSI: Not connected to any AP[0m
+[0;33mW (277519) RSSI: Not connected to any AP[0m
+[0;33mW (279519) RSSI: Not connected to any AP[0m
+[0;33mW (281519) RSSI: Not connected to any AP[0m
+[0;33mW (283519) RSSI: Not connected to any AP[0m
+[0;33mW (285519) RSSI: Not connected to any AP[0m
+[0;33mW (287519) RSSI: Not connected to any AP[0m
+[0;33mW (289519) RSSI: Not connected to any AP[0m
+[0;33mW (291519) RSSI: Not connected to any AP[0m
+[0;33mW (293519) RSSI: Not connected to any AP[0m
+[0;33mW (295519) RSSI: Not connected to any AP[0m
+[0;33mW (297519) RSSI: Not connected to any AP[0m
+[0;33mW (299519) RSSI: Not connected to any AP[0m
+[0;33mW (301519) RSSI: Not connected to any AP[0m
+[0;33mW (303519) RSSI: Not connected to any AP[0m
+[0;33mW (305519) RSSI: Not connected to any AP[0m
+[0;33mW (307519) RSSI: Not connected to any AP[0m
+[0;33mW (309519) RSSI: Not connected to any AP[0m
+[0;33mW (311519) RSSI: Not connected to any AP[0m
+[0;33mW (313519) RSSI: Not connected to any AP[0m
+[0;33mW (315519) RSSI: Not connected to any AP[0m
+[0;33mW (317519) RSSI: Not connected to any AP[0m
+[0;33mW (319519) RSSI: Not connected to any AP[0m
+[0;33mW (321519) RSSI: Not connected to any AP[0m
+[0;33mW (323519) RSSI: Not connected to any AP[0m
+[0;33mW (325519) RSSI: Not connected to any AP[0m
+[0;33mW (327519) RSSI: Not connected to any AP[0m
+[0;33mW (329519) RSSI: Not connected to any AP[0m
+[0;33mW (331519) RSSI: Not connected to any AP[0m
+[0;33mW (333519) RSSI: Not connected to any AP[0m
+[0;33mW (335519) RSSI: Not connected to any AP[0m
+[0;33mW (337519) RSSI: Not connected to any AP[0m
+[0;33mW (339519) RSSI: Not connected to any AP[0m
+[0;33mW (341519) RSSI: Not connected to any AP[0m
+[0;33mW (343519) RSSI: Not connected to any AP[0m
+[0;33mW (345519) RSSI: Not connected to any AP[0m
+[0;33mW (347519) RSSI: Not connected to any AP[0m
+[0;33mW (349519) RSSI: Not connected to any AP[0m
+[0;33mW (351519) RSSI: Not connected to any AP[0m
+[0;33mW (353519) RSSI: Not connected to any AP[0m
+[0;33mW (355519) RSSI: Not connected to any AP[0m
+[0;33mW (357519) RSSI: Not connected to any AP[0m
+[0;33mW (359519) RSSI: Not connected to any AP[0m
+[0;33mW (361519) RSSI: Not connected to any AP[0m
+[0;33mW (363519) RSSI: Not connected to any AP[0m
+[0;33mW (365519) RSSI: Not connected to any AP[0m
+[0;33mW (367519) RSSI: Not connected to any AP[0m
+[0;33mW (369519) RSSI: Not connected to any AP[0m
+[0;33mW (371519) RSSI: Not connected to any AP[0m
+[0;33mW (373519) RSSI: Not connected to any AP[0m
+[0;33mW (375519) RSSI: Not connected to any AP[0m
+[0;33mW (377519) RSSI: Not connected to any AP[0m
+[0;33mW (379519) RSSI: Not connected to any AP[0m
+[0;33mW (381519) RSSI: Not connected to any AP[0m
+[0;33mW (383519) RSSI: Not connected to any AP[0m
+[0;33mW (385519) RSSI: Not connected to any AP[0m
+[0;33mW (387519) RSSI: Not connected to any AP[0m
+[0;33mW (389519) RSSI: Not connected to any AP[0m
+[0;33mW (391519) RSSI: Not connected to any AP[0m
+[0;33mW (393519) RSSI: Not connected to any AP[0m
+[0;33mW (395519) RSSI: Not connected to any AP[0m
+[0;33mW (397519) RSSI: Not connected to any AP[0m
+[0;33mW (399519) RSSI: Not connected to any AP[0m
+[0;33mW (401519) RSSI: Not connected to any AP[0m
+[0;33mW (403519) RSSI: Not connected to any AP[0m
+[0;33mW (405519) RSSI: Not connected to any AP[0m
+[0;33mW (407519) RSSI: Not connected to any AP[0m
+[0;33mW (409519) RSSI: Not connected to any AP[0m
+[0;33mW (411519) RSSI: Not connected to any AP[0m
+[0;33mW (413519) RSSI: Not connected to any AP[0m
+[0;33mW (415519) RSSI: Not connected to any AP[0m
+[0;33mW (417519) RSSI: Not connected to any AP[0m
+[0;33mW (419519) RSSI: Not connected to any AP[0m
+[0;33mW (421519) RSSI: Not connected to any AP[0m
+[0;33mW (423519) RSSI: Not connected to any AP[0m
+[0;33mW (425519) RSSI: Not connected to any AP[0m
+[0;33mW (427519) RSSI: Not connected to any AP[0m
+[0;33mW (429519) RSSI: Not connected to any AP[0m
+[0;33mW (431519) RSSI: Not connected to any AP[0m
+[0;33mW (433519) RSSI: Not connected to any AP[0m
+[0;33mW (435519) RSSI: Not connected to any AP[0m
+[0;33mW (437519) RSSI: Not connected to any AP[0m
+[0;33mW (439519) RSSI: Not connected to any AP[0m
+[0;33mW (441519) RSSI: Not connected to any AP[0m
+[0;33mW (443519) RSSI: Not connected to any AP[0m
+[0;32mI (445177) wifi:flush txq[0m
+[0;32mI (445177) wifi:stop sw txq[0m
+[0;32mI (445177) wifi:lmac stop hw txq[0m
+STA:STA 
+[0;32mI (445179) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (445179) wifi:enable tsf[0m
+[0;33mW (445519) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (445519) RSSI: Not connected to any AP[0m
+[0;33mW (447519) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (447519) RSSI: Not connected to any AP[0m
+[0;32mI (447600) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (447600) wifi_scan: Total APs scanned = 16, actual AP number ap_info holds = 16[0m
+[0;32mI (447706) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (447709) wifi_scan: [0m
+[0;32mI (447709) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (447709) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (447741) DELAY: Bắt đầu đếm 1s...[0m
+[0;32mI (447741) WiFi Sta: Connecting to wifi network, BSSID: 10:5F:02:75:1E:9A[0m
+[0;32mI (447753) wifi:flush txq[0m
+[0;32mI (447754) wifi:stop sw txq[0m
+[0;32mI (447754) wifi:lmac stop hw txq[0m
+[0;32mI (447755) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (447755) wifi:enable tsf[0m
+[0;32mI (447758) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;33mW (447762) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (447767) WiFi: Connected with IP: 0.0.0.0[0m
+[0;32mI (447771) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:��<[0m
+[0;32mI (447830) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (447830) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (447840) wifi:state: auth -> init (0x1100)[0m
+[0;32mI (447841) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (447842) WiFi Sta: STA disconnected, reason=202[0m
+[0;32mI (447846) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (447877) NVS: last index: 0[0m
+[0;32mI (447877) NVS: wifi index: 0[0m
+[0;33mW (449520) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (449521) RSSI: Not connected to any AP[0m
+[0;33mW (451521) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (451522) RSSI: Not connected to any AP[0m
+[0;33mW (453522) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (453523) RSSI: Not connected to any AP[0m
+[0;33mW (455523) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (455524) RSSI: Not connected to any AP[0m
+[0;33mW (457524) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (457525) RSSI: Not connected to any AP[0m

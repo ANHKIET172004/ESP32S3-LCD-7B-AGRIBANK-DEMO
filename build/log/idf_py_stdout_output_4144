@@ -1,0 +1,699 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=c4174h (803188) map[0m
+[0;32mI (210) esp_image: segment 1: paddr=000d419c vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (215) esp_image: segment 2: paddr=000d9944 vaddr=40374000 size=066d4h ( 26324) load[0m
+[0;32mI (220) esp_image: segment 3: paddr=000e0020 vaddr=42000020 size=dc1e4h (901604) map[0m
+[0;32mI (356) esp_image: segment 4: paddr=001bc20c vaddr=4037a6d4 size=174dch ( 95452) load[0m
+[0;32mI (374) esp_image: segment 5: paddr=001d36f0 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (386) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (386) boot: Disabling RNG early entropy source...[0m
+[0;33mW (396) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (396) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (403) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (411) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (415) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (419) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (424) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (428) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (433) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (437) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (441) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (446) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (451) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (455) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (461) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (472) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (473) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (473) esp_psram: Speed: 120MHz[0m
+[0;32mI (510) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (557) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (557) cpu_start: Multicore app[0m
+[0;32mI (719) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (727) cpu_start: Pro cpu start user code[0m
+[0;32mI (727) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (727) app_init: Application information:[0m
+[0;32mI (727) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (731) app_init: App version:      43fcfab-dirty[0m
+[0;32mI (736) app_init: Compile time:     Oct 11 2025 10:32:00[0m
+[0;32mI (741) app_init: ELF file SHA256:  40d05d7dd...[0m
+[0;32mI (745) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (749) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (753) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (757) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (761) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (767) heap_init: At 3FCAC7A8 len 0003CF68 (243 KiB): RAM[0m
+[0;32mI (772) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (778) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (783) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (788) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
+[0;32mI (795) esp_psram: Adding pool of 47K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (806) spi_flash: detected chip: generic[0m
+[0;32mI (809) spi_flash: flash io: qio[0m
+[0;32mI (812) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (819) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (825) coexist: coex firmware version: 831ec70[0m
+[0;32mI (838) coexist: coexist rom version e7ae62f[0m
+[0;32mI (839) main_task: Started on CPU0[0m
+[0;32mI (840) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (845) main_task: Calling app_main()[0m
+[0;33mW (858) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1264) GT911: Initialize I2C panel IO[0m
+[0;32mI (1264) GT911: Initialize touch controller GT911[0m
+[0;33mW (1264) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1266) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1269) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1273) example: Install RGB LCD panel driver[0m
+[0;32mI (1313) example: Initialize RGB LCD panel[0m
+[0;32mI (1315) lv_port: Create LVGL task[0m
+[0;32mI (1342) main: Display LVGL demos[0m
+[0;32mI (1501) pp: pp rom version: e7ae62f[0m
+[0;32mI (1501) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1502) RSSI: Not connected to any AP[0m
+[0;32mI (1502) MQTT_BACKUP: MQTT Retry Publish Task started[0m
+[0;32mI (1503) wifi:wifi driver task: 3fccd6a8, prio:23, stack:6656, core=0[0m
+[0;32mI (1519) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1519) wifi:wifi certification version: v7.0[0m
+[0;32mI (1520) wifi:config NVS flash: enabled[0m
+[0;32mI (1524) wifi:config nano formatting: disabled[0m
+[0;32mI (1528) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1533) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1538) wifi:Init management short buffer num: 32[0m
+[0;32mI (1542) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1547) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1550) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1555) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1558) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1562) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1567) wifi_init: rx ba win: 16[0m
+[0;32mI (1569) wifi_init: accept mbox: 6[0m
+[0;32mI (1572) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1575) wifi_init: udp mbox: 6[0m
+[0;32mI (1578) wifi_init: tcp mbox: 6[0m
+[0;32mI (1581) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1584) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1587) wifi_init: tcp mss: 1440[0m
+[0;32mI (1590) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1594) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1598) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1502) main_task: Returned from app_main()[0m
+Wi-Fi event handler registered.
+[0;32mI (1609) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1648) wifi:mode : null[0m
+[0;33mW (3520) RSSI: Not connected to any AP[0m
+[0;33mW (5520) RSSI: Not connected to any AP[0m
+[0;33mW (7520) RSSI: Not connected to any AP[0m
+[0;32mI (8747) wifi:flush txq[0m
+[0;32mI (8747) wifi:stop sw txq[0m
+[0;32mI (8747) wifi:lmac stop hw txq[0m
+STA:STA 
+[0;32mI (8750) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (8750) wifi:enable tsf[0m
+[0;33mW (9520) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (9520) RSSI: Not connected to any AP[0m
+[0;32mI (11259) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (11259) wifi_scan: Total APs scanned = 14, actual AP number ap_info holds = 14[0m
+[0;32mI (11362) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (11368) wifi_scan: [0m
+[0;32mI (11368) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (11368) wifi_scan: BSSID 10:5F:02:75:27:1E[0m
+[0;32mI (11390) DELAY: Bắt đầu đếm 1s...[0m
+[0;32mI (11390) WiFi Sta: Connecting to wifi network, BSSID: 10:5F:02:75:27:1E[0m
+[0;32mI (11392) wifi:flush txq[0m
+[0;32mI (11392) wifi:stop sw txq[0m
+[0;32mI (11394) wifi:lmac stop hw txq[0m
+[0;32mI (11398) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (11400) wifi:enable tsf[0m
+[0;32mI (11404) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (11408) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (11410) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (11420) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (11425) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (11430) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (11438) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (11481) wifi:connected with NamTrung, aid = 19, channel 11, BW20, bssid = 10:5f:02:75:27:1e[0m
+[0;32mI (11481) wifi:security: WPA2-PSK, phy: bgn, rssi: -62[0m
+[0;32mI (11484) wifi:pm start, type: 1[0m
+
+[0;32mI (11486) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (11494) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (11503) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (11520) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (11565) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (11702) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (11702) MQTT: Other event id:7[0m
+[1;31mE (11703) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (11705) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (11711) mqtt_client: Error transport connect[0m
+[0;32mI (11715) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (11718) MQTT: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (11723) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (11728) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (11732) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (12438) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (12438) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (12511) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:27:1e), tid:7, ssn:7, winSize:64[0m
+[0;32mI (12527) esp_netif_handlers: sta ip: 10.10.1.52, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (13448) WiFi: Connected with IP: 10.10.1.52[0m
+[0;32mI (13448) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:27:1E[0m
+[0;32mI (13549) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (13555) NVS: last index: 2[0m
+[0;32mI (13555) NVS: wifi index: 2[0m
+[0;32mI (15549) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (16197) Feedback: diem danh gia: 1[0m
+
+[0;33mW (16197) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[1;31mE (16198) MQTT: Failed to send data[0m
+[0;32mI (16202) MQTT_BACKUP: Saved successfully, key=msg_0, next_id=1[0m
+[0;32mI (17549) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (17709) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (17742) Feedback: diem danh gia: 2[0m
+
+[0;33mW (17742) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[1;31mE (17743) MQTT: Failed to send data[0m
+[0;32mI (17747) MQTT_BACKUP: Saved successfully, key=msg_1, next_id=2[0m
+[0;32mI (19550) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (20788) Feedback: diem danh gia : 4[0m
+
+[0;33mW (20788) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[1;31mE (20788) MQTT: Failed to send data[0m
+[0;32mI (20793) MQTT_BACKUP: Saved successfully, key=msg_2, next_id=3[0m
+[0;32mI (21550) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (21736) MQTT: Other event id:7[0m
+[0;32mI (21781) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:27:1e), tid:0, ssn:1, winSize:64[0m
+[0;32mI (21788) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (21789) MQTT_BACKUP: Triggered MQTT retry task[0m
+[0;32mI (21789) MQTT_BACKUP: Semaphore received, starting MQTT retry process[0m
+[0;32mI (21792) MQTT_BACKUP: Found 3 backup messages to send[0m
+[0;32mI (21797) MQTT_BACKUP: Attempting to send backup: msg_0 -> feedback[0m
+[0;32mI (21803) MQTT_BACKUP: Sent successfully: key=msg_0, msg_id=44549[0m
+[0;32mI (21809) MQTT_BACKUP: Deleted backup: msg_0[0m
+[0;32mI (21824) MQTT: MQTT_EVENT_PUBLISHED, msg_id=44549[0m
+[0;32mI (21912) MQTT_BACKUP: Attempting to send backup: msg_1 -> feedback[0m
+[0;32mI (21913) MQTT_BACKUP: Sent successfully: key=msg_1, msg_id=35373[0m
+[0;32mI (21915) MQTT_BACKUP: Deleted backup: msg_1[0m
+[0;32mI (21924) MQTT: MQTT_EVENT_PUBLISHED, msg_id=35373[0m
+[0;32mI (22017) MQTT_BACKUP: Attempting to send backup: msg_2 -> feedback[0m
+[0;32mI (22018) MQTT_BACKUP: Sent successfully: key=msg_2, msg_id=33268[0m
+[0;32mI (22020) MQTT_BACKUP: Deleted backup: msg_2[0m
+[0;32mI (22038) MQTT: MQTT_EVENT_PUBLISHED, msg_id=33268[0m
+[0;32mI (22122) MQTT_BACKUP: Retry summary: sent=3, failed=0[0m
+[0;32mI (22122) MQTT_BACKUP: All backups sent, resetting key_id[0m
+[0;32mI (22124) MQTT_BACKUP: MQTT Retry Publish finished[0m
+[0;32mI (23592) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (23751) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (23785) Feedback: diem danh gia: 1[0m
+
+[0;32mI (23786) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (25592) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (27592) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (29592) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (29895) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (31592) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (33593) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (34602) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (34602) wifi_scan: Total APs scanned = 13, actual AP number ap_info holds = 13[0m
+[0;32mI (34702) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (34707) wifi_scan: [0m
+[0;32mI (34708) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (34708) wifi_scan: BSSID 10:5F:02:75:27:1E[0m
+[0;32mI (35593) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (35936) wifi:bcn_timeout,ap_probe_send_start[0m
+index:1
+[0;32mI (36138) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (36138) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (36138) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (36141) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (37594) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (39595) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (41656) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (41978) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (43659) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (44667) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44704) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (44705) mqtt_client: Client asked to disconnect[0m
+[0;33mW (44705) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (44708) MQTT_MANAGER: MQTT stopped.[0m
+esp_wifi_disconnect 
+[0;32mI (44713) wifi:state: run -> init (0x0)[0m
+[0;32mI (44718) wifi:pm stop, total sleep time: 20937385 us / 33231873 us[0m
+
+[0;32mI (44723) wifi:<ba-del>idx:1, tid:0[0m
+[0;32mI (44726) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (44729) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (44737) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (44741) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (44911) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (44911) mqtt_client: Client asked to disconnect[0m
+[0;33mW (44911) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (44914) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (45245) DELAY: Đã đủ 1s, thực thi code![0m
+[0;32mI (45245) WiFi Sta: Connecting to wifi network, BSSID: 12:5F:02:15:1E:9A[0m
+[0;32mI (45278) wifi:flush txq[0m
+[0;32mI (45278) wifi:stop sw txq[0m
+[0;32mI (45278) wifi:lmac stop hw txq[0m
+[0;32mI (45279) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (45280) wifi:enable tsf[0m
+[0;32mI (45282) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (45287) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (45291) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (45317) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (45317) mqtt_client: Client asked to disconnect[0m
+[0;33mW (45317) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (45320) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (45660) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (45660) RSSI: Not connected to any AP[0m
+[0;32mI (46305) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (46305) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (47315) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (47315) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (47687) WiFi Sta: STA disconnected, reason=201[0m
+[0;32mI (47687) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;33mW (47706) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (47707) RSSI: Not connected to any AP[0m
+[0;32mI (47723) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (47723) mqtt_client: Client asked to disconnect[0m
+[0;33mW (47723) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (47726) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (48325) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (48325) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (49335) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (49335) WiFi Sta: Retrying to connect to the AP[0m
+[0;33mW (49767) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (49768) RSSI: Not connected to any AP[0m
+[0;32mI (50345) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (50345) WiFi Sta: Failed to connect to SSID:NamTrung, password:nt@14092011[0m
+[0;33mW (51828) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (51829) RSSI: Not connected to any AP[0m
+index:1
+[0;32mI (52373) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (52373) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (52373) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (52375) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;33mW (53829) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (53830) RSSI: Not connected to any AP[0m
+[0;33mW (55830) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (55909) RSSI: Not connected to any AP[0m
+[0;33mW (57932) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (57933) RSSI: Not connected to any AP[0m
+[0;32mI (59858) mqtt_client: Client asked to disconnect[0m
+[0;33mW (59859) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (59885) DELAY: Bắt đầu đếm 1s...[0m
+[0;32mI (59885) WiFi Sta: Connecting to wifi network, BSSID: 12:5F:02:15:1E:9A[0m
+[0;32mI (59900) wifi:flush txq[0m
+[0;32mI (59900) wifi:stop sw txq[0m
+[0;32mI (59900) wifi:lmac stop hw txq[0m
+[0;32mI (59901) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (59901) wifi:enable tsf[0m
+[0;32mI (59904) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (59909) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (59913) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (59929) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (59929) mqtt_client: Client asked to disconnect[0m
+[0;33mW (59929) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (59932) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (59961) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (59961) RSSI: Not connected to any AP[0m
+[0;32mI (60633) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (60633) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (60637) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (60645) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (60688) wifi:connected with Namtrung 2.4G, aid = 28, channel 6, BW20, bssid = 12:5f:02:15:1e:9a[0m
+[0;32mI (60688) wifi:security: WPA2-PSK, phy: bgn, rssi: -50[0m
+[0;32mI (60695) wifi:pm start, type: 1[0m
+
+[0;32mI (60695) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (60702) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:6[0m
+[0;32mI (60735) MQTT_MANAGER: Starting MQTT safely...[0m
+[0;32mI (60735) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (60735) MQTT: Other event id:7[0m
+[1;31mE (60736) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (60740) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (60746) mqtt_client: Error transport connect[0m
+[0;32mI (60750) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (60753) MQTT: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (60758) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (60763) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (60767) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (60773) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (60927) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (60927) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (61725) esp_netif_handlers: sta ip: 10.10.1.52, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (61937) WiFi: Connected with IP: 10.10.1.52[0m
+[0;32mI (61937) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
+[0;32mI (61944) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (61944) WiFi Sta: Saved AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
+[0;32mI (62030) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-52 dBm[0m
+[0;32mI (62100) NVS: last index: 1[0m
+[0;32mI (62100) NVS: wifi index: 1[0m
+[0;32mI (64090) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-52 dBm[0m
+[0;32mI (66091) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (67163) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (67163) wifi_scan: Total APs scanned = 17, actual AP number ap_info holds = 17[0m
+[0;32mI (67289) wifi_scan: [0m
+[0;32mI (67289) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (67289) wifi_scan: BSSID 10:5F:02:75:27:1E[0m
+[0;32mI (68091) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+index:1
+[0;32mI (69569) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (69569) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (69569) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (69572) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (70092) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
+[0;32mI (70771) MQTT: Other event id:7[0m
+[0;32mI (70776) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:1e:9a), tid:7, ssn:8, winSize:64[0m
+[0;32mI (70785) wifi:<ba-add>idx:1 (ifx:0, 12:5f:02:15:1e:9a), tid:0, ssn:1, winSize:64[0m
+[0;32mI (70786) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (70786) MQTT_BACKUP: Semaphore received, starting MQTT retry process[0m
+[0;32mI (70786) MQTT_BACKUP: Triggered MQTT retry task[0m
+[0;32mI (70796) MQTT_BACKUP: No backup messages to send[0m
+[0;32mI (72195) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (74228) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
+[0;32mI (76245) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
+[0;32mI (78046) mqtt_client: Client asked to disconnect[0m
+esp_wifi_disconnect 
+[0;32mI (78073) wifi:state: run -> init (0x0)[0m
+[0;32mI (78074) wifi:pm stop, total sleep time: 9665054 us / 17378695 us[0m
+
+[0;32mI (78074) wifi:<ba-del>idx:1, tid:0[0m
+[0;32mI (78076) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (78080) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (78087) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (78091) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (78135) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (78135) mqtt_client: Client asked to disconnect[0m
+[0;33mW (78135) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (78138) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (78257) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (78258) RSSI: Not connected to any AP[0m
+[0;32mI (78595) DELAY: Đã đủ 1s, thực thi code![0m
+[0;32mI (78595) WiFi Sta: Connecting to wifi network, BSSID: 12:5F:02:15:1E:9A[0m
+[0;32mI (78605) wifi:flush txq[0m
+[0;32mI (78605) wifi:stop sw txq[0m
+[0;32mI (78605) wifi:lmac stop hw txq[0m
+[0;32mI (78606) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (78607) wifi:enable tsf[0m
+[0;32mI (78610) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (78614) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (78618) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (78741) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (78741) mqtt_client: Client asked to disconnect[0m
+[0;33mW (78741) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (78744) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (79632) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (79632) WiFi Sta: Retrying to connect to the AP[0m
+[0;33mW (80294) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (80295) RSSI: Not connected to any AP[0m
+[0;32mI (80642) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (80642) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (81015) WiFi Sta: STA disconnected, reason=201[0m
+[0;32mI (81015) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (81147) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (81147) mqtt_client: Client asked to disconnect[0m
+[0;33mW (81147) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (81150) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (81652) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (81652) WiFi Sta: Retrying to connect to the AP[0m
+[0;33mW (82355) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (82356) RSSI: Not connected to any AP[0m
+[0;32mI (82662) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (82662) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (83672) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (83672) WiFi Sta: Failed to connect to SSID:NamTrung, password:nt@14092011[0m
+[0;33mW (84417) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (84418) RSSI: Not connected to any AP[0m
+[0;33mW (86418) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (86419) RSSI: Not connected to any AP[0m
+index:1
+[0;32mI (86725) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (86725) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (86725) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (86727) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;33mW (88419) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (88420) RSSI: Not connected to any AP[0m
+[0;33mW (90420) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (90480) RSSI: Not connected to any AP[0m
+[0;33mW (92500) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (92501) RSSI: Not connected to any AP[0m
+[0;33mW (94501) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (94546) RSSI: Not connected to any AP[0m
+[0;32mI (95375) mqtt_client: Client asked to disconnect[0m
+[0;33mW (95376) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (95402) DELAY: Bắt đầu đếm 1s...[0m
+[0;32mI (95402) WiFi Sta: Connecting to wifi network, BSSID: 12:5F:02:15:1E:9A[0m
+[0;32mI (95413) wifi:flush txq[0m
+[0;32mI (95413) wifi:stop sw txq[0m
+[0;32mI (95413) wifi:lmac stop hw txq[0m
+[0;32mI (95414) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (95414) wifi:enable tsf[0m
+[0;32mI (95417) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (95422) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (95427) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (95433) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (95437) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (95440) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (95455) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (95497) wifi:connected with Namtrung 2.4G, aid = 28, channel 6, BW20, bssid = 12:5f:02:15:1e:9a[0m
+[0;32mI (95497) wifi:security: WPA2-PSK, phy: bgn, rssi: -49[0m
+[0;32mI (95501) wifi:pm start, type: 1[0m
+
+[0;32mI (95502) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (95511) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:6[0m
+[0;32mI (95553) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (95553) mqtt_client: Client asked to disconnect[0m
+[0;33mW (95553) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (95556) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (95560) MQTT_MANAGER: Starting MQTT safely...[0m
+[0;32mI (95564) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (95565) MQTT: Other event id:7[0m
+[1;31mE (95571) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (95576) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (95581) mqtt_client: Error transport connect[0m
+[0;32mI (95586) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (95589) MQTT: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (95589) wifi:I (95594) MQTT: Last tls stack error number: 0x0[0m
+AP's beacon interval = 102400 us, DTIM period = 1I (95600) MQTT: Last captured errno : 0 (Success)
+
+[0;32mI (95608) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (96455) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (96455) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (96517) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:1e:9a), tid:7, ssn:7, winSize:64[0m
+[0;32mI (96529) esp_netif_handlers: sta ip: 10.10.1.52, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (96564) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (97465) WiFi: Connected with IP: 10.10.1.52[0m
+[0;32mI (97465) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
+[0;32mI (97468) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (97472) WiFi Sta: Saved AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
+[0;32mI (97617) NVS: last index: 1[0m
+[0;32mI (97617) NVS: wifi index: 1[0m
+[0;32mI (98614) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-52 dBm[0m
+[0;32mI (100615) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-51 dBm[0m
+[0;32mI (102615) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
+[0;32mI (104616) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
+[0;32mI (105612) MQTT: Other event id:7[0m
+[0;32mI (105640) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (105640) MQTT_BACKUP: Triggered MQTT retry task[0m
+[0;32mI (105640) MQTT_BACKUP: Semaphore received, starting MQTT retry process[0m
+[0;32mI (105643) MQTT_BACKUP: No backup messages to send[0m
+[0;32mI (105646) wifi:<ba-add>idx:1 (ifx:0, 12:5f:02:15:1e:9a), tid:0, ssn:3, winSize:64[0m
+[0;32mI (106616) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (108617) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
+[0;32mI (110618) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (112619) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (114620) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-51 dBm[0m
+[0;32mI (116621) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (118622) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (120623) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
+[0;32mI (122624) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
+[0;32mI (124624) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (126625) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (128626) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (130627) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (132627) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (134628) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (136629) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (138630) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (140630) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (142631) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (144632) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (146632) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (148633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (150633) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (152634) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (154634) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
+[0;32mI (156635) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (158636) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
+[0;32mI (160637) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (162637) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (164638) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (166639) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (168640) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (170641) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (172642) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (174643) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (176644) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (178645) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (180645) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (182646) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (184647) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (186648) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (188648) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (190649) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (192650) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (194651) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (196652) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (198652) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (200653) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (202653) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (204654) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-49 dBm[0m
+[0;32mI (206654) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (208655) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (210655) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (212656) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (214656) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (216657) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (218658) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (220659) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (222660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (224661) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (226662) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (228662) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (230663) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (232663) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (234664) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (236665) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (238666) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (240667) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (242668) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (244669) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (246670) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (248671) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (250672) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (252673) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (254673) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (256674) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (258674) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (260675) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (262676) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (264677) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (266678) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (268679) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (270680) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (272681) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (274682) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (276682) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (278683) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (280683) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (282684) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (284684) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (286685) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (288686) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (290687) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (292687) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (294688) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (296689) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (298690) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (300691) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (302691) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (304692) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (306692) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (308693) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (310693) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (312694) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (314694) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (316695) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (318695) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (320696) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (322697) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (324698) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (326699) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (328700) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (330701) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (332701) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (334702) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (336702) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (338703) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (340704) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (342705) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (344705) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (346706) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (348707) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (350708) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (352708) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (354709) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (356710) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (358710) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (360711) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
+[0;32mI (362711) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (364712) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (366712) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (368712) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (370712) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (372713) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (374714) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (376715) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (378715) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (380716) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (382717) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (384717) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (386717) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
+[0;32mI (388717) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (390718) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (392718) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (394719) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (396719) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (398720) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (400720) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (402721) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (404722) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (406723) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (408724) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (410724) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (412724) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (414724) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (416725) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (418725) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (420726) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (422726) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (424727) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (426727) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (428728) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (430728) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (432729) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (434730) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (436731) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (438732) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (440732) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (442733) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (444733) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (446734) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (448735) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-44 dBm[0m
+[0;32mI (450736) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (452736) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (454737) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m
+[0;32mI (456737) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-46 dBm[0m
+[0;32mI (458738) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-45 dBm[0m

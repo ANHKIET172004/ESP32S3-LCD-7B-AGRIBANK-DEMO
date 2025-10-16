@@ -3,8 +3,9 @@
 #include "nvs.h"
 #include "esp_wifi_types.h"
 #include "mqtt_client.h"
+#include "lvgl_port.h"
 
-
+extern void trigger_mqtt_retry();
 
 static esp_netif_t *sta_netif;
 
@@ -34,6 +35,26 @@ extern void wifi_update_list_cb(lv_timer_t * timer) ;
 
 extern void mqtt_start(void);
 extern esp_mqtt_client_handle_t mqttClient;
+
+extern lv_obj_t * ui_Image38;
+
+ extern bool rssi_task_running;
+
+
+extern  void start_rssi_task(void);
+extern void stop_rssi_task(void);
+extern bool is_rssi_task_running(void);
+
+extern esp_err_t mqtt_retry_task_init(void);
+
+ bool wifi_connected = false;
+ bool wifi_need_mqtt_start = false;
+ bool wifi_need_mqtt_stop = false;
+
+ static uint32_t last_time = 0;
+static bool is_waiting = false;
+
+
 
 
 //////////////// lưu ssid,pass và bssid
@@ -72,18 +93,20 @@ void save_wifi_credentials(const char *ssid, const char *password, const uint8_t
     if (memcmp(bssid, old_bssid, 6) != 0) {
         bssid_update = true;
     }
-/*
+
     if (!ssid_update&&!pass_update&&!bssid_update) {
-        ESP_LOGI(TAG_STA, "Wi-Fi credentials unchanged → skip saving");
+        ESP_LOGI(TAG_STA, "Wi-Fi credentials unchanged, skip saving");
         nvs_close(nvs_handle);
         return;
     }
     
-   nvs_erase_key(nvs_handle, "ssid");
+    /*
+    nvs_erase_key(nvs_handle, "ssid");
     nvs_erase_key(nvs_handle, "password");
     nvs_erase_key(nvs_handle, "bssid");
-    ESP_LOGI(TAG_STA, "Updating Wi-Fi credentials in NVS...");
     */
+    ESP_LOGI(TAG_STA, "Updating Wi-Fi credentials in NVS...");
+    
 
     nvs_set_str(nvs_handle, "ssid", ssid);
     nvs_set_str(nvs_handle, "password", password);
@@ -170,6 +193,7 @@ static void wifi_ok_cb(lv_timer_t * timer)
             wifi_last_Button = WIFI_List_Button;  // Update the last Wi-Fi button object
 
             //update_main_screen_wifi_status();//
+            
 
 
 
@@ -254,13 +278,50 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
         ESP_LOGI(TAG_STA, "STA disconnected, reason=%d", event->reason);
         ESP_LOGI(TAG_STA, "WIFI STA_DISCONNECTED.");
        
-        
+      /*
         if (mqttClient) {
             esp_mqtt_client_stop(mqttClient);
         }
+
+        if (!user_selected_wifi){
+            esp_wifi_connect() ;
+        }
+            */
+
+            wifi_connected = false;
+            wifi_need_mqtt_stop = true;  
             
+            
+            
+         //  esp_mqtt_client_stop(mqttClient);
+     //    esp_mqtt_client_disconnect(mqttClient);
+
+  //          stop_rssi_task();
+          
+       //    esp_mqtt_client_stop(mqttClient);
+       
+       /*
+
+        if (lvgl_port_lock(-1)) {
+                lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN);
+                
+                lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN);
+                
+                lvgl_port_unlock();
+            }
+                */
+
+            
+
+
+
         lv_timer_t *t = lv_timer_create(wif_disconnected_cb, 100, NULL); // Create a timer to handle disconnection
         lv_timer_set_repeat_count(t, 1);  // Run the callback once
+        //vTaskDelay(pdMS_TO_TICKS(1000));//
         
 
         
@@ -278,15 +339,47 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
         }
 
 
-         else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_CONNECTED) {
+        else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_CONNECTED) {
         wifi_event_sta_connected_t *event = (wifi_event_sta_connected_t *) event_data;
         ESP_LOGI(TAG_STA, "Connected to SSID:%s, channel:%d", event->ssid, event->channel);
-        
+
+        /*
+       
          if (mqttClient) {
             esp_mqtt_client_start(mqttClient); 
+
         } else {
             mqtt_start(); 
+   
         }
+*/
+       //   wifi_connected = true;
+       //   wifi_need_mqtt_start = true;  
+            
+           //esp_mqtt_client_reconnect(mqttClient);
+           
+        
+         
+        
+       //esp_mqtt_client_start(mqttClient); 
+      // mqtt_retry_task_init();
+      // start_rssi_task();
+        /*
+
+        if (lvgl_port_lock(-1)) {
+                //lv_obj_add_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN);
+                
+                lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN);
+                
+                lvgl_port_unlock();
+            }
+                
+               */ 
+
             
 
     }
@@ -319,6 +412,7 @@ void start_wifi_events() {
     printf("Wi-Fi event handler registered.\n");
 }
 
+/*
 void wifi_wait_connect()
 {
     static int s_retry_num = 0;  // Counter to track the number of connection retries
@@ -357,12 +451,11 @@ void wifi_wait_connect()
                 // If the IP is valid, call the Wi-Fi success callback and update the UI
                 lv_timer_t *t = lv_timer_create(wifi_ok_cb, 100, NULL);  // Update UI every 100ms
                 lv_timer_set_repeat_count(t, 1);
-                 start_api=1;//
+                 //start_api=1;//
                 // Log the obtained IP address and indicate successful connection
                 ESP_LOGI("WiFi", "Connected with IP: " IPSTR, IP2STR(&ip_info.ip));
                 ESP_LOGI(TAG_STA, "Connected to AP SSID:%s, password:%s, bssid:%s", sta_config.sta.ssid, sta_config.sta.password,(uint8_t*)ap_info_bssid);
                 connection_flag = true;  // Set the connection flag to true
-               // mqtt_start();//
                 _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
                 if ((cnt==1)&&(reconnect==0)){// chip khởi động lại hoặc switch wifi on
                     reconnect=1;// đánh dấu đã reconnect thành công
@@ -381,16 +474,18 @@ void wifi_wait_connect()
                 memset(sta_config.sta.ssid, 0, sizeof(sta_config.sta.ssid));
                 memset(sta_config.sta.password, 0, sizeof(sta_config.sta.password));
                 memset(sta_config.sta.bssid, 0, sizeof(sta_config.sta.bssid));
+                //start_rssi_task();//
                 break;  // Exit the loop since the connection is successful
             } else {
                 // Log the failure to connect or obtain an IP address
                 ESP_LOGI(TAG_STA, "Failed to connect to the AP");
 
                 // Retry connection if the retry counter is less than 5
-                if (s_retry_num < 7)
+                if (s_retry_num < 5)
                 {
                     s_retry_num++;
                     ESP_LOGI(TAG_STA, "Retrying to connect to the AP");
+                    //esp_mqtt_client_stop(mqttClient);//
                 }
                 else {
                     // Reset retry counter after 5 attempts and log the failure
@@ -403,6 +498,7 @@ void wifi_wait_connect()
                         memset(sta_config.sta.ssid, 0, sizeof(sta_config.sta.ssid));
                         memset(sta_config.sta.password, 0, sizeof(sta_config.sta.password));
                         memset(sta_config.sta.bssid, 0, sizeof(sta_config.sta.bssid));
+                        //start_rssi_task();//
 
                      
 
@@ -425,6 +521,7 @@ void wifi_wait_connect()
             memset(sta_config.sta.ssid, 0, sizeof(sta_config.sta.ssid));
             memset(sta_config.sta.password, 0, sizeof(sta_config.sta.password));
             memset(sta_config.sta.bssid, 0, sizeof(sta_config.sta.bssid));
+            //start_rssi_task();//
         }
 
         // Short delay (10ms) before checking the connection status again
@@ -432,25 +529,119 @@ void wifi_wait_connect()
     }
 }
 
+*/
+
+void wifi_wait_connect()
+{
+    static int s_retry_num = 0;
+    wifi_config_t sta_config;
+    
+    ESP_ERROR_CHECK(esp_wifi_get_config(WIFI_IF_STA, &sta_config));
+    ESP_LOGI(TAG_STA, "GET: SSID:%s, password:%s", sta_config.sta.ssid, sta_config.sta.password);
+
+    uint32_t wait_time = 0;
+    uint32_t max_wait = 10000; 
+    
+    while (wait_time < max_wait)
+    {
+        esp_netif_t *netif = esp_netif_get_handle_from_ifkey("WIFI_STA_DEF");
+        if (netif)
+        {
+            esp_err_t ret = esp_netif_get_ip_info(netif, &ip_info);
+            if (ret == ESP_OK && ip_info.ip.addr != 0) {
+                
+                char ap_info_bssid[18];
+                wifi_ap_record_t ap_info;
+                esp_err_t err = esp_wifi_sta_get_ap_info(&ap_info);
+                if (err == ESP_OK) {
+                    snprintf(ap_info_bssid, sizeof(ap_info_bssid), 
+                             "%02X:%02X:%02X:%02X:%02X:%02X",
+                             ap_info.bssid[0], ap_info.bssid[1], ap_info.bssid[2],
+                             ap_info.bssid[3], ap_info.bssid[4], ap_info.bssid[5]);
+                }
+                
+                lv_timer_t *t = lv_timer_create(wifi_ok_cb, 100, NULL);
+                lv_timer_set_repeat_count(t, 1);
+                
+                ESP_LOGI("WiFi", "Connected with IP: " IPSTR, IP2STR(&ip_info.ip));
+                ESP_LOGI(TAG_STA, "Connected to AP SSID:%s, password:%s, bssid:%s", 
+                         sta_config.sta.ssid, sta_config.sta.password, (uint8_t*)ap_info_bssid);
+                
+                connection_flag = true;
+                wifi_connected = true;//
+                wifi_need_mqtt_start = true;//  
+                _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+                
+                if ((cnt == 1) && (reconnect == 0)) {
+                    reconnect = 1;
+                }
+                
+                if (user_selected_wifi) {
+                    user_selected_wifi = false;
+                    save_wifi_credentials((char*)sta_config.sta.ssid, 
+                                         (char*)sta_config.sta.password, ap_info.bssid);
+                    ESP_LOGI(TAG_STA, "Saved AP SSID:%s, password:%s, bssid:%s",
+                             sta_config.sta.ssid, sta_config.sta.password, (uint8_t*)ap_info_bssid);
+                }
+                
+                s_retry_num = 0;
+
+                
+                break;  //
+            }
+        }
+        
+       vTaskDelay(pdMS_TO_TICKS(500));
+        wait_time += 500;
+    }
+    
+   if (wait_time >= max_wait) {
+        ESP_LOGI(TAG_STA, "Failed to connect to SSID:%s after %lu ms", 
+                 sta_config.sta.ssid, max_wait);
+        
+        lv_timer_t *t = lv_timer_create(wifi_ok_cb, 100, NULL);
+        lv_timer_set_repeat_count(t, 1);
+        
+        connection_flag = false;
+        
+        if (user_selected_wifi) {
+            user_selected_wifi = false;
+        }
+        
+
+    }
+        
+}
 
 void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode,  const uint8_t *bssid)
 {   
-
+       
+     
+    
+    // rssi_task_running=false;
+    
+    /*
      if (mqttClient) {
             esp_mqtt_client_stop(mqttClient);
             ESP_LOGI("MQTT", "MQTT stopped before Wi-Fi reconnect");
 
         }
-
+            */
+            
+  // esp_mqtt_client_disconnect(mqttClient);
 
 
     if (connection_flag)  // Check if already connected
     {
         printf("esp_wifi_disconnect \r\n");  // Log disconnection
         esp_wifi_disconnect();  // Disconnect from the current WiFi
+        vTaskDelay(pdMS_TO_TICKS(500));//
         connection_flag = false;  // Reset connection flag
+        wifi_need_mqtt_stop=true;//
 
     }
+
+
 
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));//
 
@@ -468,8 +659,8 @@ void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode,  cons
     strcpy((char *)wifi_config.sta.password, (const char *)pwd);
 
     memcpy(wifi_config.sta.bssid, bssid, 6); 
-   // wifi_config.sta.bssid_set = true;  
-   wifi_config.sta.bssid_set = false;  
+    wifi_config.sta.bssid_set = true;  
+    //wifi_config.sta.bssid_set = false;  
         
         
     ESP_LOGI(TAG_STA, "Connecting to wifi network, BSSID: %02X:%02X:%02X:%02X:%02X:%02X",
@@ -477,16 +668,12 @@ void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode,  cons
                 bssid[3],bssid[4], bssid[5]);
 
 
-        
-
-  
-   // wifi_config.sta.bssid_set = true; 
-
     // Set WiFi configuration
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
     esp_wifi_stop();  // Stop WiFi module
 
     esp_wifi_start(); // Start WiFi with the new configuration
+    //start_rssi_task();//
     ESP_ERROR_CHECK(esp_wifi_connect());  // Attempt to connect to the WiFi
     wifi_wait_connect();  // Wait for the connection to establish
     //是否需要阻塞，会有部分wifi无法连接上
@@ -560,7 +747,7 @@ void wifi_close_sta()
         {
             WIFI_CONNECTION = -1;
             wifi_last_index = -1;
-            // stop_wifi_events();  // Optional: Stop WiFi events if implemented
+            //stop_wifi_events();  // Optional: Stop WiFi events if implemented//
             esp_wifi_disconnect();  // Disconnect from WiFi
             ESP_ERROR_CHECK(esp_wifi_stop());  // Stop WiFi
             ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_AP));  // Set mode to AP only
@@ -583,4 +770,43 @@ void wifi_set_default_netif()
 {
     /* Set sta as the default interface */
     esp_netif_set_default_netif(sta_netif);  // Set the STA network interface as the default
+}
+
+
+void wifi_mqtt_manager_task(void *pv)
+{
+    while (1)
+    {
+        // Nếu có lệnh stop
+        if (wifi_need_mqtt_stop)
+        {
+            wifi_need_mqtt_stop = false;
+            if (mqttClient)
+            {
+                ESP_LOGI("MQTT_MANAGER", "Stopping MQTT safely...");
+                esp_mqtt_client_disconnect(mqttClient);//
+                esp_mqtt_client_stop(mqttClient);
+                ESP_LOGI("MQTT_MANAGER", "MQTT stopped.");
+            }
+        }
+
+        // Nếu có lệnh start
+        if (wifi_need_mqtt_start)
+        {
+            wifi_need_mqtt_start = false;
+            if (mqttClient)
+            {
+                ESP_LOGI("MQTT_MANAGER", "Starting MQTT safely...");
+                esp_mqtt_client_start(mqttClient);
+                ESP_LOGI("MQTT_MANAGER", "MQTT started.");
+            }
+            else
+            {
+                ESP_LOGI("MQTT_MANAGER", "No existing client, creating new one...");
+                mqtt_start();  // dùng hàm của bạn
+            }
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(200)); // tránh chiếm CPU
+    }
 }

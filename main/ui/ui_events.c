@@ -14,6 +14,10 @@
 #include "nvs.h"
 #include <string.h>
 #include "esp_log.h" // Thêm thư viện log
+#include "mqtt_client.h"
+
+extern esp_mqtt_client_handle_t mqttClient;
+
 
 //static const char *TAG = "RECONNECT";
 
@@ -119,6 +123,7 @@ void WIFIConnection(lv_event_t * e)
     wifi_pwd = (uint8_t *)lv_textarea_get_text(ui_WIFI_INPUT_PWD);
     
     // Set the WiFi STA flag to true, indicating an active connection attempt
+    esp_mqtt_client_stop(mqttClient);//
     WIFI_STA_FLAG = true;
 }
 

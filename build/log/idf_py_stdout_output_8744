@@ -1,0 +1,1533 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=c40c4h (803012) map[0m
+[0;32mI (210) esp_image: segment 1: paddr=000d40ec vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (215) esp_image: segment 2: paddr=000d9894 vaddr=40374000 size=06784h ( 26500) load[0m
+[0;32mI (220) esp_image: segment 3: paddr=000e0020 vaddr=42000020 size=dc108h (901384) map[0m
+[0;32mI (356) esp_image: segment 4: paddr=001bc130 vaddr=4037a784 size=1742ch ( 95276) load[0m
+[0;32mI (374) esp_image: segment 5: paddr=001d3564 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (386) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (386) boot: Disabling RNG early entropy source...[0m
+[0;33mW (396) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (396) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (403) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (411) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (415) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (419) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (424) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (428) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (433) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (437) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (441) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (446) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (451) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (455) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (461) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (472) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (472) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (473) esp_psram: Speed: 120MHz[0m
+[0;32mI (510) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (556) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (557) cpu_start: Multicore app[0m
+[0;32mI (719) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (727) cpu_start: Pro cpu start user code[0m
+[0;32mI (727) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (727) app_init: Application information:[0m
+[0;32mI (727) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (731) app_init: App version:      43fcfab-dirty[0m
+[0;32mI (736) app_init: Compile time:     Oct 11 2025 10:32:00[0m
+[0;32mI (741) app_init: ELF file SHA256:  71b8945e1...[0m
+[0;32mI (745) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (749) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (753) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (757) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (761) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (767) heap_init: At 3FCAC7A0 len 0003CF70 (243 KiB): RAM[0m
+[0;32mI (772) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (777) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (783) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (788) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
+[0;32mI (794) esp_psram: Adding pool of 47K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (806) spi_flash: detected chip: generic[0m
+[0;32mI (809) spi_flash: flash io: qio[0m
+[0;32mI (812) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (819) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (825) coexist: coex firmware version: 831ec70[0m
+[0;32mI (838) coexist: coexist rom version e7ae62f[0m
+[0;32mI (838) main_task: Started on CPU0[0m
+[0;32mI (839) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (844) main_task: Calling app_main()[0m
+[0;33mW (857) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1263) GT911: Initialize I2C panel IO[0m
+[0;32mI (1263) GT911: Initialize touch controller GT911[0m
+[0;33mW (1263) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1265) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1268) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1272) example: Install RGB LCD panel driver[0m
+[0;32mI (1312) example: Initialize RGB LCD panel[0m
+[0;32mI (1314) lv_port: Create LVGL task[0m
+[0;32mI (1341) main: Display LVGL demos[0m
+[0;32mI (1500) pp: pp rom version: e7ae62f[0m
+[0;32mI (1500) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1501) RSSI: Not connected to any AP[0m
+[0;32mI (1501) MQTT_BACKUP: MQTT Retry Publish Task started[0m
+[0;32mI (1502) wifi:wifi driver task: 3fccd6a0, prio:23, stack:6656, core=0[0m
+[0;32mI (1518) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1518) wifi:wifi certification version: v7.0[0m
+[0;32mI (1519) wifi:config NVS flash: enabled[0m
+[0;32mI (1523) wifi:config nano formatting: disabled[0m
+[0;32mI (1527) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1532) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1536) wifi:Init management short buffer num: 32[0m
+[0;32mI (1541) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1546) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1549) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1554) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1557) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1561) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1566) wifi_init: rx ba win: 16[0m
+[0;32mI (1568) wifi_init: accept mbox: 6[0m
+[0;32mI (1571) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1574) wifi_init: udp mbox: 6[0m
+[0;32mI (1577) wifi_init: tcp mbox: 6[0m
+[0;32mI (1580) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1583) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1586) wifi_init: tcp mss: 1440[0m
+[0;32mI (1589) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1593) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1597) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1501) main_task: Returned from app_main()[0m
+Wi-Fi event handler registered.
+[0;32mI (1608) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1645) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1677) wifi:mode : null[0m
+[0;33mW (3519) RSSI: Not connected to any AP[0m
+[0;32mI (4860) wifi:flush txq[0m
+[0;32mI (4860) wifi:stop sw txq[0m
+[0;32mI (4860) wifi:lmac stop hw txq[0m
+STA:STA 
+[0;32mI (4863) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (4863) wifi:enable tsf[0m
+[0;33mW (5519) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (5522) RSSI: Not connected to any AP[0m
+[0;32mI (7373) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (7373) wifi_scan: Total APs scanned = 14, actual AP number ap_info holds = 14[0m
+[0;32mI (7473) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (7480) wifi_scan: [0m
+[0;32mI (7480) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (7480) wifi_scan: BSSID 10:5F:02:75:27:1E[0m
+[0;32mI (7504) DELAY: Bắt đầu đếm 1s...[0m
+[0;32mI (7504) WiFi Sta: Connecting to wifi network, BSSID: 10:5F:02:75:27:1E[0m
+[0;32mI (7506) wifi:flush txq[0m
+[0;32mI (7506) wifi:stop sw txq[0m
+[0;32mI (7507) wifi:lmac stop hw txq[0m
+[0;32mI (7511) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (7514) wifi:enable tsf[0m
+[0;32mI (7518) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (7525) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (7529) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (7539) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (7549) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (7569) wifi:connected with NamTrung, aid = 19, channel 11, BW20, bssid = 10:5f:02:75:27:1e[0m
+[0;32mI (7570) wifi:security: WPA2-PSK, phy: bgn, rssi: -64[0m
+[0;32mI (7572) wifi:pm start, type: 1[0m
+
+[0;32mI (7574) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (7582) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (7591) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (7594) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (7591) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (7701) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (7701) MQTT: Other event id:7[0m
+[1;31mE (7702) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (7704) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (7709) mqtt_client: Error transport connect[0m
+[0;32mI (7713) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (7716) MQTT: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (7722) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (7726) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (7730) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (8624) esp_netif_handlers: sta ip: 10.10.1.52, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (8629) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:27:1e), tid:7, ssn:10, winSize:64[0m
+[0;32mI (9022) WiFi: Connected with IP: 10.10.1.52[0m
+[0;32mI (9022) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:27:1E[0m
+[0;32mI (9128) NVS: last index: 3[0m
+[0;32mI (9128) NVS: wifi index: 3[0m
+[0;32mI (9662) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (11662) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (13534) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (13663) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (15663) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (17664) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (17734) MQTT: Other event id:7[0m
+[0;32mI (17771) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (17771) MQTT_BACKUP: Triggered MQTT retry task[0m
+[0;32mI (17772) MQTT_BACKUP: Semaphore received, starting MQTT retry process[0m
+[0;32mI (17774) MQTT_BACKUP: No backup messages to send[0m
+[0;32mI (17779) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:27:1e), tid:0, ssn:4, winSize:64[0m
+[0;32mI (19575) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (19664) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (21665) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (23666) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (25666) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (25822) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (27667) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-65 dBm[0m
+[0;32mI (29667) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-65 dBm[0m
+[0;32mI (31668) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-65 dBm[0m
+[0;32mI (31863) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (33668) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (35669) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (37670) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (38519) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (39671) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (41671) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (43672) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (44561) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (45673) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (47674) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (49674) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-66 dBm[0m
+[0;32mI (50706) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (51674) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (53675) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (55676) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (56747) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (57677) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-65 dBm[0m
+[0;32mI (59677) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-65 dBm[0m
+[0;32mI (61678) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-65 dBm[0m
+[0;32mI (62788) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (63678) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (65679) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (67679) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (68830) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (69680) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (71681) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (73682) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-64 dBm[0m
+[0;32mI (74974) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (75683) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (77684) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (79685) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (81323) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (81685) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (83686) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (85686) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (87467) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (87687) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (89687) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (91688) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (93508) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (93688) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (95689) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (97690) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-63 dBm[0m
+[0;32mI (99653) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (99691) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (101691) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (103692) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (105693) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-62 dBm[0m
+[0;32mI (106002) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (107693) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-58 dBm[0m
+[0;32mI (109694) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-58 dBm[0m
+[0;32mI (111695) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-58 dBm[0m
+[0;32mI (112044) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (113696) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-61 dBm[0m
+[0;32mI (115696) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-61 dBm[0m
+index:1
+[0;32mI (116400) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (116400) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (116400) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (116403) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (117697) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-61 dBm[0m
+[0;32mI (118189) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (119697) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (121781) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (123824) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:27:1E, RSSI:-67 dBm[0m
+[0;32mI (123921) mqtt_client: Client asked to disconnect[0m
+esp_wifi_disconnect 
+[0;32mI (123966) wifi:state: run -> init (0x0)[0m
+[0;32mI (123967) wifi:pm stop, total sleep time: 82787672 us / 116392615 us[0m
+
+[0;32mI (123967) wifi:<ba-del>idx:1, tid:0[0m
+[0;32mI (123970) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (123973) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (123981) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (123985) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (124101) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (124101) mqtt_client: Client asked to disconnect[0m
+[0;33mW (124101) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (124104) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (124489) DELAY: Đã đủ 1s, thực thi code![0m
+[0;32mI (124489) WiFi Sta: Connecting to wifi network, BSSID: 12:5F:02:15:1E:9A[0m
+[0;32mI (124502) wifi:flush txq[0m
+[0;32mI (124502) wifi:stop sw txq[0m
+[0;32mI (124502) wifi:lmac stop hw txq[0m
+[0;32mI (124503) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (124503) wifi:enable tsf[0m
+[0;32mI (124506) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (124508) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (124515) mqtt_client: Client asked to disconnect[0m
+[0;33mW (124520) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (124526) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (124599) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (124599) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (124612) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (124622) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (124634) wifi:connected with Namtrung 2.4G, aid = 18, channel 6, BW20, bssid = 12:5f:02:15:1e:9a[0m
+[0;32mI (124635) wifi:security: WPA2-PSK, phy: bgn, rssi: -57[0m
+[0;32mI (124638) wifi:pm start, type: 1[0m
+
+[0;32mI (124640) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (124649) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:6[0m
+[0;32mI (124700) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (124729) MQTT_MANAGER: Starting MQTT safely...[0m
+[0;32mI (124729) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (124729) MQTT: Other event id:7[0m
+[1;31mE (124730) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (124734) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (124740) mqtt_client: Error transport connect[0m
+[0;32mI (124744) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (124747) MQTT: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (124753) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (124757) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (124762) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (125671) esp_netif_handlers: sta ip: 10.10.1.52, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (125852) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
+[0;32mI (126011) WiFi: Connected with IP: 10.10.1.52[0m
+[0;32mI (126011) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
+[0;32mI (126018) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (126019) WiFi Sta: Saved AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
+[0;32mI (126116) NVS: last index: 3[0m
+[0;32mI (126116) NVS: wifi index: 1[0m
+[0;32mI (127877) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-59 dBm[0m
+[0;32mI (129877) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-59 dBm[0m
+[0;32mI (130619) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (130619) wifi_scan: Total APs scanned = 20, actual AP number ap_info holds = 20[0m
+[0;32mI (130768) wifi_scan: [0m
+[0;32mI (130768) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (130769) wifi_scan: BSSID 10:5F:02:75:27:1E[0m
+[0;32mI (131877) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-58 dBm[0m
+[0;32mI (133877) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-58 dBm[0m
+[0;32mI (134766) MQTT: Other event id:7[0m
+[0;32mI (134856) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:1e:9a), tid:7, ssn:8, winSize:64[0m
+[0;32mI (134865) wifi:<ba-add>idx:1 (ifx:0, 12:5f:02:15:1e:9a), tid:0, ssn:1, winSize:64[0m
+[0;32mI (134870) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (134870) MQTT_BACKUP: Triggered MQTT retry task[0m
+[0;32mI (134870) MQTT_BACKUP: Semaphore received, starting MQTT retry process[0m
+[0;32mI (134875) MQTT_BACKUP: No backup messages to send[0m
+[0;32mI (134930) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (134930) wifi_scan: Total APs scanned = 17, actual AP number ap_info holds = 17[0m
+[0;32mI (135033) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (135037) wifi_scan: [0m
+[0;32mI (135037) wifi_scan: Found saved wifi network in scan list, ssid: Namtrung 2.4G[0m
+[0;32mI (135037) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (135877) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
+[0;32mI (136703) Feedback: diem danh gia: 2[0m
+
+[0;32mI (136704) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (137878) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-58 dBm[0m
+[0;32mI (139514) Feedback: diem danh gia: 1[0m
+
+[0;32mI (139515) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (139879) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
+[0;32mI (141879) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
+[0;32mI (143881) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-58 dBm[0m
+[0;32mI (145510) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (145510) wifi_scan: Total APs scanned = 17, actual AP number ap_info holds = 17[0m
+[0;32mI (145623) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (145627) wifi_scan: [0m
+[0;32mI (145627) wifi_scan: Found saved wifi network in scan list, ssid: Namtrung 2.4G[0m
+[0;32mI (145627) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (145892) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-58 dBm[0m
+index:2
+[0;32mI (146703) wifi_scan: BSSID 10:5F:02:75:27:1E[0m
+[0;32mI (146703) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (146703) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (146706) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+index:3
+[0;32mI (147320) wifi_scan: BSSID 12:5F:02:15:27:1E[0m
+[0;32mI (147320) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (147320) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (147323) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (147892) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
+[0;32mI (149897) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
+[0;32mI (151088) Feedback: diem danh gia: 1[0m
+
+[0;32mI (151089) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (151898) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
+[0;32mI (153898) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
+[0;32mI (155898) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-58 dBm[0m
+[0;32mI (157141) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (157141) wifi_scan: Total APs scanned = 21, actual AP number ap_info holds = 20[0m
+[0;32mI (157244) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (157246) wifi_scan: [0m
+[0;32mI (157246) wifi_scan: Found saved wifi network in scan list, ssid: Namtrung 2.4G[0m
+[0;32mI (157247) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (157906) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-59 dBm[0m
+index:3
+[0;32mI (158130) wifi_scan: BSSID 12:5F:02:15:27:1E[0m
+[0;32mI (158130) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (158130) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (158133) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (159909) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-59 dBm[0m
+[0;32mI (161930) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-58 dBm[0m
+[0;32mI (164032) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-59 dBm[0m
+[0;32mI (165881) mqtt_client: Client asked to disconnect[0m
+esp_wifi_disconnect 
+[0;32mI (165921) wifi:state: run -> init (0x0)[0m
+[0;32mI (165922) wifi:pm stop, total sleep time: 18604991 us / 41281868 us[0m
+
+[0;32mI (165922) wifi:<ba-del>idx:1, tid:0[0m
+[0;32mI (165925) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (165928) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (165929) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (165936) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (165940) mqtt_client: Client asked to disconnect[0m
+[0;32mI (165944) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;33mW (165949) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (165958) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (166092) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (166093) RSSI: Not connected to any AP[0m
+[0;32mI (166162) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (166162) mqtt_client: Client asked to disconnect[0m
+[0;33mW (166162) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (166165) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (166436) DELAY: Bắt đầu đếm 1s...[0m
+[0;32mI (166436) WiFi Sta: Connecting to wifi network, BSSID: 12:5F:02:15:27:1E[0m
+[0;32mI (166447) wifi:flush txq[0m
+[0;32mI (166447) wifi:stop sw txq[0m
+[0;32mI (166447) wifi:lmac stop hw txq[0m
+[0;32mI (166448) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (166449) wifi:enable tsf[0m
+[0;32mI (166452) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (166569) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (166569) mqtt_client: Client asked to disconnect[0m
+[0;33mW (166569) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (166572) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (167663) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (167664) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (167667) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (167676) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (167699) wifi:connected with Namtrung 2.4G, aid = 19, channel 11, BW20, bssid = 12:5f:02:15:27:1e[0m
+[0;32mI (167700) wifi:security: WPA2-PSK, phy: bgn, rssi: -64[0m
+[0;32mI (167707) wifi:pm start, type: 1[0m
+
+[0;32mI (167707) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (167714) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:11[0m
+[0;32mI (167753) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (167776) MQTT_MANAGER: Starting MQTT safely...[0m
+[0;32mI (167776) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (167776) MQTT: Other event id:7[0m
+[1;31mE (167777) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (167781) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (167787) mqtt_client: Error transport connect[0m
+[0;32mI (167791) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (167794) MQTT: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (167800) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (167804) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (167809) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (168130) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-64 dBm[0m
+[0;32mI (168736) esp_netif_handlers: sta ip: 10.10.1.52, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (168956) WiFi: Connected with IP: 10.10.1.52[0m
+[0;32mI (168956) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:27:1E[0m
+[0;32mI (168962) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (168963) WiFi Sta: Saved AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:27:1E[0m
+[0;32mI (169117) NVS: last index: 0[0m
+[0;32mI (169117) NVS: wifi index: 3[0m
+[0;32mI (170191) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-72 dBm[0m
+[0;32mI (172192) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-72 dBm[0m
+[0;32mI (173324) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (173324) wifi_scan: Total APs scanned = 11, actual AP number ap_info holds = 11[0m
+[0;32mI (173436) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (173443) wifi_scan: [0m
+[0;32mI (173443) wifi_scan: Found saved wifi network in scan list, ssid: Namtrung 2.4G[0m
+[0;32mI (173443) wifi_scan: BSSID 12:5F:02:15:27:1E[0m
+[0;32mI (174192) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-67 dBm[0m
+[0;32mI (176193) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-66 dBm[0m
+[0;32mI (177213) Feedback: diem danh gia: 1[0m
+
+[0;33mW (177213) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[1;31mE (177213) MQTT: Failed to send data[0m
+[0;32mI (177240) MQTT_BACKUP: Saved successfully, key=msg_0, next_id=1[0m
+[0;32mI (177813) MQTT: Other event id:7[0m
+[0;32mI (177828) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:27:1e), tid:7, ssn:8, winSize:64[0m
+[0;32mI (177832) wifi:<ba-add>idx:1 (ifx:0, 12:5f:02:15:27:1e), tid:0, ssn:3, winSize:64[0m
+[0;32mI (177833) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (177835) MQTT_BACKUP: Triggered MQTT retry task[0m
+[0;32mI (177840) MQTT_BACKUP: Semaphore received, starting MQTT retry process[0m
+[0;32mI (177846) MQTT_BACKUP: Found 1 backup messages to send[0m
+[0;32mI (177851) MQTT_BACKUP: Attempting to send backup: msg_0 -> feedback[0m
+[0;32mI (177857) MQTT_BACKUP: Sent successfully: key=msg_0, msg_id=52119[0m
+[0;32mI (177864) MQTT_BACKUP: Deleted backup: msg_0[0m
+[0;32mI (177867) MQTT: MQTT_EVENT_PUBLISHED, msg_id=52119[0m
+[0;32mI (177972) MQTT_BACKUP: Retry summary: sent=1, failed=0[0m
+[0;32mI (177972) MQTT_BACKUP: All backups sent, resetting key_id[0m
+[0;32mI (177974) MQTT_BACKUP: MQTT Retry Publish finished[0m
+[0;32mI (178194) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-66 dBm[0m
+[0;32mI (179051) Feedback: diem danh gia: 1[0m
+
+[0;32mI (179053) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (180243) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-64 dBm[0m
+[0;32mI (182296) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-65 dBm[0m
+[0;32mI (184325) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-65 dBm[0m
+[0;32mI (184855) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (184855) wifi_scan: Total APs scanned = 12, actual AP number ap_info holds = 12[0m
+[0;32mI (184955) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (184963) wifi_scan: [0m
+[0;32mI (184963) wifi_scan: Found saved wifi network in scan list, ssid: Namtrung 2.4G[0m
+[0;32mI (184963) wifi_scan: BSSID 12:5F:02:15:27:1E[0m
+index:0
+[0;32mI (186025) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (186025) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (186025) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (186028) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (186325) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-65 dBm[0m
+[0;32mI (188326) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-70 dBm[0m
+[0;32mI (190346) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-67 dBm[0m
+[0;32mI (192458) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-65 dBm[0m
+[0;32mI (194238) mqtt_client: Client asked to disconnect[0m
+esp_wifi_disconnect 
+[0;32mI (194274) wifi:state: run -> init (0x0)[0m
+[0;32mI (194275) wifi:pm stop, total sleep time: 15178982 us / 26567878 us[0m
+
+[0;32mI (194276) wifi:<ba-del>idx:1, tid:0[0m
+[0;32mI (194278) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (194281) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (194289) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (194293) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (194386) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (194386) mqtt_client: Client asked to disconnect[0m
+[0;33mW (194386) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (194389) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (194469) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (194470) RSSI: Not connected to any AP[0m
+[0;32mI (194797) DELAY: Đã đủ 1s, thực thi code![0m
+[0;32mI (194797) WiFi Sta: Connecting to wifi network, BSSID: 10:5F:02:75:1E:9A[0m
+[0;32mI (194808) wifi:flush txq[0m
+[0;32mI (194808) wifi:stop sw txq[0m
+[0;32mI (194808) wifi:lmac stop hw txq[0m
+[0;32mI (194809) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (194809) wifi:enable tsf[0m
+[0;32mI (194813) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (194993) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (194993) mqtt_client: Client asked to disconnect[0m
+[0;33mW (194993) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (194996) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (196506) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (196507) RSSI: Not connected to any AP[0m
+[0;32mI (197218) WiFi Sta: STA disconnected, reason=201[0m
+[0;32mI (197218) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (197400) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (197400) mqtt_client: Client asked to disconnect[0m
+[0;33mW (197400) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (197403) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (198568) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (198569) RSSI: Not connected to any AP[0m
+[0;33mW (200629) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (200630) RSSI: Not connected to any AP[0m
+[0;33mW (202690) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (202692) RSSI: Not connected to any AP[0m
+[0;33mW (204752) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (204753) RSSI: Not connected to any AP[0m
+[0;32mI (204817) WiFi Sta: Failed to connect to SSID:Namtrung 2.4G after 10000 ms[0m
+index:0
+[0;32mI (206472) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (206473) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (206473) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (206476) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;33mW (206813) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (206814) RSSI: Not connected to any AP[0m
+[0;33mW (208814) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (208815) RSSI: Not connected to any AP[0m
+[0;33mW (210815) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (210868) RSSI: Not connected to any AP[0m
+[0;33mW (212887) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (212888) RSSI: Not connected to any AP[0m
+[0;32mI (213685) mqtt_client: Client asked to disconnect[0m
+[0;33mW (213686) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (213707) DELAY: Bắt đầu đếm 1s...[0m
+[0;32mI (213707) WiFi Sta: Connecting to wifi network, BSSID: 10:5F:02:75:1E:9A[0m
+[0;32mI (213721) wifi:flush txq[0m
+[0;32mI (213721) wifi:stop sw txq[0m
+[0;32mI (213722) wifi:lmac stop hw txq[0m
+[0;32mI (213722) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (213723) wifi:enable tsf[0m
+[0;32mI (213726) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (213807) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (213807) mqtt_client: Client asked to disconnect[0m
+[0;33mW (213807) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (213810) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (214454) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (214455) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (214459) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (214467) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (214487) wifi:connected with NamTrung, aid = 18, channel 6, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (214488) wifi:security: WPA2-PSK, phy: bgn, rssi: -59[0m
+[0;32mI (214495) wifi:pm start, type: 1[0m
+
+[0;32mI (214495) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (214502) WiFi Sta: Connected to SSID:NamTrung, channel:6[0m
+[0;32mI (214502) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (214614) MQTT_MANAGER: Starting MQTT safely...[0m
+[0;32mI (214614) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (214614) MQTT: Other event id:7[0m
+[1;31mE (214615) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (214619) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (214625) mqtt_client: Error transport connect[0m
+[0;32mI (214629) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (214632) MQTT: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (214638) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (214642) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (214647) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (214888) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-59 dBm[0m
+[0;32mI (215508) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:7, winSize:64[0m
+[0;32mI (215531) esp_netif_handlers: sta ip: 10.10.1.52, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (215730) WiFi: Connected with IP: 10.10.1.52[0m
+[0;32mI (215730) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (215736) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (215737) WiFi Sta: Saved AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (215851) NVS: last index: 0[0m
+[0;32mI (215851) NVS: wifi index: 0[0m
+[0;32mI (216925) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-59 dBm[0m
+[0;32mI (218928) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-59 dBm[0m
+[0;32mI (219955) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (219955) wifi_scan: Total APs scanned = 12, actual AP number ap_info holds = 12[0m
+[0;32mI (220069) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (220071) wifi_scan: [0m
+[0;32mI (220072) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (220072) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (220646) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (220931) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-63 dBm[0m
+[0;32mI (222932) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-63 dBm[0m
+[0;32mI (224651) MQTT: Other event id:7[0m
+[0;32mI (224909) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (224910) MQTT_BACKUP: Triggered MQTT retry task[0m
+[0;32mI (224910) MQTT_BACKUP: Semaphore received, starting MQTT retry process[0m
+[0;32mI (224913) MQTT_BACKUP: No backup messages to send[0m
+[0;32mI (224914) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:3, winSize:64[0m
+[0;32mI (224936) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-63 dBm[0m
+[0;32mI (225386) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (225386) wifi_scan: Total APs scanned = 10, actual AP number ap_info holds = 10[0m
+[0;32mI (225497) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (225501) wifi_scan: [0m
+[0;32mI (225502) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (225502) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (226688) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (226936) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-62 dBm[0m
+[0;32mI (228937) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-62 dBm[0m
+[0;32mI (229657) Feedback: diem danh gia: 1[0m
+
+[0;32mI (229659) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (230958) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-62 dBm[0m
+[0;32mI (232959) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-62 dBm[0m
+[0;32mI (234962) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-62 dBm[0m
+[0;32mI (235084) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (235148) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (235148) wifi_scan: Total APs scanned = 10, actual AP number ap_info holds = 10[0m
+[0;32mI (235256) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (235258) wifi_scan: [0m
+[0;32mI (235259) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (235259) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+index:1
+[0;32mI (236006) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
+[0;32mI (236006) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
+[0;32mI (236006) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (236009) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
+[0;32mI (236962) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-62 dBm[0m
+[0;32mI (239036) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-62 dBm[0m
+[0;32mI (241043) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-62 dBm[0m
+[0;32mI (241638) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (243044) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-58 dBm[0m
+[0;32mI (245045) RSSI: Connected SSID:NamTrung, BSSID:10:5F:02:75:1E:9A, RSSI:-58 dBm[0m
+[0;32mI (246053) mqtt_client: Client asked to disconnect[0m
+esp_wifi_disconnect 
+[0;32mI (246094) wifi:state: run -> init (0x0)[0m
+[0;32mI (246095) wifi:pm stop, total sleep time: 15563195 us / 31599835 us[0m
+
+[0;32mI (246096) wifi:<ba-del>idx:1, tid:0[0m
+[0;32mI (246098) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (246101) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (246109) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (246113) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (246214) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (246214) mqtt_client: Client asked to disconnect[0m
+[0;33mW (246214) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (246217) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (246617) DELAY: Đã đủ 1s, thực thi code![0m
+[0;32mI (246617) WiFi Sta: Connecting to wifi network, BSSID: 12:5F:02:15:1E:9A[0m
+[0;32mI (246621) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (246621) mqtt_client: Client asked to disconnect[0m
+[0;33mW (246625) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (246631) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (246652) wifi:flush txq[0m
+[0;32mI (246652) wifi:stop sw txq[0m
+[0;32mI (246653) wifi:lmac stop hw txq[0m
+[0;32mI (246654) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (246654) wifi:enable tsf[0m
+[0;32mI (246657) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;33mW (247045) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (247045) RSSI: Not connected to any AP[0m
+[0;32mI (249062) WiFi Sta: STA disconnected, reason=201[0m
+[0;32mI (249062) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;33mW (249093) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (249094) RSSI: Not connected to any AP[0m
+[0;32mI (249235) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (249235) mqtt_client: Client asked to disconnect[0m
+[0;33mW (249235) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (249238) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (251154) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (251155) RSSI: Not connected to any AP[0m
+[0;33mW (253216) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (253217) RSSI: Not connected to any AP[0m
+[0;33mW (255277) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (255278) RSSI: Not connected to any AP[0m
+[0;32mI (256661) WiFi Sta: Failed to connect to SSID:NamTrung after 10000 ms[0m
+[0;33mW (257338) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (257339) RSSI: Not connected to any AP[0m
+[0;33mW (259339) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (259340) RSSI: Not connected to any AP[0m
+[0;33mW (261340) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (261341) RSSI: Not connected to any AP[0m
+[0;33mW (263341) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (263342) RSSI: Not connected to any AP[0m
+[0;33mW (265342) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (265343) RSSI: Not connected to any AP[0m
+[0;33mW (267343) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (267344) RSSI: Not connected to any AP[0m
+[0;33mW (269344) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (269345) RSSI: Not connected to any AP[0m
+[0;33mW (271345) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (271346) RSSI: Not connected to any AP[0m
+[0;33mW (273346) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (273347) RSSI: Not connected to any AP[0m
+[0;33mW (275347) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (275348) RSSI: Not connected to any AP[0m
+[0;33mW (277348) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (277349) RSSI: Not connected to any AP[0m
+[0;33mW (279349) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (279350) RSSI: Not connected to any AP[0m
+[0;33mW (281350) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (281351) RSSI: Not connected to any AP[0m
+[0;33mW (283351) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (283352) RSSI: Not connected to any AP[0m
+[0;33mW (285352) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (285353) RSSI: Not connected to any AP[0m
+[0;33mW (287353) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (287354) RSSI: Not connected to any AP[0m
+[0;33mW (289354) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (289355) RSSI: Not connected to any AP[0m
+[0;33mW (291355) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (291356) RSSI: Not connected to any AP[0m
+[0;33mW (293356) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (293357) RSSI: Not connected to any AP[0m
+[0;33mW (295357) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (295358) RSSI: Not connected to any AP[0m
+[0;33mW (297358) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (297359) RSSI: Not connected to any AP[0m
+[0;33mW (299359) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (299360) RSSI: Not connected to any AP[0m
+[0;33mW (301360) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (301361) RSSI: Not connected to any AP[0m
+[0;33mW (303361) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (303362) RSSI: Not connected to any AP[0m
+[0;33mW (305362) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (305363) RSSI: Not connected to any AP[0m
+[0;33mW (307363) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (307364) RSSI: Not connected to any AP[0m
+[0;33mW (309364) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (309365) RSSI: Not connected to any AP[0m
+[0;33mW (311365) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (311366) RSSI: Not connected to any AP[0m
+[0;33mW (313366) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (313367) RSSI: Not connected to any AP[0m
+[0;33mW (315367) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (315368) RSSI: Not connected to any AP[0m
+[0;33mW (317368) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (317369) RSSI: Not connected to any AP[0m
+[0;33mW (319369) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (319370) RSSI: Not connected to any AP[0m
+[0;33mW (321370) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (321371) RSSI: Not connected to any AP[0m
+[0;33mW (323371) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (323372) RSSI: Not connected to any AP[0m
+[0;33mW (325372) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (325373) RSSI: Not connected to any AP[0m
+[0;33mW (327373) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (327374) RSSI: Not connected to any AP[0m
+[0;33mW (329374) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (329375) RSSI: Not connected to any AP[0m
+[0;33mW (331375) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (331376) RSSI: Not connected to any AP[0m
+[0;33mW (333376) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (333377) RSSI: Not connected to any AP[0m
+[0;33mW (335377) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (335378) RSSI: Not connected to any AP[0m
+[0;33mW (337378) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (337379) RSSI: Not connected to any AP[0m
+[0;33mW (339379) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (339380) RSSI: Not connected to any AP[0m
+[0;33mW (341380) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (341381) RSSI: Not connected to any AP[0m
+[0;33mW (343381) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (343382) RSSI: Not connected to any AP[0m
+[0;33mW (345382) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (345383) RSSI: Not connected to any AP[0m
+[0;33mW (347383) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (347384) RSSI: Not connected to any AP[0m
+[0;33mW (349384) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (349385) RSSI: Not connected to any AP[0m
+[0;33mW (351385) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (351386) RSSI: Not connected to any AP[0m
+[0;33mW (353386) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (353387) RSSI: Not connected to any AP[0m
+[0;33mW (355387) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (355388) RSSI: Not connected to any AP[0m
+[0;33mW (357388) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (357389) RSSI: Not connected to any AP[0m
+[0;33mW (359389) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (359390) RSSI: Not connected to any AP[0m
+[0;33mW (361390) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (361391) RSSI: Not connected to any AP[0m
+[0;33mW (363391) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (363392) RSSI: Not connected to any AP[0m
+[0;33mW (365392) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (365393) RSSI: Not connected to any AP[0m
+[0;33mW (367393) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (367394) RSSI: Not connected to any AP[0m
+[0;33mW (369394) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (369395) RSSI: Not connected to any AP[0m
+[0;33mW (371395) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (371396) RSSI: Not connected to any AP[0m
+[0;33mW (373396) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (373397) RSSI: Not connected to any AP[0m
+[0;33mW (375397) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (375398) RSSI: Not connected to any AP[0m
+[0;33mW (377398) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (377399) RSSI: Not connected to any AP[0m
+[0;33mW (379399) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (379400) RSSI: Not connected to any AP[0m
+[0;33mW (381400) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (381401) RSSI: Not connected to any AP[0m
+[0;33mW (383401) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (383402) RSSI: Not connected to any AP[0m
+[0;33mW (385402) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (385403) RSSI: Not connected to any AP[0m
+[0;33mW (387403) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (387404) RSSI: Not connected to any AP[0m
+[0;33mW (389404) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (389405) RSSI: Not connected to any AP[0m
+[0;33mW (391405) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (391406) RSSI: Not connected to any AP[0m
+[0;33mW (393406) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (393407) RSSI: Not connected to any AP[0m
+[0;33mW (395407) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (395408) RSSI: Not connected to any AP[0m
+[0;33mW (397408) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (397409) RSSI: Not connected to any AP[0m
+[0;33mW (399409) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (399410) RSSI: Not connected to any AP[0m
+[0;33mW (401410) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (401411) RSSI: Not connected to any AP[0m
+[0;33mW (403411) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (403412) RSSI: Not connected to any AP[0m
+[0;33mW (405412) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (405413) RSSI: Not connected to any AP[0m
+[0;33mW (407413) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (407414) RSSI: Not connected to any AP[0m
+[0;33mW (409414) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (409415) RSSI: Not connected to any AP[0m
+[0;33mW (411415) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (411416) RSSI: Not connected to any AP[0m
+[0;33mW (413416) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (413417) RSSI: Not connected to any AP[0m
+[0;33mW (415417) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (415418) RSSI: Not connected to any AP[0m
+[0;33mW (417418) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (417419) RSSI: Not connected to any AP[0m
+[0;33mW (419419) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (419420) RSSI: Not connected to any AP[0m
+[0;33mW (421420) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (421421) RSSI: Not connected to any AP[0m
+[0;33mW (423421) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (423422) RSSI: Not connected to any AP[0m
+[0;33mW (425422) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (425423) RSSI: Not connected to any AP[0m
+[0;33mW (427423) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (427424) RSSI: Not connected to any AP[0m
+[0;33mW (429424) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (429425) RSSI: Not connected to any AP[0m
+[0;33mW (431425) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (431426) RSSI: Not connected to any AP[0m
+[0;33mW (433426) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (433427) RSSI: Not connected to any AP[0m
+[0;33mW (435427) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (435428) RSSI: Not connected to any AP[0m
+[0;33mW (437428) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (437429) RSSI: Not connected to any AP[0m
+[0;33mW (439429) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (439430) RSSI: Not connected to any AP[0m
+[0;33mW (441430) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (441431) RSSI: Not connected to any AP[0m
+[0;33mW (443431) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (443432) RSSI: Not connected to any AP[0m
+[0;33mW (445432) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (445433) RSSI: Not connected to any AP[0m
+[0;33mW (447433) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (447434) RSSI: Not connected to any AP[0m
+[0;33mW (449434) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (449435) RSSI: Not connected to any AP[0m
+[0;33mW (451435) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (451436) RSSI: Not connected to any AP[0m
+[0;33mW (453436) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (453437) RSSI: Not connected to any AP[0m
+[0;33mW (455437) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (455438) RSSI: Not connected to any AP[0m
+[0;33mW (457438) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (457439) RSSI: Not connected to any AP[0m
+[0;33mW (459439) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (459440) RSSI: Not connected to any AP[0m
+[0;33mW (461440) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (461441) RSSI: Not connected to any AP[0m
+[0;33mW (463441) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (463442) RSSI: Not connected to any AP[0m
+[0;33mW (465442) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (465443) RSSI: Not connected to any AP[0m
+[0;33mW (467443) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (467444) RSSI: Not connected to any AP[0m
+[0;33mW (469444) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (469445) RSSI: Not connected to any AP[0m
+[0;33mW (471445) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (471446) RSSI: Not connected to any AP[0m
+[0;33mW (473446) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (473447) RSSI: Not connected to any AP[0m
+[0;33mW (475447) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (475448) RSSI: Not connected to any AP[0m
+[0;33mW (477448) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (477449) RSSI: Not connected to any AP[0m
+[0;33mW (479449) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (479450) RSSI: Not connected to any AP[0m
+[0;33mW (481450) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (481451) RSSI: Not connected to any AP[0m
+[0;33mW (483451) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (483452) RSSI: Not connected to any AP[0m
+[0;33mW (485452) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (485453) RSSI: Not connected to any AP[0m
+[0;33mW (487453) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (487454) RSSI: Not connected to any AP[0m
+[0;33mW (489454) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (489455) RSSI: Not connected to any AP[0m
+[0;33mW (491455) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (491456) RSSI: Not connected to any AP[0m
+[0;33mW (493456) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (493457) RSSI: Not connected to any AP[0m
+[0;33mW (495457) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (495458) RSSI: Not connected to any AP[0m
+[0;33mW (497458) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (497459) RSSI: Not connected to any AP[0m
+[0;33mW (499459) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (499460) RSSI: Not connected to any AP[0m
+[0;33mW (501460) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (501461) RSSI: Not connected to any AP[0m
+[0;33mW (503461) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (503462) RSSI: Not connected to any AP[0m
+[0;33mW (505462) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (505463) RSSI: Not connected to any AP[0m
+[0;33mW (507463) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (507464) RSSI: Not connected to any AP[0m
+[0;33mW (509464) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (509465) RSSI: Not connected to any AP[0m
+[0;33mW (511465) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (511466) RSSI: Not connected to any AP[0m
+[0;33mW (513466) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (513467) RSSI: Not connected to any AP[0m
+[0;33mW (515467) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (515468) RSSI: Not connected to any AP[0m
+[0;33mW (517468) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (517469) RSSI: Not connected to any AP[0m
+[0;33mW (519469) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (519470) RSSI: Not connected to any AP[0m
+[0;33mW (521470) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (521471) RSSI: Not connected to any AP[0m
+[0;33mW (523471) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (523472) RSSI: Not connected to any AP[0m
+[0;33mW (525472) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (525473) RSSI: Not connected to any AP[0m
+[0;33mW (527473) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (527474) RSSI: Not connected to any AP[0m
+[0;33mW (529474) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (529475) RSSI: Not connected to any AP[0m
+[0;33mW (531475) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (531476) RSSI: Not connected to any AP[0m
+[0;33mW (533476) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (533477) RSSI: Not connected to any AP[0m
+[0;33mW (535477) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (535478) RSSI: Not connected to any AP[0m
+[0;33mW (537478) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (537479) RSSI: Not connected to any AP[0m
+[0;33mW (539479) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (539480) RSSI: Not connected to any AP[0m
+[0;33mW (541480) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (541481) RSSI: Not connected to any AP[0m
+[0;33mW (543481) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (543482) RSSI: Not connected to any AP[0m
+[0;33mW (545482) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (545483) RSSI: Not connected to any AP[0m
+[0;33mW (547483) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (547484) RSSI: Not connected to any AP[0m
+[0;33mW (549484) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (549485) RSSI: Not connected to any AP[0m
+[0;33mW (551485) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (551486) RSSI: Not connected to any AP[0m
+[0;33mW (553486) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (553487) RSSI: Not connected to any AP[0m
+[0;33mW (555487) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (555488) RSSI: Not connected to any AP[0m
+[0;33mW (557488) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (557489) RSSI: Not connected to any AP[0m
+[0;33mW (559489) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (559490) RSSI: Not connected to any AP[0m
+[0;33mW (561490) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (561491) RSSI: Not connected to any AP[0m
+[0;33mW (563491) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (563492) RSSI: Not connected to any AP[0m
+[0;33mW (565492) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (565493) RSSI: Not connected to any AP[0m
+[0;33mW (567493) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (567494) RSSI: Not connected to any AP[0m
+[0;33mW (569494) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (569495) RSSI: Not connected to any AP[0m
+[0;33mW (571495) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (571496) RSSI: Not connected to any AP[0m
+[0;33mW (573496) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (573497) RSSI: Not connected to any AP[0m
+[0;33mW (575497) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (575498) RSSI: Not connected to any AP[0m
+[0;33mW (577498) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (577499) RSSI: Not connected to any AP[0m
+[0;33mW (579499) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (579500) RSSI: Not connected to any AP[0m
+[0;33mW (581500) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (581501) RSSI: Not connected to any AP[0m
+[0;33mW (583501) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (583502) RSSI: Not connected to any AP[0m
+[0;33mW (585502) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (585503) RSSI: Not connected to any AP[0m
+[0;33mW (587503) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (587504) RSSI: Not connected to any AP[0m
+[0;33mW (589504) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (589505) RSSI: Not connected to any AP[0m
+[0;33mW (591505) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (591506) RSSI: Not connected to any AP[0m
+[0;33mW (593506) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (593507) RSSI: Not connected to any AP[0m
+[0;33mW (595507) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (595508) RSSI: Not connected to any AP[0m
+[0;33mW (597508) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (597509) RSSI: Not connected to any AP[0m
+[0;33mW (599509) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (599510) RSSI: Not connected to any AP[0m
+[0;33mW (601510) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (601511) RSSI: Not connected to any AP[0m
+[0;33mW (603511) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (603512) RSSI: Not connected to any AP[0m
+[0;33mW (605512) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (605513) RSSI: Not connected to any AP[0m
+[0;33mW (607513) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (607514) RSSI: Not connected to any AP[0m
+[0;33mW (609514) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (609515) RSSI: Not connected to any AP[0m
+[0;33mW (611515) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (611516) RSSI: Not connected to any AP[0m
+[0;33mW (613516) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (613517) RSSI: Not connected to any AP[0m
+[0;33mW (615517) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (615518) RSSI: Not connected to any AP[0m
+[0;33mW (617518) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (617519) RSSI: Not connected to any AP[0m
+[0;33mW (619519) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (619520) RSSI: Not connected to any AP[0m
+[0;33mW (621520) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (621521) RSSI: Not connected to any AP[0m
+[0;33mW (623521) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (623522) RSSI: Not connected to any AP[0m
+[0;33mW (625522) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (625523) RSSI: Not connected to any AP[0m
+[0;33mW (627523) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (627524) RSSI: Not connected to any AP[0m
+[0;33mW (629524) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (629525) RSSI: Not connected to any AP[0m
+[0;33mW (631525) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (631526) RSSI: Not connected to any AP[0m
+[0;33mW (633526) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (633527) RSSI: Not connected to any AP[0m
+[0;33mW (635527) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (635528) RSSI: Not connected to any AP[0m
+[0;33mW (637528) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (637529) RSSI: Not connected to any AP[0m
+[0;33mW (639529) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (639530) RSSI: Not connected to any AP[0m
+[0;33mW (641530) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (641531) RSSI: Not connected to any AP[0m
+[0;33mW (643531) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (643532) RSSI: Not connected to any AP[0m
+[0;33mW (645532) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (645533) RSSI: Not connected to any AP[0m
+[0;33mW (647533) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (647534) RSSI: Not connected to any AP[0m
+[0;33mW (649534) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (649535) RSSI: Not connected to any AP[0m
+[0;33mW (651535) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (651536) RSSI: Not connected to any AP[0m
+[0;33mW (653536) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (653537) RSSI: Not connected to any AP[0m
+[0;33mW (655537) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (655538) RSSI: Not connected to any AP[0m
+[0;33mW (657538) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (657539) RSSI: Not connected to any AP[0m
+[0;33mW (659539) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (659540) RSSI: Not connected to any AP[0m
+[0;33mW (661540) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (661541) RSSI: Not connected to any AP[0m
+[0;33mW (663541) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (663542) RSSI: Not connected to any AP[0m
+[0;33mW (665542) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (665543) RSSI: Not connected to any AP[0m
+[0;33mW (667543) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (667544) RSSI: Not connected to any AP[0m
+[0;33mW (669544) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (669545) RSSI: Not connected to any AP[0m
+[0;33mW (671545) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (671546) RSSI: Not connected to any AP[0m
+[0;33mW (673546) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (673547) RSSI: Not connected to any AP[0m
+[0;33mW (675547) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (675548) RSSI: Not connected to any AP[0m
+[0;33mW (677548) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (677549) RSSI: Not connected to any AP[0m
+[0;33mW (679549) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (679550) RSSI: Not connected to any AP[0m
+[0;33mW (681550) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (681551) RSSI: Not connected to any AP[0m
+[0;33mW (683551) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (683552) RSSI: Not connected to any AP[0m
+[0;33mW (685552) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (685553) RSSI: Not connected to any AP[0m
+[0;33mW (687553) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (687554) RSSI: Not connected to any AP[0m
+[0;33mW (689554) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (689555) RSSI: Not connected to any AP[0m
+[0;33mW (691555) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (691556) RSSI: Not connected to any AP[0m
+[0;33mW (693556) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (693557) RSSI: Not connected to any AP[0m
+[0;33mW (695557) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (695558) RSSI: Not connected to any AP[0m
+[0;33mW (697558) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (697559) RSSI: Not connected to any AP[0m
+[0;33mW (699559) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (699560) RSSI: Not connected to any AP[0m
+[0;33mW (701560) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (701561) RSSI: Not connected to any AP[0m
+[0;33mW (703561) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (703562) RSSI: Not connected to any AP[0m
+[0;33mW (705562) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (705563) RSSI: Not connected to any AP[0m
+[0;33mW (707563) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (707564) RSSI: Not connected to any AP[0m
+[0;33mW (709564) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (709565) RSSI: Not connected to any AP[0m
+[0;33mW (711565) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (711566) RSSI: Not connected to any AP[0m
+[0;33mW (713566) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (713567) RSSI: Not connected to any AP[0m
+[0;33mW (715567) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (715568) RSSI: Not connected to any AP[0m
+[0;33mW (717568) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (717569) RSSI: Not connected to any AP[0m
+[0;33mW (719569) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (719570) RSSI: Not connected to any AP[0m
+[0;33mW (721570) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (721571) RSSI: Not connected to any AP[0m
+[0;33mW (723571) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (723572) RSSI: Not connected to any AP[0m
+[0;33mW (725572) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (725573) RSSI: Not connected to any AP[0m
+[0;33mW (727573) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (727574) RSSI: Not connected to any AP[0m
+[0;33mW (729574) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (729575) RSSI: Not connected to any AP[0m
+[0;33mW (731575) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (731576) RSSI: Not connected to any AP[0m
+[0;33mW (733576) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (733577) RSSI: Not connected to any AP[0m
+[0;33mW (735577) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (735578) RSSI: Not connected to any AP[0m
+[0;33mW (737578) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (737579) RSSI: Not connected to any AP[0m
+[0;33mW (739579) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (739580) RSSI: Not connected to any AP[0m
+[0;33mW (741580) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (741581) RSSI: Not connected to any AP[0m
+[0;33mW (743581) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (743582) RSSI: Not connected to any AP[0m
+[0;33mW (745582) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (745583) RSSI: Not connected to any AP[0m
+[0;33mW (747583) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (747584) RSSI: Not connected to any AP[0m
+[0;33mW (749584) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (749585) RSSI: Not connected to any AP[0m
+[0;33mW (751585) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (751586) RSSI: Not connected to any AP[0m
+[0;33mW (753586) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (753587) RSSI: Not connected to any AP[0m
+[0;33mW (755587) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (755588) RSSI: Not connected to any AP[0m
+[0;33mW (757588) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (757589) RSSI: Not connected to any AP[0m
+[0;33mW (759589) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (759590) RSSI: Not connected to any AP[0m
+[0;33mW (761590) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (761591) RSSI: Not connected to any AP[0m
+[0;33mW (763591) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (763592) RSSI: Not connected to any AP[0m
+[0;33mW (765592) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (765593) RSSI: Not connected to any AP[0m
+[0;33mW (767593) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (767594) RSSI: Not connected to any AP[0m
+[0;33mW (769594) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (769595) RSSI: Not connected to any AP[0m
+[0;33mW (771595) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (771596) RSSI: Not connected to any AP[0m
+[0;33mW (773596) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (773597) RSSI: Not connected to any AP[0m
+[0;33mW (775597) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (775598) RSSI: Not connected to any AP[0m
+[0;33mW (777598) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (777599) RSSI: Not connected to any AP[0m
+[0;33mW (779599) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (779600) RSSI: Not connected to any AP[0m
+[0;33mW (781600) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (781601) RSSI: Not connected to any AP[0m
+[0;33mW (783601) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (783602) RSSI: Not connected to any AP[0m
+[0;33mW (785602) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (785603) RSSI: Not connected to any AP[0m
+[0;33mW (787603) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (787604) RSSI: Not connected to any AP[0m
+[0;33mW (789604) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (789605) RSSI: Not connected to any AP[0m
+[0;33mW (791605) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (791606) RSSI: Not connected to any AP[0m
+[0;33mW (793606) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (793607) RSSI: Not connected to any AP[0m
+[0;33mW (795607) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (795608) RSSI: Not connected to any AP[0m
+[0;33mW (797608) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (797609) RSSI: Not connected to any AP[0m
+[0;33mW (799609) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (799610) RSSI: Not connected to any AP[0m
+[0;33mW (801610) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (801611) RSSI: Not connected to any AP[0m
+[0;33mW (803611) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (803612) RSSI: Not connected to any AP[0m
+[0;33mW (805612) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (805613) RSSI: Not connected to any AP[0m
+[0;33mW (807613) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (807614) RSSI: Not connected to any AP[0m
+[0;33mW (809614) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (809615) RSSI: Not connected to any AP[0m
+[0;33mW (811615) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (811616) RSSI: Not connected to any AP[0m
+[0;33mW (813616) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (813617) RSSI: Not connected to any AP[0m
+[0;33mW (815617) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (815618) RSSI: Not connected to any AP[0m
+[0;33mW (817618) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (817619) RSSI: Not connected to any AP[0m
+[0;33mW (819619) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (819620) RSSI: Not connected to any AP[0m
+[0;33mW (821620) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (821621) RSSI: Not connected to any AP[0m
+[0;33mW (823621) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (823622) RSSI: Not connected to any AP[0m
+[0;33mW (825622) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (825623) RSSI: Not connected to any AP[0m
+[0;33mW (827623) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (827624) RSSI: Not connected to any AP[0m
+[0;33mW (829624) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (829625) RSSI: Not connected to any AP[0m
+[0;33mW (831625) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (831626) RSSI: Not connected to any AP[0m
+[0;33mW (833626) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (833627) RSSI: Not connected to any AP[0m
+[0;33mW (835627) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (835628) RSSI: Not connected to any AP[0m
+[0;33mW (837628) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (837629) RSSI: Not connected to any AP[0m
+[0;33mW (839629) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (839630) RSSI: Not connected to any AP[0m
+[0;33mW (841630) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (841631) RSSI: Not connected to any AP[0m
+[0;33mW (843631) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (843632) RSSI: Not connected to any AP[0m
+[0;33mW (845632) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (845633) RSSI: Not connected to any AP[0m
+[0;33mW (847633) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (847634) RSSI: Not connected to any AP[0m
+[0;33mW (849634) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (849635) RSSI: Not connected to any AP[0m
+[0;33mW (851635) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (851636) RSSI: Not connected to any AP[0m
+[0;33mW (853636) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (853637) RSSI: Not connected to any AP[0m
+[0;33mW (855637) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (855638) RSSI: Not connected to any AP[0m
+[0;33mW (857638) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (857639) RSSI: Not connected to any AP[0m
+[0;33mW (859639) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (859640) RSSI: Not connected to any AP[0m
+[0;33mW (861640) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (861641) RSSI: Not connected to any AP[0m
+[0;33mW (863641) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (863642) RSSI: Not connected to any AP[0m
+[0;33mW (865642) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (865643) RSSI: Not connected to any AP[0m
+[0;33mW (867643) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (867644) RSSI: Not connected to any AP[0m
+[0;33mW (869644) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (869645) RSSI: Not connected to any AP[0m
+[0;33mW (871645) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (871646) RSSI: Not connected to any AP[0m
+[0;33mW (873646) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (873647) RSSI: Not connected to any AP[0m
+[0;33mW (875647) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (875648) RSSI: Not connected to any AP[0m
+[0;33mW (877648) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (877649) RSSI: Not connected to any AP[0m
+[0;33mW (879649) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (879650) RSSI: Not connected to any AP[0m
+[0;33mW (881650) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (881651) RSSI: Not connected to any AP[0m
+[0;33mW (883651) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (883652) RSSI: Not connected to any AP[0m
+[0;33mW (885652) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (885653) RSSI: Not connected to any AP[0m
+[0;33mW (887653) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (887654) RSSI: Not connected to any AP[0m
+[0;33mW (889654) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (889655) RSSI: Not connected to any AP[0m
+[0;33mW (891655) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (891656) RSSI: Not connected to any AP[0m
+[0;33mW (893656) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (893657) RSSI: Not connected to any AP[0m
+[0;33mW (895657) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (895658) RSSI: Not connected to any AP[0m
+[0;33mW (897658) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (897659) RSSI: Not connected to any AP[0m
+[0;33mW (899659) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (899660) RSSI: Not connected to any AP[0m
+[0;33mW (901660) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (901661) RSSI: Not connected to any AP[0m
+[0;33mW (903661) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (903662) RSSI: Not connected to any AP[0m
+[0;33mW (905662) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (905663) RSSI: Not connected to any AP[0m
+[0;33mW (907663) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (907664) RSSI: Not connected to any AP[0m
+[0;33mW (909664) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (909665) RSSI: Not connected to any AP[0m
+[0;33mW (911665) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (911666) RSSI: Not connected to any AP[0m
+[0;33mW (913666) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (913667) RSSI: Not connected to any AP[0m
+[0;33mW (915667) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (915668) RSSI: Not connected to any AP[0m
+[0;33mW (917668) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (917669) RSSI: Not connected to any AP[0m
+[0;33mW (919669) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (919670) RSSI: Not connected to any AP[0m
+[0;33mW (921670) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (921671) RSSI: Not connected to any AP[0m
+[0;33mW (923671) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (923672) RSSI: Not connected to any AP[0m
+[0;33mW (925672) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (925673) RSSI: Not connected to any AP[0m
+[0;33mW (927673) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (927674) RSSI: Not connected to any AP[0m
+[0;33mW (929674) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (929675) RSSI: Not connected to any AP[0m
+[0;33mW (931675) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (931676) RSSI: Not connected to any AP[0m
+[0;33mW (933676) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (933677) RSSI: Not connected to any AP[0m
+[0;33mW (935677) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (935678) RSSI: Not connected to any AP[0m
+[0;33mW (937678) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (937679) RSSI: Not connected to any AP[0m
+[0;33mW (939679) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (939680) RSSI: Not connected to any AP[0m
+[0;33mW (941680) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (941681) RSSI: Not connected to any AP[0m
+[0;33mW (943681) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (943682) RSSI: Not connected to any AP[0m
+[0;33mW (945682) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (945683) RSSI: Not connected to any AP[0m
+[0;33mW (947683) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (947684) RSSI: Not connected to any AP[0m
+[0;33mW (949684) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (949685) RSSI: Not connected to any AP[0m
+[0;33mW (951685) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (951686) RSSI: Not connected to any AP[0m
+[0;33mW (953686) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (953687) RSSI: Not connected to any AP[0m
+[0;33mW (955687) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (955688) RSSI: Not connected to any AP[0m
+[0;33mW (957688) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (957689) RSSI: Not connected to any AP[0m
+[0;33mW (959689) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (959690) RSSI: Not connected to any AP[0m
+[0;33mW (961690) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (961691) RSSI: Not connected to any AP[0m
+[0;33mW (963691) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (963692) RSSI: Not connected to any AP[0m
+[0;33mW (965692) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (965693) RSSI: Not connected to any AP[0m
+[0;33mW (967693) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (967694) RSSI: Not connected to any AP[0m
+[0;33mW (969694) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (969695) RSSI: Not connected to any AP[0m
+[0;33mW (971695) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (971696) RSSI: Not connected to any AP[0m
+[0;33mW (973696) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (973697) RSSI: Not connected to any AP[0m
+[0;33mW (975697) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (975698) RSSI: Not connected to any AP[0m
+[0;33mW (977698) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (977699) RSSI: Not connected to any AP[0m
+[0;33mW (979699) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (979700) RSSI: Not connected to any AP[0m
+[0;33mW (981700) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (981701) RSSI: Not connected to any AP[0m
+[0;33mW (983701) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (983702) RSSI: Not connected to any AP[0m
+[0;33mW (985702) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (985703) RSSI: Not connected to any AP[0m
+[0;33mW (987703) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (987704) RSSI: Not connected to any AP[0m
+[0;33mW (989704) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (989705) RSSI: Not connected to any AP[0m
+[0;33mW (991705) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (991706) RSSI: Not connected to any AP[0m
+[0;33mW (993706) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (993707) RSSI: Not connected to any AP[0m
+[0;33mW (995707) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (995708) RSSI: Not connected to any AP[0m
+[0;33mW (997708) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (997709) RSSI: Not connected to any AP[0m
+[0;33mW (999709) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (999710) RSSI: Not connected to any AP[0m
+[0;33mW (1001710) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1001711) RSSI: Not connected to any AP[0m
+[0;33mW (1003711) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1003712) RSSI: Not connected to any AP[0m
+[0;33mW (1005712) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1005713) RSSI: Not connected to any AP[0m
+[0;33mW (1007713) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1007714) RSSI: Not connected to any AP[0m
+[0;33mW (1009714) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1009715) RSSI: Not connected to any AP[0m
+[0;33mW (1011715) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1011716) RSSI: Not connected to any AP[0m
+[0;33mW (1013716) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1013717) RSSI: Not connected to any AP[0m
+[0;33mW (1015717) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1015718) RSSI: Not connected to any AP[0m
+[0;33mW (1017718) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1017719) RSSI: Not connected to any AP[0m
+[0;33mW (1019719) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1019720) RSSI: Not connected to any AP[0m
+[0;33mW (1021720) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1021721) RSSI: Not connected to any AP[0m
+[0;33mW (1023721) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1023722) RSSI: Not connected to any AP[0m
+[0;33mW (1025722) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1025723) RSSI: Not connected to any AP[0m
+[0;33mW (1027723) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1027724) RSSI: Not connected to any AP[0m
+[0;33mW (1029724) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1029725) RSSI: Not connected to any AP[0m
+[0;33mW (1031725) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1031726) RSSI: Not connected to any AP[0m
+[0;33mW (1033726) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1033727) RSSI: Not connected to any AP[0m
+[0;33mW (1035727) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1035728) RSSI: Not connected to any AP[0m
+[0;33mW (1037728) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1037729) RSSI: Not connected to any AP[0m
+[0;33mW (1039729) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1039730) RSSI: Not connected to any AP[0m
+[0;33mW (1041730) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1041731) RSSI: Not connected to any AP[0m
+[0;33mW (1043731) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1043732) RSSI: Not connected to any AP[0m
+[0;33mW (1045732) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1045733) RSSI: Not connected to any AP[0m
+[0;33mW (1047733) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1047734) RSSI: Not connected to any AP[0m
+[0;33mW (1049734) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1049735) RSSI: Not connected to any AP[0m
+[0;33mW (1051735) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1051736) RSSI: Not connected to any AP[0m
+[0;33mW (1053736) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1053737) RSSI: Not connected to any AP[0m
+[0;33mW (1055737) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1055738) RSSI: Not connected to any AP[0m
+[0;33mW (1057738) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1057739) RSSI: Not connected to any AP[0m
+[0;33mW (1059739) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1059740) RSSI: Not connected to any AP[0m
+[0;33mW (1061740) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1061741) RSSI: Not connected to any AP[0m
+[0;33mW (1063741) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1063742) RSSI: Not connected to any AP[0m
+[0;33mW (1065742) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1065743) RSSI: Not connected to any AP[0m
+[0;33mW (1067743) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1067744) RSSI: Not connected to any AP[0m
+[0;33mW (1069744) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1069745) RSSI: Not connected to any AP[0m
+[0;33mW (1071745) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1071746) RSSI: Not connected to any AP[0m
+[0;33mW (1073746) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1073747) RSSI: Not connected to any AP[0m
+[0;33mW (1075747) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1075748) RSSI: Not connected to any AP[0m
+[0;33mW (1077748) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1077749) RSSI: Not connected to any AP[0m
+[0;33mW (1079749) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1079750) RSSI: Not connected to any AP[0m
+[0;33mW (1081750) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1081751) RSSI: Not connected to any AP[0m
+[0;33mW (1083751) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (1083752) RSSI: Not connected to any AP[0m

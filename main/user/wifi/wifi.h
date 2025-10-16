@@ -98,4 +98,15 @@ void wifi_open_ap();
 // Close SoftAP mode
 void wifi_close_ap();
 
+void mainscreen_wifi_rssi_task(void *pvParameters) ;
+
+// Thêm vào wifi.h
+void start_rssi_task(void);
+void stop_rssi_task(void);
+bool is_rssi_task_running(void);
+
+
+
+
+
 #endif

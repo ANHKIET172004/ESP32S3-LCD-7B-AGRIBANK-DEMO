@@ -47,7 +47,7 @@ typedef struct {
 
  int refresh_index=-1;
 
-
+extern bool wifi_connected;
 
 void wifi_set_last_button(lv_obj_t *btn) {
     wifi_last_Button = btn;
@@ -328,7 +328,7 @@ void print_cipher_type(int pairwise_cipher, int group_cipher)
         
         
         // Add event callback for each button
-        //lv_obj_add_event_cb(WIFI_List_Button, ui_WIFI_list_event_cb, LV_EVENT_ALL, (void *)i);  // Pass index as user data
+     //   lv_obj_add_event_cb(WIFI_List_Button, ui_WIFI_list_event_cb, LV_EVENT_ALL, (void *)i);  // Pass index as user data
 
           ////////////
 
@@ -360,7 +360,10 @@ void print_cipher_type(int pairwise_cipher, int group_cipher)
                  }//
 
                  else {// cnt>1, đã chuyển từ main screen sang wifi screen sau khi reconnect và switch wifi đang on
-                    if ((reconnect==1)&&(refresh==0)&&(connection_flag==true)&&(connect_success==1)){// nếu đã reconnect wifi cũ thành công thì lần scan tiếp theo chỉ cập nhật icon ok cho button list của wifi được connect
+                  //  if ((reconnect==1)&&(refresh==0)&&(connection_flag==true)&&(connect_success==1)){// nếu đã reconnect wifi cũ thành công thì lần scan tiếp theo chỉ cập nhật icon ok cho button list của wifi được connect
+                     // if ((reconnect==1)&&(refresh==0)&&(connection_flag==true)){
+                        if ((reconnect==1)&&(refresh==0)&&(wifi_connected==true)){
+                        
                         reconnect=0;
                    
                        WIFI_CONNECTION = i;//
@@ -379,7 +382,10 @@ void print_cipher_type(int pairwise_cipher, int group_cipher)
                         
                      
                     }
-                    else if ((refresh>0)&&(connection_flag==true)&&(connect_success==1)){//
+                    //else if ((refresh>0)&&(connection_flag==true)&&(connect_success==1)){//
+                 //else if ((refresh>0)&&(connection_flag==true)){
+                  //  else if ((refresh>0)&&(connection_flag==true)){
+                        else if ((refresh>0)&&(wifi_connected==true)){
                       WIFI_CONNECTION = i;//
                       lv_obj_t *img = lv_obj_get_child(WIFI_List_Button, 0);
                       lv_img_set_src(img, &ui_img_ok_png);  // Set success icon

@@ -6,6 +6,7 @@ file(GLOB_RECURSE srcs *.c
                    user/wifi/*.c
                    gatt_server/*.c
                    gatt_client/*.c
+                   esp_mqtt_client/*.c
                    #user/rs485/*.c
                    #user/can/*.c
                    #user/pwm/*.c
@@ -18,6 +19,7 @@ set(include_dirs
    user/wifi
    gatt_server
    gatt_client
+   esp_mqtt_client
    #user/rs485
    #user/can
    #user/pwm

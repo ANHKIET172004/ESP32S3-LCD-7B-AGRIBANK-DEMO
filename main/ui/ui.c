@@ -110,6 +110,8 @@ extern void mqtt_retry_publish_task(void *pvParameters);
 extern void mqtt_start(void);
 /////wifi
 
+extern bool wifi_need_mqtt_stop;
+
 //extern int reconnect2;
 
 // EVENTS
@@ -184,7 +186,7 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
   //if (mqttClient) {
     //        esp_mqtt_client_start(mqttClient); 
       //  } else {
-            mqtt_start(); 
+          //  mqtt_start(); 
         //}
 
 
@@ -201,7 +203,7 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
 /////
 
      //if (mqttClient) {
-            esp_mqtt_client_stop(mqttClient);
+         //   esp_mqtt_client_stop(mqttClient);
        // }
         
 
@@ -303,6 +305,7 @@ void ui_event_WIFI_Connection_BUTTON(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         // Show the password input field
         _ui_flag_modify(ui_WIFI_INPUT_PWD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
     }
 }
 
@@ -328,7 +331,12 @@ void ui_event_WIFI_INPUT_PWD(lv_event_t * e)
     
     // Triggered when the user has finished entering the password
     if(event_code == LV_EVENT_READY) {
+        esp_mqtt_client_disconnect(mqttClient);//
+
+        //esp_mqtt_client_stop(mqttClient);//
         user_selected_wifi=true;
+        wifi_need_mqtt_stop=true;
+        
         // Attempt to connect to Wifi with the provided password
         WIFIConnection(e);
         // Hide the keyboard and password field after connection attempt
@@ -367,6 +375,7 @@ void ui_event_WIFI_Button2(lv_event_t * e)
        //_ui_screen_change(&ui_Main, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Wifi_Screen_init);
        change=0;
        _ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Wifi_Screen_init);
+       _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
     }
 }
 
