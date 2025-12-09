@@ -22,24 +22,20 @@
 //#include "pwm.h"          // Header for PWM initialization (used for backlight control)
 #include "wifi.h"         // Header for Wi-Fi functionality
 //#include "sd_card.h"      // Header for SD card operations
-//#include "D:/ESP32/ESP32S3_LCD_7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/ui/ui.h"           // Header for user interface initialization
 #include "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/ui/ui.h"
 #include "nvs_flash.h"
 #include "mqtt_client.h"
 #include "esp_crt_bundle.h"
-
-// các file header hỗ trợ gatt
-
-#include "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/gatt_server/gatt_server.h"
-//#include "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/gatt_client/gatt_client.h"
 #include "esp_http_client.h"
 #include "cJSON.h"
 #include "freertos/event_groups.h"
 #include "esp_mqtt_client/esp_mqtt_client.h"
+#include "esp_sleep.h"
+#include "esp_task_wdt.h"
+
 
 
 static const char *TAG = "main"; // Tag used for ESP log output
-//static const char *MQTT_TAG ="MQTT";
 
 static esp_lcd_panel_handle_t panel_handle = NULL; // Handle for the LCD panel
 static esp_lcd_touch_handle_t tp_handle = NULL;    // Handle for the touch panel
@@ -49,71 +45,31 @@ extern int score;
 
 extern int mesh_enb;
 
+uint8_t start=0;
+
 extern EventGroupHandle_t wifi_event_group;
 extern int WIFI_CONNECTED_BIT ;
 
 extern void wifi_mqtt_manager_task(void *pv);
+extern void checktime_task (void* pvParameters);
+
+SemaphoreHandle_t check_sema=NULL;
+//SemaphoreHandle_t nvs_mutex=NULL;
 
 
-
-
-
+QueueHandle_t mqtt_queue=NULL;
+typedef struct {
+    char topic[64];
+    char data[512];
+} mqtt_message_t;
 
 //extern lv_obj_t * ui_Image37;
 //extern lv_obj_t * ui_Image36;
 
+SemaphoreHandle_t nvs_mutex = NULL;
 
 
-
-#include "esp_sleep.h"
-
- //LV_USE_PERF_MONITOR 
-
-
-//extern const uint8_t hivemq_root_ca_pem_start[] asm("_binary_hivemq_root_ca_pem_start");
-//extern const uint8_t hivemq_root_ca_pem_end[]   asm("_binary_hivemq_root_ca_pem_end");
-
-// Khai báo để linker nhúng dữ liệu PEM vào firmware
-//extern const uint8_t trustid_x3_root_pem_start[] asm("_binary_trustid_x3_root_pem_start");
-//extern const uint8_t trustid_x3_root_pem_end[]   asm("_binary_trustid_x3_root_pem_end");
-
-//extern const uint8_t isrgrootx1_pem_start[] asm("_binary_isrgrootx1_pem_start");
-//extern const uint8_t isrgrootx1_pem_end[]   asm("_binary_isrgrootx1_pem_end");
-
-
-const char mqtt_ca_cert_pem[] = "-----BEGIN CERTIFICATE-----\n"
-"MIIFBTCCAu2gAwIBAgIQWgDyEtjUtIDzkkFX6imDBTANBgkqhkiG9w0BAQsFADBP\n"
-"MQswCQYDVQQGEwJVUzEpMCcGA1UEChMgSW50ZXJuZXQgU2VjdXJpdHkgUmVzZWFy\n"
-"Y2ggR3JvdXAxFTATBgNVBAMTDElTUkcgUm9vdCBYMTAeFw0yNDAzMTMwMDAwMDBa\n"
-"Fw0yNzAzMTIyMzU5NTlaMDMxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBF\n"
-"bmNyeXB0MQwwCgYDVQQDEwNSMTMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK\n"
-"AoIBAQClZ3CN0FaBZBUXYc25BtStGZCMJlA3mBZjklTb2cyEBZPs0+wIG6BgUUNI\n"
-"fSvHSJaetC3ancgnO1ehn6vw1g7UDjDKb5ux0daknTI+WE41b0VYaHEX/D7YXYKg\n"
-"L7JRbLAaXbhZzjVlyIuhrxA3/+OcXcJJFzT/jCuLjfC8cSyTDB0FxLrHzarJXnzR\n"
-"yQH3nAP2/Apd9Np75tt2QnDr9E0i2gB3b9bJXxf92nUupVcM9upctuBzpWjPoXTi\n"
-"dYJ+EJ/B9aLrAek4sQpEzNPCifVJNYIKNLMc6YjCR06CDgo28EdPivEpBHXazeGa\n"
-"XP9enZiVuppD0EqiFwUBBDDTMrOPAgMBAAGjgfgwgfUwDgYDVR0PAQH/BAQDAgGG\n"
-"MB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATASBgNVHRMBAf8ECDAGAQH/\n"
-"AgEAMB0GA1UdDgQWBBTnq58PLDOgU9NeT3jIsoQOO9aSMzAfBgNVHSMEGDAWgBR5\n"
-"tFnme7bl5AFzgAiIyBpY9umbbjAyBggrBgEFBQcBAQQmMCQwIgYIKwYBBQUHMAKG\n"
-"Fmh0dHA6Ly94MS5pLmxlbmNyLm9yZy8wEwYDVR0gBAwwCjAIBgZngQwBAgEwJwYD\n"
-"VR0fBCAwHjAcoBqgGIYWaHR0cDovL3gxLmMubGVuY3Iub3JnLzANBgkqhkiG9w0B\n"
-"AQsFAAOCAgEAUTdYUqEimzW7TbrOypLqCfL7VOwYf/Q79OH5cHLCZeggfQhDconl\n"
-"k7Kgh8b0vi+/XuWu7CN8n/UPeg1vo3G+taXirrytthQinAHGwc/UdbOygJa9zuBc\n"
-"VyqoH3CXTXDInT+8a+c3aEVMJ2St+pSn4ed+WkDp8ijsijvEyFwE47hulW0Ltzjg\n"
-"9fOV5Pmrg/zxWbRuL+k0DBDHEJennCsAen7c35Pmx7jpmJ/HtgRhcnz0yjSBvyIw\n"
-"6L1QIupkCv2SBODT/xDD3gfQQyKv6roV4G2EhfEyAsWpmojxjCUCGiyg97FvDtm/\n"
-"NK2LSc9lybKxB73I2+P2G3CaWpvvpAiHCVu30jW8GCxKdfhsXtnIy2imskQqVZ2m\n"
-"0Pmxobb28Tucr7xBK7CtwvPrb79os7u2XP3O5f9b/H66GNyRrglRXlrYjI1oGYL/\n"
-"f4I1n/Sgusda6WvA6C190kxjU15Y12mHU4+BxyR9cx2hhGS9fAjMZKJss28qxvz6\n"
-"Axu4CaDmRNZpK/pQrXF17yXCXkmEWgvSOEZy6Z9pcbLIVEGckV/iVeq0AOo2pkg9\n"
-"p4QRIy0tK2diRENLSF2KysFwbY6B26BFeFs3v1sYVRhFW9nLkOrQVporCS0KyZmf\n"
-"wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=\n"
-"-----END CERTIFICATE-----\n";
-
-
-
-
+extern void mqtt_process_task(void *pvParameters);
 
 
 
@@ -133,20 +89,7 @@ const char mqtt_ca_cert_pem[] = "-----BEGIN CERTIFICATE-----\n"
  */
 
 
-#include <stdio.h>
-#include <string.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "esp_log.h"
-#include "nvs_flash.h"
-#include "nvs.h"
-#include "cJSON.h"
-#include "mqtt_client.h" // Thư viện MQTT client của ESP-IDF
 
-
-
-
-////////////gatt
 
 
 void app_main()
@@ -155,7 +98,9 @@ void app_main()
     // This ensures that user data and settings are retained even after power loss.
   //  init_nvs();
   //////////////
- 
+    ESP_LOGI("PSRAM", "Total heap: %d", esp_get_free_heap_size());
+    //ESP_LOGI("PSRAM", "Total PSRAM: %d", esp_psram_get_size());
+    ESP_LOGI("PSRAM", "Free PSRAM: %d", esp_get_free_heap_size() - heap_caps_get_free_size(MALLOC_CAP_INTERNAL));
 
     esp_err_t err = nvs_flash_init();
     if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND) {
@@ -164,7 +109,6 @@ void app_main()
         err = nvs_flash_init();
     }
 
-  // ble_init();
     
     // Open NVS for reading
     /*
@@ -245,41 +189,67 @@ void app_main()
 
     // Start the WIFI task to handle Wi-Fi functionality
     // This task manages Wi-Fi connections and hotspot creation.
-   // xTaskCreate(wifi_task, "wifi_task", 8 * 1024, NULL, 15, &wifi_TaskHandle);
-    xTaskCreatePinnedToCore(wifi_task, "wifi_task", 8 * 1024, NULL, 6, &wifi_TaskHandle, 0);
+    nvs_mutex = xSemaphoreCreateMutex();
+
+    mqtt_queue = xQueueCreate(10, sizeof(mqtt_message_t));
+
+    if (mqtt_queue == NULL) {
+        ESP_LOGE(TAG, "Failed to create MQTT queue");
+    }
+
+    //xTaskCreate(mqtt_process_task, "mqtt_process_task", 4096, NULL, 5, NULL);
+    xTaskCreatePinnedToCore(mqtt_process_task,  "mqtt_retry",  4096, NULL, 4, NULL, 1 );
+    //xTaskCreatePinnedToCore(mqtt_process_task,  "mqtt_retry",  6*1024, NULL, 4, NULL, 1 );
+
 
     
 
-     //xTaskCreate(ble_server_task, "ble_server_task", 8 * 1024, NULL, 9, NULL);
-     xTaskCreatePinnedToCore(ble_server_task, "ble_server_task", 8 * 1024, NULL, 5, NULL, 0);
+    xTaskCreatePinnedToCore(wifi_task, "wifi_task", 7* 1024, NULL, 6, &wifi_TaskHandle, 0);//6
+  
      //mqtt_start();
 
-    // xTaskCreate(mainscreen_wifi_rssi_task, "mainscreen_wifi_rssi_task", 4* 1024, NULL, 9, NULL);
+    // xTaskCreate(mainscreen_wifi_rssi_task, "mainscreen_wifi_rssi_task", 4* 1024, NULL, 1, NULL);
     xTaskCreatePinnedToCore(mainscreen_wifi_rssi_task, "wifi_rssi_task", 4 * 1024, NULL, 1, NULL, 1);
 
-    // wifi_rssi_ui_init();
-    //wifi_rssi_monitor_init();
 
-     //mqtt_retry_task_init();
-     xTaskCreate(wifi_mqtt_manager_task, "wifi_mqtt_manager_task", 4096, NULL, 5, NULL);
-
-     mqtt_retry_init();
-
-    // xTaskCreate(mqtt_retry_publish_task, "MQTT_Retry_Task", 4096,  NULL,  5,    NULL);
-     //xTaskCreate(mqtt_publish_task, "mqtt_publish_task", 4096, NULL, 7, NULL);
-     //xTaskCreate(&api_task, "api_task", 1024*4, NULL, 5, NULL);
-     //xTaskCreate(send_message_task, "send_message_task", 8 * 1024, NULL, 10, NULL);
-    // if (connection_flag){
-          
-    // }
-     
-
-
+    //xTaskCreate(wifi_mqtt_manager_task, "wifi_mqtt_manager_task", 4096, NULL, 5, NULL);
+    xTaskCreatePinnedToCore(wifi_mqtt_manager_task, "wifi_mqtt_manager_task", 4 * 1024, NULL, 5, NULL, 1);
     
 
+    check_sema = xSemaphoreCreateBinary();//
+   
+    //xSemaphoreGive(check_sema);
+
+    //xTaskCreate(checktime_task, "check_sem_task", 4*1024, NULL, 4, NULL);//
+    xTaskCreatePinnedToCore(checktime_task, "check_sem_task", 4 * 1024, NULL, 4, NULL, 1);
 
 
+    /*
+    if (delete_current_number()==ESP_OK){
+        ESP_LOGI(TAG,"DELETE CURRENT NUMBER SUCCESSFULLY");
+    }
+    else {
+        ESP_LOGI(TAG,"DELETE CURRENT NUMBER FAILED");
+    }
+        */
 
+   // esp_task_wdt_add(NULL);  // main task
+   
+   /*
+    while (1) {
+        //system_state_proccessing();
+        //esp_task_wdt_reset();       // Reset watchdog cho main
+       // ESP_LOGI("HEAP", "Free heap: %u", esp_get_free_heap_size());
+        if (start<255){
+            start++;
+        }
+        else {
+            start=0;
+        }
+        vTaskDelay(1000 / portTICK_PERIOD_MS);   // Nhường CPU
+    }
+   
+  */
 
 
 }

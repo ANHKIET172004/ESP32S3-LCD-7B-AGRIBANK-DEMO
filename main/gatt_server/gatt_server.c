@@ -1,4 +1,5 @@
 #include "gatt_server.h"
+#include "freertos/semphr.h"
 
 
 
@@ -41,6 +42,11 @@ struct gatts_profile_inst {
 
 
 extern void trigger_mqtt_retry2(void);
+
+extern void save_number(const char *number);
+
+extern SemaphoreHandle_t check_sema;
+
 
 
 
@@ -196,8 +202,10 @@ extern void backup_client_mqtt_data(const char *topic, const char *payload);
             esp_ble_gatts_send_indicate(gatts_if, param->write.conn_id, gl_profile_tab[PROFILE_A_APP_ID].char_handle,
                                        strlen(response), (uint8_t*)response, false);
 
-            backup_client_mqtt_data("feedback",received_msg);//
-           // trigger_mqtt_retry2();
+            //backup_client_mqtt_data("feedback",received_msg);//
+            save_number(received_msg);
+            xSemaphoreGive(check_sema);
+            
         }
         if (param->write.need_rsp){
             esp_ble_gatts_send_response(gatts_if, param->write.conn_id, param->write.trans_id, ESP_GATT_OK, NULL);
@@ -263,7 +271,8 @@ void ble_server_task(void *arg)
 {
     esp_err_t ret;
 
-       ESP_ERROR_CHECK(esp_bt_controller_mem_release(ESP_BT_MODE_CLASSIC_BT));
+    ESP_ERROR_CHECK(esp_bt_controller_mem_release(ESP_BT_MODE_CLASSIC_BT));
+
 
     esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
     ret = esp_bt_controller_init(&bt_cfg);
@@ -304,7 +313,8 @@ void ble_server_task(void *arg)
         return;
     }
 
-    esp_ble_gatt_set_local_mtu(500);
+    //esp_ble_gatt_set_local_mtu(500);
+    esp_ble_gatt_set_local_mtu(128);//
 
     ESP_LOGI(GATTS_TAG, "***** BLE GATT SERVER STARTED *****");
     ESP_LOGI(GATTS_TAG, "***** WAITING FOR CLIENT CONNECTION *****");
@@ -319,3 +329,5 @@ void ble_server_task(void *arg)
         vTaskDelay(pdMS_TO_TICKS(1000)); // chỉ để task không chết, thực tế sự kiện là callback
     }
 }
+
+

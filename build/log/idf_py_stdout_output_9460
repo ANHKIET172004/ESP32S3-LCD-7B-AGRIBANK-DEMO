@@ -1,0 +1,606 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=c4634h (804404) map[0m
+[0;32mI (211) esp_image: segment 1: paddr=000d465c vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (215) esp_image: segment 2: paddr=000d9e04 vaddr=40374000 size=06214h ( 25108) load[0m
+[0;32mI (220) esp_image: segment 3: paddr=000e0020 vaddr=42000020 size=dcb9ch (904092) map[0m
+[0;32mI (356) esp_image: segment 4: paddr=001bcbc4 vaddr=4037a214 size=1799ch ( 96668) load[0m
+[0;32mI (375) esp_image: segment 5: paddr=001d4568 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (387) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (387) boot: Disabling RNG early entropy source...[0m
+[0;33mW (397) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (397) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (404) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (412) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (416) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (420) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (425) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (429) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (433) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (438) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (442) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (447) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (452) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (456) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (461) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (473) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (473) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (474) esp_psram: Speed: 120MHz[0m
+[0;32mI (511) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (557) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (558) cpu_start: Multicore app[0m
+[0;32mI (719) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (728) cpu_start: Pro cpu start user code[0m
+[0;32mI (728) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (728) app_init: Application information:[0m
+[0;32mI (728) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (732) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (737) app_init: Compile time:     Oct 17 2025 14:36:47[0m
+[0;32mI (742) app_init: ELF file SHA256:  de2e273ff...[0m
+[0;32mI (746) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (750) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (754) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (758) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (762) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (768) heap_init: At 3FCAC7A8 len 0003CF68 (243 KiB): RAM[0m
+[0;32mI (773) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (778) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (783) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (789) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
+[0;32mI (795) esp_psram: Adding pool of 46K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (807) spi_flash: detected chip: generic[0m
+[0;32mI (810) spi_flash: flash io: qio[0m
+[0;32mI (813) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (819) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (826) coexist: coex firmware version: 831ec70[0m
+[0;32mI (839) coexist: coexist rom version e7ae62f[0m
+[0;32mI (839) main_task: Started on CPU0[0m
+[0;32mI (840) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (845) main_task: Calling app_main()[0m
+[0;32mI (848) PSRAM: Total heap: 6922200[0m
+[0;32mI (851) PSRAM: Free PSRAM: 6631381[0m
+[0;33mW (865) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1270) GT911: Initialize I2C panel IO[0m
+[0;32mI (1270) GT911: Initialize touch controller GT911[0m
+[0;33mW (1270) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1272) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1275) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1279) example: Install RGB LCD panel driver[0m
+[0;32mI (1319) example: Initialize RGB LCD panel[0m
+[0;32mI (1321) lv_port: Create LVGL task[0m
+[0;32mI (1348) main: Display LVGL demos[0m
+[0;32mI (1507) pp: pp rom version: e7ae62f[0m
+[0;32mI (1508) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1510) wifi:wifi driver task: 3fccc630, prio:23, stack:6656, core=0[0m
+[0;32mI (1521) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1521) wifi:wifi certification version: v7.0[0m
+[0;32mI (1522) wifi:config NVS flash: enabled[0m
+[0;32mI (1522) wifi:config nano formatting: disabled[0m
+[0;32mI (1526) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1532) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1535) wifi:Init management short buffer num: 32[0m
+[0;32mI (1540) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1544) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1548) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1552) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1556) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1560) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1564) wifi_init: rx ba win: 16[0m
+[0;32mI (1567) wifi_init: accept mbox: 6[0m
+[0;32mI (1570) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1573) wifi_init: udp mbox: 6[0m
+[0;32mI (1576) wifi_init: tcp mbox: 6[0m
+[0;32mI (1579) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1582) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1585) wifi_init: tcp mss: 1440[0m
+[0;32mI (1588) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1592) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1596) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1600) MQTT: Other event id:7[0m
+Wi-Fi event handler registered.
+[1;31mE (1603) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;32mI (1606) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[1;31mE (1611) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (1623) mqtt_client: Error transport connect[0m
+[0;32mI (1627) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (1629) MQTT: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1635) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (1639) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (1643) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1611) MQTT_BACKUP: MQTT Retry Publish Task started[0m
+[0;32mI (1648) wifi:mode : null[0m
+[0;33mW (1654) RSSI: Not connected to any AP[0m
+[0;32mI (1606) main_task: Returned from app_main()[0m
+[0;33mW (3674) RSSI: Not connected to any AP[0m
+[0;32mI (5088) wifi:flush txq[0m
+[0;32mI (5088) wifi:stop sw txq[0m
+[0;32mI (5088) wifi:lmac stop hw txq[0m
+STA:STA 
+[0;32mI (5090) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (5090) wifi:enable tsf[0m
+[0;33mW (5674) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (5677) RSSI: Not connected to any AP[0m
+[0;32mI (7602) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (7602) wifi_scan: Total APs scanned = 15, actual AP number ap_info holds = 15[0m
+[0;33mW (7679) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (7680) RSSI: Not connected to any AP[0m
+[0;32mI (7706) NVS: Have a saved wifi network in NVS[0m
+[0;32mI (7708) wifi_scan: [0m
+[0;32mI (7709) wifi_scan: Found saved wifi network in scan list, ssid: NamTrung[0m
+[0;32mI (7709) wifi_scan: BSSID 10:5F:02:75:1E:9A[0m
+[0;32mI (7733) WiFi Sta: Connecting to wifi network, BSSID: 10:5F:02:75:1E:9A[0m
+[0;32mI (7734) wifi:flush txq[0m
+[0;32mI (7735) wifi:stop sw txq[0m
+[0;32mI (7735) wifi:lmac stop hw txq[0m
+[0;32mI (7737) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (7740) wifi:enable tsf[0m
+[0;32mI (7744) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (7750) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (7755) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (7764) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (7772) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (7798) wifi:connected with NamTrung, aid = 24, channel 6, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (7799) wifi:security: WPA2-PSK, phy: bgn, rssi: -56[0m
+[0;32mI (7801) wifi:pm start, type: 1[0m
+
+[0;32mI (7803) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (7811) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (7820) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (7826) WiFi Sta: Connected to SSID:NamTrung, channel:6[0m
+[0;32mI (8006) MQTT_MANAGER: Starting MQTT safely...[0m
+[1;31mE (8006) mqtt_client: Client has started[0m
+[0;32mI (8006) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (8247) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (8247) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (8844) esp_netif_handlers: sta ip: 10.10.1.74, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (9757) WiFi: Connected with IP: 10.10.1.74[0m
+[0;32mI (9757) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (9806) MQTT_MANAGER: Starting MQTT safely...[0m
+[1;31mE (9806) mqtt_client: Client has started[0m
+[0;32mI (9806) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (9863) NVS: last index: 0[0m
+[0;32mI (9863) NVS: wifi index: 0[0m
+[0;32mI (11647) MQTT: Other event id:7[0m
+[0;32mI (11716) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:8, winSize:64[0m
+[0;32mI (11729) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (11729) MQTT_BACKUP: Triggered MQTT retry task[0m
+[0;32mI (11730) MQTT_BACKUP: Semaphore received, starting MQTT retry process[0m
+[0;32mI (11732) MQTT_BACKUP: No backup messages to send[0m
+[0;32mI (11736) wifi:I (11734) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=8862, return code=0x00 [0m
+<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:5, winSize:64
+[0;32mI (13750) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (19792) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (25833) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (27690) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4059
+[0;32mI (27691) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4059[0m
+[0;32mI (27692) MQTT_BACKUP: Save 4059 successfully next_number[0m
+[0;32mI (29534) MQTT_BACKUP: Read number: 4059[0m
+[0;32mI (29534) Feedback: Successfully read number: 4059[0m
+[0;32mI (29535) Feedback: diem danh gia: 3[0m
+
+[0;32mI (29536) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (32187) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (38224) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (44265) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (50921) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (56963) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (63107) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (69251) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (75293) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (81334) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (87376) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (93417) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (99460) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (105501) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (111545) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (118608) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (124587) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4060
+[0;32mI (124587) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4060[0m
+[0;32mI (124613) MQTT_BACKUP: Save 4060 successfully next_number[0m
+[0;32mI (124649) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (126474) MQTT_BACKUP: Read number: 4060[0m
+[0;32mI (126475) Feedback: Successfully read number: 4060[0m
+[0;32mI (126475) Feedback: diem danh gia: 2[0m
+
+[0;32mI (126476) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (130794) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (134417) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4061
+[0;32mI (134417) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4061[0m
+[0;32mI (134418) MQTT_BACKUP: Save 4061 successfully next_number[0m
+[0;32mI (135178) MQTT_BACKUP: Read number: 4061[0m
+[0;32mI (135179) Feedback: Successfully read number: 4061[0m
+[0;32mI (135179) Feedback: diem danh gia: 3[0m
+
+[0;32mI (135180) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (136938) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (143081) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (149533) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (155779) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (161821) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (167862) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (174006) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (180150) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (186499) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (190915) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4062
+[0;32mI (190915) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4062[0m
+[0;32mI (190916) MQTT_BACKUP: Save 4062 successfully next_number[0m
+[0;32mI (192541) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (193218) MQTT_BACKUP: Read number: 4062[0m
+[0;32mI (193218) Feedback: Successfully read number: 4062[0m
+[0;32mI (193219) Feedback: diem danh gia: 1[0m
+
+[0;32mI (193220) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (197115) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4063
+[0;32mI (197115) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4063[0m
+[0;32mI (197117) MQTT_BACKUP: Save 4063 successfully next_number[0m
+[0;32mI (198394) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4064
+[0;32mI (198395) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4064[0m
+[0;32mI (198396) MQTT_BACKUP: Save 4064 successfully next_number[0m
+[0;32mI (198583) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (199477) MQTT_BACKUP: Read number: 4064[0m
+[0;32mI (199478) Feedback: Successfully read number: 4064[0m
+[0;32mI (199478) Feedback: diem danh gia: 3[0m
+
+[0;32mI (199479) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (202079) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4066
+[0;32mI (202079) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4066[0m
+[0;32mI (202081) MQTT_BACKUP: Save 4066 successfully next_number[0m
+[0;32mI (203020) MQTT_BACKUP: Read number: 4066[0m
+[0;32mI (203020) Feedback: Successfully read number: 4066[0m
+[0;32mI (203021) Feedback: diem danh gia : 4[0m
+
+[0;32mI (203022) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (204624) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (205867) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4069
+[0;32mI (205868) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4069[0m
+[0;32mI (205869) MQTT_BACKUP: Save 4069 successfully next_number[0m
+[0;32mI (206968) MQTT_BACKUP: Read number: 4069[0m
+[0;32mI (206969) Feedback: Successfully read number: 4069[0m
+[0;32mI (206969) Feedback: diem danh gia : 4[0m
+
+[0;32mI (206970) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (211281) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (217424) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (219388) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4072
+[0;32mI (219388) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4072[0m
+[0;32mI (219389) MQTT_BACKUP: Save 4072 successfully next_number[0m
+[0;32mI (223670) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (225526) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4075
+[0;32mI (225527) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4075[0m
+[0;32mI (225528) MQTT_BACKUP: Save 4075 successfully next_number[0m
+[0;32mI (227689) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4076
+[0;32mI (227689) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4076[0m
+[0;32mI (227691) MQTT_BACKUP: Save 4076 successfully next_number[0m
+[0;32mI (229917) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (231088) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4077
+[0;32mI (231088) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4077[0m
+[0;32mI (231090) MQTT_BACKUP: Save 4077 successfully next_number[0m
+[0;32mI (232244) MQTT_BACKUP: Read number: 4077[0m
+[0;32mI (232245) Feedback: Successfully read number: 4077[0m
+[0;32mI (232245) Feedback: diem danh gia: 3[0m
+
+[0;32mI (232246) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (234640) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4078
+[0;32mI (234640) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4078[0m
+[0;32mI (234642) MQTT_BACKUP: Save 4078 successfully next_number[0m
+[0;32mI (235503) MQTT_BACKUP: Read number: 4078[0m
+[0;32mI (235504) Feedback: Successfully read number: 4078[0m
+[0;32mI (235504) Feedback: diem danh gia: 3[0m
+
+[0;32mI (235505) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (235958) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (237411) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4081
+[0;32mI (237411) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4081[0m
+[0;32mI (237413) MQTT_BACKUP: Save 4081 successfully next_number[0m
+[0;32mI (241137) MQTT_BACKUP: Read number: 4081[0m
+[0;32mI (241138) Feedback: Successfully read number: 4081[0m
+[0;32mI (241138) Feedback: diem danh gia : 4[0m
+
+[0;32mI (241139) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (242000) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (248042) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (254084) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (260227) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (266269) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (268842) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4082
+[0;32mI (268842) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4082[0m
+[0;32mI (268844) MQTT_BACKUP: Save 4082 successfully next_number[0m
+[0;32mI (270496) MQTT_BACKUP: Read number: 4082[0m
+[0;32mI (270497) Feedback: Successfully read number: 4082[0m
+[0;32mI (270497) Feedback: diem danh gia: 3[0m
+
+[0;32mI (270498) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (271814) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4083
+[0;32mI (271814) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4083[0m
+[0;32mI (271815) MQTT_BACKUP: Save 4083 successfully next_number[0m
+[0;32mI (272413) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (273717) MQTT_BACKUP: Read number: 4083[0m
+[0;32mI (273718) Feedback: Successfully read number: 4083[0m
+[0;32mI (273718) Feedback: diem danh gia: 2[0m
+
+[0;32mI (273719) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (275197) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4084
+[0;32mI (275198) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4084[0m
+[0;32mI (275199) MQTT_BACKUP: Save 4084 successfully next_number[0m
+[0;32mI (277083) MQTT_BACKUP: Read number: 4084[0m
+[0;32mI (277084) Feedback: Successfully read number: 4084[0m
+[0;32mI (277084) Feedback: diem danh gia : 4[0m
+
+[0;32mI (277085) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (278559) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (281649) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4085
+[0;32mI (281649) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4085[0m
+[0;32mI (281651) MQTT_BACKUP: Save 4085 successfully next_number[0m
+[0;32mI (282921) MQTT_BACKUP: Read number: 4085[0m
+[0;32mI (282922) Feedback: Successfully read number: 4085[0m
+[0;32mI (282922) Feedback: diem danh gia: 1[0m
+
+[0;32mI (282923) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (284923) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4086
+[0;32mI (284923) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4086[0m
+[0;32mI (284925) MQTT_BACKUP: Save 4086 successfully next_number[0m
+[0;32mI (285111) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (285636) MQTT_BACKUP: Read number: 4086[0m
+[0;32mI (285637) Feedback: Successfully read number: 4086[0m
+[0;32mI (285637) Feedback: diem danh gia: 3[0m
+
+[0;32mI (285638) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (289306) MQTT_BACKUP: Read number: 4086[0m
+[0;32mI (289307) Feedback: Successfully read number: 4086[0m
+[0;32mI (289307) Feedback: diem danh gia : 4[0m
+
+[0;32mI (289308) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (291152) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (297399) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (303441) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (309585) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (315626) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (319362) MQTT_BACKUP: Read number: 4086[0m
+[0;32mI (319363) Feedback: Successfully read number: 4086[0m
+[0;32mI (319363) Feedback: diem danh gia : 4[0m
+
+[0;32mI (319364) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (321668) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (328125) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (334164) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (336253) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4087
+[0;32mI (336253) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4087[0m
+[0;32mI (336255) MQTT_BACKUP: Save 4087 successfully next_number[0m
+[0;32mI (337373) MQTT_BACKUP: Read number: 4087[0m
+[0;32mI (337374) Feedback: Successfully read number: 4087[0m
+[0;32mI (337374) Feedback: diem danh gia : 4[0m
+
+[0;32mI (337375) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (340206) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (341856) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4088
+[0;32mI (341856) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4088[0m
+[0;32mI (341858) MQTT_BACKUP: Save 4088 successfully next_number[0m
+[0;32mI (342866) MQTT_BACKUP: Read number: 4088[0m
+[0;32mI (342866) Feedback: Successfully read number: 4088[0m
+[0;32mI (342867) Feedback: diem danh gia: 3[0m
+
+[0;32mI (342868) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (346449) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (352494) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (355046) MQTT_BACKUP: Read number: 4088[0m
+[0;32mI (355047) Feedback: Successfully read number: 4088[0m
+[0;32mI (355047) Feedback: diem danh gia : 4[0m
+
+[0;32mI (355048) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (358640) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (358755) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4089
+[0;32mI (358755) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4089[0m
+[0;32mI (358756) MQTT_BACKUP: Save 4089 successfully next_number[0m
+[0;32mI (364785) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (371335) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (377479) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (383523) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (389563) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (396219) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (402260) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (405861) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4090
+[0;32mI (405862) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4090[0m
+[0;32mI (405863) MQTT_BACKUP: Save 4090 successfully next_number[0m
+[0;32mI (408004) MQTT_BACKUP: Read number: 4090[0m
+[0;32mI (408004) Feedback: Successfully read number: 4090[0m
+[0;32mI (408005) Feedback: diem danh gia : 4[0m
+
+[0;32mI (408006) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (408404) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (414446) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (420997) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (427144) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (433287) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (439636) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (445680) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (451924) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (458068) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (464112) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (470151) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (476193) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (482337) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (488481) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (494523) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (500564) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (506606) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (512647) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (518794) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (524833) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (531080) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (533266) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4091
+[0;32mI (533266) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4091[0m
+[0;32mI (533268) MQTT_BACKUP: Save 4091 successfully next_number[0m
+[0;32mI (535598) MQTT_BACKUP: Read number: 4091[0m
+[0;32mI (535598) Feedback: Successfully read number: 4091[0m
+[0;32mI (535598) Feedback: diem danh gia: 3[0m
+
+[0;32mI (535599) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (537121) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (543163) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (549207) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (555348) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (561492) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (567536) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (573578) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (579617) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (585865) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (592110) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (598151) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (604193) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (610747) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (616788) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (622832) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (628872) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (634913) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (641057) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (647099) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (653243) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (659387) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (665428) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (671777) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (677819) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (683861) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (690004) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (696251) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (702292) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (708334) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (714478) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (720724) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (726868) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (733217) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (739361) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (745403) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (751547) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (757588) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (763630) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (769774) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (775816) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (782062) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (788106) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (794248) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (799795) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=4092
+[0;32mI (799795) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 4092[0m
+[0;32mI (799797) MQTT_BACKUP: Save 4092 successfully next_number[0m
+[0;32mI (800392) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (802575) MQTT_BACKUP: Read number: 4092[0m
+[0;32mI (802576) Feedback: Successfully read number: 4092[0m
+[0;32mI (802576) Feedback: diem danh gia : 4[0m
+
+[0;32mI (802577) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (806433) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (812475) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (818516) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (824558) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (830600) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (836641) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (842683) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (848724) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (854766) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (860910) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (867157) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (873301) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (879342) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (885589) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (891630) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (897672) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (903714) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (909960) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (916616) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (922760) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (929109) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (935253) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (941295) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (947439) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (953480) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (959523) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (965564) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (971605) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (977749) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (983792) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (989833) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (995977) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1002020) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1008164) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1014306) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1020348) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1026390) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1032638) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1038678) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1044720) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1051069) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1057110) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (1063255) wifi:bcn_timeout,ap_probe_send_start[0m

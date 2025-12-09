@@ -1,36 +1,352 @@
-Command: ninja flash
-[1/16] Performing build step for 'bootloader'
-[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/bootloader/bootloader.bin""
-Bootloader binary size 0x5800 bytes. 0x2800 bytes (31%) free.
-[2/16] No install step for 'bootloader'
-[3/16] Completed 'bootloader'
-[4/16] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui_events.c.obj
-[5/16] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui.c.obj
-[6/16] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/user/wifi/wifi_ap.c.obj
-[7/16] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/user/wifi/wifi_scan.c.obj
-[8/16] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/user/wifi/wifi_sta.c.obj
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi_sta.c: In function 'save_wifi_credentials':
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi_sta.c:64:10: warning: variable 'bssid_update' set but not used [-Wunused-but-set-variable]
-   64 |     bool bssid_update = false;
-      |          ^~~~~~~~~~~~
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi_sta.c:63:10: warning: variable 'pass_update' set but not used [-Wunused-but-set-variable]
-   63 |     bool pass_update = false;
-      |          ^~~~~~~~~~~
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi_sta.c:62:10: warning: variable 'ssid_update' set but not used [-Wunused-but-set-variable]
-   62 |     bool ssid_update = false;
-      |          ^~~~~~~~~~~
-[9/16] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/user/wifi/wifi.c.obj
-FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/user/wifi/wifi.c.obj 
-ccache D:\ESP32_IDF\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin\xtensa-esp32s3-elf-gcc.exe -DESP_PLATFORM -DIDF_VER=\"v5.5-dirty\" -DLV_ATTRIBUTE_FAST_MEM=IRAM_ATTR -DLV_CONF_INCLUDE_SIMPLE -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -DUNITY_INCLUDE_CONFIG_H -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_system/include -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/config" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/ui" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/gatt_server" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/gatt_client" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client" -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/newlib/platform_include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/freertos/config/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/freertos/config/include/freertos -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/freertos/config/xtensa/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/freertos/FreeRTOS-Kernel/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/freertos/esp_additions/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/include/soc -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/include/soc/esp32s3 -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/dma/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/ldo/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/debug_probe/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/mspi_timing_tuning/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/mspi_timing_tuning/tuning_scheme_impl/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/power_supply/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/port/esp32s3/. -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/port/esp32s3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/. -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/heap/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/heap/tlsf -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/log/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/soc/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/soc/esp32s3 -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/soc/esp32s3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/soc/esp32s3/register -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/hal/platform_port/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/hal/esp32s3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/hal/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_rom/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_rom/esp32s3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_rom/esp32s3/include/esp32s3 -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_rom/esp32s3 -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_common/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_system/port/soc -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_system/port/include/private -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/xtensa/esp32s3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/xtensa/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/xtensa/deprecated_include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/lwip/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/lwip/include/apps -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/lwip/include/apps/sntp -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/lwip/lwip/src/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/lwip/port/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/lwip/port/freertos/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/lwip/port/esp32xx/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/lwip/port/esp32xx/include/arch -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/lwip/port/esp32xx/include/sys -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/managed_components/lvgl__lvgl" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/managed_components/lvgl__lvgl/src" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/managed_components" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/managed_components/lvgl__lvgl/examples" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/managed_components/lvgl__lvgl/demos" -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_timer/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_gpio/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_pm/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/mbedtls/port/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/mbedtls/mbedtls/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/mbedtls/mbedtls/library -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/mbedtls/esp_crt_bundle/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/mbedtls/mbedtls/3rdparty/everest/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/mbedtls/mbedtls/3rdparty/p256-m -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_app_format/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_bootloader_format/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/app_update/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bootloader_support/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bootloader_support/bootloader_flash/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_partition/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/efuse/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/efuse/esp32s3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_mm/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/spi_flash/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_security/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/pthread/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_gptimer/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_ringbuf/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_uart/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/vfs/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/app_trace/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_event/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/nvs_flash/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_phy/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_phy/esp32s3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_usb_serial_jtag/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_vfs_console/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_netif/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/wpa_supplicant/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/wpa_supplicant/port/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/wpa_supplicant/esp_supplicant/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_coex/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_wifi/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_wifi/include/local -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_wifi/wifi_apps/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_wifi/wifi_apps/nan_app/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_spi/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_gdbstub/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/include/esp32c3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/osi/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/api/include/api -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/btc/profile/esp/blufi/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/btc/profile/esp/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/hci_log/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/ble_log/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/host/bluedroid/api/include/api -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/common/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/common/tinycrypt/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/core -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/core/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/core/storage -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/btc/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/models/common/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/models/client/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/models/server/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/api/core/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/api/models/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/api -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/lib/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/v1.1/api/core/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/v1.1/api/models/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/esp_ble_mesh/v1.1/btc/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/tinycrypt/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/tinycrypt/port -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/unity/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/unity/unity/src -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/cmock/CMock/src -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/console -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_pcnt/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_mcpwm/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_ana_cmpr/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_i2s/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/sdmmc/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_sdmmc/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_sdspi/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_sdio/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_dac/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_bitscrambler/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_rmt/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_tsens/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_sdm/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_i2c/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_ledc/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_parlio/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_twai/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/driver/deprecated -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/driver/i2c/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/driver/touch_sensor/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/driver/twai/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/driver/touch_sensor/esp32s3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/http_parser -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp-tls -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp-tls/esp-tls-crypto -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_adc/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_adc/interface -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_adc/esp32s3/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_adc/deprecated/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_isp/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_cam/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_cam/interface -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_psram/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_psram/xip_impl/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_jpeg/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_ppa/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_touch_sens/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_driver_touch_sens/hw_ver2/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_eth/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_hid/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/tcp_transport/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_http_client/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_http_server/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_https_ota/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_https_server/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_lcd/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_lcd/interface -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_lcd/rgb/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/protobuf-c/protobuf-c -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/protocomm/include/common -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/protocomm/include/security -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/protocomm/include/transports -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/protocomm/include/crypto/srp6a -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/protocomm/proto-c -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_local_ctrl/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/espcoredump/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/espcoredump/include/port/xtensa -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/wear_levelling/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/fatfs/diskio -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/fatfs/src -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/fatfs/vfs -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/idf_test/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/idf_test/include/esp32s3 -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/ieee802154/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/json/cJSON -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/mqtt/esp-mqtt/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/nvs_sec_provider/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/perfmon/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/rt/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/spiffs/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/touch_element/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/usb/include -ID:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/wifi_provisioning/include -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/fonts" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/gpio" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/gui_paint" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/i2c" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/image" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/io_extension" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/rgb_lcd_port" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/lvgl_port" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/touch" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/sd" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/twai" -I"D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/components/usart" -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -Wno-attributes -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -mdisable-hardware-atomics -O2 "-fmacro-prefix-map=D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI=." -fmacro-prefix-map=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/user/wifi/wifi.c.obj -MF esp-idf\main\CMakeFiles\__idf_main.dir\user\wifi\wifi.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/user/wifi/wifi.c.obj -c "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi.c"
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi.c: In function 'mainscreen_wifi_rssi_task':
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi.c:285:31: error: 'ui_Image38' undeclared (first use in this function); did you mean 'ui_Image30'?
-  285 |             lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN ); //
-      |                               ^~~~~~~~~~
-      |                               ui_Image30
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi.c:285:31: note: each undeclared identifier is reported only once for each function it appears in
-[10/16] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
-In file included from D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/main.c:38:
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.h:18:21: warning: 'mqtt_retry_task_handle' defined but not used [-Wunused-variable]
-   18 | static TaskHandle_t mqtt_retry_task_handle = NULL;
-      |                     ^~~~~~~~~~~~~~~~~~~~~~
-ninja: build stopped: subcommand failed.
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=cd894h (841876) map[0m
+[0;32mI (216) esp_image: segment 1: paddr=000dd8bc vaddr=3fca1c00 size=0275ch ( 10076) load[0m
+[0;32mI (218) esp_image: segment 2: paddr=000e0020 vaddr=42000020 size=ddb7ch (908156) map[0m
+[0;32mI (355) esp_image: segment 3: paddr=001bdba4 vaddr=3fca435c size=03044h ( 12356) load[0m
+[0;32mI (357) esp_image: segment 4: paddr=001c0bf0 vaddr=40374000 size=1dbb0h (121776) load[0m
+[0;32mI (382) esp_image: segment 5: paddr=001de7a8 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (393) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (394) boot: Disabling RNG early entropy source...[0m
+[0;33mW (404) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (404) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (411) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (418) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (423) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (427) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (432) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (436) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (440) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (445) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (449) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (454) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (459) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (463) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (468) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (480) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (480) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (481) esp_psram: Speed: 120MHz[0m
+[0;32mI (518) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (564) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (564) cpu_start: Multicore app[0m
+[0;32mI (726) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (735) cpu_start: Pro cpu start user code[0m
+[0;32mI (735) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (735) app_init: Application information:[0m
+[0;32mI (735) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (739) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (743) app_init: Compile time:     Nov 10 2025 14:56:37[0m
+[0;32mI (748) app_init: ELF file SHA256:  90c6959d5...[0m
+[0;32mI (753) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (757) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (761) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (765) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (769) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (775) heap_init: At 3FCACD28 len 0003C9E8 (242 KiB): RAM[0m
+[0;32mI (780) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (785) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (790) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (796) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
+[0;32mI (802) esp_psram: Adding pool of 9K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (814) spi_flash: detected chip: generic[0m
+[0;32mI (817) spi_flash: flash io: qio[0m
+[0;32mI (820) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (826) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (833) coexist: coex firmware version: 831ec70[0m
+[0;32mI (846) coexist: coexist rom version e7ae62f[0m
+[0;32mI (846) main_task: Started on CPU0[0m
+[0;32mI (847) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (852) main_task: Calling app_main()[0m
+[0;32mI (855) PSRAM: Total heap: 6883708[0m
+[0;32mI (858) PSRAM: Free PSRAM: 6594297[0m
+[0;33mW (872) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1277) GT911: Initialize I2C panel IO[0m
+[0;32mI (1277) GT911: Initialize touch controller GT911[0m
+[0;33mW (1277) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1279) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1282) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1286) example: Install RGB LCD panel driver[0m
+[0;32mI (1326) example: Initialize RGB LCD panel[0m
+[0;32mI (1328) lv_port: Create LVGL task[0m
+[0;32mI (1355) main: Display LVGL demos[0m
+[0;32mI (1372) TAG_NVS: Loaded JSON from NVS: [{"name":"Quay 2","device_id":"94:E6:86:09:A4:78"},{"name":"Quay 1","device_id":"A8:42:E3:4C:7C:BC"}][0m
+[0;32mI (1373) TAG_NVS: Loaded 2 devices from NVS[0m
+[0;32mI (1379) LVGL: Displayed 2 devices[0m
+[0;32mI (1527) pp: pp rom version: e7ae62f[0m
+[0;32mI (1527) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1528) RSSI: Not connected to any AP[0m
+[0;32mI (1528) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (1529) wifi:wifi driver task: 3fccdbf4, prio:23, stack:6656, core=0[0m
+[0;32mI (1546) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1546) wifi:wifi certification version: v7.0[0m
+[0;32mI (1547) wifi:config NVS flash: enabled[0m
+[0;32mI (1550) wifi:config nano formatting: disabled[0m
+[0;32mI (1554) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1559) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1563) wifi:Init management short buffer num: 32[0m
+[0;32mI (1568) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1573) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1575) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1580) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1584) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1588) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1592) wifi_init: rx ba win: 16[0m
+[0;32mI (1595) wifi_init: accept mbox: 6[0m
+[0;32mI (1598) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1601) wifi_init: udp mbox: 6[0m
+[0;32mI (1604) wifi_init: tcp mbox: 6[0m
+[0;32mI (1607) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1610) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1613) wifi_init: tcp mss: 1440[0m
+[0;32mI (1616) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1620) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1624) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1628) reconnect: Found saved WiFi: Namtrung 2.4G[0m
+Wi-Fi event handler registered.
+[0;32mI (1635) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1671) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1672) main_task: Returned from app_main()[0m
+[0;32mI (1707) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1707) wifi:enable tsf[0m
+[0;32mI (1709) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1709) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (1719) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1721) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1728) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1738) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1762) wifi:connected with Namtrung 2.4G, aid = 24, channel 6, BW20, bssid = 12:5f:02:15:32:0e[0m
+[0;32mI (1762) wifi:security: WPA2-PSK, phy: bgn, rssi: -80[0m
+[0;32mI (1765) wifi:pm start, type: 1[0m
+
+[0;32mI (1767) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1775) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1785) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:6[0m
+[0;32mI (1815) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2214) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2214) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2844) esp_netif_handlers: sta ip: 10.10.1.46, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (3664) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:32:0e), tid:7, ssn:11, winSize:64[0m
+[0;32mI (3724) WiFi: Connected with IP: 10.10.1.46[0m
+[0;32mI (3724) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:32:0E[0m
+[0;32mI (3728) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (3732) MQTT: Other event id:7[0m
+[0;32mI (3766) wifi:<ba-add>idx:1 (ifx:0, 12:5f:02:15:32:0e), tid:0, ssn:1, winSize:64[0m
+[0;32mI (3771) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (3775) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=1812, return code=0x00 [0m
+[0;32mI (3778) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=17451, return code=0x01 [0m
+[0;32mI (3827) NVS: last index: -1[0m
+[0;32mI (3827) NVS: wifi index: 0[0m
+[0;33mW (3827) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (3989) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=device/list
+DATA=[{"id":"94:E6:86:09:A4:78","name":"Quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 1"}]
+[0;32mI (3991) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (3996) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: [{"id":"94:E6:86:09:A4:78","name":"Quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 1"}][0m
+[0;32mI (4008) MQTT_BACKUP: MQTT JSON received: [{"id":"94:E6:86:09:A4:78","name":"Quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 1"}][0m
+[0;32mI (4019) MQTT_BACKUP: Stored 2 devices[0m
+[0;32mI (4023) TAG_NVS: Saved 2 devices to NVS[0m
+[0;32mI (11366) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (11366) wifi_scan: Total APs scanned = 17, actual AP number ap_info holds = 17[0m
+[0;32mI (11510) NVS: Have a saved wifi network in NVS: Namtrung 2.4G[0m
+[0;32mI (11512) wifi_scan: Found saved AP: Namtrung 2.4G[0m
+[0;32mI (11532) WAIT TASK: TIMEOUT [0m
+[0;32mI (11532) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (11532) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (11630) NVS: Have a saved wifi network in NVS: Namtrung 2.4G[0m
+[0;32mI (11632) wifi_scan: Found saved AP: Namtrung 2.4G[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=cd894h (841876) map[0m
+[0;32mI (216) esp_image: segment 1: paddr=000dd8bc vaddr=3fca1c00 size=0275ch ( 10076) load[0m
+[0;32mI (218) esp_image: segment 2: paddr=000e0020 vaddr=42000020 size=ddb7ch (908156) map[0m
+[0;32mI (355) esp_image: segment 3: paddr=001bdba4 vaddr=3fca435c size=03044h ( 12356) load[0m
+[0;32mI (357) esp_image: segment 4: paddr=001c0bf0 vaddr=40374000 size=1dbb0h (121776) load[0m
+[0;32mI (382) esp_image: segment 5: paddr=001de7a8 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (393) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (394) boot: Disabling RNG early entropy source...[0m
+[0;33mW (404) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (404) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (411) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (418) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (423) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (427) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (432) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (436) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (440) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (445) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (449) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (454) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (459) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (463) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (468) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (480) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (480) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (481) esp_psram: Speed: 120MHz[0m
+[0;32mI (518) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (564) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (564) cpu_start: Multicore app[0m
+[0;32mI (726) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (735) cpu_start: Pro cpu start user code[0m
+[0;32mI (735) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (735) app_init: Application information:[0m
+[0;32mI (735) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (739) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (743) app_init: Compile time:     Nov 10 2025 14:56:37[0m
+[0;32mI (748) app_init: ELF file SHA256:  90c6959d5...[0m
+[0;32mI (753) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (757) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (761) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (765) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (769) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (775) heap_init: At 3FCACD28 len 0003C9E8 (242 KiB): RAM[0m
+[0;32mI (780) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (785) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (790) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (796) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
+[0;32mI (802) esp_psram: Adding pool of 9K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (814) spi_flash: detected chip: generic[0m
+[0;32mI (817) spi_flash: flash io: qio[0m
+[0;32mI (820) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (826) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (833) coexist: coex firmware version: 831ec70[0m
+[0;32mI (846) coexist: coexist rom version e7ae62f[0m
+[0;32mI (846) main_task: Started on CPU0[0m
+[0;32mI (847) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (852) main_task: Calling app_main()[0m
+[0;32mI (855) PSRAM: Total heap: 6883708[0m
+[0;32mI (858) PSRAM: Free PSRAM: 6594297[0m
+[0;33mW (872) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1277) GT911: Initialize I2C panel IO[0m
+[0;32mI (1277) GT911: Initialize touch controller GT911[0m
+[0;33mW (1277) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1279) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1282) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1286) example: Install RGB LCD panel driver[0m
+[0;32mI (1326) example: Initialize RGB LCD panel[0m
+[0;32mI (1328) lv_port: Create LVGL task[0m
+[0;32mI (1355) main: Display LVGL demos[0m
+[0;32mI (1372) TAG_NVS: Loaded JSON from NVS: [{"name":"Quay 2","device_id":"94:E6:86:09:A4:78"},{"name":"Quay 1","device_id":"A8:42:E3:4C:7C:BC"}][0m
+[0;32mI (1373) TAG_NVS: Loaded 2 devices from NVS[0m
+[0;32mI (1379) LVGL: Displayed 2 devices[0m
+[0;32mI (1527) pp: pp rom version: e7ae62f[0m
+[0;32mI (1527) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1528) RSSI: Not connected to any AP[0m
+[0;32mI (1528) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (1529) wifi:wifi driver task: 3fccdbf4, prio:23, stack:6656, core=0[0m
+[0;32mI (1546) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1546) wifi:wifi certification version: v7.0[0m
+[0;32mI (1547) wifi:config NVS flash: enabled[0m
+[0;32mI (1550) wifi:config nano formatting: disabled[0m
+[0;32mI (1554) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1559) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1563) wifi:Init management short buffer num: 32[0m
+[0;32mI (1568) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1573) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1575) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1580) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1584) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1588) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1592) wifi_init: rx ba win: 16[0m
+[0;32mI (1595) wifi_init: accept mbox: 6[0m
+[0;32mI (1598) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1601) wifi_init: udp mbox: 6[0m
+[0;32mI (1604) wifi_init: tcp mbox: 6[0m
+[0;32mI (1607) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1610) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1613) wifi_init: tcp mss: 1440[0m
+[0;32mI (1616) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1620) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1624) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1628) reconnect: Found saved WiFi: Namtrung 2.4G[0m
+Wi-Fi event handler registered.
+[0;32mI (1635) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1675) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1675) wifi:enable tsf[0m
+[0;32mI (1677) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1678) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (1528) main_task: Returned from app_main()[0m
+[0;32mI (1771) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1771) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1802) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1811) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1829) wifi:connected with Namtrung 2.4G, aid = 23, channel 6, BW20, bssid = 12:5f:02:15:1e:9a[0m
+[0;32mI (1830) wifi:security: WPA2-PSK, phy: bgn, rssi: -61[0m
+[0;32mI (1832) wifi:pm start, type: 1[0m
+
+[0;32mI (1835) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1843) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1852) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:6[0m
+[0;32mI (1872) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2182) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2182) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2942) esp_netif_handlers: sta ip: 10.10.1.46, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (3692) WiFi: Connected with IP: 10.10.1.46[0m
+[0;32mI (3692) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
+[0;32mI (3708) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (3708) MQTT: Other event id:7[0m
+[0;32mI (3747) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:1e:9a), tid:7, ssn:11, winSize:64[0m
+[0;32mI (3755) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (3759) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=34181, return code=0x00 [0m
+[0;32mI (3761) wifi:<ba-add>idx:1 (ifx:0, 12:5f:02:15:1e:9a), tid:0, ssn:5, winSize:64[0m
+[0;32mI (3769) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=55838, return code=0x01 [0m
+[0;32mI (3797) NVS: last index: -1[0m
+[0;32mI (3797) NVS: wifi index: 0[0m
+[0;33mW (3797) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (3962) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=device/list
+DATA=[{"id":"94:E6:86:09:A4:78","name":"Quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 1"}]
+[0;32mI (3964) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (3969) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: [{"id":"94:E6:86:09:A4:78","name":"Quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 1"}][0m
+[0;32mI (3981) MQTT_BACKUP: MQTT JSON received: [{"id":"94:E6:86:09:A4:78","name":"Quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 1"}][0m
+[0;32mI (3993) MQTT_BACKUP: Stored 2 devices[0m
+[0;32mI (3996) TAG_NVS: Saved 2 devices to NVS[0m
+[0;32mI (11532) WAIT TASK: TIMEOUT [0m
+[0;32mI (11532) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (11532) MQTT_BACKUP: No Key next_number exist[0m

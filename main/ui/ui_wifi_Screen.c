@@ -12,9 +12,14 @@
 extern int cnt;
 
 extern int refresh_index;
+extern bool found_saved_ap;
+
 extern void wifi_scan(void);
 
 
+
+lv_obj_t *label_rescan=NULL;
+lv_obj_t *ui_WIFI_Rescan_Button=NULL;
 
 /*
 static void background_click_event_cb(lv_event_t *e) {
@@ -51,21 +56,32 @@ static void ui_event_WIFI_Refresh_Button(lv_event_t * e)
 {
 //    ESP_LOG("UI", "Rescan button clicked");
 
-if (cnt!=0){
+//if (cnt!=0){
 
     // Bắt đầu scan Wi-Fi (non-blocking)
     //wifi_scan();
+    found_saved_ap=false;
     _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);
+    _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
+
     lv_obj_clean(ui_WIFI_SCAN_List);
     _ui_flag_modify(ui_WIFI_Details_Win, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
      _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); //
     WIFI_SCAN_FLAG=true;
     
-}
+//}
 
 
 }
 
+static void wifi_background_event_cb(lv_event_t * e)
+{
+    if(lv_event_get_code(e) == LV_EVENT_CLICKED) {
+         _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+
+
+    }
+}
 
 void ui_Wifi_Screen_init(void)
 {
@@ -114,6 +130,7 @@ void ui_Wifi_Screen_init(void)
     lv_obj_set_style_bg_opa(ui_WIFI_SCAN_STA, 0, LV_PART_MAIN | LV_STATE_DEFAULT);                            // Set background opacity
     lv_obj_set_style_border_color(ui_WIFI_SCAN_STA, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT); // Set border color
     lv_obj_set_style_border_opa(ui_WIFI_SCAN_STA, 0, LV_PART_MAIN | LV_STATE_DEFAULT);                        // Set border opacity
+    lv_obj_add_event_cb(ui_WIFI_SCAN_STA, wifi_background_event_cb, LV_EVENT_CLICKED, NULL);
 
     // Create button for "Click Back" functionality
     
@@ -571,7 +588,8 @@ void ui_Wifi_Screen_init(void)
 
 ////////
     /* Create "Rescan" button */
-    lv_obj_t *ui_WIFI_Rescan_Button = lv_btn_create(ui_WIFI_SCAN_STA);
+    //lv_obj_t *ui_WIFI_Rescan_Button = lv_btn_create(ui_WIFI_SCAN_STA);
+    ui_WIFI_Rescan_Button = lv_btn_create(ui_WIFI_SCAN_STA);
     lv_obj_set_width(ui_WIFI_Rescan_Button, 140);
     lv_obj_set_height(ui_WIFI_Rescan_Button, 50);
   //  lv_obj_set_x(ui_WIFI_Rescan_Button, 10);   // đặt bên trái
@@ -588,7 +606,8 @@ void ui_Wifi_Screen_init(void)
     lv_obj_set_style_text_font(ui_WIFI_Rescan_Button, &lv_font_montserrat_24, LV_PART_MAIN | LV_STATE_DEFAULT);
 
 
-    lv_obj_t *label_rescan = lv_label_create(ui_WIFI_Rescan_Button);
+    //lv_obj_t *label_rescan = lv_label_create(ui_WIFI_Rescan_Button);
+    label_rescan = lv_label_create(ui_WIFI_Rescan_Button);
     lv_label_set_text(label_rescan, "Refresh");
     lv_obj_center(label_rescan);
 
@@ -606,8 +625,9 @@ void ui_Wifi_Screen_init(void)
     lv_obj_add_event_cb(ui_Main_WIFI, background_click_event_cb, LV_EVENT_CLICKED, NULL);
         // Gắn sự kiện cho button Refresh
     lv_obj_add_event_cb(ui_WIFI_Rescan_Button, ui_event_WIFI_Refresh_Button, LV_EVENT_CLICKED, NULL);
-
-
+    lv_obj_clear_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);//
+    ////////////////////
+    
       
 }
 

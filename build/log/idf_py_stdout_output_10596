@@ -1,130 +1,1511 @@
-Command: ninja flash
-[1/10] Performing build step for 'bootloader'
-[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/bootloader/bootloader.bin""
-Bootloader binary size 0x5800 bytes. 0x2800 bytes (31%) free.
-[2/10] No install step for 'bootloader'
-[3/10] Completed 'bootloader'
-[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
-[5/10] Linking C static library esp-idf\main\libmain.a
-[6/10] Generating esp-idf/esp_system/ld/sections.ld
-[7/10] Linking CXX executable 16_LVGL_UI.elf
-[8/10] Generating binary image from built executable
-esptool.py v4.9.1
-Creating esp32s3 image...
-Merged 2 ELF sections
-Successfully created esp32s3 image.
-Generated D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin
-[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/partition_table/partition-table.bin" "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin""
-16_LVGL_UI.bin binary size 0x24a650 bytes. Smallest app partition is 0x800000 bytes. 0x5b59b0 bytes (71%) free.
-[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\components\esptool_py && D:\ESP32_IDF\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5 -D SERIAL_TOOL=D:/ESP32_IDF/Espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build" -P D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/run_serial_tool.cmake"
-esptool.py --chip esp32s3 -p COM10 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 16_LVGL_UI.bin 0x8000 partition_table/partition-table.bin
-esptool.py v4.9.1
-Serial port COM10
-Connecting....
-Chip is ESP32-S3 (QFN56) (revision v0.2)
-Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
-Crystal is 40MHz
-MAC: 10:20:ba:01:48:a8
-Uploading stub...
-Running stub...
-Stub running...
-Changing baud rate to 460800
-Changed.
-Configuring flash size...
-Flash will be erased from 0x00000000 to 0x00005fff...
-Flash will be erased from 0x00010000 to 0x0025afff...
-Flash will be erased from 0x00008000 to 0x00008fff...
-SHA digest in image updated
-Compressed 22528 bytes to 14318...
-Writing at 0x00000000... (100 %)
-Wrote 22528 bytes (14318 compressed) at 0x00000000 in 0.5 seconds (effective 362.2 kbit/s)...
-Hash of data verified.
-Compressed 2401872 bytes to 1284712...
-Writing at 0x00010000... (1 %)
-Writing at 0x0001d187... (2 %)
-Writing at 0x0002daee... (3 %)
-Writing at 0x0003b234... (5 %)
-Writing at 0x00043ed5... (6 %)
-Writing at 0x0004c222... (7 %)
-Writing at 0x000667b7... (8 %)
-Writing at 0x00084685... (10 %)
-Writing at 0x0009c5e2... (11 %)
-Writing at 0x000af6d2... (12 %)
-Writing at 0x000c48a1... (13 %)
-Writing at 0x000d376a... (15 %)
-Writing at 0x000db49a... (16 %)
-Writing at 0x000e4aa2... (17 %)
-Writing at 0x000ee631... (18 %)
-Writing at 0x000f58d9... (20 %)
-Writing at 0x000fb2e7... (21 %)
-Writing at 0x00101be7... (22 %)
-Writing at 0x00107665... (24 %)
-Writing at 0x0010d1ba... (25 %)
-Writing at 0x001126de... (26 %)
-Writing at 0x00117f29... (27 %)
-Writing at 0x0011d4eb... (29 %)
-Writing at 0x00122899... (30 %)
-Writing at 0x00128b99... (31 %)
-Writing at 0x0012e7c6... (32 %)
-Writing at 0x00134b2c... (34 %)
-Writing at 0x0013a850... (35 %)
-Writing at 0x0014007e... (36 %)
-Writing at 0x00145d76... (37 %)
-Writing at 0x0014bb77... (39 %)
-Writing at 0x0015126c... (40 %)
-Writing at 0x00156bab... (41 %)
-Writing at 0x0015c434... (43 %)
-Writing at 0x00161f8a... (44 %)
-Writing at 0x00167bb8... (45 %)
-Writing at 0x0016d63c... (46 %)
-Writing at 0x00173008... (48 %)
-Writing at 0x00178586... (49 %)
-Writing at 0x0017ec3a... (50 %)
-Writing at 0x00183b5b... (51 %)
-Writing at 0x00188f0b... (53 %)
-Writing at 0x0018e13d... (54 %)
-Writing at 0x0019365b... (55 %)
-Writing at 0x00198ef3... (56 %)
-Writing at 0x0019e4ce... (58 %)
-Writing at 0x001a3cf9... (59 %)
-Writing at 0x001a93d6... (60 %)
-Writing at 0x001ae69c... (62 %)
-Writing at 0x001b3c6f... (63 %)
-Writing at 0x001b9237... (64 %)
-Writing at 0x001be661... (65 %)
-Writing at 0x001c395d... (67 %)
-Writing at 0x001c8bc7... (68 %)
-Writing at 0x001ce1bb... (69 %)
-Writing at 0x001d39d4... (70 %)
-Writing at 0x001d8edf... (72 %)
-Writing at 0x001de23f... (73 %)
-Writing at 0x001e3844... (74 %)
-Writing at 0x001e967e... (75 %)
-Writing at 0x001ee6d4... (77 %)
-Writing at 0x001f3807... (78 %)
-Writing at 0x001f89ae... (79 %)
-Writing at 0x001fdc16... (81 %)
-Writing at 0x00202d94... (82 %)
-Writing at 0x00207f11... (83 %)
-Writing at 0x0020d1e0... (84 %)
-Writing at 0x00212980... (86 %)
-Writing at 0x0021871b... (87 %)
-Writing at 0x00222c8d... (88 %)
-Writing at 0x00229a78... (89 %)
-Writing at 0x0022f3a6... (91 %)
-Writing at 0x00235e93... (92 %)
-Writing at 0x0023c807... (93 %)
-Writing at 0x00241a28... (94 %)
-Writing at 0x00246d6c... (96 %)
-Writing at 0x0024cc93... (97 %)
-Writing at 0x00252c54... (98 %)
-Writing at 0x00257b75... (100 %)
-Wrote 2401872 bytes (1284712 compressed) at 0x00010000 in 29.4 seconds (effective 654.3 kbit/s)...
-Hash of data verified.
-Compressed 3072 bytes to 105...
-Writing at 0x00008000... (100 %)
-Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 819.2 kbit/s)...
-Hash of data verified.
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=cd914h (842004) map[0m
+[0;32mI (216) esp_image: segment 1: paddr=000dd93c vaddr=3fca1c00 size=026dch (  9948) load[0m
+[0;32mI (218) esp_image: segment 2: paddr=000e0020 vaddr=42000020 size=ddc74h (908404) map[0m
+[0;32mI (355) esp_image: segment 3: paddr=001bdc9c vaddr=3fca42dc size=030c4h ( 12484) load[0m
+[0;32mI (357) esp_image: segment 4: paddr=001c0d68 vaddr=40374000 size=1dbb0h (121776) load[0m
+[0;32mI (382) esp_image: segment 5: paddr=001de920 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (394) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (394) boot: Disabling RNG early entropy source...[0m
+[0;33mW (404) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (404) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (411) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (419) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (423) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (427) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (432) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (436) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (440) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (445) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (449) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (454) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (459) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (463) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (468) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (480) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (480) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (481) esp_psram: Speed: 120MHz[0m
+[0;32mI (518) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (564) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (565) cpu_start: Multicore app[0m
+[0;32mI (726) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (735) cpu_start: Pro cpu start user code[0m
+[0;32mI (735) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (735) app_init: Application information:[0m
+[0;32mI (735) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (739) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (744) app_init: Compile time:     Nov 10 2025 14:56:37[0m
+[0;32mI (749) app_init: ELF file SHA256:  fa984dfd9...[0m
+[0;32mI (753) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (757) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (761) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (765) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (769) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (775) heap_init: At 3FCACD28 len 0003C9E8 (242 KiB): RAM[0m
+[0;32mI (780) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (785) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (790) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (796) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
+[0;32mI (802) esp_psram: Adding pool of 9K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (814) spi_flash: detected chip: generic[0m
+[0;32mI (817) spi_flash: flash io: qio[0m
+[0;32mI (820) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (826) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (833) coexist: coex firmware version: 831ec70[0m
+[0;32mI (846) coexist: coexist rom version e7ae62f[0m
+[0;32mI (846) main_task: Started on CPU0[0m
+[0;32mI (847) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (852) main_task: Calling app_main()[0m
+[0;32mI (855) PSRAM: Total heap: 6883580[0m
+[0;32mI (858) PSRAM: Free PSRAM: 6594169[0m
+[0;33mW (872) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1277) GT911: Initialize I2C panel IO[0m
+[0;32mI (1277) GT911: Initialize touch controller GT911[0m
+[0;33mW (1277) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1279) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1282) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1286) example: Install RGB LCD panel driver[0m
+[0;32mI (1326) example: Initialize RGB LCD panel[0m
+[0;32mI (1328) lv_port: Create LVGL task[0m
+[0;32mI (1355) main: Display LVGL demos[0m
+[0;32mI (1372) TAG_NVS: Loaded JSON from NVS: [{"name":"quay 2","device_id":"94:E6:86:09:A4:78"},{"name":"quay 1","device_id":"A8:42:E3:4C:7C:BC"}][0m
+[0;32mI (1374) TAG_NVS: Loaded 2 devices from NVS[0m
+[0;32mI (1379) LVGL: Displayed 2 devices[0m
+[0;32mI (1527) pp: pp rom version: e7ae62f[0m
+[0;32mI (1527) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1528) RSSI: Not connected to any AP[0m
+[0;32mI (1528) HEAP: Free heap: 4292372[0m
+[0;32mI (1529) wifi:wifi driver task: 3fcd11a8, prio:23, stack:6656, core=0[0m
+[0;32mI (1543) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1543) wifi:wifi certification version: v7.0[0m
+[0;32mI (1545) wifi:config NVS flash: enabled[0m
+[0;32mI (1548) wifi:config nano formatting: disabled[0m
+[0;32mI (1552) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1558) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1562) wifi:Init management short buffer num: 32[0m
+[0;32mI (1566) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1571) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1574) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1578) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1582) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1586) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1591) wifi_init: rx ba win: 16[0m
+[0;32mI (1593) wifi_init: accept mbox: 6[0m
+[0;32mI (1596) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1599) wifi_init: udp mbox: 6[0m
+[0;32mI (1602) wifi_init: tcp mbox: 6[0m
+[0;32mI (1605) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1608) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1612) wifi_init: tcp mss: 1440[0m
+[0;32mI (1615) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1619) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1622) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1626) reconnect: Found saved WiFi: Namtrung 2.4G[0m
+Wi-Fi event handler registered.
+[0;32mI (1634) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1671) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1671) wifi:enable tsf[0m
+[0;32mI (1673) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1674) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (1679) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1686) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1696) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1700) HEAP: Free heap: 4173004[0m
+[0;32mI (1703) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1710) HEAP: Free heap: 4172784[0m
+[0;32mI (1720) HEAP: Free heap: 4172784[0m
+[0;32mI (1730) HEAP: Free heap: 4172732[0m
+[0;32mI (1736) wifi:connected with Namtrung 2.4G, aid = 24, channel 11, BW20, bssid = 12:5f:02:15:1e:9a[0m
+[0;32mI (1736) wifi:security: WPA2-PSK, phy: bgn, rssi: -42[0m
+[0;32mI (1739) wifi:pm start, type: 1[0m
 
-Leaving...
-Hard resetting via RTS pin...
+[0;32mI (1741) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1749) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1758) HEAP: Free heap: 4172160[0m
+[0;32mI (1759) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:11[0m
+[0;32mI (1776) HEAP: Free heap: 4171964[0m
+[0;32mI (1786) HEAP: Free heap: 4171944[0m
+[0;32mI (1796) HEAP: Free heap: 4171944[0m
+[0;32mI (1806) HEAP: Free heap: 4171944[0m
+[0;32mI (1816) HEAP: Free heap: 4171944[0m
+[0;32mI (1816) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1826) HEAP: Free heap: 4171944[0m
+[0;32mI (1836) HEAP: Free heap: 4171944[0m
+[0;32mI (1846) HEAP: Free heap: 4171980[0m
+[0;32mI (1856) HEAP: Free heap: 4171980[0m
+[0;32mI (1866) HEAP: Free heap: 4171980[0m
+[0;32mI (1876) HEAP: Free heap: 4171980[0m
+[0;32mI (1886) HEAP: Free heap: 4171980[0m
+[0;32mI (1896) HEAP: Free heap: 4171980[0m
+[0;32mI (1906) HEAP: Free heap: 4171980[0m
+[0;32mI (1916) HEAP: Free heap: 4171944[0m
+[0;32mI (1926) HEAP: Free heap: 4171944[0m
+[0;32mI (1936) HEAP: Free heap: 4171944[0m
+[0;32mI (1946) HEAP: Free heap: 4171944[0m
+[0;32mI (1956) HEAP: Free heap: 4171944[0m
+[0;32mI (1966) HEAP: Free heap: 4171944[0m
+[0;32mI (1976) HEAP: Free heap: 4171944[0m
+[0;32mI (1986) HEAP: Free heap: 4171944[0m
+[0;32mI (1996) HEAP: Free heap: 4171944[0m
+[0;32mI (2006) HEAP: Free heap: 4171980[0m
+[0;32mI (2016) HEAP: Free heap: 4171944[0m
+[0;32mI (2026) HEAP: Free heap: 4171980[0m
+[0;32mI (2036) HEAP: Free heap: 4171980[0m
+[0;32mI (2046) HEAP: Free heap: 4171980[0m
+[0;32mI (2056) HEAP: Free heap: 4171980[0m
+[0;32mI (2066) HEAP: Free heap: 4171980[0m
+[0;32mI (2076) HEAP: Free heap: 4171980[0m
+[0;32mI (2086) HEAP: Free heap: 4171980[0m
+[0;32mI (2096) HEAP: Free heap: 4171980[0m
+[0;32mI (2106) HEAP: Free heap: 4171980[0m
+[0;32mI (2116) HEAP: Free heap: 4171980[0m
+[0;32mI (2126) HEAP: Free heap: 4171980[0m
+[0;32mI (2136) HEAP: Free heap: 4171980[0m
+[0;32mI (2146) HEAP: Free heap: 4171980[0m
+[0;32mI (2156) HEAP: Free heap: 4171980[0m
+[0;32mI (2166) HEAP: Free heap: 4171980[0m
+[0;32mI (2176) HEAP: Free heap: 4171980[0m
+[0;32mI (2186) HEAP: Free heap: 4171980[0m
+[0;32mI (2190) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2190) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2196) HEAP: Free heap: 4171980[0m
+[0;32mI (2206) HEAP: Free heap: 4171980[0m
+[0;32mI (2216) HEAP: Free heap: 4171980[0m
+[0;32mI (2226) HEAP: Free heap: 4171944[0m
+[0;32mI (2236) HEAP: Free heap: 4171980[0m
+[0;32mI (2246) HEAP: Free heap: 4171980[0m
+[0;32mI (2256) HEAP: Free heap: 4171980[0m
+[0;32mI (2266) HEAP: Free heap: 4172008[0m
+[0;32mI (2276) HEAP: Free heap: 4172008[0m
+[0;32mI (2286) HEAP: Free heap: 4171964[0m
+[0;32mI (2296) HEAP: Free heap: 4171964[0m
+[0;32mI (2306) HEAP: Free heap: 4171964[0m
+[0;32mI (2316) HEAP: Free heap: 4171964[0m
+[0;32mI (2326) HEAP: Free heap: 4171964[0m
+[0;32mI (2336) HEAP: Free heap: 4171964[0m
+[0;32mI (2346) HEAP: Free heap: 4171964[0m
+[0;32mI (2356) HEAP: Free heap: 4172000[0m
+[0;32mI (2366) HEAP: Free heap: 4172000[0m
+[0;32mI (2376) HEAP: Free heap: 4172000[0m
+[0;32mI (2386) HEAP: Free heap: 4172000[0m
+[0;32mI (2396) HEAP: Free heap: 4172000[0m
+[0;32mI (2406) HEAP: Free heap: 4172000[0m
+[0;32mI (2416) HEAP: Free heap: 4172000[0m
+[0;32mI (2426) HEAP: Free heap: 4171964[0m
+[0;32mI (2436) HEAP: Free heap: 4171964[0m
+[0;32mI (2446) HEAP: Free heap: 4171964[0m
+[0;32mI (2456) HEAP: Free heap: 4171964[0m
+[0;32mI (2466) HEAP: Free heap: 4171964[0m
+[0;32mI (2476) HEAP: Free heap: 4171964[0m
+[0;32mI (2486) HEAP: Free heap: 4171964[0m
+[0;32mI (2496) HEAP: Free heap: 4171964[0m
+[0;32mI (2506) HEAP: Free heap: 4171964[0m
+[0;32mI (2516) HEAP: Free heap: 4171964[0m
+[0;32mI (2526) HEAP: Free heap: 4171964[0m
+[0;32mI (2536) HEAP: Free heap: 4171964[0m
+[0;32mI (2546) HEAP: Free heap: 4171964[0m
+[0;32mI (2556) HEAP: Free heap: 4171964[0m
+[0;32mI (2566) HEAP: Free heap: 4171964[0m
+[0;32mI (2576) HEAP: Free heap: 4171964[0m
+[0;32mI (2586) HEAP: Free heap: 4172000[0m
+[0;32mI (2596) HEAP: Free heap: 4172000[0m
+[0;32mI (2606) HEAP: Free heap: 4172000[0m
+[0;32mI (2616) HEAP: Free heap: 4172000[0m
+[0;32mI (2626) HEAP: Free heap: 4172000[0m
+[0;32mI (2636) HEAP: Free heap: 4172000[0m
+[0;32mI (2646) HEAP: Free heap: 4172000[0m
+[0;32mI (2656) HEAP: Free heap: 4172000[0m
+[0;32mI (2666) HEAP: Free heap: 4172000[0m
+[0;32mI (2676) HEAP: Free heap: 4172000[0m
+[0;32mI (2686) HEAP: Free heap: 4172000[0m
+[0;32mI (2696) HEAP: Free heap: 4172000[0m
+[0;32mI (2706) HEAP: Free heap: 4172000[0m
+[0;32mI (2716) HEAP: Free heap: 4172000[0m
+[0;32mI (2726) HEAP: Free heap: 4172000[0m
+[0;32mI (2736) HEAP: Free heap: 4171964[0m
+[0;32mI (2746) HEAP: Free heap: 4172000[0m
+[0;32mI (2756) HEAP: Free heap: 4172000[0m
+[0;32mI (2766) HEAP: Free heap: 4172000[0m
+[0;32mI (2776) HEAP: Free heap: 4172000[0m
+[0;32mI (2779) esp_netif_handlers: sta ip: 10.10.2.111, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2786) HEAP: Free heap: 4172028[0m
+[0;32mI (2796) HEAP: Free heap: 4172028[0m
+[0;32mI (2806) HEAP: Free heap: 4172028[0m
+[0;32mI (2816) HEAP: Free heap: 4172028[0m
+[0;32mI (2826) HEAP: Free heap: 4172028[0m
+[0;32mI (2836) HEAP: Free heap: 4171992[0m
+[0;32mI (2846) HEAP: Free heap: 4172028[0m
+[0;32mI (2856) HEAP: Free heap: 4172028[0m
+[0;32mI (2866) HEAP: Free heap: 4172028[0m
+[0;32mI (2876) HEAP: Free heap: 4172028[0m
+[0;32mI (2886) HEAP: Free heap: 4172028[0m
+[0;32mI (2896) HEAP: Free heap: 4172028[0m
+[0;32mI (2906) HEAP: Free heap: 4172028[0m
+[0;32mI (2916) HEAP: Free heap: 4172028[0m
+[0;32mI (2926) HEAP: Free heap: 4172028[0m
+[0;32mI (2936) HEAP: Free heap: 4172028[0m
+[0;32mI (2946) HEAP: Free heap: 4172028[0m
+[0;32mI (2956) HEAP: Free heap: 4172028[0m
+[0;32mI (2966) HEAP: Free heap: 4172028[0m
+[0;32mI (2976) HEAP: Free heap: 4172028[0m
+[0;32mI (2986) HEAP: Free heap: 4172028[0m
+[0;32mI (2996) HEAP: Free heap: 4172028[0m
+[0;32mI (3006) HEAP: Free heap: 4172028[0m
+[0;32mI (3016) HEAP: Free heap: 4172028[0m
+[0;32mI (3026) HEAP: Free heap: 4172028[0m
+[0;32mI (3036) HEAP: Free heap: 4172028[0m
+[0;32mI (3046) HEAP: Free heap: 4172028[0m
+[0;32mI (3056) HEAP: Free heap: 4172028[0m
+[0;32mI (3066) HEAP: Free heap: 4172028[0m
+[0;32mI (3076) HEAP: Free heap: 4172028[0m
+[0;32mI (3086) HEAP: Free heap: 4172028[0m
+[0;32mI (3096) HEAP: Free heap: 4172028[0m
+[0;32mI (3106) HEAP: Free heap: 4172028[0m
+[0;32mI (3116) HEAP: Free heap: 4172028[0m
+[0;32mI (3126) HEAP: Free heap: 4172028[0m
+[0;32mI (3136) HEAP: Free heap: 4172028[0m
+[0;32mI (3146) HEAP: Free heap: 4171992[0m
+[0;32mI (3156) HEAP: Free heap: 4171992[0m
+[0;32mI (3166) HEAP: Free heap: 4172028[0m
+[0;32mI (3176) HEAP: Free heap: 4172028[0m
+[0;32mI (3186) HEAP: Free heap: 4172028[0m
+[0;32mI (3196) HEAP: Free heap: 4172028[0m
+[0;32mI (3206) HEAP: Free heap: 4172028[0m
+[0;32mI (3216) HEAP: Free heap: 4172028[0m
+[0;32mI (3226) HEAP: Free heap: 4172028[0m
+[0;32mI (3236) HEAP: Free heap: 4172028[0m
+[0;32mI (3246) HEAP: Free heap: 4171992[0m
+[0;32mI (3256) HEAP: Free heap: 4172028[0m
+[0;32mI (3266) HEAP: Free heap: 4172028[0m
+[0;32mI (3276) HEAP: Free heap: 4172028[0m
+[0;32mI (3286) HEAP: Free heap: 4172028[0m
+[0;32mI (3296) HEAP: Free heap: 4172028[0m
+[0;32mI (3306) HEAP: Free heap: 4172028[0m
+[0;32mI (3316) HEAP: Free heap: 4172028[0m
+[0;32mI (3326) HEAP: Free heap: 4172028[0m
+[0;32mI (3336) HEAP: Free heap: 4172028[0m
+[0;32mI (3346) HEAP: Free heap: 4171992[0m
+[0;32mI (3356) HEAP: Free heap: 4171992[0m
+[0;32mI (3366) HEAP: Free heap: 4172028[0m
+[0;32mI (3376) HEAP: Free heap: 4172028[0m
+[0;32mI (3386) HEAP: Free heap: 4172028[0m
+[0;32mI (3396) HEAP: Free heap: 4172028[0m
+[0;32mI (3406) HEAP: Free heap: 4172028[0m
+[0;32mI (3416) HEAP: Free heap: 4172028[0m
+[0;32mI (3426) HEAP: Free heap: 4172028[0m
+[0;32mI (3436) HEAP: Free heap: 4172028[0m
+[0;32mI (3446) HEAP: Free heap: 4172028[0m
+[0;32mI (3456) HEAP: Free heap: 4172028[0m
+[0;32mI (3466) HEAP: Free heap: 4172028[0m
+[0;32mI (3476) HEAP: Free heap: 4172028[0m
+[0;32mI (3486) HEAP: Free heap: 4172028[0m
+[0;32mI (3496) HEAP: Free heap: 4172028[0m
+[0;32mI (3506) HEAP: Free heap: 4172028[0m
+[0;32mI (3516) HEAP: Free heap: 4172028[0m
+[0;32mI (3526) HEAP: Free heap: 4171992[0m
+[0;32mI (3536) HEAP: Free heap: 4171860[0m
+[0;32mI (3546) HEAP: Free heap: 4168688[0m
+[0;32mI (3556) HEAP: Free heap: 4171880[0m
+[0;32mI (3566) HEAP: Free heap: 4171880[0m
+[0;32mI (3576) HEAP: Free heap: 4171880[0m
+[0;32mI (3586) HEAP: Free heap: 4171880[0m
+[0;32mI (3596) HEAP: Free heap: 4171880[0m
+[0;32mI (3606) HEAP: Free heap: 4171880[0m
+[0;32mI (3616) HEAP: Free heap: 4171880[0m
+[0;32mI (3626) HEAP: Free heap: 4171880[0m
+[0;32mI (3636) HEAP: Free heap: 4171916[0m
+[0;32mI (3646) HEAP: Free heap: 4171916[0m
+[0;32mI (3656) HEAP: Free heap: 4171880[0m
+[0;32mI (3666) HEAP: Free heap: 4171916[0m
+[0;32mI (3676) HEAP: Free heap: 4171916[0m
+[0;32mI (3686) HEAP: Free heap: 4171916[0m
+[0;32mI (3696) HEAP: Free heap: 4171916[0m
+[0;32mI (3700) WiFi: Connected with IP: 10.10.2.111[0m
+[0;32mI (3700) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
+[0;32mI (3706) HEAP: Free heap: 4171880[0m
+[0;32mI (3708) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (3711) MQTT: Other event id:7[0m
+[0;32mI (3716) HEAP: Free heap: 4161176[0m
+[0;32mI (3720) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:1e:9a), tid:7, ssn:7, winSize:64[0m
+[0;32mI (3726) HEAP: Free heap: 4159516[0m
+[0;32mI (3735) wifi:I (3735) MQTT: MQTT_EVENT_CONNECTED[0m
+<ba-add>idx:1 (ifx:0, 12:5f:02:15:1e:9a), tid:0, ssn:4, winSize:64
+[0;32mI (3737) HEAP: Free heap: 4157708[0m
+[0;32mI (3742) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=54411, return code=0x00 [0m
+[0;32mI (3748) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=50784, return code=0x01 [0m
+[0;32mI (3753) HEAP: Free heap: 4160984[0m
+[0;32mI (3765) HEAP: Free heap: 4160964[0m
+[0;32mI (3775) HEAP: Free heap: 4160964[0m
+[0;32mI (3785) HEAP: Free heap: 4160964[0m
+[0;32mI (3795) HEAP: Free heap: 4160964[0m
+[0;32mI (3805) HEAP: Free heap: 4161000[0m
+[0;32mI (3808) NVS: last index: -1[0m
+[0;32mI (3808) NVS: wifi index: 0[0m
+[0;33mW (3808) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (3815) HEAP: Free heap: 4161036[0m
+[0;32mI (3825) HEAP: Free heap: 4161036[0m
+[0;32mI (3835) HEAP: Free heap: 4161036[0m
+[0;32mI (3845) HEAP: Free heap: 4161036[0m
+[0;32mI (3855) HEAP: Free heap: 4161036[0m
+[0;32mI (3865) HEAP: Free heap: 4160872[0m
+[0;32mI (3875) HEAP: Free heap: 4161000[0m
+[0;32mI (3885) HEAP: Free heap: 4161000[0m
+[0;32mI (3895) HEAP: Free heap: 4161000[0m
+[0;32mI (3905) HEAP: Free heap: 4161000[0m
+[0;32mI (3915) HEAP: Free heap: 4161000[0m
+[0;32mI (3925) HEAP: Free heap: 4161036[0m
+[0;32mI (3935) HEAP: Free heap: 4161036[0m
+[0;32mI (3945) HEAP: Free heap: 4161036[0m
+[0;32mI (3955) HEAP: Free heap: 4161036[0m
+[0;32mI (3965) HEAP: Free heap: 4161004[0m
+[0;32mI (3975) HEAP: Free heap: 4159408[0m
+[0;32mI (3976) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (3976) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"quay 1"}][0m
+[0;32mI (3983) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (3985) HEAP: Free heap: 4160552[0m
+[0;32mI (3987) MQTT_SAVE_NUMBER: Stored 2 devices[0m
+[0;32mI (3994) TAG_NVS: Saved 2 devices to NVS[0m
+[0;32mI (4007) HEAP: Free heap: 4161004[0m
+[0;32mI (4017) HEAP: Free heap: 4161004[0m
+[0;32mI (4027) HEAP: Free heap: 4161004[0m
+[0;32mI (4037) HEAP: Free heap: 4161040[0m
+[0;32mI (4047) HEAP: Free heap: 4161040[0m
+[0;32mI (4057) HEAP: Free heap: 4161040[0m
+[0;32mI (4067) HEAP: Free heap: 4161004[0m
+[0;32mI (4077) HEAP: Free heap: 4161040[0m
+[0;32mI (4087) HEAP: Free heap: 4161040[0m
+[0;32mI (4097) HEAP: Free heap: 4161040[0m
+[0;32mI (4107) HEAP: Free heap: 4161040[0m
+[0;32mI (4117) HEAP: Free heap: 4161040[0m
+[0;32mI (4127) HEAP: Free heap: 4161040[0m
+[0;32mI (4137) HEAP: Free heap: 4161040[0m
+[0;32mI (4147) HEAP: Free heap: 4161040[0m
+[0;32mI (4157) HEAP: Free heap: 4161040[0m
+[0;32mI (4167) HEAP: Free heap: 4161004[0m
+[0;32mI (4177) HEAP: Free heap: 4161040[0m
+[0;32mI (4187) HEAP: Free heap: 4161040[0m
+[0;32mI (4197) HEAP: Free heap: 4161040[0m
+[0;32mI (4207) HEAP: Free heap: 4161040[0m
+[0;32mI (4217) HEAP: Free heap: 4161004[0m
+[0;32mI (4227) HEAP: Free heap: 4161004[0m
+[0;32mI (4237) HEAP: Free heap: 4161004[0m
+[0;32mI (4247) HEAP: Free heap: 4161004[0m
+[0;32mI (4257) HEAP: Free heap: 4161004[0m
+[0;32mI (4267) HEAP: Free heap: 4160876[0m
+[0;32mI (4277) HEAP: Free heap: 4160876[0m
+[0;32mI (4287) HEAP: Free heap: 4161040[0m
+[0;32mI (4297) HEAP: Free heap: 4161040[0m
+[0;32mI (4307) HEAP: Free heap: 4161040[0m
+[0;32mI (4317) HEAP: Free heap: 4161040[0m
+[0;32mI (4327) HEAP: Free heap: 4161040[0m
+[0;32mI (4337) HEAP: Free heap: 4161040[0m
+[0;32mI (4347) HEAP: Free heap: 4161040[0m
+[0;32mI (4357) HEAP: Free heap: 4161040[0m
+[0;32mI (4367) HEAP: Free heap: 4161040[0m
+[0;32mI (4377) HEAP: Free heap: 4161004[0m
+[0;32mI (4387) HEAP: Free heap: 4161040[0m
+[0;32mI (4397) HEAP: Free heap: 4161040[0m
+[0;32mI (4407) HEAP: Free heap: 4161040[0m
+[0;32mI (4417) HEAP: Free heap: 4161040[0m
+[0;32mI (4427) HEAP: Free heap: 4161040[0m
+[0;32mI (4437) HEAP: Free heap: 4161040[0m
+[0;32mI (4447) HEAP: Free heap: 4161040[0m
+[0;32mI (4457) HEAP: Free heap: 4161040[0m
+[0;32mI (4467) HEAP: Free heap: 4161040[0m
+[0;32mI (4477) HEAP: Free heap: 4161004[0m
+[0;32mI (4487) HEAP: Free heap: 4161040[0m
+[0;32mI (4497) HEAP: Free heap: 4161040[0m
+[0;32mI (4507) HEAP: Free heap: 4161040[0m
+[0;32mI (4517) HEAP: Free heap: 4161040[0m
+[0;32mI (4527) HEAP: Free heap: 4161004[0m
+[0;32mI (4537) HEAP: Free heap: 4161004[0m
+[0;32mI (4547) HEAP: Free heap: 4161004[0m
+[0;32mI (4557) HEAP: Free heap: 4161004[0m
+[0;32mI (4567) HEAP: Free heap: 4161004[0m
+[0;32mI (4577) HEAP: Free heap: 4161004[0m
+[0;32mI (4587) HEAP: Free heap: 4161004[0m
+[0;32mI (4597) HEAP: Free heap: 4161040[0m
+[0;32mI (4607) HEAP: Free heap: 4161040[0m
+[0;32mI (4617) HEAP: Free heap: 4161040[0m
+[0;32mI (4627) HEAP: Free heap: 4161040[0m
+[0;32mI (4637) HEAP: Free heap: 4161040[0m
+[0;32mI (4647) HEAP: Free heap: 4161040[0m
+[0;32mI (4657) HEAP: Free heap: 4161040[0m
+[0;32mI (4667) HEAP: Free heap: 4161040[0m
+[0;32mI (4677) HEAP: Free heap: 4161004[0m
+[0;32mI (4687) HEAP: Free heap: 4161004[0m
+[0;32mI (4697) HEAP: Free heap: 4161004[0m
+[0;32mI (4707) HEAP: Free heap: 4161004[0m
+[0;32mI (4717) HEAP: Free heap: 4161004[0m
+[0;32mI (4727) HEAP: Free heap: 4161004[0m
+[0;32mI (4737) HEAP: Free heap: 4161004[0m
+[0;32mI (4747) HEAP: Free heap: 4161004[0m
+[0;32mI (4757) HEAP: Free heap: 4161040[0m
+[0;32mI (4767) HEAP: Free heap: 4161040[0m
+[0;32mI (4777) HEAP: Free heap: 4161040[0m
+[0;32mI (4787) HEAP: Free heap: 4161040[0m
+[0;32mI (4797) HEAP: Free heap: 4161040[0m
+[0;32mI (4807) HEAP: Free heap: 4161040[0m
+[0;32mI (4817) HEAP: Free heap: 4161040[0m
+[0;32mI (4827) HEAP: Free heap: 4161040[0m
+[0;32mI (4837) HEAP: Free heap: 4161040[0m
+[0;32mI (4847) HEAP: Free heap: 4161040[0m
+[0;32mI (4857) HEAP: Free heap: 4161040[0m
+[0;32mI (4867) HEAP: Free heap: 4161040[0m
+[0;32mI (4877) HEAP: Free heap: 4161040[0m
+[0;32mI (4887) HEAP: Free heap: 4161004[0m
+[0;32mI (4897) HEAP: Free heap: 4161040[0m
+[0;32mI (4907) HEAP: Free heap: 4161040[0m
+[0;32mI (4917) HEAP: Free heap: 4161040[0m
+[0;32mI (4927) HEAP: Free heap: 4161040[0m
+[0;32mI (4937) HEAP: Free heap: 4161040[0m
+[0;32mI (4947) HEAP: Free heap: 4161040[0m
+[0;32mI (4957) HEAP: Free heap: 4161040[0m
+[0;32mI (4967) HEAP: Free heap: 4161040[0m
+[0;32mI (4977) HEAP: Free heap: 4161040[0m
+[0;32mI (4987) HEAP: Free heap: 4161004[0m
+[0;32mI (4997) HEAP: Free heap: 4161040[0m
+[0;32mI (5007) HEAP: Free heap: 4161040[0m
+[0;32mI (5017) HEAP: Free heap: 4161040[0m
+[0;32mI (5027) HEAP: Free heap: 4161040[0m
+[0;32mI (5037) HEAP: Free heap: 4161040[0m
+[0;32mI (5047) HEAP: Free heap: 4161040[0m
+[0;32mI (5057) HEAP: Free heap: 4161040[0m
+[0;32mI (5067) HEAP: Free heap: 4161040[0m
+[0;32mI (5077) HEAP: Free heap: 4161040[0m
+[0;32mI (5087) HEAP: Free heap: 4161004[0m
+[0;32mI (5097) HEAP: Free heap: 4161004[0m
+[0;32mI (5107) HEAP: Free heap: 4161040[0m
+[0;32mI (5117) HEAP: Free heap: 4161040[0m
+[0;32mI (5127) HEAP: Free heap: 4161040[0m
+[0;32mI (5137) HEAP: Free heap: 4161040[0m
+[0;32mI (5147) HEAP: Free heap: 4161040[0m
+[0;32mI (5157) HEAP: Free heap: 4161040[0m
+[0;32mI (5167) HEAP: Free heap: 4161040[0m
+[0;32mI (5177) HEAP: Free heap: 4161040[0m
+[0;32mI (5187) HEAP: Free heap: 4161040[0m
+[0;32mI (5197) HEAP: Free heap: 4161004[0m
+[0;32mI (5207) HEAP: Free heap: 4161040[0m
+[0;32mI (5217) HEAP: Free heap: 4161040[0m
+[0;32mI (5227) HEAP: Free heap: 4161040[0m
+[0;32mI (5237) HEAP: Free heap: 4161040[0m
+[0;32mI (5247) HEAP: Free heap: 4161040[0m
+[0;32mI (5257) HEAP: Free heap: 4161040[0m
+[0;32mI (5267) HEAP: Free heap: 4161040[0m
+[0;32mI (5277) HEAP: Free heap: 4161040[0m
+[0;32mI (5287) HEAP: Free heap: 4161040[0m
+[0;32mI (5297) HEAP: Free heap: 4161004[0m
+[0;32mI (5307) HEAP: Free heap: 4161040[0m
+[0;32mI (5317) HEAP: Free heap: 4161040[0m
+[0;32mI (5327) HEAP: Free heap: 4161040[0m
+[0;32mI (5337) HEAP: Free heap: 4161040[0m
+[0;32mI (5347) HEAP: Free heap: 4161040[0m
+[0;32mI (5357) HEAP: Free heap: 4161040[0m
+[0;32mI (5367) HEAP: Free heap: 4161040[0m
+[0;32mI (5377) HEAP: Free heap: 4161040[0m
+[0;32mI (5387) HEAP: Free heap: 4161040[0m
+[0;32mI (5397) HEAP: Free heap: 4161004[0m
+[0;32mI (5407) HEAP: Free heap: 4161004[0m
+[0;32mI (5417) HEAP: Free heap: 4161004[0m
+[0;32mI (5427) HEAP: Free heap: 4161040[0m
+[0;32mI (5437) HEAP: Free heap: 4161040[0m
+[0;32mI (5447) HEAP: Free heap: 4161040[0m
+[0;32mI (5457) HEAP: Free heap: 4161040[0m
+[0;32mI (5467) HEAP: Free heap: 4161040[0m
+[0;32mI (5477) HEAP: Free heap: 4161040[0m
+[0;32mI (5487) HEAP: Free heap: 4161040[0m
+[0;32mI (5497) HEAP: Free heap: 4161004[0m
+[0;32mI (5507) HEAP: Free heap: 4161004[0m
+[0;32mI (5517) HEAP: Free heap: 4161004[0m
+[0;32mI (5527) HEAP: Free heap: 4161004[0m
+[0;32mI (5537) HEAP: Free heap: 4161004[0m
+[0;32mI (5547) HEAP: Free heap: 4161004[0m
+[0;32mI (5557) HEAP: Free heap: 4161004[0m
+[0;32mI (5567) HEAP: Free heap: 4161004[0m
+[0;32mI (5577) HEAP: Free heap: 4161004[0m
+[0;32mI (5587) HEAP: Free heap: 4161004[0m
+[0;32mI (5597) HEAP: Free heap: 4161040[0m
+[0;32mI (5607) HEAP: Free heap: 4161004[0m
+[0;32mI (5617) HEAP: Free heap: 4161040[0m
+[0;32mI (5627) HEAP: Free heap: 4161040[0m
+[0;32mI (5637) HEAP: Free heap: 4161040[0m
+[0;32mI (5647) HEAP: Free heap: 4161040[0m
+[0;32mI (5657) HEAP: Free heap: 4161040[0m
+[0;32mI (5667) HEAP: Free heap: 4161040[0m
+[0;32mI (5677) HEAP: Free heap: 4161040[0m
+[0;32mI (5687) HEAP: Free heap: 4161040[0m
+[0;32mI (5697) HEAP: Free heap: 4161040[0m
+[0;32mI (5707) HEAP: Free heap: 4161004[0m
+[0;32mI (5717) HEAP: Free heap: 4161004[0m
+[0;32mI (5727) HEAP: Free heap: 4161004[0m
+[0;32mI (5737) HEAP: Free heap: 4161004[0m
+[0;32mI (5747) HEAP: Free heap: 4161004[0m
+[0;32mI (5757) HEAP: Free heap: 4161004[0m
+[0;32mI (5767) HEAP: Free heap: 4161040[0m
+[0;32mI (5777) HEAP: Free heap: 4161040[0m
+[0;32mI (5787) HEAP: Free heap: 4161040[0m
+[0;32mI (5797) HEAP: Free heap: 4161040[0m
+[0;32mI (5807) HEAP: Free heap: 4161004[0m
+[0;32mI (5817) HEAP: Free heap: 4161040[0m
+[0;32mI (5827) HEAP: Free heap: 4161040[0m
+[0;32mI (5837) HEAP: Free heap: 4161040[0m
+[0;32mI (5847) HEAP: Free heap: 4161040[0m
+[0;32mI (5857) HEAP: Free heap: 4161040[0m
+[0;32mI (5867) HEAP: Free heap: 4161040[0m
+[0;32mI (5877) HEAP: Free heap: 4161040[0m
+[0;32mI (5887) HEAP: Free heap: 4161040[0m
+[0;32mI (5897) HEAP: Free heap: 4161040[0m
+[0;32mI (5907) HEAP: Free heap: 4161004[0m
+[0;32mI (5917) HEAP: Free heap: 4161004[0m
+[0;32mI (5927) HEAP: Free heap: 4161040[0m
+[0;32mI (5937) HEAP: Free heap: 4161040[0m
+[0;32mI (5947) HEAP: Free heap: 4161040[0m
+[0;32mI (5957) HEAP: Free heap: 4161040[0m
+[0;32mI (5967) HEAP: Free heap: 4161040[0m
+[0;32mI (5977) HEAP: Free heap: 4161040[0m
+[0;32mI (5987) HEAP: Free heap: 4161040[0m
+[0;32mI (5997) HEAP: Free heap: 4161040[0m
+[0;32mI (6007) HEAP: Free heap: 4161040[0m
+[0;32mI (6017) HEAP: Free heap: 4161040[0m
+[0;32mI (6027) HEAP: Free heap: 4161040[0m
+[0;32mI (6037) HEAP: Free heap: 4161040[0m
+[0;32mI (6047) HEAP: Free heap: 4161040[0m
+[0;32mI (6057) HEAP: Free heap: 4161040[0m
+[0;32mI (6067) HEAP: Free heap: 4161040[0m
+[0;32mI (6077) HEAP: Free heap: 4161040[0m
+[0;32mI (6087) HEAP: Free heap: 4161040[0m
+[0;32mI (6097) HEAP: Free heap: 4161040[0m
+[0;32mI (6107) HEAP: Free heap: 4161040[0m
+[0;32mI (6117) HEAP: Free heap: 4161004[0m
+[0;32mI (6127) HEAP: Free heap: 4161040[0m
+[0;32mI (6137) HEAP: Free heap: 4161040[0m
+[0;32mI (6147) HEAP: Free heap: 4161040[0m
+[0;32mI (6157) HEAP: Free heap: 4161040[0m
+[0;32mI (6167) HEAP: Free heap: 4161040[0m
+[0;32mI (6177) HEAP: Free heap: 4161040[0m
+[0;32mI (6187) HEAP: Free heap: 4161040[0m
+[0;32mI (6197) HEAP: Free heap: 4161040[0m
+[0;32mI (6207) HEAP: Free heap: 4161040[0m
+[0;32mI (6217) HEAP: Free heap: 4161004[0m
+[0;32mI (6227) HEAP: Free heap: 4161004[0m
+[0;32mI (6237) HEAP: Free heap: 4161040[0m
+[0;32mI (6247) HEAP: Free heap: 4161040[0m
+[0;32mI (6257) HEAP: Free heap: 4161040[0m
+[0;32mI (6267) HEAP: Free heap: 4161040[0m
+[0;32mI (6277) HEAP: Free heap: 4161040[0m
+[0;32mI (6287) HEAP: Free heap: 4161040[0m
+[0;32mI (6297) HEAP: Free heap: 4161040[0m
+[0;32mI (6307) HEAP: Free heap: 4161040[0m
+[0;32mI (6317) HEAP: Free heap: 4161004[0m
+[0;32mI (6327) HEAP: Free heap: 4161004[0m
+[0;32mI (6337) HEAP: Free heap: 4161040[0m
+[0;32mI (6347) HEAP: Free heap: 4161040[0m
+[0;32mI (6357) HEAP: Free heap: 4161040[0m
+[0;32mI (6367) HEAP: Free heap: 4161040[0m
+[0;32mI (6377) HEAP: Free heap: 4161040[0m
+[0;32mI (6387) HEAP: Free heap: 4161040[0m
+[0;32mI (6397) HEAP: Free heap: 4161040[0m
+[0;32mI (6407) HEAP: Free heap: 4161040[0m
+[0;32mI (6417) HEAP: Free heap: 4161040[0m
+[0;32mI (6427) HEAP: Free heap: 4161004[0m
+[0;32mI (6437) HEAP: Free heap: 4161040[0m
+[0;32mI (6447) HEAP: Free heap: 4161040[0m
+[0;32mI (6457) HEAP: Free heap: 4161040[0m
+[0;32mI (6467) HEAP: Free heap: 4161040[0m
+[0;32mI (6477) HEAP: Free heap: 4161040[0m
+[0;32mI (6487) HEAP: Free heap: 4161040[0m
+[0;32mI (6497) HEAP: Free heap: 4161040[0m
+[0;32mI (6507) HEAP: Free heap: 4161040[0m
+[0;32mI (6517) HEAP: Free heap: 4161040[0m
+[0;32mI (6527) HEAP: Free heap: 4161004[0m
+[0;32mI (6537) HEAP: Free heap: 4161004[0m
+[0;32mI (6547) HEAP: Free heap: 4161004[0m
+[0;32mI (6557) HEAP: Free heap: 4161040[0m
+[0;32mI (6567) HEAP: Free heap: 4161040[0m
+[0;32mI (6577) HEAP: Free heap: 4161040[0m
+[0;32mI (6587) HEAP: Free heap: 4161040[0m
+[0;32mI (6597) HEAP: Free heap: 4161040[0m
+[0;32mI (6607) HEAP: Free heap: 4161040[0m
+[0;32mI (6617) HEAP: Free heap: 4161040[0m
+[0;32mI (6627) HEAP: Free heap: 4161004[0m
+[0;32mI (6637) HEAP: Free heap: 4161004[0m
+[0;32mI (6647) HEAP: Free heap: 4161040[0m
+[0;32mI (6657) HEAP: Free heap: 4161040[0m
+[0;32mI (6667) HEAP: Free heap: 4161040[0m
+[0;32mI (6677) HEAP: Free heap: 4161040[0m
+[0;32mI (6687) HEAP: Free heap: 4161040[0m
+[0;32mI (6697) HEAP: Free heap: 4161040[0m
+[0;32mI (6707) HEAP: Free heap: 4161040[0m
+[0;32mI (6717) HEAP: Free heap: 4161040[0m
+[0;32mI (6727) HEAP: Free heap: 4161004[0m
+[0;32mI (6737) HEAP: Free heap: 4161040[0m
+[0;32mI (6747) HEAP: Free heap: 4161040[0m
+[0;32mI (6757) HEAP: Free heap: 4161040[0m
+[0;32mI (6767) HEAP: Free heap: 4161040[0m
+[0;32mI (6777) HEAP: Free heap: 4161040[0m
+[0;32mI (6787) HEAP: Free heap: 4161040[0m
+[0;32mI (6797) HEAP: Free heap: 4161040[0m
+[0;32mI (6807) HEAP: Free heap: 4161040[0m
+[0;32mI (6817) HEAP: Free heap: 4161040[0m
+[0;32mI (6827) HEAP: Free heap: 4161040[0m
+[0;32mI (6837) HEAP: Free heap: 4161004[0m
+[0;32mI (6847) HEAP: Free heap: 4161040[0m
+[0;32mI (6857) HEAP: Free heap: 4161040[0m
+[0;32mI (6867) HEAP: Free heap: 4161040[0m
+[0;32mI (6877) HEAP: Free heap: 4161040[0m
+[0;32mI (6887) HEAP: Free heap: 4161040[0m
+[0;32mI (6897) HEAP: Free heap: 4161040[0m
+[0;32mI (6907) HEAP: Free heap: 4161040[0m
+[0;32mI (6917) HEAP: Free heap: 4161040[0m
+[0;32mI (6927) HEAP: Free heap: 4161040[0m
+[0;32mI (6937) HEAP: Free heap: 4161004[0m
+[0;32mI (6947) HEAP: Free heap: 4161040[0m
+[0;32mI (6957) HEAP: Free heap: 4161040[0m
+[0;32mI (6967) HEAP: Free heap: 4161040[0m
+[0;32mI (6977) HEAP: Free heap: 4161040[0m
+[0;32mI (6987) HEAP: Free heap: 4161040[0m
+[0;32mI (6997) HEAP: Free heap: 4161040[0m
+[0;32mI (7007) HEAP: Free heap: 4161040[0m
+[0;32mI (7017) HEAP: Free heap: 4161040[0m
+[0;32mI (7027) HEAP: Free heap: 4161040[0m
+[0;32mI (7037) HEAP: Free heap: 4161004[0m
+[0;32mI (7047) HEAP: Free heap: 4161004[0m
+[0;32mI (7057) HEAP: Free heap: 4161004[0m
+[0;32mI (7067) HEAP: Free heap: 4161004[0m
+[0;32mI (7077) HEAP: Free heap: 4161040[0m
+[0;32mI (7087) HEAP: Free heap: 4161040[0m
+[0;32mI (7097) HEAP: Free heap: 4161040[0m
+[0;32mI (7107) HEAP: Free heap: 4161040[0m
+[0;32mI (7117) HEAP: Free heap: 4161040[0m
+[0;32mI (7127) HEAP: Free heap: 4161040[0m
+[0;32mI (7137) HEAP: Free heap: 4161004[0m
+[0;32mI (7147) HEAP: Free heap: 4161004[0m
+[0;32mI (7157) HEAP: Free heap: 4161040[0m
+[0;32mI (7167) HEAP: Free heap: 4161040[0m
+[0;32mI (7177) HEAP: Free heap: 4161040[0m
+[0;32mI (7187) HEAP: Free heap: 4161040[0m
+[0;32mI (7197) HEAP: Free heap: 4161040[0m
+[0;32mI (7207) HEAP: Free heap: 4161040[0m
+[0;32mI (7217) HEAP: Free heap: 4161040[0m
+[0;32mI (7227) HEAP: Free heap: 4161040[0m
+[0;32mI (7237) HEAP: Free heap: 4161004[0m
+[0;32mI (7247) HEAP: Free heap: 4161004[0m
+[0;32mI (7257) HEAP: Free heap: 4161004[0m
+[0;32mI (7267) HEAP: Free heap: 4161040[0m
+[0;32mI (7277) HEAP: Free heap: 4161040[0m
+[0;32mI (7287) HEAP: Free heap: 4161040[0m
+[0;32mI (7297) HEAP: Free heap: 4161040[0m
+[0;32mI (7307) HEAP: Free heap: 4161040[0m
+[0;32mI (7317) HEAP: Free heap: 4161040[0m
+[0;32mI (7327) HEAP: Free heap: 4161040[0m
+[0;32mI (7337) HEAP: Free heap: 4161040[0m
+[0;32mI (7347) HEAP: Free heap: 4161004[0m
+[0;32mI (7357) HEAP: Free heap: 4161004[0m
+[0;32mI (7367) HEAP: Free heap: 4161004[0m
+[0;32mI (7377) HEAP: Free heap: 4161004[0m
+[0;32mI (7387) HEAP: Free heap: 4161040[0m
+[0;32mI (7397) HEAP: Free heap: 4161040[0m
+[0;32mI (7407) HEAP: Free heap: 4161040[0m
+[0;32mI (7417) HEAP: Free heap: 4161040[0m
+[0;32mI (7427) HEAP: Free heap: 4161040[0m
+[0;32mI (7437) HEAP: Free heap: 4161040[0m
+[0;32mI (7447) HEAP: Free heap: 4161004[0m
+[0;32mI (7457) HEAP: Free heap: 4161004[0m
+[0;32mI (7467) HEAP: Free heap: 4161004[0m
+[0;32mI (7477) HEAP: Free heap: 4161040[0m
+[0;32mI (7487) HEAP: Free heap: 4161040[0m
+[0;32mI (7497) HEAP: Free heap: 4161040[0m
+[0;32mI (7507) HEAP: Free heap: 4161040[0m
+[0;32mI (7517) HEAP: Free heap: 4161040[0m
+[0;32mI (7527) HEAP: Free heap: 4161040[0m
+[0;32mI (7537) HEAP: Free heap: 4161040[0m
+[0;32mI (7547) HEAP: Free heap: 4161004[0m
+[0;32mI (7557) HEAP: Free heap: 4161004[0m
+[0;32mI (7567) HEAP: Free heap: 4161004[0m
+[0;32mI (7577) HEAP: Free heap: 4161004[0m
+[0;32mI (7587) HEAP: Free heap: 4161040[0m
+[0;32mI (7597) HEAP: Free heap: 4161040[0m
+[0;32mI (7607) HEAP: Free heap: 4161040[0m
+[0;32mI (7617) HEAP: Free heap: 4161040[0m
+[0;32mI (7627) HEAP: Free heap: 4161040[0m
+[0;32mI (7637) HEAP: Free heap: 4161040[0m
+[0;32mI (7647) HEAP: Free heap: 4161004[0m
+[0;32mI (7657) HEAP: Free heap: 4161004[0m
+[0;32mI (7667) HEAP: Free heap: 4161004[0m
+[0;32mI (7677) HEAP: Free heap: 4161004[0m
+[0;32mI (7687) HEAP: Free heap: 4161040[0m
+[0;32mI (7697) HEAP: Free heap: 4161040[0m
+[0;32mI (7707) HEAP: Free heap: 4161040[0m
+[0;32mI (7717) HEAP: Free heap: 4161040[0m
+[0;32mI (7727) HEAP: Free heap: 4161040[0m
+[0;32mI (7737) HEAP: Free heap: 4161040[0m
+[0;32mI (7747) HEAP: Free heap: 4161040[0m
+[0;32mI (7757) HEAP: Free heap: 4161004[0m
+[0;32mI (7767) HEAP: Free heap: 4161040[0m
+[0;32mI (7777) HEAP: Free heap: 4161040[0m
+[0;32mI (7787) HEAP: Free heap: 4161040[0m
+[0;32mI (7797) HEAP: Free heap: 4161040[0m
+[0;32mI (7807) HEAP: Free heap: 4161040[0m
+[0;32mI (7817) HEAP: Free heap: 4161040[0m
+[0;32mI (7827) HEAP: Free heap: 4161040[0m
+[0;32mI (7837) HEAP: Free heap: 4161040[0m
+[0;32mI (7847) HEAP: Free heap: 4161040[0m
+[0;32mI (7857) HEAP: Free heap: 4161004[0m
+[0;32mI (7867) HEAP: Free heap: 4161040[0m
+[0;32mI (7877) HEAP: Free heap: 4161040[0m
+[0;32mI (7887) HEAP: Free heap: 4161040[0m
+[0;32mI (7897) HEAP: Free heap: 4161040[0m
+[0;32mI (7907) HEAP: Free heap: 4161040[0m
+[0;32mI (7917) HEAP: Free heap: 4161040[0m
+[0;32mI (7927) HEAP: Free heap: 4161040[0m
+[0;32mI (7937) HEAP: Free heap: 4161040[0m
+[0;32mI (7947) HEAP: Free heap: 4161040[0m
+[0;32mI (7957) HEAP: Free heap: 4161004[0m
+[0;32mI (7967) HEAP: Free heap: 4161004[0m
+[0;32mI (7977) HEAP: Free heap: 4161040[0m
+[0;32mI (7987) HEAP: Free heap: 4161040[0m
+[0;32mI (7997) HEAP: Free heap: 4161040[0m
+[0;32mI (8007) HEAP: Free heap: 4161040[0m
+[0;32mI (8017) HEAP: Free heap: 4161040[0m
+[0;32mI (8027) HEAP: Free heap: 4161040[0m
+[0;32mI (8037) HEAP: Free heap: 4161040[0m
+[0;32mI (8047) HEAP: Free heap: 4161040[0m
+[0;32mI (8057) HEAP: Free heap: 4161004[0m
+[0;32mI (8067) HEAP: Free heap: 4161004[0m
+[0;32mI (8077) HEAP: Free heap: 4161004[0m
+[0;32mI (8087) HEAP: Free heap: 4161040[0m
+[0;32mI (8097) HEAP: Free heap: 4161040[0m
+[0;32mI (8107) HEAP: Free heap: 4161040[0m
+[0;32mI (8117) HEAP: Free heap: 4161040[0m
+[0;32mI (8127) HEAP: Free heap: 4161040[0m
+[0;32mI (8137) HEAP: Free heap: 4161040[0m
+[0;32mI (8147) HEAP: Free heap: 4161040[0m
+[0;32mI (8157) HEAP: Free heap: 4161040[0m
+[0;32mI (8167) HEAP: Free heap: 4161004[0m
+[0;32mI (8177) HEAP: Free heap: 4161004[0m
+[0;32mI (8187) HEAP: Free heap: 4161040[0m
+[0;32mI (8197) HEAP: Free heap: 4161040[0m
+[0;32mI (8207) HEAP: Free heap: 4161040[0m
+[0;32mI (8217) HEAP: Free heap: 4161040[0m
+[0;32mI (8227) HEAP: Free heap: 4161040[0m
+[0;32mI (8237) HEAP: Free heap: 4161040[0m
+[0;32mI (8247) HEAP: Free heap: 4161040[0m
+[0;32mI (8257) HEAP: Free heap: 4161040[0m
+[0;32mI (8267) HEAP: Free heap: 4161004[0m
+[0;32mI (8277) HEAP: Free heap: 4161040[0m
+[0;32mI (8287) HEAP: Free heap: 4161040[0m
+[0;32mI (8297) HEAP: Free heap: 4161040[0m
+[0;32mI (8307) HEAP: Free heap: 4161040[0m
+[0;32mI (8317) HEAP: Free heap: 4161040[0m
+[0;32mI (8327) HEAP: Free heap: 4161040[0m
+[0;32mI (8337) HEAP: Free heap: 4161040[0m
+[0;32mI (8347) HEAP: Free heap: 4161040[0m
+[0;32mI (8357) HEAP: Free heap: 4161040[0m
+[0;32mI (8367) HEAP: Free heap: 4161004[0m
+[0;32mI (8377) HEAP: Free heap: 4161040[0m
+[0;32mI (8387) HEAP: Free heap: 4161040[0m
+[0;32mI (8397) HEAP: Free heap: 4161040[0m
+[0;32mI (8407) HEAP: Free heap: 4161040[0m
+[0;32mI (8417) HEAP: Free heap: 4161040[0m
+[0;32mI (8427) HEAP: Free heap: 4161040[0m
+[0;32mI (8437) HEAP: Free heap: 4161040[0m
+[0;32mI (8447) HEAP: Free heap: 4161040[0m
+[0;32mI (8457) HEAP: Free heap: 4161040[0m
+[0;32mI (8467) HEAP: Free heap: 4161004[0m
+[0;32mI (8477) HEAP: Free heap: 4161004[0m
+[0;32mI (8487) HEAP: Free heap: 4161004[0m
+[0;32mI (8497) HEAP: Free heap: 4161040[0m
+[0;32mI (8507) HEAP: Free heap: 4161040[0m
+[0;32mI (8517) HEAP: Free heap: 4161040[0m
+[0;32mI (8527) HEAP: Free heap: 4161040[0m
+[0;32mI (8537) HEAP: Free heap: 4161040[0m
+[0;32mI (8547) HEAP: Free heap: 4161040[0m
+[0;32mI (8557) HEAP: Free heap: 4161040[0m
+[0;32mI (8567) HEAP: Free heap: 4161040[0m
+[0;32mI (8577) HEAP: Free heap: 4161004[0m
+[0;32mI (8587) HEAP: Free heap: 4161004[0m
+[0;32mI (8597) HEAP: Free heap: 4161040[0m
+[0;32mI (8607) HEAP: Free heap: 4161040[0m
+[0;32mI (8617) HEAP: Free heap: 4161040[0m
+[0;32mI (8627) HEAP: Free heap: 4161040[0m
+[0;32mI (8637) HEAP: Free heap: 4161040[0m
+[0;32mI (8647) HEAP: Free heap: 4161040[0m
+[0;32mI (8657) HEAP: Free heap: 4161040[0m
+[0;32mI (8667) HEAP: Free heap: 4161040[0m
+[0;32mI (8677) HEAP: Free heap: 4161004[0m
+[0;32mI (8687) HEAP: Free heap: 4161040[0m
+[0;32mI (8697) HEAP: Free heap: 4161040[0m
+[0;32mI (8707) HEAP: Free heap: 4161040[0m
+[0;32mI (8717) HEAP: Free heap: 4161040[0m
+[0;32mI (8727) HEAP: Free heap: 4161040[0m
+[0;32mI (8737) HEAP: Free heap: 4161040[0m
+[0;32mI (8747) HEAP: Free heap: 4161040[0m
+[0;32mI (8757) HEAP: Free heap: 4161040[0m
+[0;32mI (8767) HEAP: Free heap: 4161040[0m
+[0;32mI (8777) HEAP: Free heap: 4161004[0m
+[0;32mI (8787) HEAP: Free heap: 4161004[0m
+[0;32mI (8797) HEAP: Free heap: 4161040[0m
+[0;32mI (8807) HEAP: Free heap: 4161040[0m
+[0;32mI (8817) HEAP: Free heap: 4161040[0m
+[0;32mI (8827) HEAP: Free heap: 4161040[0m
+[0;32mI (8837) HEAP: Free heap: 4161040[0m
+[0;32mI (8847) HEAP: Free heap: 4161040[0m
+[0;32mI (8857) HEAP: Free heap: 4161040[0m
+[0;32mI (8867) HEAP: Free heap: 4161040[0m
+[0;32mI (8877) HEAP: Free heap: 4161004[0m
+[0;32mI (8887) HEAP: Free heap: 4161040[0m
+[0;32mI (8897) HEAP: Free heap: 4161040[0m
+[0;32mI (8907) HEAP: Free heap: 4161040[0m
+[0;32mI (8917) HEAP: Free heap: 4161040[0m
+[0;32mI (8927) HEAP: Free heap: 4161040[0m
+[0;32mI (8937) HEAP: Free heap: 4161040[0m
+[0;32mI (8947) HEAP: Free heap: 4161040[0m
+[0;32mI (8957) HEAP: Free heap: 4161040[0m
+[0;32mI (8967) HEAP: Free heap: 4161040[0m
+[0;32mI (8977) HEAP: Free heap: 4161040[0m
+[0;32mI (8987) HEAP: Free heap: 4161004[0m
+[0;32mI (8997) HEAP: Free heap: 4161004[0m
+[0;32mI (9007) HEAP: Free heap: 4161040[0m
+[0;32mI (9017) HEAP: Free heap: 4161040[0m
+[0;32mI (9027) HEAP: Free heap: 4161040[0m
+[0;32mI (9037) HEAP: Free heap: 4161040[0m
+[0;32mI (9047) HEAP: Free heap: 4161040[0m
+[0;32mI (9057) HEAP: Free heap: 4161040[0m
+[0;32mI (9067) HEAP: Free heap: 4161040[0m
+[0;32mI (9077) HEAP: Free heap: 4161040[0m
+[0;32mI (9087) HEAP: Free heap: 4161004[0m
+[0;32mI (9097) HEAP: Free heap: 4161004[0m
+[0;32mI (9107) HEAP: Free heap: 4161040[0m
+[0;32mI (9117) HEAP: Free heap: 4161040[0m
+[0;32mI (9127) HEAP: Free heap: 4161040[0m
+[0;32mI (9137) HEAP: Free heap: 4161040[0m
+[0;32mI (9147) HEAP: Free heap: 4161040[0m
+[0;32mI (9157) HEAP: Free heap: 4161040[0m
+[0;32mI (9167) HEAP: Free heap: 4161040[0m
+[0;32mI (9177) HEAP: Free heap: 4161040[0m
+[0;32mI (9187) HEAP: Free heap: 4161004[0m
+[0;32mI (9197) HEAP: Free heap: 4161040[0m
+[0;32mI (9207) HEAP: Free heap: 4161040[0m
+[0;32mI (9217) HEAP: Free heap: 4161040[0m
+[0;32mI (9227) HEAP: Free heap: 4161040[0m
+[0;32mI (9237) HEAP: Free heap: 4161040[0m
+[0;32mI (9247) HEAP: Free heap: 4161040[0m
+[0;32mI (9257) HEAP: Free heap: 4161040[0m
+[0;32mI (9267) HEAP: Free heap: 4161040[0m
+[0;32mI (9277) HEAP: Free heap: 4161040[0m
+[0;32mI (9287) HEAP: Free heap: 4161004[0m
+[0;32mI (9297) HEAP: Free heap: 4161040[0m
+[0;32mI (9307) HEAP: Free heap: 4161040[0m
+[0;32mI (9317) HEAP: Free heap: 4161040[0m
+[0;32mI (9327) HEAP: Free heap: 4161040[0m
+[0;32mI (9337) HEAP: Free heap: 4161040[0m
+[0;32mI (9347) HEAP: Free heap: 4161040[0m
+[0;32mI (9357) HEAP: Free heap: 4161040[0m
+[0;32mI (9367) HEAP: Free heap: 4161040[0m
+[0;32mI (9377) HEAP: Free heap: 4161040[0m
+[0;32mI (9387) HEAP: Free heap: 4161040[0m
+[0;32mI (9397) HEAP: Free heap: 4161040[0m
+[0;32mI (9407) HEAP: Free heap: 4161040[0m
+[0;32mI (9417) HEAP: Free heap: 4161040[0m
+[0;32mI (9427) HEAP: Free heap: 4161040[0m
+[0;32mI (9437) HEAP: Free heap: 4161040[0m
+[0;32mI (9447) HEAP: Free heap: 4161040[0m
+[0;32mI (9457) HEAP: Free heap: 4161040[0m
+[0;32mI (9467) HEAP: Free heap: 4161040[0m
+[0;32mI (9477) HEAP: Free heap: 4160848[0m
+[0;32mI (9487) HEAP: Free heap: 4160848[0m
+[0;32mI (9497) HEAP: Free heap: 4160812[0m
+[0;32mI (9533) HEAP: Free heap: 4160288[0m
+[0;32mI (9544) HEAP: Free heap: 4157608[0m
+[0;32mI (9554) HEAP: Free heap: 4157608[0m
+[0;32mI (9564) HEAP: Free heap: 4157636[0m
+[0;32mI (9574) HEAP: Free heap: 4160988[0m
+[0;32mI (9621) HEAP: Free heap: 4157880[0m
+[0;32mI (9631) HEAP: Free heap: 4160988[0m
+[0;32mI (9641) HEAP: Free heap: 4160988[0m
+[0;32mI (9693) HEAP: Free heap: 4161008[0m
+[0;32mI (9703) HEAP: Free heap: 4160972[0m
+[0;32mI (9713) HEAP: Free heap: 4161008[0m
+[0;32mI (9723) HEAP: Free heap: 4161008[0m
+[0;32mI (9733) HEAP: Free heap: 4161008[0m
+[0;32mI (9743) HEAP: Free heap: 4161008[0m
+[0;32mI (9753) HEAP: Free heap: 4161008[0m
+[0;32mI (9763) HEAP: Free heap: 4161008[0m
+[0;32mI (9773) HEAP: Free heap: 4161008[0m
+[0;32mI (9783) HEAP: Free heap: 4161008[0m
+[0;32mI (9793) HEAP: Free heap: 4161008[0m
+[0;32mI (9803) HEAP: Free heap: 4160972[0m
+[0;32mI (9813) HEAP: Free heap: 4161008[0m
+[0;32mI (9823) HEAP: Free heap: 4161008[0m
+[0;32mI (9833) HEAP: Free heap: 4161008[0m
+[0;32mI (9843) HEAP: Free heap: 4161008[0m
+[0;32mI (9853) HEAP: Free heap: 4161008[0m
+[0;32mI (9863) HEAP: Free heap: 4161008[0m
+[0;32mI (9873) HEAP: Free heap: 4161008[0m
+[0;32mI (9883) HEAP: Free heap: 4161008[0m
+[0;32mI (9893) HEAP: Free heap: 4161008[0m
+[0;32mI (9903) HEAP: Free heap: 4160972[0m
+[0;32mI (9913) HEAP: Free heap: 4161008[0m
+[0;32mI (9923) HEAP: Free heap: 4161008[0m
+[0;32mI (9933) HEAP: Free heap: 4161008[0m
+[0;32mI (9943) HEAP: Free heap: 4161008[0m
+[0;32mI (9953) HEAP: Free heap: 4161008[0m
+[0;32mI (9963) HEAP: Free heap: 4161008[0m
+[0;32mI (9973) HEAP: Free heap: 4161008[0m
+[0;32mI (9983) HEAP: Free heap: 4161008[0m
+[0;32mI (9993) HEAP: Free heap: 4161008[0m
+[0;32mI (10003) HEAP: Free heap: 4160972[0m
+[0;32mI (10013) HEAP: Free heap: 4161008[0m
+[0;32mI (10023) HEAP: Free heap: 4161008[0m
+[0;32mI (10033) HEAP: Free heap: 4161008[0m
+[0;32mI (10043) HEAP: Free heap: 4161008[0m
+[0;32mI (10053) HEAP: Free heap: 4161008[0m
+[0;32mI (10063) HEAP: Free heap: 4161008[0m
+[0;32mI (10073) HEAP: Free heap: 4161008[0m
+[0;32mI (10083) HEAP: Free heap: 4161008[0m
+[0;32mI (10093) HEAP: Free heap: 4161008[0m
+[0;32mI (10103) HEAP: Free heap: 4161008[0m
+[0;32mI (10113) HEAP: Free heap: 4160972[0m
+[0;32mI (10123) HEAP: Free heap: 4161008[0m
+[0;32mI (10133) HEAP: Free heap: 4161008[0m
+[0;32mI (10143) HEAP: Free heap: 4161008[0m
+[0;32mI (10153) HEAP: Free heap: 4161008[0m
+[0;32mI (10163) HEAP: Free heap: 4161008[0m
+[0;32mI (10173) HEAP: Free heap: 4161008[0m
+[0;32mI (10183) HEAP: Free heap: 4161008[0m
+[0;32mI (10193) HEAP: Free heap: 4161008[0m
+[0;32mI (10203) HEAP: Free heap: 4161008[0m
+[0;32mI (10213) HEAP: Free heap: 4160972[0m
+[0;32mI (10223) HEAP: Free heap: 4161008[0m
+[0;32mI (10233) HEAP: Free heap: 4161008[0m
+[0;32mI (10243) HEAP: Free heap: 4161008[0m
+[0;32mI (10253) HEAP: Free heap: 4161008[0m
+[0;32mI (10263) HEAP: Free heap: 4161008[0m
+[0;32mI (10273) HEAP: Free heap: 4161008[0m
+[0;32mI (10283) HEAP: Free heap: 4161008[0m
+[0;32mI (10293) HEAP: Free heap: 4161008[0m
+[0;32mI (10303) HEAP: Free heap: 4161008[0m
+[0;32mI (10313) HEAP: Free heap: 4160972[0m
+[0;32mI (10323) HEAP: Free heap: 4161008[0m
+[0;32mI (10333) HEAP: Free heap: 4161008[0m
+[0;32mI (10343) HEAP: Free heap: 4161008[0m
+[0;32mI (10353) HEAP: Free heap: 4161008[0m
+[0;32mI (10363) HEAP: Free heap: 4161008[0m
+[0;32mI (10373) HEAP: Free heap: 4161008[0m
+[0;32mI (10383) HEAP: Free heap: 4161008[0m
+[0;32mI (10393) HEAP: Free heap: 4161008[0m
+[0;32mI (10403) HEAP: Free heap: 4161008[0m
+[0;32mI (10413) HEAP: Free heap: 4160972[0m
+[0;32mI (10423) HEAP: Free heap: 4161008[0m
+[0;32mI (10433) HEAP: Free heap: 4161008[0m
+[0;32mI (10443) HEAP: Free heap: 4161008[0m
+[0;32mI (10453) HEAP: Free heap: 4161008[0m
+[0;32mI (10463) HEAP: Free heap: 4161008[0m
+[0;32mI (10473) HEAP: Free heap: 4161008[0m
+[0;32mI (10483) HEAP: Free heap: 4161008[0m
+[0;32mI (10493) HEAP: Free heap: 4161008[0m
+[0;32mI (10503) HEAP: Free heap: 4161008[0m
+[0;32mI (10513) HEAP: Free heap: 4161008[0m
+[0;32mI (10523) HEAP: Free heap: 4160972[0m
+[0;32mI (10533) HEAP: Free heap: 4160972[0m
+[0;32mI (10543) HEAP: Free heap: 4160972[0m
+[0;32mI (10553) HEAP: Free heap: 4160972[0m
+[0;32mI (10563) HEAP: Free heap: 4161008[0m
+[0;32mI (10573) HEAP: Free heap: 4161008[0m
+[0;32mI (10583) HEAP: Free heap: 4161008[0m
+[0;32mI (10593) HEAP: Free heap: 4161008[0m
+[0;32mI (10603) HEAP: Free heap: 4161008[0m
+[0;32mI (10613) HEAP: Free heap: 4161008[0m
+[0;32mI (10623) HEAP: Free heap: 4160972[0m
+[0;32mI (10633) HEAP: Free heap: 4160972[0m
+[0;32mI (10643) HEAP: Free heap: 4160972[0m
+[0;32mI (10653) HEAP: Free heap: 4161008[0m
+[0;32mI (10663) HEAP: Free heap: 4161008[0m
+[0;32mI (10673) HEAP: Free heap: 4161008[0m
+[0;32mI (10683) HEAP: Free heap: 4161008[0m
+[0;32mI (10693) HEAP: Free heap: 4161008[0m
+[0;32mI (10703) HEAP: Free heap: 4161008[0m
+[0;32mI (10713) HEAP: Free heap: 4161008[0m
+[0;32mI (10723) HEAP: Free heap: 4160972[0m
+[0;32mI (10733) HEAP: Free heap: 4160972[0m
+[0;32mI (10743) HEAP: Free heap: 4161008[0m
+[0;32mI (10753) HEAP: Free heap: 4161008[0m
+[0;32mI (10763) HEAP: Free heap: 4161008[0m
+[0;32mI (10773) HEAP: Free heap: 4161008[0m
+[0;32mI (10783) HEAP: Free heap: 4161008[0m
+[0;32mI (10793) HEAP: Free heap: 4161008[0m
+[0;32mI (10803) HEAP: Free heap: 4161008[0m
+[0;32mI (10813) HEAP: Free heap: 4161008[0m
+[0;32mI (10823) HEAP: Free heap: 4160972[0m
+[0;32mI (10833) HEAP: Free heap: 4161008[0m
+[0;32mI (10843) HEAP: Free heap: 4161008[0m
+[0;32mI (10853) HEAP: Free heap: 4161008[0m
+[0;32mI (10863) HEAP: Free heap: 4161008[0m
+[0;32mI (10873) HEAP: Free heap: 4161008[0m
+[0;32mI (10883) HEAP: Free heap: 4161008[0m
+[0;32mI (10893) HEAP: Free heap: 4161008[0m
+[0;32mI (10903) HEAP: Free heap: 4161008[0m
+[0;32mI (10913) HEAP: Free heap: 4161008[0m
+[0;32mI (10923) HEAP: Free heap: 4161008[0m
+[0;32mI (10933) HEAP: Free heap: 4160972[0m
+[0;32mI (10943) HEAP: Free heap: 4161008[0m
+[0;32mI (10953) HEAP: Free heap: 4161008[0m
+[0;32mI (10963) HEAP: Free heap: 4161008[0m
+[0;32mI (10973) HEAP: Free heap: 4161008[0m
+[0;32mI (10983) HEAP: Free heap: 4161008[0m
+[0;32mI (10993) HEAP: Free heap: 4161008[0m
+[0;32mI (11003) HEAP: Free heap: 4161008[0m
+[0;32mI (11013) HEAP: Free heap: 4161008[0m
+[0;32mI (11023) HEAP: Free heap: 4161008[0m
+[0;32mI (11033) HEAP: Free heap: 4161008[0m
+[0;32mI (11043) HEAP: Free heap: 4161008[0m
+[0;32mI (11053) HEAP: Free heap: 4161008[0m
+[0;32mI (11063) HEAP: Free heap: 4161008[0m
+[0;32mI (11073) HEAP: Free heap: 4161008[0m
+[0;32mI (11083) HEAP: Free heap: 4161008[0m
+[0;32mI (11093) HEAP: Free heap: 4161008[0m
+[0;32mI (11103) HEAP: Free heap: 4161008[0m
+[0;32mI (11113) HEAP: Free heap: 4161008[0m
+[0;32mI (11123) HEAP: Free heap: 4161008[0m
+[0;32mI (11133) HEAP: Free heap: 4160972[0m
+[0;32mI (11143) HEAP: Free heap: 4160972[0m
+[0;32mI (11153) HEAP: Free heap: 4161008[0m
+[0;32mI (11163) HEAP: Free heap: 4161008[0m
+[0;32mI (11173) HEAP: Free heap: 4161008[0m
+[0;32mI (11183) HEAP: Free heap: 4161008[0m
+[0;32mI (11193) HEAP: Free heap: 4161008[0m
+[0;32mI (11203) HEAP: Free heap: 4161008[0m
+[0;32mI (11213) HEAP: Free heap: 4161008[0m
+[0;32mI (11223) HEAP: Free heap: 4161008[0m
+[0;32mI (11233) HEAP: Free heap: 4160972[0m
+[0;32mI (11243) HEAP: Free heap: 4160972[0m
+[0;32mI (11253) HEAP: Free heap: 4161008[0m
+[0;32mI (11263) HEAP: Free heap: 4161008[0m
+[0;32mI (11273) HEAP: Free heap: 4161008[0m
+[0;32mI (11283) HEAP: Free heap: 4161008[0m
+[0;32mI (11293) HEAP: Free heap: 4161008[0m
+[0;32mI (11303) HEAP: Free heap: 4161008[0m
+[0;32mI (11313) HEAP: Free heap: 4161008[0m
+[0;32mI (11323) HEAP: Free heap: 4161008[0m
+[0;32mI (11333) HEAP: Free heap: 4160972[0m
+[0;32mI (11343) HEAP: Free heap: 4160972[0m
+[0;32mI (11353) HEAP: Free heap: 4160972[0m
+[0;32mI (11363) HEAP: Free heap: 4161008[0m
+[0;32mI (11373) HEAP: Free heap: 4161008[0m
+[0;32mI (11383) HEAP: Free heap: 4161008[0m
+[0;32mI (11393) HEAP: Free heap: 4161008[0m
+[0;32mI (11403) HEAP: Free heap: 4161008[0m
+[0;32mI (11413) HEAP: Free heap: 4161008[0m
+[0;32mI (11423) HEAP: Free heap: 4161008[0m
+[0;32mI (11433) HEAP: Free heap: 4161008[0m
+[0;32mI (11443) HEAP: Free heap: 4160972[0m
+[0;32mI (11453) HEAP: Free heap: 4161008[0m
+[0;32mI (11463) HEAP: Free heap: 4161008[0m
+[0;32mI (11473) HEAP: Free heap: 4161008[0m
+[0;32mI (11483) HEAP: Free heap: 4161008[0m
+[0;32mI (11493) HEAP: Free heap: 4161008[0m
+[0;32mI (11503) HEAP: Free heap: 4161008[0m
+[0;32mI (11513) HEAP: Free heap: 4161008[0m
+[0;32mI (11523) HEAP: Free heap: 4161008[0m
+[0;32mI (11533) HEAP: Free heap: 4161008[0m
+[0;32mI (11543) HEAP: Free heap: 4160972[0m
+[0;32mI (11553) HEAP: Free heap: 4160972[0m
+[0;32mI (11563) HEAP: Free heap: 4160972[0m
+[0;32mI (11573) HEAP: Free heap: 4161008[0m
+[0;32mI (11583) HEAP: Free heap: 4161008[0m
+[0;32mI (11593) HEAP: Free heap: 4161008[0m
+[0;32mI (11603) HEAP: Free heap: 4161008[0m
+[0;32mI (11613) HEAP: Free heap: 4161008[0m
+[0;32mI (11623) HEAP: Free heap: 4161008[0m
+[0;32mI (11633) HEAP: Free heap: 4161008[0m
+[0;32mI (11643) HEAP: Free heap: 4160972[0m
+[0;32mI (11653) HEAP: Free heap: 4160972[0m
+[0;32mI (11663) HEAP: Free heap: 4161008[0m
+[0;32mI (11673) HEAP: Free heap: 4161008[0m
+[0;32mI (11683) HEAP: Free heap: 4161008[0m
+[0;32mI (11693) HEAP: Free heap: 4161008[0m
+[0;32mI (11703) HEAP: Free heap: 4161008[0m
+[0;32mI (11713) HEAP: Free heap: 4161008[0m
+[0;32mI (11723) HEAP: Free heap: 4161008[0m
+[0;32mI (11733) HEAP: Free heap: 4161008[0m
+[0;32mI (11743) HEAP: Free heap: 4160972[0m
+[0;32mI (11753) HEAP: Free heap: 4160972[0m
+[0;32mI (11763) HEAP: Free heap: 4161008[0m
+[0;32mI (11773) HEAP: Free heap: 4161008[0m
+[0;32mI (11783) HEAP: Free heap: 4161008[0m
+[0;32mI (11793) HEAP: Free heap: 4161008[0m
+[0;32mI (11803) HEAP: Free heap: 4161008[0m
+[0;32mI (11813) HEAP: Free heap: 4161008[0m
+[0;32mI (11823) HEAP: Free heap: 4161008[0m
+[0;32mI (11833) HEAP: Free heap: 4161008[0m
+[0;32mI (11843) HEAP: Free heap: 4161008[0m
+[0;32mI (11853) HEAP: Free heap: 4160972[0m
+[0;32mI (11863) HEAP: Free heap: 4161008[0m
+[0;32mI (11873) HEAP: Free heap: 4161008[0m
+[0;32mI (11883) HEAP: Free heap: 4161008[0m
+[0;32mI (11893) HEAP: Free heap: 4161008[0m
+[0;32mI (11903) HEAP: Free heap: 4161008[0m
+[0;32mI (11913) HEAP: Free heap: 4161008[0m
+[0;32mI (11923) HEAP: Free heap: 4161008[0m
+[0;32mI (11933) HEAP: Free heap: 4161008[0m
+[0;32mI (11943) HEAP: Free heap: 4161008[0m
+[0;32mI (11953) HEAP: Free heap: 4160972[0m
+[0;32mI (11963) HEAP: Free heap: 4161008[0m
+[0;32mI (11973) HEAP: Free heap: 4161008[0m
+[0;32mI (11983) HEAP: Free heap: 4161008[0m
+[0;32mI (11993) HEAP: Free heap: 4161008[0m
+[0;32mI (12003) HEAP: Free heap: 4161008[0m
+[0;32mI (12013) HEAP: Free heap: 4161008[0m
+[0;32mI (12023) HEAP: Free heap: 4161008[0m
+[0;32mI (12033) HEAP: Free heap: 4161008[0m
+[0;32mI (12043) HEAP: Free heap: 4161008[0m
+[0;32mI (12053) HEAP: Free heap: 4160972[0m
+[0;32mI (12063) HEAP: Free heap: 4160972[0m
+[0;32mI (12073) HEAP: Free heap: 4161008[0m
+[0;32mI (12083) HEAP: Free heap: 4161008[0m
+[0;32mI (12093) HEAP: Free heap: 4161008[0m
+[0;32mI (12103) HEAP: Free heap: 4161008[0m
+[0;32mI (12113) HEAP: Free heap: 4161008[0m
+[0;32mI (12123) HEAP: Free heap: 4161008[0m
+[0;32mI (12133) HEAP: Free heap: 4161008[0m
+[0;32mI (12143) HEAP: Free heap: 4161008[0m
+[0;32mI (12153) HEAP: Free heap: 4160972[0m
+[0;32mI (12163) HEAP: Free heap: 4160972[0m
+[0;32mI (12173) HEAP: Free heap: 4161008[0m
+[0;32mI (12183) HEAP: Free heap: 4161008[0m
+[0;32mI (12193) HEAP: Free heap: 4161008[0m
+[0;32mI (12203) HEAP: Free heap: 4161008[0m
+[0;32mI (12213) HEAP: Free heap: 4161008[0m
+[0;32mI (12223) HEAP: Free heap: 4161008[0m
+[0;32mI (12233) HEAP: Free heap: 4161008[0m
+[0;32mI (12243) HEAP: Free heap: 4161008[0m
+[0;32mI (12253) HEAP: Free heap: 4161008[0m
+[0;32mI (12263) HEAP: Free heap: 4161008[0m
+[0;32mI (12273) HEAP: Free heap: 4161008[0m
+[0;32mI (12283) HEAP: Free heap: 4161008[0m
+[0;32mI (12293) HEAP: Free heap: 4161008[0m
+[0;32mI (12303) HEAP: Free heap: 4161008[0m
+[0;32mI (12313) HEAP: Free heap: 4161008[0m
+[0;32mI (12323) HEAP: Free heap: 4161008[0m
+[0;32mI (12333) HEAP: Free heap: 4161008[0m
+[0;32mI (12343) HEAP: Free heap: 4161008[0m
+[0;32mI (12353) HEAP: Free heap: 4161008[0m
+[0;32mI (12363) HEAP: Free heap: 4160972[0m
+[0;32mI (12373) HEAP: Free heap: 4160972[0m
+[0;32mI (12383) HEAP: Free heap: 4161008[0m
+[0;32mI (12393) HEAP: Free heap: 4161008[0m
+[0;32mI (12403) HEAP: Free heap: 4161008[0m
+[0;32mI (12413) HEAP: Free heap: 4161008[0m
+[0;32mI (12423) HEAP: Free heap: 4161008[0m
+[0;32mI (12433) HEAP: Free heap: 4161008[0m
+[0;32mI (12443) HEAP: Free heap: 4161008[0m
+[0;32mI (12453) HEAP: Free heap: 4161008[0m
+[0;32mI (12463) HEAP: Free heap: 4160972[0m
+[0;32mI (12473) HEAP: Free heap: 4160972[0m
+[0;32mI (12483) HEAP: Free heap: 4161008[0m
+[0;32mI (12493) HEAP: Free heap: 4161008[0m
+[0;32mI (12503) HEAP: Free heap: 4161008[0m
+[0;32mI (12513) HEAP: Free heap: 4161008[0m
+[0;32mI (12523) HEAP: Free heap: 4161008[0m
+[0;32mI (12533) HEAP: Free heap: 4161008[0m
+[0;32mI (12543) HEAP: Free heap: 4161008[0m
+[0;32mI (12553) HEAP: Free heap: 4161008[0m
+[0;32mI (12563) HEAP: Free heap: 4160972[0m
+[0;32mI (12573) HEAP: Free heap: 4160972[0m
+[0;32mI (12583) HEAP: Free heap: 4160972[0m
+[0;32mI (12593) HEAP: Free heap: 4160972[0m
+[0;32mI (12603) HEAP: Free heap: 4160972[0m
+[0;32mI (12613) HEAP: Free heap: 4161008[0m
+[0;32mI (12623) HEAP: Free heap: 4161008[0m
+[0;32mI (12633) HEAP: Free heap: 4161008[0m
+[0;32mI (12643) HEAP: Free heap: 4161008[0m
+[0;32mI (12653) HEAP: Free heap: 4161008[0m
+[0;32mI (12663) HEAP: Free heap: 4161008[0m
+[0;32mI (12673) HEAP: Free heap: 4160972[0m
+[0;32mI (12683) HEAP: Free heap: 4161008[0m
+[0;32mI (12693) HEAP: Free heap: 4161008[0m
+[0;32mI (12703) HEAP: Free heap: 4161008[0m
+[0;32mI (12713) HEAP: Free heap: 4161008[0m
+[0;32mI (12723) HEAP: Free heap: 4161008[0m
+[0;32mI (12733) HEAP: Free heap: 4161008[0m
+[0;32mI (12743) HEAP: Free heap: 4161008[0m
+[0;32mI (12753) HEAP: Free heap: 4161008[0m
+[0;32mI (12763) HEAP: Free heap: 4161008[0m
+[0;32mI (12773) HEAP: Free heap: 4160972[0m
+[0;32mI (12783) HEAP: Free heap: 4161008[0m
+[0;32mI (12793) HEAP: Free heap: 4161008[0m
+[0;32mI (12803) HEAP: Free heap: 4161008[0m
+[0;32mI (12813) HEAP: Free heap: 4161008[0m
+[0;32mI (12823) HEAP: Free heap: 4161008[0m
+[0;32mI (12833) HEAP: Free heap: 4161008[0m
+[0;32mI (12843) HEAP: Free heap: 4161008[0m
+[0;32mI (12853) HEAP: Free heap: 4161008[0m
+[0;32mI (12863) HEAP: Free heap: 4161008[0m
+[0;32mI (12873) HEAP: Free heap: 4160972[0m
+[0;32mI (12883) HEAP: Free heap: 4160972[0m
+[0;32mI (12893) HEAP: Free heap: 4161008[0m
+[0;32mI (12903) HEAP: Free heap: 4161008[0m
+[0;32mI (12913) HEAP: Free heap: 4161008[0m
+[0;32mI (12923) HEAP: Free heap: 4161008[0m
+[0;32mI (12933) HEAP: Free heap: 4161008[0m
+[0;32mI (12943) HEAP: Free heap: 4161008[0m
+[0;32mI (12953) HEAP: Free heap: 4161008[0m
+[0;32mI (12963) HEAP: Free heap: 4161008[0m
+[0;32mI (12973) HEAP: Free heap: 4160972[0m
+[0;32mI (12983) HEAP: Free heap: 4160972[0m
+[0;32mI (12993) HEAP: Free heap: 4161008[0m
+[0;32mI (13003) HEAP: Free heap: 4161008[0m
+[0;32mI (13013) HEAP: Free heap: 4161008[0m
+[0;32mI (13023) HEAP: Free heap: 4161008[0m
+[0;32mI (13033) HEAP: Free heap: 4161008[0m
+[0;32mI (13043) HEAP: Free heap: 4161008[0m
+[0;32mI (13053) HEAP: Free heap: 4161008[0m
+[0;32mI (13063) HEAP: Free heap: 4161008[0m
+[0;32mI (13073) HEAP: Free heap: 4161008[0m
+[0;32mI (13083) HEAP: Free heap: 4161008[0m
+[0;32mI (13093) HEAP: Free heap: 4161008[0m
+[0;32mI (13103) HEAP: Free heap: 4161008[0m
+[0;32mI (13113) HEAP: Free heap: 4161008[0m
+[0;32mI (13123) HEAP: Free heap: 4161008[0m
+[0;32mI (13133) HEAP: Free heap: 4161008[0m
+[0;32mI (13143) HEAP: Free heap: 4161008[0m
+[0;32mI (13153) HEAP: Free heap: 4161008[0m
+[0;32mI (13163) HEAP: Free heap: 4161008[0m
+[0;32mI (13173) HEAP: Free heap: 4161008[0m
+[0;32mI (13183) HEAP: Free heap: 4160972[0m
+[0;32mI (13193) HEAP: Free heap: 4160972[0m
+[0;32mI (13203) HEAP: Free heap: 4161008[0m
+[0;32mI (13213) HEAP: Free heap: 4161008[0m
+[0;32mI (13223) HEAP: Free heap: 4161008[0m
+[0;32mI (13233) HEAP: Free heap: 4161008[0m
+[0;32mI (13243) HEAP: Free heap: 4161008[0m
+[0;32mI (13253) HEAP: Free heap: 4161008[0m
+[0;32mI (13263) HEAP: Free heap: 4161008[0m
+[0;32mI (13273) HEAP: Free heap: 4161008[0m
+[0;32mI (13283) HEAP: Free heap: 4160972[0m
+[0;32mI (13293) HEAP: Free heap: 4161008[0m
+[0;32mI (13303) HEAP: Free heap: 4161008[0m
+[0;32mI (13313) HEAP: Free heap: 4161008[0m
+[0;32mI (13323) HEAP: Free heap: 4161008[0m
+[0;32mI (13333) HEAP: Free heap: 4161008[0m
+[0;32mI (13343) HEAP: Free heap: 4161008[0m
+[0;32mI (13353) HEAP: Free heap: 4161008[0m
+[0;32mI (13363) HEAP: Free heap: 4161008[0m
+[0;32mI (13373) HEAP: Free heap: 4161008[0m
+[0;32mI (13383) HEAP: Free heap: 4160972[0m
+[0;32mI (13393) HEAP: Free heap: 4161008[0m
+[0;32mI (13403) HEAP: Free heap: 4161008[0m
+[0;32mI (13413) HEAP: Free heap: 4161008[0m
+[0;32mI (13423) HEAP: Free heap: 4161008[0m
+[0;32mI (13433) HEAP: Free heap: 4161008[0m
+[0;32mI (13443) HEAP: Free heap: 4161008[0m
+[0;32mI (13453) HEAP: Free heap: 4161008[0m
+[0;32mI (13463) HEAP: Free heap: 4161008[0m
+[0;32mI (13473) HEAP: Free heap: 4161008[0m
+[0;32mI (13483) HEAP: Free heap: 4161008[0m
+[0;32mI (13493) HEAP: Free heap: 4161008[0m
+[0;32mI (13503) HEAP: Free heap: 4161008[0m
+[0;32mI (13513) HEAP: Free heap: 4161008[0m
+[0;32mI (13523) HEAP: Free heap: 4161008[0m
+[0;32mI (13533) HEAP: Free heap: 4161008[0m
+[0;32mI (13543) HEAP: Free heap: 4161008[0m
+[0;32mI (13553) HEAP: Free heap: 4161008[0m
+[0;32mI (13563) HEAP: Free heap: 4161008[0m
+[0;32mI (13573) HEAP: Free heap: 4161008[0m
+[0;32mI (13583) HEAP: Free heap: 4161008[0m
+[0;32mI (13593) HEAP: Free heap: 4160972[0m
+[0;32mI (13603) HEAP: Free heap: 4160972[0m
+[0;32mI (13613) HEAP: Free heap: 4160972[0m
+[0;32mI (13623) HEAP: Free heap: 4160972[0m
+[0;32mI (13633) HEAP: Free heap: 4160972[0m
+[0;32mI (13643) HEAP: Free heap: 4161008[0m
+[0;32mI (13653) HEAP: Free heap: 4161008[0m
+[0;32mI (13663) HEAP: Free heap: 4161008[0m
+[0;32mI (13673) HEAP: Free heap: 4161008[0m
+[0;32mI (13683) HEAP: Free heap: 4161008[0m
+[0;32mI (13693) HEAP: Free heap: 4160972[0m
+[0;32mI (13703) HEAP: Free heap: 4160972[0m
+[0;32mI (13713) HEAP: Free heap: 4160972[0m
+[0;32mI (13723) HEAP: Free heap: 4161008[0m
+[0;32mI (13733) HEAP: Free heap: 4161008[0m
+[0;32mI (13743) HEAP: Free heap: 4161008[0m
+[0;32mI (13753) HEAP: Free heap: 4161008[0m
+[0;32mI (13763) HEAP: Free heap: 4161008[0m
+[0;32mI (13773) HEAP: Free heap: 4161008[0m
+[0;32mI (13783) HEAP: Free heap: 4161008[0m
+[0;32mI (13793) HEAP: Free heap: 4160972[0m
+[0;32mI (13803) HEAP: Free heap: 4160972[0m
+[0;32mI (13813) HEAP: Free heap: 4160972[0m
+[0;32mI (13823) HEAP: Free heap: 4160972[0m
+[0;32mI (13833) HEAP: Free heap: 4160972[0m
+[0;32mI (13843) HEAP: Free heap: 4161008[0m
+[0;32mI (13853) HEAP: Free heap: 4161008[0m
+[0;32mI (13863) HEAP: Free heap: 4161008[0m
+[0;32mI (13873) HEAP: Free heap: 4161008[0m
+[0;32mI (13883) HEAP: Free heap: 4161008[0m
+[0;32mI (13893) HEAP: Free heap: 4160972[0m
+[0;32mI (13903) HEAP: Free heap: 4161008[0m
+[0;32mI (13913) HEAP: Free heap: 4161008[0m
+[0;32mI (13923) HEAP: Free heap: 4161008[0m
+[0;32mI (13933) HEAP: Free heap: 4161008[0m
+[0;32mI (13943) HEAP: Free heap: 4161008[0m
+[0;32mI (13953) HEAP: Free heap: 4161008[0m
+[0;32mI (13963) HEAP: Free heap: 4161008[0m
+[0;32mI (13973) HEAP: Free heap: 4161008[0m
+[0;32mI (13983) HEAP: Free heap: 4161008[0m
+[0;32mI (13993) HEAP: Free heap: 4161008[0m
+[0;32mI (14003) HEAP: Free heap: 4161008[0m
+[0;32mI (14013) HEAP: Free heap: 4161008[0m
+[0;32mI (14023) HEAP: Free heap: 4161008[0m
+[0;32mI (14033) HEAP: Free heap: 4161008[0m
+[0;32mI (14043) HEAP: Free heap: 4161008[0m
+[0;32mI (14053) HEAP: Free heap: 4161008[0m
+[0;32mI (14063) HEAP: Free heap: 4161008[0m
+[0;32mI (14073) HEAP: Free heap: 4161008[0m
+[0;32mI (14083) HEAP: Free heap: 4161008[0m
+[0;32mI (14093) HEAP: Free heap: 4161008[0m
+[0;32mI (14103) HEAP: Free heap: 4160972[0m
+[0;32mI (14113) HEAP: Free heap: 4161008[0m
+[0;32mI (14123) HEAP: Free heap: 4161008[0m
+[0;32mI (14133) HEAP: Free heap: 4161008[0m
+[0;32mI (14143) HEAP: Free heap: 4161008[0m
+[0;32mI (14153) HEAP: Free heap: 4161008[0m
+[0;32mI (14163) HEAP: Free heap: 4161008[0m
+[0;32mI (14173) HEAP: Free heap: 4161008[0m
+[0;32mI (14183) HEAP: Free heap: 4161008[0m
+[0;32mI (14193) HEAP: Free heap: 4161008[0m
+[0;32mI (14203) HEAP: Free heap: 4160972[0m
+[0;32mI (14213) HEAP: Free heap: 4160972[0m
+[0;32mI (14223) HEAP: Free heap: 4161008[0m
+[0;32mI (14233) HEAP: Free heap: 4161008[0m
+[0;32mI (14243) HEAP: Free heap: 4161008[0m
+[0;32mI (14253) HEAP: Free heap: 4161008[0m
+[0;32mI (14263) HEAP: Free heap: 4161008[0m
+[0;32mI (14273) HEAP: Free heap: 4161008[0m
+[0;32mI (14283) HEAP: Free heap: 4161008[0m
+[0;32mI (14293) HEAP: Free heap: 4161008[0m
+[0;32mI (14303) HEAP: Free heap: 4160972[0m
+[0;32mI (14313) HEAP: Free heap: 4161008[0m
+[0;32mI (14323) HEAP: Free heap: 4161008[0m
+[0;32mI (14333) HEAP: Free heap: 4161008[0m
+[0;32mI (14343) HEAP: Free heap: 4161008[0m
+[0;32mI (14353) HEAP: Free heap: 4161008[0m
+[0;32mI (14363) HEAP: Free heap: 4161008[0m
+[0;32mI (14373) HEAP: Free heap: 4161008[0m
+[0;32mI (14383) HEAP: Free heap: 4161008[0m
+[0;32mI (14393) HEAP: Free heap: 4161008[0m
+[0;32mI (14403) HEAP: Free heap: 4161008[0m
+[0;32mI (14413) HEAP: Free heap: 4160972[0m
+[0;32mI (14423) HEAP: Free heap: 4160972[0m
+[0;32mI (14433) HEAP: Free heap: 4160972[0m
+[0;32mI (14443) HEAP: Free heap: 4161008[0m
+[0;32mI (14453) HEAP: Free heap: 4161008[0m
+[0;32mI (14463) HEAP: Free heap: 4161008[0m
+[0;32mI (14473) HEAP: Free heap: 4161008[0m
+[0;32mI (14483) HEAP: Free heap: 4161008[0m
+[0;32mI (14493) HEAP: Free heap: 4161008[0m
+[0;32mI (14503) HEAP: Free heap: 4161008[0m
+[0;32mI (14513) HEAP: Free heap: 4160972[0m
+[0;32mI (14523) HEAP: Free heap: 4160972[0m
+[0;32mI (14533) HEAP: Free heap: 4161008[0m
+[0;32mI (14543) HEAP: Free heap: 4161008[0m
+[0;32mI (14553) HEAP: Free heap: 4161008[0m
+[0;32mI (14563) HEAP: Free heap: 4161008[0m
+[0;32mI (14573) HEAP: Free heap: 4161008[0m
+[0;32mI (14583) HEAP: Free heap: 4161008[0m
+[0;32mI (14593) HEAP: Free heap: 4161008[0m
+[0;32mI (14603) HEAP: Free heap: 4161008[0m
+[0;32mI (14613) HEAP: Free heap: 4160972[0m
+[0;32mI (14623) HEAP: Free heap: 4160972[0m
+[0;32mI (14633) HEAP: Free heap: 4160972[0m
+[0;32mI (14643) HEAP: Free heap: 4160972[0m
+[0;32mI (14653) HEAP: Free heap: 4160972[0m
+[0;32mI (14663) HEAP: Free heap: 4161008[0m
+[0;32mI (14673) HEAP: Free heap: 4161008[0m
+[0;32mI (14683) HEAP: Free heap: 4161008[0m
+[0;32mI (14693) HEAP: Free heap: 4161008[0m
+[0;32mI (14703) HEAP: Free heap: 4161008[0m
+[0;32mI (14713) HEAP: Free heap: 4160972[0m
+[0;32mI (14723) HEAP: Free heap: 4161008[0m
+[0;32mI (14733) HEAP: Free heap: 4161008[0m
+[0;32mI (14743) HEAP: Free heap: 4161008[0m
+[0;32mI (14753) HEAP: Free heap: 4161008[0m
+[0;32mI (14763) HEAP: Free heap: 4161008[0m
+[0;32mI (14773) HEAP: Free heap: 4161008[0m
+[0;32mI (14783) HEAP: Free heap: 4161008[0m
+[0;32mI (14793) HEAP: Free heap: 4161008[0m
+[0;32mI (14803) HEAP: Free heap: 4161008[0m
+[0;32mI (14813) HEAP: Free heap: 4161008[0m
+[0;32mI (14823) HEAP: Free heap: 4161008[0m
+[0;32mI (14833) HEAP: Free heap: 4161008[0m
+[0;32mI (14843) HEAP: Free heap: 4161008[0m
+[0;32mI (14853) HEAP: Free heap: 4161008[0m
+[0;32mI (14863) HEAP: Free heap: 4161008[0m
+[0;32mI (14873) HEAP: Free heap: 4161008[0m
+[0;32mI (14883) HEAP: Free heap: 4161008[0m
+[0;32mI (14893) HEAP: Free heap: 4161008[0m
+[0;32mI (14903) HEAP: Free heap: 4161008[0m
+[0;32mI (14913) HEAP: Free heap: 4161008[0m
+[0;32mI (14923) HEAP: Free heap: 4160972[0m
+[0;32mI (14933) HEAP: Free heap: 4161008[0m
+[0;32mI (14943) HEAP: Free heap: 4161008[0m
+[0;32mI (14953) HEAP: Free heap: 4161008[0m
+[0;32mI (14963) HEAP: Free heap: 4161008[0m
+[0;32mI (14973) HEAP: Free heap: 4161008[0m
+[0;32mI (14983) HEAP: Free heap: 4161008[0m
+[0;32mI (14993) HEAP: Free heap: 4161008[0m
+[0;32mI (15003) HEAP: Free heap: 4161008[0m
+[0;32mI (15013) HEAP: Free heap: 4161008[0m
+[0;32mI (15023) HEAP: Free heap: 4160972[0m
+[0;32mI (15033) HEAP: Free heap: 4161008[0m
+[0;32mI (15043) HEAP: Free heap: 4161008[0m
+[0;32mI (15053) HEAP: Free heap: 4161008[0m
+[0;32mI (15063) HEAP: Free heap: 4161008[0m
+[0;32mI (15073) HEAP: Free heap: 4161008[0m
+[0;32mI (15083) HEAP: Free heap: 4161008[0m
+[0;32mI (15093) HEAP: Free heap: 4161008[0m
+[0;32mI (15103) HEAP: Free heap: 4161008[0m
+[0;32mI (15113) HEAP: Free heap: 4161008[0m
+[0;32mI (15123) HEAP: Free heap: 4160972[0m
+[0;32mI (15133) HEAP: Free heap: 4160972[0m
+[0;32mI (15143) HEAP: Free heap: 4160972[0m
+[0;32mI (15153) HEAP: Free heap: 4161008[0m
+[0;32mI (15163) HEAP: Free heap: 4161008[0m
+[0;32mI (15173) HEAP: Free heap: 4161008[0m
+[0;32mI (15183) HEAP: Free heap: 4161008[0m
+[0;32mI (15193) HEAP: Free heap: 4161008[0m
+[0;32mI (15203) HEAP: Free heap: 4161008[0m
+[0;32mI (15213) HEAP: Free heap: 4161008[0m
+[0;32mI (15223) HEAP: Free heap: 4161008[0m
+[0;32mI (15233) HEAP: Free heap: 4160972[0m
+[0;32mI (15243) HEAP: Free heap: 4161008[0m
+[0;32mI (15253) HEAP: Free heap: 4161008[0m
+[0;32mI (15263) HEAP: Free heap: 4161008[0m
+[0;32mI (15273) HEAP: Free heap: 4161008[0m
+[0;32mI (15283) HEAP: Free heap: 4161008[0m
+[0;32mI (15293) HEAP: Free heap: 4161008[0m

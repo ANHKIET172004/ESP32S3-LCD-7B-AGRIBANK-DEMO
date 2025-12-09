@@ -1,109 +1,499 @@
-Command: ninja flash
-[1/10] Performing build step for 'bootloader'
-[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/bootloader/bootloader.bin""
-Bootloader binary size 0x5800 bytes. 0x2800 bytes (31%) free.
-[2/10] No install step for 'bootloader'
-[3/10] Completed 'bootloader'
-[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui_wifi_Screen.c.obj
-[5/10] Linking C static library esp-idf\main\libmain.a
-[6/10] Generating esp-idf/esp_system/ld/sections.ld
-[7/10] Linking CXX executable 16_LVGL_UI.elf
-[8/10] Generating binary image from built executable
-esptool.py v4.9.1
-Creating esp32s3 image...
-Merged 2 ELF sections
-Successfully created esp32s3 image.
-Generated D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin
-[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/partition_table/partition-table.bin" "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin""
-16_LVGL_UI.bin binary size 0x1c3690 bytes. Smallest app partition is 0x800000 bytes. 0x63c970 bytes (78%) free.
-[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\components\esptool_py && D:\ESP32_IDF\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5 -D SERIAL_TOOL=D:/ESP32_IDF/Espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build" -P D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/run_serial_tool.cmake"
-esptool.py --chip esp32s3 -p COM10 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 16_LVGL_UI.bin 0x8000 partition_table/partition-table.bin
-esptool.py v4.9.1
-Serial port COM10
-Connecting....
-Chip is ESP32-S3 (QFN56) (revision v0.2)
-Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
-Crystal is 40MHz
-MAC: 10:20:ba:01:48:a8
-Uploading stub...
-Running stub...
-Stub running...
-Changing baud rate to 460800
-Changed.
-Configuring flash size...
-Flash will be erased from 0x00000000 to 0x00005fff...
-Flash will be erased from 0x00010000 to 0x001d3fff...
-Flash will be erased from 0x00008000 to 0x00008fff...
-SHA digest in image updated
-Compressed 22528 bytes to 14318...
-Writing at 0x00000000... (100 %)
-Wrote 22528 bytes (14318 compressed) at 0x00000000 in 0.5 seconds (effective 362.5 kbit/s)...
-Hash of data verified.
-Compressed 1848976 bytes to 944329...
-Writing at 0x00010000... (1 %)
-Writing at 0x0001ce10... (3 %)
-Writing at 0x0002961c... (5 %)
-Writing at 0x00032f24... (6 %)
-Writing at 0x00039fee... (8 %)
-Writing at 0x00061a8d... (10 %)
-Writing at 0x0007865d... (12 %)
-Writing at 0x0008dcf7... (13 %)
-Writing at 0x000a1301... (15 %)
-Writing at 0x000b71be... (17 %)
-Writing at 0x000bef94... (18 %)
-Writing at 0x000c894a... (20 %)
-Writing at 0x000d1415... (22 %)
-Writing at 0x000dbd91... (24 %)
-Writing at 0x000e1026... (25 %)
-Writing at 0x000e6d43... (27 %)
-Writing at 0x000ec8ba... (29 %)
-Writing at 0x000f22ff... (31 %)
-Writing at 0x000f7aa4... (32 %)
-Writing at 0x000fd285... (34 %)
-Writing at 0x0010238f... (36 %)
-Writing at 0x00108a41... (37 %)
-Writing at 0x0010db65... (39 %)
-Writing at 0x00112e00... (41 %)
-Writing at 0x001180d9... (43 %)
-Writing at 0x0011d6e9... (44 %)
-Writing at 0x0012315b... (46 %)
-Writing at 0x001287d9... (48 %)
-Writing at 0x0012dec5... (50 %)
-Writing at 0x00133456... (51 %)
-Writing at 0x00138824... (53 %)
-Writing at 0x0013de8d... (55 %)
-Writing at 0x00143368... (56 %)
-Writing at 0x001485eb... (58 %)
-Writing at 0x0014da41... (60 %)
-Writing at 0x00152a8d... (62 %)
-Writing at 0x001582b4... (63 %)
-Writing at 0x0015da63... (65 %)
-Writing at 0x00162f21... (67 %)
-Writing at 0x001682a8... (68 %)
-Writing at 0x0016d872... (70 %)
-Writing at 0x00173838... (72 %)
-Writing at 0x0017878e... (74 %)
-Writing at 0x0017da0f... (75 %)
-Writing at 0x00182b82... (77 %)
-Writing at 0x00187dec... (79 %)
-Writing at 0x0018cea3... (81 %)
-Writing at 0x00191fc3... (82 %)
-Writing at 0x001974cb... (84 %)
-Writing at 0x0019ca20... (86 %)
-Writing at 0x001a2a20... (87 %)
-Writing at 0x001acbec... (89 %)
-Writing at 0x001b38d1... (91 %)
-Writing at 0x001b8fa2... (93 %)
-Writing at 0x001be8e6... (94 %)
-Writing at 0x001c4884... (96 %)
-Writing at 0x001caa90... (98 %)
-Writing at 0x001cf9dc... (100 %)
-Wrote 1848976 bytes (944329 compressed) at 0x00010000 in 21.8 seconds (effective 679.1 kbit/s)...
-Hash of data verified.
-Compressed 3072 bytes to 105...
-Writing at 0x00008000... (100 %)
-Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 758.1 kbit/s)...
-Hash of data verified.
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=c449ch (803996) map[0m
+[0;32mI (211) esp_image: segment 1: paddr=000d44c4 vaddr=3fca1c00 size=05790h ( 22416) load[0m
+[0;32mI (215) esp_image: segment 2: paddr=000d9c5c vaddr=40374000 size=063bch ( 25532) load[0m
+[0;32mI (220) esp_image: segment 3: paddr=000e0020 vaddr=42000020 size=d571ch (874268) map[0m
+[0;32mI (352) esp_image: segment 4: paddr=001b5744 vaddr=4037a3bc size=177f4h ( 96244) load[0m
+[0;32mI (370) esp_image: segment 5: paddr=001ccf40 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (382) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (382) boot: Disabling RNG early entropy source...[0m
+[0;33mW (392) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (392) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (399) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (407) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (411) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (415) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (420) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (425) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (429) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (433) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (437) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (442) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (447) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (452) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (457) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (469) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (469) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (470) esp_psram: Speed: 120MHz[0m
+[0;32mI (506) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (553) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (553) cpu_start: Multicore app[0m
+[0;32mI (715) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (723) cpu_start: Pro cpu start user code[0m
+[0;32mI (723) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (723) app_init: Application information:[0m
+[0;32mI (723) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (728) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (732) app_init: Compile time:     Oct 17 2025 14:36:47[0m
+[0;32mI (737) app_init: ELF file SHA256:  e9ff41fb6...[0m
+[0;32mI (741) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (746) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (749) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (753) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (757) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (763) heap_init: At 3FCAC798 len 0003CF78 (243 KiB): RAM[0m
+[0;32mI (769) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (774) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (779) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (784) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
+[0;32mI (791) esp_psram: Adding pool of 46K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (802) spi_flash: detected chip: generic[0m
+[0;32mI (806) spi_flash: flash io: qio[0m
+[0;32mI (809) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (815) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (821) coexist: coex firmware version: 831ec70[0m
+[0;32mI (834) coexist: coexist rom version e7ae62f[0m
+[0;32mI (835) main_task: Started on CPU0[0m
+[0;32mI (836) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (841) main_task: Calling app_main()[0m
+[0;32mI (844) PSRAM: Total heap: 6922624[0m
+[0;32mI (847) PSRAM: Free PSRAM: 6631789[0m
+[0;33mW (860) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1266) GT911: Initialize I2C panel IO[0m
+[0;32mI (1266) GT911: Initialize touch controller GT911[0m
+[0;33mW (1266) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1268) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1271) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1275) example: Install RGB LCD panel driver[0m
+[0;32mI (1315) example: Initialize RGB LCD panel[0m
+[0;32mI (1317) lv_port: Create LVGL task[0m
+[0;32mI (1344) main: Display LVGL demos[0m
+[0;32mI (1503) pp: pp rom version: e7ae62f[0m
+[0;32mI (1503) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1504) RSSI: Not connected to any AP[0m
+[0;32mI (1504) main_task: Returned from app_main()[0m
+[0;32mI (1505) wifi:wifi driver task: 3fccd620, prio:23, stack:6656, core=0[0m
+[0;32mI (1520) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1520) wifi:wifi certification version: v7.0[0m
+[0;32mI (1522) wifi:config NVS flash: enabled[0m
+[0;32mI (1525) wifi:config nano formatting: disabled[0m
+[0;32mI (1529) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1535) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1539) wifi:Init management short buffer num: 32[0m
+[0;32mI (1544) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1548) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1551) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1555) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1559) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1563) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1568) wifi_init: rx ba win: 16[0m
+[0;32mI (1570) wifi_init: accept mbox: 6[0m
+[0;32mI (1573) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1576) wifi_init: udp mbox: 6[0m
+[0;32mI (1579) wifi_init: tcp mbox: 6[0m
+[0;32mI (1582) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1585) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1588) wifi_init: tcp mss: 1440[0m
+[0;32mI (1592) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1595) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1599) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1603) reconnect: Found saved WiFi: Namtrung 2.4G[0m
+Wi-Fi event handler registered.
+[0;32mI (1611) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1648) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1649) wifi:enable tsf[0m
+[0;32mI (1651) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1651) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
+[0;32mI (1656) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1663) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1675) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1681) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1702) wifi:connected with Namtrung 2.4G, aid = 29, channel 6, BW20, bssid = 12:5f:02:15:1e:9a[0m
+[0;32mI (1703) wifi:security: WPA2-PSK, phy: bgn, rssi: -50[0m
+[0;32mI (1706) wifi:pm start, type: 1[0m
 
-Leaving...
-Hard resetting via RTS pin...
+[0;32mI (1708) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1716) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1725) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:6[0m
+[0;32mI (1731) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2167) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2167) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2756) esp_netif_handlers: sta ip: 10.10.1.55, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (3677) WiFi: Connected with IP: 10.10.1.55[0m
+[0;32mI (3677) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
+[0;32mI (3684) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (3685) MQTT: Other event id:7[0m
+[0;32mI (3700) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:1e:9a), tid:0, ssn:1, winSize:64[0m
+[0;32mI (3702) wifi:<ba-add>idx:1 (ifx:0, 12:5f:02:15:1e:9a), tid:7, ssn:8, winSize:64[0m
+[0;32mI (3705) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (3711) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=10093, return code=0x00 [0m
+[0;32mI (3726) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=27013, return code=0x00 [0m
+[0;32mI (3781) NVS: last index: -1[0m
+[0;32mI (3781) NVS: wifi index: 0[0m
+[0;33mW (3781) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (90008) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1024
+[0;32mI (90009) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1024[0m
+[0;32mI (90011) MQTT_BACKUP: Saved number "1024" into key "next_number"[0m
+[0;32mI (90013) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (90198) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1024
+[0;32mI (90198) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1024[0m
+[0;32mI (90199) MQTT_BACKUP: Saved number "1024" into key "next_number"[0m
+[0;32mI (90943) MQTT_BACKUP: Read number: 1023[0m
+[0;32mI (90944) Feedback: Successfully read number: 1023[0m
+[0;32mI (90944) Feedback: diem danh gia : 4[0m
+
+[0;32mI (90946) MQTT_BACKUP: Deleted key current_number successfully[0m
+[0;32mI (90950) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (91018) WAIT TASK: Pressed[0m
+[0;32mI (91020) MQTT_BACKUP: copied next_number (1024) to current_number[0m
+[0;32mI (91021) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (91023) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (96039) WAIT TASK: TIMEOUT [0m
+[0;32mI (96039) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (96039) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (124673) MQTT_BACKUP: Read number: 1024[0m
+[0;32mI (124674) Feedback: Successfully read number: 1024[0m
+[0;32mI (124674) Feedback: diem danh gia: 3[0m
+
+[0;32mI (124676) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (129128) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1025
+[0;32mI (129128) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1025[0m
+[0;32mI (129130) MQTT_BACKUP: Saved number "1025" into key "next_number"[0m
+[0;32mI (129133) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (129138) WAIT TASK: Pressed[0m
+[0;32mI (129141) MQTT_BACKUP: copied next_number (1025) to current_number[0m
+[0;32mI (129147) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (129191) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1025
+[0;32mI (129191) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1025[0m
+[0;32mI (129193) MQTT_BACKUP: Saved number "1025" into key "next_number"[0m
+[0;32mI (129196) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (134201) WAIT TASK: TIMEOUT [0m
+[0;32mI (134201) MQTT_BACKUP: copied next_number (1025) to current_number[0m
+[0;32mI (134202) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (134316) MQTT_BACKUP: Read number: 1025[0m
+[0;32mI (134317) Feedback: Successfully read number: 1025[0m
+[0;32mI (134317) Feedback: diem danh gia: 3[0m
+
+[0;32mI (134318) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (155785) MQTT_BACKUP: Read number: 1025[0m
+[0;32mI (155786) Feedback: Successfully read number: 1025[0m
+[0;32mI (155786) Feedback: diem danh gia : 4[0m
+
+[0;32mI (155789) MQTT_BACKUP: Deleted key current_number successfully[0m
+[0;32mI (155792) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (559649) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1026
+[0;32mI (559650) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1026[0m
+[0;32mI (559651) MQTT_BACKUP: Saved number "1026" into key "current_number"[0m
+[0;32mI (559655) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (559660) WAIT TASK: Pressed[0m
+[0;32mI (559662) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (559666) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (559696) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1026
+[0;32mI (559696) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1026[0m
+[0;32mI (559698) MQTT_BACKUP: Saved number "1026" into key "next_number"[0m
+[0;32mI (559701) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (564706) WAIT TASK: TIMEOUT [0m
+[0;32mI (564706) MQTT_BACKUP: copied next_number (1026) to current_number[0m
+[0;32mI (564707) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (566171) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1027
+[0;32mI (566171) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1027[0m
+[0;32mI (566173) MQTT_BACKUP: Saved number "1027" into key "next_number"[0m
+[0;32mI (566176) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (566194) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1027
+[0;32mI (566194) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1027[0m
+[0;32mI (566195) MQTT_BACKUP: Saved number "1027" into key "next_number"[0m
+[0;32mI (568805) MQTT_BACKUP: Read number: 1026[0m
+[0;32mI (568806) Feedback: Successfully read number: 1026[0m
+[0;32mI (568806) Feedback: diem danh gia: 2[0m
+
+[0;32mI (568808) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (568881) WAIT TASK: Pressed[0m
+[0;32mI (568883) MQTT_BACKUP: copied next_number (1027) to current_number[0m
+[0;32mI (568900) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (568900) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (573904) WAIT TASK: TIMEOUT [0m
+[0;32mI (573904) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (573904) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (583910) MQTT_BACKUP: Read number: 1027[0m
+[0;32mI (583910) Feedback: Successfully read number: 1027[0m
+[0;32mI (583910) Feedback: diem danh gia: 2[0m
+
+[0;32mI (583912) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (609192) MQTT_BACKUP: Read number: 1027[0m
+[0;32mI (609193) Feedback: Successfully read number: 1027[0m
+[0;32mI (609193) Feedback: diem danh gia: 3[0m
+
+[0;32mI (609194) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (668165) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1028
+[0;32mI (668165) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1028[0m
+[0;32mI (668167) MQTT_BACKUP: Saved number "1028" into key "next_number"[0m
+[0;32mI (668170) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (668175) WAIT TASK: Pressed[0m
+[0;32mI (668178) MQTT_BACKUP: copied next_number (1028) to current_number[0m
+[0;32mI (668183) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (668201) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1028
+[0;32mI (668201) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1028[0m
+[0;32mI (668203) MQTT_BACKUP: Saved number "1028" into key "next_number"[0m
+[0;32mI (668206) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (671897) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1029
+[0;32mI (671897) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1029[0m
+[0;32mI (671899) MQTT_BACKUP: Saved number "1029" into key "next_number"[0m
+[0;32mI (671957) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1029
+[0;32mI (671957) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1029[0m
+[0;32mI (671958) MQTT_BACKUP: Saved number "1029" into key "next_number"[0m
+[0;32mI (673211) WAIT TASK: TIMEOUT [0m
+[0;32mI (673212) MQTT_BACKUP: copied next_number (1029) to current_number[0m
+[0;32mI (673212) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (673214) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (673609) MQTT_BACKUP: Read number: 1029[0m
+[0;32mI (673609) Feedback: Successfully read number: 1029[0m
+[0;32mI (673610) Feedback: diem danh gia: 2[0m
+
+[0;32mI (673611) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (673618) WAIT TASK: Pressed[0m
+[0;32mI (673618) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (673622) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (685292) MQTT_BACKUP: Read number: 1029[0m
+[0;32mI (685292) Feedback: Successfully read number: 1029[0m
+[0;32mI (685293) Feedback: diem danh gia : 4[0m
+
+[0;32mI (685295) MQTT_BACKUP: Deleted key current_number successfully[0m
+[0;32mI (685299) MQTT: Message sent successfully, msg_id=0[0m
+[1;31mE (695348) MQTT_BACKUP: Failed to get size for number: ESP_ERR_NVS_NOT_FOUND[0m
+[1;31mE (695348) Feedback: Failed to read number[0m
+[0;32mI (695349) Feedback: diem danh gia : 4[0m
+
+[0;32mI (695352) MQTT_BACKUP: No key current_number exist[0m
+[0;32mI (695356) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (878188) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1030
+[0;32mI (878188) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1030[0m
+[0;32mI (878189) MQTT_BACKUP: Saved number "1030" into key "current_number"[0m
+[0;32mI (878194) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (878196) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1030
+[0;32mI (878199) WAIT TASK: Pressed[0m
+[0;32mI (878204) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1030[0m
+[0;32mI (878207) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (878213) MQTT_BACKUP: Saved number "1030" into key "next_number"[0m
+[0;32mI (878216) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (878226) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (879261) MQTT_BACKUP: Read number: 1030[0m
+[0;32mI (879262) Feedback: Successfully read number: 1030[0m
+[0;32mI (879262) Feedback: diem danh gia : 4[0m
+
+[0;32mI (879264) MQTT_BACKUP: Deleted key current_number successfully[0m
+[0;32mI (879268) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (879331) WAIT TASK: Pressed[0m
+[0;32mI (879331) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (879331) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (921721) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1031
+[0;32mI (921721) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1031[0m
+[0;32mI (921722) MQTT_BACKUP: Saved number "1031" into key "current_number"[0m
+[0;32mI (921726) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (922026) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1031
+[0;32mI (922026) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1031[0m
+[0;32mI (922028) MQTT_BACKUP: Saved number "1031" into key "next_number"[0m
+[0;32mI (922516) MQTT_BACKUP: Read number: 1031[0m
+[0;32mI (922517) Feedback: Successfully read number: 1031[0m
+[0;32mI (922517) Feedback: diem danh gia: 3[0m
+
+[0;32mI (922518) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (922531) WAIT TASK: Pressed[0m
+[0;32mI (922531) MQTT_BACKUP: copied next_number (1031) to current_number[0m
+[0;32mI (922532) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (922536) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (925708) MQTT_BACKUP: Read number: 1031[0m
+[0;32mI (925709) Feedback: Successfully read number: 1031[0m
+[0;32mI (925709) Feedback: diem danh gia : 4[0m
+
+[0;32mI (925712) MQTT_BACKUP: Deleted key current_number successfully[0m
+[0;32mI (925715) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (925741) WAIT TASK: Pressed[0m
+[0;32mI (925741) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (925741) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (945766) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1032
+[0;32mI (945766) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1032[0m
+[0;32mI (945767) MQTT_BACKUP: Saved number "1032" into key "current_number"[0m
+[0;32mI (945772) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (945945) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1032
+[0;32mI (945945) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1032[0m
+[0;32mI (945947) MQTT_BACKUP: Saved number "1032" into key "next_number"[0m
+[0;32mI (946623) MQTT_BACKUP: Read number: 1032[0m
+[0;32mI (946624) Feedback: Successfully read number: 1032[0m
+[0;32mI (946624) Feedback: diem danh gia : 4[0m
+
+[0;32mI (946627) MQTT_BACKUP: Deleted key current_number successfully[0m
+[0;32mI (946630) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (946676) WAIT TASK: Pressed[0m
+[0;32mI (946677) MQTT_BACKUP: copied next_number (1032) to current_number[0m
+[0;32mI (946678) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (946679) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (951684) WAIT TASK: TIMEOUT [0m
+[0;32mI (951684) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (951684) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (955029) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1033
+[0;32mI (955030) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1033[0m
+[0;32mI (955031) MQTT_BACKUP: Saved number "1033" into key "next_number"[0m
+[0;32mI (955034) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (955327) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1033
+[0;32mI (955327) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1033[0m
+[0;32mI (955328) MQTT_BACKUP: Saved number "1033" into key "next_number"[0m
+[0;32mI (957550) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1034
+[0;32mI (957551) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1034[0m
+[0;32mI (957552) MQTT_BACKUP: Saved number "1034" into key "next_number"[0m
+[0;32mI (957695) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1034
+[0;32mI (957695) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1034[0m
+[0;32mI (957696) MQTT_BACKUP: Saved number "1034" into key "next_number"[0m
+[0;32mI (958257) MQTT_BACKUP: Read number: 1032[0m
+[0;32mI (958258) Feedback: Successfully read number: 1032[0m
+[0;32mI (958258) Feedback: diem danh gia : 4[0m
+
+[0;32mI (958260) MQTT_BACKUP: Deleted key current_number successfully[0m
+[0;32mI (958264) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (958339) WAIT TASK: Pressed[0m
+[0;32mI (958348) MQTT_BACKUP: copied next_number (1034) to current_number[0m
+[0;32mI (958349) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (958349) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (963354) WAIT TASK: TIMEOUT [0m
+[0;32mI (963354) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (963354) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (966344) MQTT_BACKUP: Read number: 1034[0m
+[0;32mI (966344) Feedback: Successfully read number: 1034[0m
+[0;32mI (966344) Feedback: diem danh gia : 4[0m
+
+[0;32mI (966347) MQTT_BACKUP: Deleted key current_number successfully[0m
+[0;32mI (966351) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (973321) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1035
+[0;32mI (973321) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1035[0m
+[0;32mI (973322) MQTT_BACKUP: Saved number "1035" into key "current_number"[0m
+[0;32mI (973326) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (973331) WAIT TASK: Pressed[0m
+[0;32mI (973334) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (973338) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (973447) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1035
+[0;32mI (973447) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1035[0m
+[0;32mI (973449) MQTT_BACKUP: Saved number "1035" into key "next_number"[0m
+[0;32mI (973452) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (978457) WAIT TASK: TIMEOUT [0m
+[0;32mI (978457) MQTT_BACKUP: copied next_number (1035) to current_number[0m
+[0;32mI (978459) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (984163) MQTT_BACKUP: Read number: 1035[0m
+[0;32mI (984164) Feedback: Successfully read number: 1035[0m
+[0;32mI (984164) Feedback: diem danh gia : 4[0m
+
+[0;32mI (984167) MQTT_BACKUP: Deleted key current_number successfully[0m
+[0;32mI (984170) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (994205) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1036
+[0;32mI (994206) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1036[0m
+[0;32mI (994207) MQTT_BACKUP: Saved number "1036" into key "current_number"[0m
+[0;32mI (994211) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (994215) WAIT TASK: Pressed[0m
+[0;32mI (994218) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (994222) MQTT_BACKUP: No Key next_number exist[0m
+[0;32mI (994444) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1036
+[0;32mI (994445) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1036[0m
+[0;32mI (994446) MQTT_BACKUP: Saved number "1036" into key "next_number"[0m
+[0;32mI (994450) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (995794) MQTT_BACKUP: Read number: 1036[0m
+[0;32mI (995794) Feedback: Successfully read number: 1036[0m
+[0;32mI (995795) Feedback: diem danh gia : 4[0m
+
+[0;32mI (995797) MQTT_BACKUP: Deleted key current_number successfully[0m
+[0;32mI (995801) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (995854) WAIT TASK: Pressed[0m
+[0;32mI (995855) MQTT_BACKUP: copied next_number (1036) to current_number[0m
+[0;32mI (995856) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (1006707) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1037
+[0;32mI (1006708) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1037[0m
+[0;32mI (1006709) MQTT_BACKUP: Saved number "1037" into key "next_number"[0m
+[0;32mI (1006713) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (1006945) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=number
+DATA=1037
+[0;32mI (1006945) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: 1037[0m
+[0;32mI (1006946) MQTT_BACKUP: Saved number "1037" into key "next_number"[0m
+[0;32mI (1011717) WAIT TASK: TIMEOUT [0m
+[0;32mI (1011718) MQTT_BACKUP: copied next_number (1037) to current_number[0m
+[0;32mI (1011718) MQTT_BACKUP: Delete key next_number successfully[0m
+[0;32mI (1011720) WAIT TASK: Start waiting for 10 seconds...[0m
+[0;32mI (1016725) WAIT TASK: TIMEOUT [0m
+[0;32mI (1016725) MQTT_BACKUP:  No next_number exist[0m
+[0;32mI (1016725) MQTT_BACKUP: No Key next_number exist[0m

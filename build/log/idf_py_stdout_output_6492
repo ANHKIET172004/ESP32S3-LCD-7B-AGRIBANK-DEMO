@@ -1,0 +1,698 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM3'
+�J��ѹesp32: SPI Spe�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Nov  3 2025 10:07:42[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=205b8h (132536) map[0m
+[0;32mI (134) esp_image: segment 1: paddr=000305e0 vaddr=3ff80000 size=00020h (    32) load[0m
+[0;32mI (134) esp_image: segment 2: paddr=00030608 vaddr=3ffb0000 size=04888h ( 18568) load[0m
+[0;32mI (144) esp_image: segment 3: paddr=00034e98 vaddr=40080000 size=0b180h ( 45440) load[0m
+[0;32mI (163) esp_image: segment 4: paddr=00040020 vaddr=400d0020 size=a6914h (682260) map[0m
+[0;32mI (396) esp_image: segment 5: paddr=000e693c vaddr=4008b180 size=0e164h ( 57700) load[0m
+[0;32mI (431) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (431) boot: Disabling RNG early entropy source...[0m
+[0;32mI (442) cpu_start: Multicore app[0m
+[0;32mI (450) cpu_start: Pro cpu start user code[0m
+[0;32mI (450) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (450) app_init: Application information:[0m
+[0;32mI (450) app_init: Project name:     hello_world[0m
+[0;32mI (454) app_init: App version:      e7264df-dirty[0m
+[0;32mI (459) app_init: Compile time:     Nov 14 2025 16:49:19[0m
+[0;32mI (464) app_init: ELF file SHA256:  dab9b250c...[0m
+[0;32mI (468) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (472) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (476) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (480) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (484) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (490) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (495) heap_init: At 3FFB90D8 len 00026F28 (155 KiB): DRAM[0m
+[0;32mI (501) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (506) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (512) heap_init: At 400992E4 len 00006D1C (27 KiB): IRAM[0m
+[0;32mI (518) spi_flash: detected chip: generic[0m
+[0;32mI (521) spi_flash: flash io: dio[0m
+[0;33mW (523) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (536) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (546) main_task: Started on CPU0[0m
+[0;32mI (556) main_task: Calling app_main()[0m
+[0;32mI (556) LED: LED initialized on GPIO 2[0m
+[0;32mI (556) LED: LED OFF[0m
+[0;32mI (556) DEMO: I2C initialized successfully[0m
+[0;32mI (1446) DEMO: Starting keypad MQTT application[0m
+[0;32mI (1466) MAC_UTILS: WiFi STA MAC: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1466) NVS_UTILS: Read user ID successfully: 01[0m
+[0;32mI (1466) MAC_UTILS: Loaded user_id from NVS: 01[0m
+[0;32mI (1486) wifi:wifi driver task: 3ffc20e4, prio:23, stack:6656, core=0[0m
+[0;32mI (1496) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1496) wifi:wifi certification version: v7.0[0m
+[0;32mI (1496) wifi:config NVS flash: enabled[0m
+[0;32mI (1496) wifi:config nano formatting: disabled[0m
+[0;32mI (1506) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1506) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1506) wifi:Init management short buffer num: 32[0m
+[0;32mI (1516) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1516) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1526) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1526) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1536) wifi_init: rx ba win: 6[0m
+[0;32mI (1536) wifi_init: accept mbox: 6[0m
+[0;32mI (1536) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1536) wifi_init: udp mbox: 6[0m
+[0;32mI (1546) wifi_init: tcp mbox: 6[0m
+[0;32mI (1546) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1546) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1556) wifi_init: tcp mss: 1440[0m
+[0;32mI (1556) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1556) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1606) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
+[0;32mI (1686) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1736) wifi:mode : sta (a8:42:e3:4c:7c:bc)[0m
+[0;32mI (1736) wifi:enable tsf[0m
+[0;32mI (1736) WIFI: WiFi initialized[0m
+[0;32mI (1746) WIFI: WiFi STA started[0m
+[0;32mI (1746) main_task: Returned from app_main()[0m
+[0;32mI (1746) STATE_MACHINE: System state task started[0m
+[0;32mI (1846) STATE_MACHINE: Have a saved wifi network in NVS: NamTrung[0m
+[0;32mI (1886) wifi:flush txq[0m
+[0;32mI (1886) wifi:stop sw txq[0m
+[0;32mI (1886) wifi:lmac stop hw txq[0m
+[0;32mI (1896) wifi:mode : sta (a8:42:e3:4c:7c:bc)[0m
+[0;32mI (1896) wifi:enable tsf[0m
+[0;32mI (1896) WIFI: WiFi STA started[0m
+[0;32mI (2176) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (2186) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2186) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (2196) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (2226) wifi:connected with NamTrung, aid = 25, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (2226) wifi:security: WPA2-PSK, phy: bgn, rssi: -52[0m
+[0;32mI (2246) wifi:pm start, type: 1[0m
+
+[0;32mI (2246) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (2246) WIFI: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (2316) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (3286) esp_netif_handlers: sta ip: 10.10.1.60, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (3286) WIFI: WiFi connected, got IP[0m
+[0;32mI (4356) MQTT: Registered device with WiFi STA MAC: {"device_id":"A8:42:E3:4C:7C:BC","status":"offline"}[0m
+[0;32mI (4356) MQTT: MQTT initialized[0m
+[0;32mI (4376) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (4376) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:5, winSize:64[0m
+[0;32mI (4386) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:1, winSize:64[0m
+[0;32mI (4406) LED: LED ON[0m
+[0;32mI (4406) MQTT: MQTT connected[0m
+[0;32mI (4436) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4436) MQTT: Processing topic: device/list[0m
+[0;32mI (4436) MQTT: [{"id":"94:E6:86:09:A4:78","name":"2"},{"id":"A8:42:E3:4C:7C:BC","name":"1"}][0m
+[0;32mI (4446) MQTT: Extracted counter ID: 2 from name: 2[0m
+[0;32mI (4446) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4446) MAC_UTILS: WiFi STA MAC: A8:42:E3:4C:7C:BC[0m
+[0;32mI (4456) NVS_UTILS: Read user ID successfully: 01[0m
+[0;32mI (4456) MAC_UTILS: Loaded user_id from NVS: 01[0m
+[0;32mI (4466) MQTT: Extracted counter ID: 1 from name: 1[0m
+[0;32mI (4466) MAC_UTILS: WiFi STA MAC: A8:42:E3:4C:7C:BC[0m
+[0;32mI (4476) NVS_UTILS: Read user ID successfully: 01[0m
+[0;32mI (4476) MAC_UTILS: Loaded user_id from NVS: 01[0m
+[0;32mI (4476) MQTT: Found current device (MAC match): A8:42:E3:4C:7C:BC[0m
+[0;32mI (4486) NVS_UTILS: User ID saved successfully: 01[0m
+[0;32mI (4486) MQTT: Device list updated: 2 devices[0m
+[0;32mI (4516) MQTT: Processing topic: service/list[0m
+[0;32mI (4516) MQTT: [{"id":1,"name":"Giao dich tren 1 ty"},{"id":7,"name":"Giao dich duoi 1 ty"}][0m
+[0;32mI (4516) MQTT: Service list updated: 2 services[0m
+[0;32mI (4626) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4626) MQTT: Processing topic: feedback_status[0m
+[0;32mI (4626) MQTT: feedback_screen disconnected[0m
+[0;32mI (4626) LED: LED OFF[0m
+[0;32mI (4636) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4646) MQTT: Processing topic: display_status[0m
+[0;32mI (4646) MQTT: display_screen connected[0m
+[0;32mI (4646) LED: LED ON[0m
+[0;32mI (77036) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (77046) MQTT: Processing topic: responsenumber[0m
+[0;32mI (77046) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (77056) NVS_UTILS: current number saved successfully![0m
+[0;32mI (77086) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (77086) MQTT: Processing topic: responsenumber[0m
+[0;32mI (77886) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (82096) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (82096) MQTT: Processing topic: responsenumber[0m
+[0;32mI (82096) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (82116) NVS_UTILS: current number saved successfully![0m
+[0;32mI (82316) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (82316) MQTT: Processing topic: responsenumber[0m
+[0;32mI (83116) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (107656) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (107656) MQTT: Processing topic: responsenumber[0m
+[0;32mI (107876) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (108456) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (108476) MQTT: Processing topic: responsenumber[0m
+[0;32mI (108476) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (108486) NVS_UTILS: current number saved successfully![0m
+[0;32mI (109646) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (109646) MQTT: Processing topic: responsenumber[0m
+[0;32mI (109866) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (110446) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (110466) MQTT: Processing topic: responsenumber[0m
+[0;32mI (110466) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (110476) NVS_UTILS: current number saved successfully![0m
+[0;32mI (115866) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (115876) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (115876) MQTT: Processing topic: responsenumber[0m
+[0;32mI (115876) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (115896) NVS_UTILS: current number saved successfully![0m
+[0;32mI (115916) MQTT: Processing topic: responsenumber[0m
+[0;32mI (116716) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (117536) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (117536) MQTT: Processing topic: responsenumber[0m
+[0;32mI (117626) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (118336) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (118356) MQTT: Processing topic: responsenumber[0m
+[0;32mI (118356) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (118366) NVS_UTILS: current number saved successfully![0m
+[0;32mI (118956) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (118966) MQTT: Processing topic: responsenumber[0m
+[0;32mI (118966) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (118976) NVS_UTILS: current number saved successfully![0m
+[0;32mI (119026) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (119026) MQTT: Processing topic: responsenumber[0m
+[0;32mI (119826) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (120496) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (120496) MQTT: Processing topic: responsenumber[0m
+[0;32mI (120626) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (121296) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (121316) MQTT: Processing topic: responsenumber[0m
+[0;32mI (121316) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (121326) NVS_UTILS: current number saved successfully![0m
+[0;32mI (147736) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (147746) MQTT: Processing topic: display_status[0m
+[0;32mI (147746) MQTT: display_screen disconnected[0m
+[0;32mI (147746) LED: LED OFF[0m
+[0;32mI (147746) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (147766) MQTT: Processing topic: display_status[0m
+[0;32mI (147766) MQTT: display_screen connected[0m
+[0;32mI (147766) LED: LED ON[0m
+[0;32mI (154706) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (154706) MQTT: Processing topic: display_status[0m
+[0;32mI (154706) MQTT: display_screen disconnected[0m
+[0;32mI (154706) LED: LED OFF[0m
+[0;32mI (154716) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (154726) MQTT: Processing topic: display_status[0m
+[0;32mI (154726) MQTT: display_screen connected[0m
+[0;32mI (154726) LED: LED ON[0m
+[0;32mI (191986) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (191986) MQTT: Processing topic: responsenumber[0m
+[0;32mI (192786) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (194246) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (194256) MQTT: Processing topic: responsenumber[0m
+[0;32mI (195056) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (195856) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (195866) MQTT: Processing topic: responsenumber[0m
+[0;32mI (196666) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (197496) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (197506) MQTT: Processing topic: responsenumber[0m
+[0;32mI (198306) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (266836) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (266836) MQTT: Processing topic: responsenumber[0m
+[0;32mI (267636) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (286996) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (286996) MQTT: Processing topic: responsenumber[0m
+[0;32mI (287796) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (293456) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (293456) MQTT: Processing topic: responsenumber[0m
+[0;32mI (294256) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (296926) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (296926) MQTT: Processing topic: responsenumber[0m
+[0;32mI (297726) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (298776) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (298776) MQTT: Processing topic: responsenumber[0m
+[0;32mI (299576) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (300616) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (300616) MQTT: Processing topic: responsenumber[0m
+[0;32mI (301416) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (302556) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (302566) MQTT: Processing topic: responsenumber[0m
+[0;32mI (303366) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (304166) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (304166) MQTT: Processing topic: responsenumber[0m
+[0;32mI (304966) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (426876) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (426876) MQTT: Processing topic: responsenumber[0m
+[0;32mI (426876) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (426886) NVS_UTILS: current number saved successfully![0m
+[0;32mI (428616) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (428616) MQTT: Processing topic: responsenumber[0m
+[0;32mI (429416) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (430396) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (430396) MQTT: Processing topic: responsenumber[0m
+[0;32mI (431196) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (432196) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (432196) MQTT: Processing topic: responsenumber[0m
+[0;32mI (432996) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (433836) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (433836) MQTT: Processing topic: responsenumber[0m
+[0;32mI (434636) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (435576) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (435576) MQTT: Processing topic: responsenumber[0m
+[0;32mI (436376) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (454846) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (454856) MQTT: Processing topic: responsenumber[0m
+[0;32mI (454856) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (454866) NVS_UTILS: current number saved successfully![0m
+[0;32mI (456666) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (456666) MQTT: Processing topic: responsenumber[0m
+[0;32mI (456666) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (456676) NVS_UTILS: current number saved successfully![0m
+[0;32mI (458306) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (458316) MQTT: Processing topic: responsenumber[0m
+[0;32mI (459116) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (460046) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (460046) MQTT: Processing topic: responsenumber[0m
+[0;32mI (460846) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (488146) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (488146) MQTT: Processing topic: responsenumber[0m
+[0;32mI (488946) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (496346) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (496346) MQTT: Processing topic: responsenumber[0m
+[0;32mI (496346) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (496356) NVS_UTILS: current number saved successfully![0m
+[0;32mI (498036) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (498036) MQTT: Processing topic: responsenumber[0m
+[0;32mI (498046) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (498056) NVS_UTILS: current number saved successfully![0m
+[0;32mI (505116) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (505116) MQTT: Processing topic: responsenumber[0m
+[0;32mI (505116) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (505126) NVS_UTILS: current number saved successfully![0m
+[0;32mI (510486) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (510486) MQTT: Processing topic: responsenumber[0m
+[0;32mI (510486) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (510496) NVS_UTILS: current number saved successfully![0m
+[0;32mI (512166) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (512166) MQTT: Processing topic: responsenumber[0m
+[0;32mI (512166) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (512186) NVS_UTILS: current number saved successfully![0m
+[0;32mI (513906) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (513916) MQTT: Processing topic: responsenumber[0m
+[0;32mI (513916) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (513926) NVS_UTILS: current number saved successfully![0m
+[0;32mI (515546) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (515546) MQTT: Processing topic: responsenumber[0m
+[0;32mI (516346) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (517196) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (517196) MQTT: Processing topic: responsenumber[0m
+[0;32mI (517996) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (530206) NVS_UTILS: Read user ID successfully: 01[0m
+[0;32mI (530206) DEMO: Loaded user_id from NVS: 01[0m
+[0;32mI (530216) NVS_UTILS: current number saved successfully![0m
+[0;32mI (530216) DEMO: WiFi STA MAC: A8:42:E3:4C:7C:BC[0m
+[0;32mI (530216) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (531896) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (531896) MQTT: Processing topic: responsenumber[0m
+[0;32mI (532696) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (557986) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (557986) MQTT: Processing topic: responsenumber[0m
+[0;32mI (557986) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (557996) NVS_UTILS: current number saved successfully![0m
+[0;32mI (560446) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (560446) MQTT: Processing topic: responsenumber[0m
+[0;32mI (560446) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (560456) NVS_UTILS: current number saved successfully![0m
+[0;32mI (561936) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (561936) MQTT: Processing topic: responsenumber[0m
+[0;32mI (561946) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (561956) NVS_UTILS: current number saved successfully![0m
+[0;32mI (563676) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (563676) MQTT: Processing topic: responsenumber[0m
+[0;32mI (563676) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (563686) NVS_UTILS: current number saved successfully![0m
+[0;32mI (732746) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (732746) MQTT: Processing topic: responsenumber[0m
+[0;32mI (732756) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (732766) NVS_UTILS: current number saved successfully![0m
+[0;32mI (734376) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (734376) MQTT: Processing topic: responsenumber[0m
+[0;32mI (734376) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (734386) NVS_UTILS: current number saved successfully![0m
+[0;32mI (736156) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (736156) MQTT: Processing topic: responsenumber[0m
+[0;32mI (736156) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (736166) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1020986) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1020986) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1020986) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1020996) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1022826) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1022826) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1022826) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1022836) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1024666) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1024676) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1024676) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1024686) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1026416) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1026416) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1026416) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1026426) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1027946) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1027946) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1027946) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1027956) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1029716) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1029716) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1029716) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1029726) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1031446) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1031446) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1031446) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1031456) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1032966) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1032966) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1032976) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1032986) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1035126) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1035126) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1035136) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1035146) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1036856) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1036856) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1036856) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1036876) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1042646) MQTT: Published number 2025[0m
+[0;32mI (1042646) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (1042896) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1042896) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1043696) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (1044376) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1044376) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1045176) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (1246876) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1246876) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1246876) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1246886) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1248596) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1248596) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1248596) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1248616) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1256976) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1256976) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1256976) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1256986) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1261326) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1261326) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1261326) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1261336) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1263156) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1263156) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1263156) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1263166) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1264896) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1264896) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1264896) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1264916) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1266536) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1266536) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1267336) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (1344616) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1344616) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1344616) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1344626) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1349316) MQTT: Published number 1023[0m
+[0;32mI (1349316) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (1349476) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1349486) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1349496) NVS_UTILS: Status saved successfully: SO UU TIEN[0m
+[0;32mI (1349496) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1350706) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1350706) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1350716) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1350716) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1352276) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1352276) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1352276) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1352286) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1353886) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1353886) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1353886) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1353896) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1487296) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1487306) MQTT: Processing topic: feedback_status[0m
+[0;32mI (1487306) MQTT: feedback_screen connected[0m
+[0;32mI (1487306) LED: LED ON[0m
+[0;32mI (1493346) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1493346) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1493346) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1493356) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1517946) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1517956) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1517956) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1517966) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1645816) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1645816) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1645816) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1645826) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1697116) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1697116) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1697916) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (1723016) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1723026) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1723026) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1723036) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1726666) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1726666) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1726676) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1726686) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1726956) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1726966) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1726966) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1726976) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1728856) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1728856) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1728856) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1728866) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1730476) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1730476) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1730486) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1730496) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1732436) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1732446) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1732446) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1732456) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1734196) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1734196) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1734196) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (1734206) NVS_UTILS: current number saved successfully![0m
+[0;32mI (1736206) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1736206) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1737006) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (1783746) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (1783746) MQTT: Processing topic: responsenumber[0m
+[0;32mI (1784546) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (2435096) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2435096) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2435096) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2435106) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2437036) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2437046) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2437046) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2437056) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2717816) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2717816) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2717816) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2717826) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2726316) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2726326) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2726326) MQTT: Processing topic: feedback_status[0m
+[0;32mI (2726326) MQTT: feedback_screen disconnected[0m
+[0;32mI (2726326) LED: LED OFF[0m
+[0;32mI (2726346) MQTT: Processing topic: feedback_status[0m
+[0;32mI (2726346) MQTT: feedback_screen connected[0m
+[0;32mI (2726346) LED: LED ON[0m
+[0;32mI (2749056) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2749056) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2749066) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2749076) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2749706) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2749706) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2749706) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2749716) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2749726) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2749736) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2749736) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2749746) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2762996) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2762996) MQTT: Processing topic: feedback_status[0m
+[0;32mI (2763006) MQTT: feedback_screen disconnected[0m
+[0;32mI (2763006) LED: LED OFF[0m
+[0;32mI (2768336) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2768336) MQTT: Processing topic: feedback_status[0m
+[0;32mI (2768336) MQTT: feedback_screen connected[0m
+[0;32mI (2768336) LED: LED ON[0m
+[0;32mI (2770446) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2770446) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2770446) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2770456) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2773746) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2773746) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2773756) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2773766) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2775466) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2775466) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2775466) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2775476) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2777106) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2777106) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2777106) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2777116) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2778846) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2778846) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2778846) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2778856) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2780686) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2780686) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2780686) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2780706) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2782846) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2782846) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2782846) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2782856) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2794116) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2794116) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2794126) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2794136) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2798776) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2798776) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2798776) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2798786) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2800346) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2800346) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2800346) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2800356) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2801986) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2801986) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2801986) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2801996) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2806526) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2806526) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2806526) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2806536) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2807466) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2807466) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2807466) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2807476) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2809746) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2809746) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2809756) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2809766) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2816936) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2816936) MQTT: Processing topic: feedback_status[0m
+[0;32mI (2816946) MQTT: feedback_screen disconnected[0m
+[0;32mI (2816946) LED: LED OFF[0m
+[0;32mI (2817346) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2817346) MQTT: Processing topic: feedback_status[0m
+[0;32mI (2817346) MQTT: feedback_screen connected[0m
+[0;32mI (2817346) LED: LED ON[0m
+[0;32mI (2844226) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2844226) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2844236) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2844246) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2846406) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2846406) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2846406) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2846416) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2848166) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2848166) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2848176) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2848186) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2849696) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2849696) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2849706) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2849716) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2851546) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2851546) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2851546) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2851556) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2853076) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2853076) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2853086) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2853096) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2854756) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2854756) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2854766) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2854776) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2856566) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2856566) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2856566) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (2856576) NVS_UTILS: current number saved successfully![0m
+[0;32mI (2858206) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (2858206) MQTT: Processing topic: responsenumber[0m
+[0;32mI (2859006) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (3415346) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (3415356) MQTT: Processing topic: responsenumber[0m
+[0;32mI (3416156) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (3427856) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (3427856) MQTT: Processing topic: responsenumber[0m
+[0;32mI (3427866) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (3427876) NVS_UTILS: current number saved successfully![0m
+[0;32mI (3924566) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (3924566) MQTT: Processing topic: responsenumber[0m
+[0;32mI (3924576) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (3924586) NVS_UTILS: current number saved successfully![0m
+[0;32mI (3928486) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (3928496) MQTT: Processing topic: responsenumber[0m
+[0;32mI (3928496) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (3928506) NVS_UTILS: current number saved successfully![0m
+[0;32mI (4106936) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4106946) MQTT: Processing topic: display_status[0m
+[0;32mI (4106946) MQTT: display_screen disconnected[0m
+[0;32mI (4106946) LED: LED OFF[0m
+[0;32mI (4111006) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4111006) MQTT: Processing topic: display_status[0m
+[0;32mI (4111006) MQTT: display_screen connected[0m
+[0;32mI (4111006) LED: LED ON[0m
+[0;32mI (4114716) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4114726) MQTT: Processing topic: responsenumber[0m
+[0;32mI (4114726) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (4114736) NVS_UTILS: current number saved successfully![0m
+[0;32mI (4309386) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4309386) MQTT: Processing topic: responsenumber[0m
+[0;32mI (4309386) NVS_UTILS: Status saved successfully: SO DANG GOI[0m
+[0;32mI (4309396) NVS_UTILS: current number saved successfully![0m
+[0;32mI (4313436) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4313446) MQTT: Processing topic: responsenumber[0m
+[0;32mI (4314246) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (4329176) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4329176) MQTT: Processing topic: display_status[0m
+[0;32mI (4329176) MQTT: display_screen disconnected[0m
+[0;32mI (4329176) LED: LED OFF[0m
+[0;32mI (4329186) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (4329196) MQTT: Processing topic: display_status[0m
+[0;32mI (4329196) MQTT: display_screen connected[0m
+[0;32mI (4329196) LED: LED ON[0m
+[0;32mI (5587506) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (5587506) MQTT: Processing topic: responsenumber[0m
+[0;32mI (5588306) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (5590276) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (5590276) MQTT: Processing topic: responsenumber[0m
+[0;32mI (5591076) NVS_UTILS: Read status successfully: SO DANG GOI[0m
+[0;32mI (5593246) MQTT: MQTT_EVENT_DATA[0m
+[0;32mI (5593246) MQTT: Processing topic: responsenumber[0m
+[0;32mI (5594056) NVS_UTILS: Read status successfully: SO DANG GOI[0m

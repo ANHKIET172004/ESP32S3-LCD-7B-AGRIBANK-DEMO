@@ -3,6 +3,10 @@ SET(SOURCES ui_Screen1.c
     ui_Screen3.c
     ui_Screen4.c
     ui_Screen5.c
+    ui_Screen8.c
+    ui_Screen9.c
+    ui_Screen10.c
+    ui_Screen11.c
     ui_wifi_Screen.c
     ui.c
     ui_comp_hook.c
@@ -43,6 +47,7 @@ SET(SOURCES ui_Screen1.c
     images/ui_img_red_circle_70x70_png.c
     images/ui_img_green_circle_2_70x70_png.c
     images/ui_img_red_circle_20x20_png.c
+    images/ui_img_turn_back2_png.c
 
 
     
@@ -51,6 +56,7 @@ SET(SOURCES ui_Screen1.c
     fonts/ui_font_BOLD_VN20.c
     fonts/ui_font_BOLD_VN25.c
     fonts/ui_font_BOLD_VN30.c
-    fonts/ui_font_BOLD_VN35.c)
+    fonts/ui_font_BOLD_VN35.c
+    fonts/ui_font_BOLD_VN80.c)
 
 add_library(ui ${SOURCES})

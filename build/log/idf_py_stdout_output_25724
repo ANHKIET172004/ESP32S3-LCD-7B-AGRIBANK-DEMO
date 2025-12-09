@@ -1,0 +1,985 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=ccd94h (839060) map[0m
+[0;32mI (216) esp_image: segment 1: paddr=000dcdbc vaddr=3fca1c00 size=0325ch ( 12892) load[0m
+[0;32mI (218) esp_image: segment 2: paddr=000e0020 vaddr=42000020 size=dd8c0h (907456) map[0m
+[0;32mI (354) esp_image: segment 3: paddr=001bd8e8 vaddr=3fca4e5c size=02544h (  9540) load[0m
+[0;32mI (356) esp_image: segment 4: paddr=001bfe34 vaddr=40374000 size=1dbb0h (121776) load[0m
+[0;32mI (381) esp_image: segment 5: paddr=001dd9ec vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (393) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (393) boot: Disabling RNG early entropy source...[0m
+[0;33mW (403) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (403) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (410) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (418) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (422) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (426) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (431) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (436) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (440) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (444) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (448) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (453) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (458) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (463) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (468) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (480) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (480) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (480) esp_psram: Speed: 120MHz[0m
+[0;32mI (517) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (564) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (564) cpu_start: Multicore app[0m
+[0;32mI (726) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (734) cpu_start: Pro cpu start user code[0m
+[0;32mI (734) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (734) app_init: Application information:[0m
+[0;32mI (734) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (738) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (743) app_init: Compile time:     Nov 10 2025 14:56:37[0m
+[0;32mI (748) app_init: ELF file SHA256:  504c7993f...[0m
+[0;32mI (752) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (756) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (760) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (764) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (768) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (774) heap_init: At 3FCACD30 len 0003C9E0 (242 KiB): RAM[0m
+[0;32mI (780) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (785) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (790) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (795) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
+[0;32mI (802) esp_psram: Adding pool of 12K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (813) spi_flash: detected chip: generic[0m
+[0;32mI (817) spi_flash: flash io: qio[0m
+[0;32mI (820) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (826) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (832) coexist: coex firmware version: 831ec70[0m
+[0;32mI (845) coexist: coexist rom version e7ae62f[0m
+[0;32mI (846) main_task: Started on CPU0[0m
+[0;32mI (847) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (852) main_task: Calling app_main()[0m
+[0;32mI (855) PSRAM: Total heap: 6886516[0m
+[0;32mI (858) PSRAM: Free PSRAM: 6597113[0m
+[0;33mW (872) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1277) GT911: Initialize I2C panel IO[0m
+[0;32mI (1277) GT911: Initialize touch controller GT911[0m
+[0;33mW (1277) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1279) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1282) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1286) example: Install RGB LCD panel driver[0m
+[0;32mI (1326) example: Initialize RGB LCD panel[0m
+[0;32mI (1328) lv_port: Create LVGL task[0m
+[0;32mI (1355) main: Display LVGL demos[0m
+[0;32mI (1372) TAG_NVS: Loaded JSON from NVS: [{"name":"quay 2","device_id":"94:E6:86:09:A4:78"},{"name":"quay 1","device_id":"A8:42:E3:4C:7C:BC"}][0m
+[0;32mI (1374) TAG_NVS: Loaded 2 devices from NVS[0m
+[0;32mI (1380) LVGL: Displayed 2 devices[0m
+[0;32mI (1527) pp: pp rom version: e7ae62f[0m
+[0;32mI (1528) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1528) RSSI: Not connected to any AP[0m
+[0;32mI (1528) main_task: Returned from app_main()[0m
+[0;32mI (1529) wifi:wifi driver task: 3fcd123c, prio:23, stack:6656, core=0[0m
+[0;32mI (1545) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1546) wifi:wifi certification version: v7.0[0m
+[0;32mI (1546) wifi:config NVS flash: enabled[0m
+[0;32mI (1549) wifi:config nano formatting: disabled[0m
+[0;32mI (1554) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1559) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1563) wifi:Init management short buffer num: 32[0m
+[0;32mI (1568) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1572) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1575) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1579) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1583) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1587) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1591) wifi_init: rx ba win: 16[0m
+[0;32mI (1594) wifi_init: accept mbox: 6[0m
+[0;32mI (1597) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1600) wifi_init: udp mbox: 6[0m
+[0;32mI (1603) wifi_init: tcp mbox: 6[0m
+[0;32mI (1606) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1609) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1613) wifi_init: tcp mss: 1440[0m
+[0;32mI (1616) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1619) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1623) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1627) reconnect: Found saved WiFi: iPhone Anh Kiet[0m
+Wi-Fi event handler registered.
+[0;32mI (1635) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1678) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1678) wifi:enable tsf[0m
+[0;32mI (1680) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1680) WiFi Sta: GET: SSID:iPhone Anh Kiet, password:061002aK[0m
+[0;32mI (1685) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1692) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1701) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1707) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1743) wifi:connected with iPhone Anh Kiet, aid = 1, channel 6, BW20, bssid = 02:38:67:4f:5a:dd[0m
+[0;32mI (1743) wifi:security: WPA2-PSK, phy: bgn, rssi: -26[0m
+[0;32mI (1746) wifi:pm start, type: 1[0m
+
+[0;32mI (1748) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1756) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1765) WiFi Sta: Connected to SSID:iPhone Anh Kiet, channel:6[0m
+[0;32mI (1770) WiFi Sta: Connected to SSID:iPhone Anh Kiet, channel:6[0m
+[0;32mI (1770) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2196) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2196) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2809) esp_netif_handlers: sta ip: 172.20.10.7, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (2809) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2825) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2825) MQTT: Other event id:7[0m
+[0;32mI (2832) wifi:<ba-add>idx:0 (ifx:0, 02:38:67:4f:5a:dd), tid:0, ssn:2, winSize:64[0m
+[0;32mI (3706) WiFi: Connected with IP: 172.20.10.7[0m
+[0;32mI (3706) WiFi Sta: Connected to AP SSID:iPhone Anh Kiet, password:061002aK, bssid:02:38:67:4F:5A:DD[0m
+[0;32mI (3806) NVS: last index: -1[0m
+[0;32mI (3806) NVS: wifi index: 0[0m
+[0;33mW (3806) WIFI_UI: WIFI_List_Button is invalid[0m
+STA:STA 
+[1;31mE (12828) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (12828) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (12828) mqtt_client: Error transport connect[0m
+[0;32mI (12831) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (12833) MQTT: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (12839) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (12843) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (12848) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (13382) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (13382) wifi_scan: Total APs scanned = 17, actual AP number ap_info holds = 17[0m
+[0;32mI (13497) NVS: Have a saved wifi network in NVS: iPhone Anh Kiet[0m
+[0;32mI (13499) wifi_scan: Found saved AP: iPhone Anh Kiet[0m
+[0;32mI (13647) NVS: Have a saved wifi network in NVS: iPhone Anh Kiet[0m
+[0;32mI (13650) wifi_scan: Found saved AP: iPhone Anh Kiet[0m
+[0;32mI (22851) MQTT: Other event id:7[0m
+[1;31mE (32853) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (32853) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (32853) mqtt_client: Error transport connect[0m
+[0;32mI (32856) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (32859) MQTT: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (32864) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (32868) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (32873) MQTT: MQTT_EVENT_DISCONNECTED[0m
+esp_wifi_disconnect 
+[0;32mI (37908) wifi:state: run -> init (0x0)[0m
+[0;32mI (37909) wifi:pm stop, total sleep time: 29146246 us / 36161160 us[0m
+
+[0;32mI (37909) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (37911) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (37920) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (37923) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (37927) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (37931) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (37939) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (37939) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (37945) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (37968) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (37968) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (37968) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (37990) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (37990) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (37990) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38012) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38012) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38012) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38034) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38034) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38034) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38056) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38056) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38056) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38078) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38078) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38078) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38100) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38100) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38100) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38122) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38122) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38122) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38144) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38144) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38144) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38166) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38166) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38166) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38188) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38188) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38188) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38210) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38210) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38210) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38232) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38232) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38232) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38254) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38254) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38254) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38276) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38276) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38276) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38298) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38298) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38298) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38320) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38320) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38320) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38342) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38342) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38342) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38364) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38364) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38364) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38386) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38386) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38386) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38408) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38408) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38408) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38419) WiFi Sta: Connecting to wifi network, BSSID: 10:5F:02:75:1E:9A[0m
+[0;33mW (38419) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (38460) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38460) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38460) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38464) wifi:flush txq[0m
+[0;32mI (38465) wifi:stop sw txq[0m
+[0;32mI (38467) wifi:lmac stop hw txq[0m
+[0;32mI (38471) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (38474) wifi:enable tsf[0m
+[0;32mI (38478) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (38484) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (38490) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (38496) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (38502) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38502) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38505) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (38511) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38524) wifi:connected with NamTrung, aid = 28, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (38525) wifi:security: WPA2-PSK, phy: bgn, rssi: -45[0m
+[0;32mI (38528) wifi:pm start, type: 1[0m
+
+[0;32mI (38530) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (38539) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (38539) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (38548) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (38549) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;33mW (38559) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38565) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38588) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38588) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38588) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38610) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38610) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38610) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38632) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38632) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38632) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38654) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38654) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38654) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38676) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38676) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38676) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38698) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38698) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38698) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38720) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38720) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38720) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38742) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38742) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38742) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38764) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38764) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38764) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38786) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38786) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38786) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38808) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38808) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38808) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38830) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38830) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38830) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38852) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38852) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38852) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38874) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38874) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38874) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38896) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38896) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38896) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38918) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38918) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38918) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38940) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38940) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38940) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38962) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38962) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38962) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (38982) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (38982) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (38984) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (38984) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (38989) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39013) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39013) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39013) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39035) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39035) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39035) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39057) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39057) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39057) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39079) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39079) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39079) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39101) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39101) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39101) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39123) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39123) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39123) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39145) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39145) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39145) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39167) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39167) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39167) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39189) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39189) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39189) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39211) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39211) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39211) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39233) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39233) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39233) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39255) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39255) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39255) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39277) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39277) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39277) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39299) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39299) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39299) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39321) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39321) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39321) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39343) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39343) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39343) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39365) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39365) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39365) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39387) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39387) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39387) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39409) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39409) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39409) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39431) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39431) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39431) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39453) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39453) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39453) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39475) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39475) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39475) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39497) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39497) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39497) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39519) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39519) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39519) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39541) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39541) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39541) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39563) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39563) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39563) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39585) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39585) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39585) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39607) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (39607) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (39607) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (39620) esp_netif_handlers: sta ip: 10.10.1.83, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (39620) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (39621) WiFi Sta: Updating Wi-Fi credentials in NVS...[0m
+[0;32mI (39629) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (39630) MQTT_MANAGER: Starting MQTT safely...[0m
+[0;32mI (39634) MQTT: Other event id:7[0m
+[0;32mI (39637) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (39641) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:5, winSize:64[0m
+[0;32mI (39651) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:1, winSize:64[0m
+[0;32mI (39656) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (39770) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=60187, return code=0x00[0m
+[0;32mI (39771) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=40417, return code=0x01[0m
+[0;32mI (39902) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (39902) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"quay 1"}][0m
+[0;32mI (39907) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (39911) MQTT_SAVE_NUMBER: Stored 2 devices[0m
+[0;32mI (39916) TAG_NVS: Saved 2 devices to NVS[0m
+[0;32mI (40492) WiFi: Connected with IP: 10.10.1.83[0m
+[0;32mI (40492) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (40656) NVS: last index: 0[0m
+[0;32mI (40656) NVS: wifi index: 1[0m
+esp_wifi_disconnect 
+[0;32mI (56514) wifi:state: run -> init (0x0)[0m
+[0;32mI (56515) wifi:pm stop, total sleep time: 12403892 us / 17984875 us[0m
+
+[0;32mI (56515) wifi:<ba-del>idx:1, tid:0[0m
+[0;32mI (56517) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (56521) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (56529) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (56533) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (56536) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (56541) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (56549) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56549) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56554) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56578) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56578) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56578) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56600) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56600) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56600) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56622) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56622) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56622) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56644) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56644) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56644) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56666) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56666) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56666) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56688) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56688) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56688) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56710) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56710) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56710) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56732) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56732) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56732) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56754) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56754) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56754) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56776) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56776) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56776) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56798) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56798) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56798) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56820) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56820) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56820) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56842) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56842) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56842) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56864) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56864) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56864) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56886) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56886) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56886) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56908) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56908) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56908) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (56914) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (56915) RSSI: Not connected to any AP[0m
+[0;32mI (56930) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56930) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56930) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56952) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56952) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56952) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56974) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56974) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56974) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (56996) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (56996) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (56996) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57018) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57018) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57018) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57029) WiFi Sta: Connecting to wifi network, BSSID: 02:38:67:4F:5A:DD[0m
+[0;33mW (57029) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (57054) wifi:flush txq[0m
+[0;32mI (57054) wifi:stop sw txq[0m
+[0;32mI (57054) wifi:lmac stop hw txq[0m
+[0;32mI (57055) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (57056) wifi:enable tsf[0m
+[0;32mI (57058) WiFi Sta: GET: SSID:iPhone Anh Kiet, password:061002aK[0m
+[0;32mI (57063) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (57066) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (57075) wifi:state: init -> auth (0xb0)[0m
+[0;33mW (57079) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57082) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (57088) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57093) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (57111) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57111) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57111) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57120) wifi:connected with iPhone Anh Kiet, aid = 1, channel 6, BW20, bssid = 02:38:67:4f:5a:dd[0m
+[0;32mI (57122) wifi:security: WPA2-PSK, phy: bgn, rssi: -27[0m
+[0;32mI (57129) wifi:pm start, type: 1[0m
+
+[0;32mI (57130) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (57138) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (57139) WiFi Sta: Connected to SSID:iPhone Anh Kiet, channel:6[0m
+[0;32mI (57148) WiFi Sta: Connected to SSID:iPhone Anh Kiet, channel:6[0m
+[0;33mW (57154) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57160) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57168) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (57183) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57183) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57183) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57205) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57205) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57205) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57227) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57227) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57227) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57249) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57249) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57249) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57271) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57271) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57271) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57293) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57293) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57293) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57315) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57315) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57315) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57337) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57337) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57337) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57359) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57359) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57359) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57381) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57381) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57381) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57403) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57403) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57403) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57425) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57425) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57425) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57447) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57447) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57447) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57469) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57469) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57469) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57491) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57491) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57491) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57513) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57513) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57513) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57535) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57535) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57535) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57557) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57557) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57557) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57563) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (57563) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (57579) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57579) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57579) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57601) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57601) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57601) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57623) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57623) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57623) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57645) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57645) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57645) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57667) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57667) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57667) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57689) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57689) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57689) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57711) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57711) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57711) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57733) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57733) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57733) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57755) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57755) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57755) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57777) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57777) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57777) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57799) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57799) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57799) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57821) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57821) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57821) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57843) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57843) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57843) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57865) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57865) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57865) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57887) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57887) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57887) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57909) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57909) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57909) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57931) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57931) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57931) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57953) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57953) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57953) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57975) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57975) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57975) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (57997) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (57997) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (57997) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (58019) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (58019) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (58019) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (58041) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (58041) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (58041) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (58063) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (58063) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (58063) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (58085) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (58085) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (58085) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (58107) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (58107) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (58107) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (58129) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (58129) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (58129) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (58151) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (58151) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (58151) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (58159) esp_netif_handlers: sta ip: 172.20.10.7, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (58161) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (58164) WiFi Sta: Updating Wi-Fi credentials in NVS...[0m
+[0;32mI (58174) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (58174) MQTT_MANAGER: Starting MQTT safely...[0m
+[0;32mI (58178) MQTT: Other event id:7[0m
+[0;32mI (58182) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (58188) wifi:<ba-add>idx:0 (ifx:0, 02:38:67:4f:5a:dd), tid:0, ssn:2, winSize:64[0m
+[0;32mI (59078) WiFi: Connected with IP: 172.20.10.7[0m
+[0;32mI (59078) WiFi Sta: Connected to AP SSID:iPhone Anh Kiet, password:061002aK, bssid:02:38:67:4F:5A:DD[0m
+[0;32mI (59184) NVS: last index: 1[0m
+[0;32mI (59184) NVS: wifi index: 0[0m
+[1;31mE (68183) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (68183) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (68183) mqtt_client: Error transport connect[0m
+[0;32mI (68186) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (68189) MQTT: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (68194) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (68198) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (68203) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (68204) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (73206) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (91521) mqtt_client: Client asked to stop, but was not started[0m
+esp_wifi_disconnect 
+[0;32mI (91548) wifi:state: run -> init (0x0)[0m
+[0;32mI (91549) wifi:pm stop, total sleep time: 30468696 us / 34419478 us[0m
+
+[0;32mI (91549) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (91551) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (91560) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (91563) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (91567) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (91571) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (91579) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91579) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91585) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91608) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91608) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91608) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91630) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91630) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91630) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91652) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91652) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91652) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91674) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91674) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91674) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91696) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91696) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91696) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91718) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91718) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91718) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91740) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91740) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91740) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91762) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91762) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91762) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91784) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91784) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91784) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91806) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91806) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91806) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91828) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91828) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91828) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91850) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91850) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91850) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91872) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91872) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91872) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91894) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91894) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91894) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91916) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91916) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91916) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91938) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91938) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91938) MQTT_MANAGER: MQTT stopped.[0m
+[0;33mW (91953) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (91954) RSSI: Not connected to any AP[0m
+[0;32mI (91960) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91960) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91961) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (91984) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (91984) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (91984) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92006) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92006) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92006) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92028) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92028) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92028) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92050) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92050) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92050) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92059) WiFi Sta: Connecting to wifi network, BSSID: 10:5F:02:75:1E:9A[0m
+[0;33mW (92059) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (92082) wifi:flush txq[0m
+[0;32mI (92082) wifi:stop sw txq[0m
+[0;32mI (92082) wifi:lmac stop hw txq[0m
+[0;32mI (92083) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (92083) wifi:enable tsf[0m
+[0;32mI (92087) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (92090) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (92092) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (92102) wifi:state: init -> auth (0xb0)[0m
+[0;33mW (92106) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92112) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92129) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (92135) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92135) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92135) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92137) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (92151) wifi:connected with NamTrung, aid = 28, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (92152) wifi:security: WPA2-PSK, phy: bgn, rssi: -44[0m
+[0;32mI (92155) wifi:pm start, type: 1[0m
+
+[0;32mI (92157) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (92166) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;32mI (92166) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (92175) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;33mW (92180) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92186) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92205) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (92209) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92209) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92209) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92233) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92233) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92233) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92255) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92255) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92255) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92277) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92277) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92277) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92299) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92299) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92299) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92321) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92321) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92321) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92343) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92343) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92343) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92365) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92365) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92365) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92387) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92387) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92387) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92409) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92409) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92409) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92431) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92431) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92431) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92453) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92453) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92453) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92475) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92475) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92475) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92497) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92497) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92497) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92519) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92519) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92519) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92541) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92541) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92541) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92563) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92563) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92563) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92585) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92585) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92585) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92590) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (92591) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (92607) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92607) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92607) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92629) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92629) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92629) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92651) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92651) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92651) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92673) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92673) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92673) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92695) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92695) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92695) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92717) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92717) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92717) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92739) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92739) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92739) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92761) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92761) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92761) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92783) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92783) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92783) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92805) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92805) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92805) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92827) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92827) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92827) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92849) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92849) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92849) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92871) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92871) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92871) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92893) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92893) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92893) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92915) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92915) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92915) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92937) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92937) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92937) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92959) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92959) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92959) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (92981) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (92981) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (92981) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (93003) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (93003) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (93003) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (93025) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (93025) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (93025) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (93047) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (93047) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (93047) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (93069) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (93069) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (93069) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (93091) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (93091) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (93091) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (93113) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (93113) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (93113) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (93135) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (93135) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (93135) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (93157) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (93157) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (93157) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (93179) MQTT_MANAGER: Stopping MQTT safely...[0m
+[0;33mW (93179) mqtt_client: Client asked to stop, but was not started[0m
+[0;32mI (93179) MQTT_MANAGER: MQTT stopped.[0m
+[0;32mI (93187) esp_netif_handlers: sta ip: 10.10.1.83, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (93188) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (93192) WiFi Sta: Updating Wi-Fi credentials in NVS...[0m
+[0;32mI (93201) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (93202) MQTT_MANAGER: Starting MQTT safely...[0m
+[0;32mI (93206) MQTT: Other event id:7[0m
+[0;32mI (93210) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (93218) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (93221) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:3, winSize:64[0m
+[0;32mI (93229) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:5, winSize:64[0m
+[0;32mI (93301) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=4262, return code=0x00[0m
+[0;32mI (93303) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=47998, return code=0x01[0m
+[0;32mI (93466) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (93466) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"quay 1"}][0m
+[0;32mI (93471) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (93475) MQTT_SAVE_NUMBER: Stored 2 devices[0m
+[0;32mI (93479) TAG_NVS: Saved 2 devices to NVS[0m
+[0;32mI (94106) WiFi: Connected with IP: 10.10.1.83[0m
+[0;32mI (94106) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (94222) NVS: last index: 0[0m
+[0;32mI (94222) NVS: wifi index: 1[0m

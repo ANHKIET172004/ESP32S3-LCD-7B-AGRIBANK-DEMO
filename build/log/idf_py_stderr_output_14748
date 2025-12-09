@@ -1,0 +1,27 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM10 instead...[0m
+[0;33m--- esp-idf-monitor 1.7.0 on \\.\COM10 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x403c8700: [0;33m_stext[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x403c894c: [0;33mcall_start_cpu0[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m--- 0x40376125: [0;33mpanic_abort[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_system/panic.c[0m[0m:[1;31m469[0m
+[0m--- 0x4038825d: [0;33mesp_system_abort[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_system/port/esp_system_chip.c[0m[0m:[1;31m87[0m
+[0m--- 0x4038fe95: [0;33m__assert_func[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/newlib/src/assert.c[0m[0m:[1;31m80[0m
+[0m--- 0x40388cfa: [0;33mvQueueDelete[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/freertos/FreeRTOS-Kernel/queue.c[0m[0m:[1;31m2355[0m
+[0m--- 0x42043a89: [0;33mosi_sem_free[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/osi/semaphore.c[0m[0m:[1;31m75[0m
+[0m--- 0x420400e9: [0;33mfixed_queue_free[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/osi/fixed_queue.c[0m[0m:[1;31m88[0m
+[0m--- (inlined by) [0;33mfixed_queue_new[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/osi/fixed_queue.c[0m[0m:[1;31m67[0m
+[0m--- 0x42032bd8: [0;33mgatt_allocate_tcb_by_bdaddr[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/host/bluedroid/stack/gatt/gatt_utils.c[0m[0m:[1;31m1086[0m
+[0m--- 0x4203084a: [0;33mgatt_le_connect_cback[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/host/bluedroid/stack/gatt/gatt_main.c[0m[0m:[1;31m491[0m
+[0m--- 0x42039bc9: [0;33ml2cu_process_fixed_chnl_resp[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/host/bluedroid/stack/l2cap/l2c_utils.c[0m[0m:[1;31m2860[0m
+[0m--- 0x420370fd: [0;33ml2cble_notify_le_connection[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/host/bluedroid/stack/l2cap/l2c_ble.c[0m[0m:[1;31m314[0m
+[0m--- 0x420228b8: [0;33mbtm_ble_read_remote_features_complete[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/host/bluedroid/stack/btm/btm_ble_gap.c[0m[0m:[1;31m4390[0m
+[0m--- 0x4202ac32: [0;33mbtu_ble_read_remote_feat_evt[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/host/bluedroid/stack/btu/btu_hcif.c[0m[0m:[1;31m2378[0m
+[0m--- (inlined by) [0;33mbtu_hcif_process_event[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/host/bluedroid/stack/btu/btu_hcif.c[0m[0m:[1;31m464[0m
+[0m--- 0x4202b4c4: [0;33mbtu_hci_msg_process[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/host/bluedroid/stack/btu/btu_task.c[0m[0m:[1;31m159[0m
+[0m--- 0x42040f45: [0;33mosi_thread_run[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bt/common/osi/thread.c[0m[0m:[1;31m165[0m
+[0m--- 0x40376088: [0;33mesp_restart_noos[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esp_system/port/soc/esp32s3/system_internal.c[0m[0m:[1;31m162[0m
+[0m--- 0x403c8700: [0;33m_stext[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x403c894c: [0;33mcall_start_cpu0[0m[0m at [0;32mD:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m

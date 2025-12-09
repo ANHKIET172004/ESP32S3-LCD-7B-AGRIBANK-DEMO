@@ -111,6 +111,7 @@ extern void mqtt_start(void);
 /////wifi
 
 extern bool wifi_need_mqtt_stop;
+extern lv_obj_t* ui_WIFI_Rescan_Button;
 
 //extern int reconnect2;
 
@@ -166,7 +167,8 @@ void ui_event_WIFI_Button0(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         // Change the screen back to the main screen with a fade animation
         //_ui_screen_change(&ui_Main, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Main_screen_init);
-        _ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Wifi_Screen_init);
+        //_ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Wifi_Screen_init);
+        _ui_screen_change(&ui_Screen9, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Screen9_screen_init);
     }
 }
 
@@ -178,6 +180,9 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
 
     // When the switch is turned ON (checked state)
     if(event_code == LV_EVENT_VALUE_CHANGED && lv_obj_has_state(target, LV_STATE_CHECKED)) {
+
+        lv_obj_add_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);//
+
 
         found_saved_ap=false;//
         cnt=0;// 
@@ -193,11 +198,16 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
        /////
         // Remove the hidden flag from the Wifi scan list (show the list)
         _ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); 
+        _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+
         WIFIOPEN(e);  // Open Wifi functionality
     }
     
     // When the switch is turned OFF (unchecked state)
     if(event_code == LV_EVENT_VALUE_CHANGED && !lv_obj_has_state(target, LV_STATE_CHECKED)) {
+
+        lv_obj_clear_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);//
+
         found_saved_ap=false;//
         cnt=0;//
 /////
@@ -212,6 +222,7 @@ void ui_event_WIFI_OPEN(lv_event_t * e)
 
         // Add the hidden flag to the Wifi scan list (hide the list)
         _ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
 
         
         WIFICLOSE(e);  // Close Wifi functionality
@@ -236,13 +247,8 @@ void ui_WIFI_list_event_cb(lv_event_t * e)
 
         //////////
 
-      
-
-
-
-
         ///////////
-        printf("index:%d\r\n",wifi_index);
+        //printf("index:%d\r\n",wifi_index);
 
         // If the selected network is the currently connected one, show the IP address
        // if ((reconnect2>0)&&(wifi_index==0))
@@ -278,16 +284,18 @@ void ui_WIFI_list_event_cb(lv_event_t * e)
 
         lv_label_set_text(ui_WIFI_Name,bssid_str);
         */
-        print_bssid(ap_info[wifi_index]);
+        //print_bssid(ap_info[wifi_index]);
         //
 
         // Print authentication mode (e.g., WPA2, WPA3)
-        print_auth_mode(ap_info[wifi_index].authmode);
+        //print_auth_mode(ap_info[wifi_index].authmode);
 
         // If the network is not using WEP, display cipher types
+        /*
         if (ap_info[wifi_index].authmode != WIFI_AUTH_WEP) {
             print_cipher_type(ap_info[wifi_index].pairwise_cipher, ap_info[wifi_index].group_cipher);
         }
+            */
 
         // Display the Wifi channel
         sprintf(result, "Channel \t\t%d", ap_info[wifi_index].primary);
@@ -331,11 +339,12 @@ void ui_event_WIFI_INPUT_PWD(lv_event_t * e)
     
     // Triggered when the user has finished entering the password
     if(event_code == LV_EVENT_READY) {
-        esp_mqtt_client_disconnect(mqttClient);//
+        //esp_mqtt_client_disconnect(mqttClient);//
 
         //esp_mqtt_client_stop(mqttClient);//
+
         user_selected_wifi=true;
-        wifi_need_mqtt_stop=true;
+       // wifi_need_mqtt_stop=true;
         
         // Attempt to connect to Wifi with the provided password
         WIFIConnection(e);
@@ -515,6 +524,10 @@ void ui_init(void)
     //ui_Screen3_screen_init();
     //ui_Screen4_screen_init();
     ui_Screen5_screen_init();
+    ui_Screen8_screen_init();
+    ui_Screen9_screen_init();
+    ui_Screen10_screen_init();
+    ui_Screen11_screen_init();
     ui_Wifi_Screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_Screen1);
@@ -527,5 +540,9 @@ void ui_destroy(void)
     //ui_Screen3_screen_destroy();
     //ui_Screen4_screen_destroy();
     ui_Screen5_screen_destroy();
+    ui_Screen8_screen_destroy();
+    ui_Screen9_screen_destroy();
+    ui_Screen10_screen_destroy();
+    ui_Screen11_screen_destroy();
     
 }

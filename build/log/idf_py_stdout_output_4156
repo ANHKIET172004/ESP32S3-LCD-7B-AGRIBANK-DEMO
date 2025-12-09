@@ -1,0 +1,127 @@
+Command: ninja flash
+[1/10] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/bootloader/bootloader.bin""
+Bootloader binary size 0x5800 bytes. 0x2800 bytes (31%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/esp_mqtt_client/esp_mqtt_client.c.obj
+D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c: In function 'mqtt_event_handler':
+D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c:1277:16: warning: unused variable 'id' [-Wunused-variable]
+ 1277 |         cJSON *id = cJSON_GetObjectItem(root, "device_id");
+      |                ^~
+D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c:1276:16: warning: unused variable 'num' [-Wunused-variable]
+ 1276 |         cJSON *num = cJSON_GetObjectItem(root, "number");
+      |                ^~~
+D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c:1214:9: warning: variable 'msg_id2' set but not used [-Wunused-but-set-variable]
+ 1214 |     int msg_id2;
+      |         ^~~~~~~
+D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c:1213:9: warning: variable 'msg_id' set but not used [-Wunused-but-set-variable]
+ 1213 |     int msg_id;
+      |         ^~~~~~
+D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c: At top level:
+D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c:20:21: warning: 'mqtt_retry_task_handle' defined but not used [-Wunused-variable]
+   20 | static TaskHandle_t mqtt_retry_task_handle = NULL;
+      |                     ^~~~~~~~~~~~~~~~~~~~~~
+[5/10] Linking C static library esp-idf\main\libmain.a
+[6/10] Generating esp-idf/esp_system/ld/sections.ld
+[7/10] Linking CXX executable 16_LVGL_UI.elf
+[8/10] Generating binary image from built executable
+esptool.py v4.9.1
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin
+[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/partition_table/partition-table.bin" "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin""
+16_LVGL_UI.bin binary size 0x1cea10 bytes. Smallest app partition is 0x800000 bytes. 0x6315f0 bytes (77%) free.
+[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\components\esptool_py && D:\ESP32_IDF\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5 -D SERIAL_TOOL=D:/ESP32_IDF/Espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build" -P D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32s3 -p COM10 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 16_LVGL_UI.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.9.1
+Serial port COM10
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: 10:20:ba:01:48:a8
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x001defff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 22528 bytes to 14318...
+Writing at 0x00000000... (100 %)
+Wrote 22528 bytes (14318 compressed) at 0x00000000 in 0.5 seconds (effective 362.1 kbit/s)...
+Hash of data verified.
+Compressed 1894928 bytes to 960288...
+Writing at 0x00010000... (1 %)
+Writing at 0x0001d118... (3 %)
+Writing at 0x000298ee... (5 %)
+Writing at 0x0003264f... (6 %)
+Writing at 0x0003b925... (8 %)
+Writing at 0x0004d04e... (10 %)
+Writing at 0x0006eedc... (11 %)
+Writing at 0x00087341... (13 %)
+Writing at 0x0009bcf9... (15 %)
+Writing at 0x000b15ea... (16 %)
+Writing at 0x000c2eca... (18 %)
+Writing at 0x000cb31b... (20 %)
+Writing at 0x000d448c... (22 %)
+Writing at 0x000deb69... (23 %)
+Writing at 0x000e5847... (25 %)
+Writing at 0x000eb6d7... (27 %)
+Writing at 0x000f133e... (28 %)
+Writing at 0x000f6a2f... (30 %)
+Writing at 0x000fc07d... (32 %)
+Writing at 0x0010195a... (33 %)
+Writing at 0x001070d4... (35 %)
+Writing at 0x0010cf66... (37 %)
+Writing at 0x00112220... (38 %)
+Writing at 0x0011737b... (40 %)
+Writing at 0x0011c71f... (42 %)
+Writing at 0x00121f77... (44 %)
+Writing at 0x00127825... (45 %)
+Writing at 0x0012ce5c... (47 %)
+Writing at 0x001326d9... (49 %)
+Writing at 0x001378b3... (50 %)
+Writing at 0x0013cf20... (52 %)
+Writing at 0x00142530... (54 %)
+Writing at 0x00147a39... (55 %)
+Writing at 0x0014ccec... (57 %)
+Writing at 0x00151eb8... (59 %)
+Writing at 0x00157275... (61 %)
+Writing at 0x0015caeb... (62 %)
+Writing at 0x001620e8... (64 %)
+Writing at 0x001674ee... (66 %)
+Writing at 0x0016ca5b... (67 %)
+Writing at 0x00172914... (69 %)
+Writing at 0x00177b33... (71 %)
+Writing at 0x0017cc23... (72 %)
+Writing at 0x00181e47... (74 %)
+Writing at 0x00186f39... (76 %)
+Writing at 0x0018c1b6... (77 %)
+Writing at 0x001912cf... (79 %)
+Writing at 0x001963fe... (81 %)
+Writing at 0x0019bace... (83 %)
+Writing at 0x001a10f0... (84 %)
+Writing at 0x001a83fb... (86 %)
+Writing at 0x001b26a0... (88 %)
+Writing at 0x001b7e75... (89 %)
+Writing at 0x001bd9ff... (91 %)
+Writing at 0x001c4cf9... (93 %)
+Writing at 0x001c9ef1... (94 %)
+Writing at 0x001cfeb3... (96 %)
+Writing at 0x001d6102... (98 %)
+Writing at 0x001dafb4... (100 %)
+Wrote 1894928 bytes (960288 compressed) at 0x00010000 in 22.1 seconds (effective 685.8 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 777.8 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

@@ -1,0 +1,1966 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=ccdc4h (839108) map[0m
+[0;32mI (216) esp_image: segment 1: paddr=000dcdec vaddr=3fca1c00 size=0322ch ( 12844) load[0m
+[0;32mI (218) esp_image: segment 2: paddr=000e0020 vaddr=42000020 size=dd920h (907552) map[0m
+[0;32mI (354) esp_image: segment 3: paddr=001bd948 vaddr=3fca4e2c size=02574h (  9588) load[0m
+[0;32mI (356) esp_image: segment 4: paddr=001bfec4 vaddr=40374000 size=1dbb0h (121776) load[0m
+[0;32mI (381) esp_image: segment 5: paddr=001dda7c vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (393) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (393) boot: Disabling RNG early entropy source...[0m
+[0;33mW (403) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (403) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (410) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (418) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (422) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (426) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (431) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (436) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (440) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (444) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (448) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (453) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (458) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (463) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (468) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (480) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (480) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (480) esp_psram: Speed: 120MHz[0m
+[0;32mI (517) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (564) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (564) cpu_start: Multicore app[0m
+[0;32mI (726) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (734) cpu_start: Pro cpu start user code[0m
+[0;32mI (734) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (734) app_init: Application information:[0m
+[0;32mI (734) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (738) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (743) app_init: Compile time:     Nov 10 2025 14:56:37[0m
+[0;32mI (748) app_init: ELF file SHA256:  6c8591d07...[0m
+[0;32mI (752) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (756) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (760) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (764) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (768) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (774) heap_init: At 3FCACD30 len 0003C9E0 (242 KiB): RAM[0m
+[0;32mI (780) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (785) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (790) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (795) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
+[0;32mI (802) esp_psram: Adding pool of 12K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (813) spi_flash: detected chip: generic[0m
+[0;32mI (817) spi_flash: flash io: qio[0m
+[0;32mI (820) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (826) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (832) coexist: coex firmware version: 831ec70[0m
+[0;32mI (845) coexist: coexist rom version e7ae62f[0m
+[0;32mI (846) main_task: Started on CPU0[0m
+[0;32mI (847) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (852) main_task: Calling app_main()[0m
+[0;32mI (855) PSRAM: Total heap: 6886468[0m
+[0;32mI (858) PSRAM: Free PSRAM: 6597065[0m
+[0;33mW (872) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1277) GT911: Initialize I2C panel IO[0m
+[0;32mI (1277) GT911: Initialize touch controller GT911[0m
+[0;33mW (1277) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1279) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1282) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1286) example: Install RGB LCD panel driver[0m
+[0;32mI (1326) example: Initialize RGB LCD panel[0m
+[0;32mI (1328) lv_port: Create LVGL task[0m
+[0;32mI (1355) main: Display LVGL demos[0m
+[0;32mI (1372) TAG_NVS: Loaded JSON from NVS: [{"name":"quay 2","device_id":"94:E6:86:09:A4:78"},{"name":"quay 1","device_id":"A8:42:E3:4C:7C:BC"}][0m
+[0;32mI (1373) TAG_NVS: Loaded 2 devices from NVS[0m
+[0;32mI (1379) LVGL: Displayed 2 devices[0m
+[0;32mI (1526) pp: pp rom version: e7ae62f[0m
+[0;32mI (1527) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1527) RSSI: Not connected to any AP[0m
+[0;32mI (1527) main_task: Returned from app_main()[0m
+[0;32mI (1528) wifi:wifi driver task: 3fcd11b0, prio:23, stack:6656, core=0[0m
+[0;32mI (1543) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1543) wifi:wifi certification version: v7.0[0m
+[0;32mI (1545) wifi:config NVS flash: enabled[0m
+[0;32mI (1548) wifi:config nano formatting: disabled[0m
+[0;32mI (1553) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1558) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1562) wifi:Init management short buffer num: 32[0m
+[0;32mI (1566) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1571) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1574) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1578) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1582) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1586) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1591) wifi_init: rx ba win: 16[0m
+[0;32mI (1593) wifi_init: accept mbox: 6[0m
+[0;32mI (1596) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1599) wifi_init: udp mbox: 6[0m
+[0;32mI (1602) wifi_init: tcp mbox: 6[0m
+[0;32mI (1605) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1608) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1612) wifi_init: tcp mss: 1440[0m
+[0;32mI (1615) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1619) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1622) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1626) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1633) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1672) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1672) wifi:enable tsf[0m
+[0;32mI (1674) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1674) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1680) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1686) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1694) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1700) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1729) wifi:connected with NamTrung, aid = 20, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (1730) wifi:security: WPA2-PSK, phy: bgn, rssi: -49[0m
+[0;32mI (1732) wifi:pm start, type: 1[0m
+
+[0;32mI (1734) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1742) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1752) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1756) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1831) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2178) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2178) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2765) esp_netif_handlers: sta ip: 10.10.1.83, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2765) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2771) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2771) MQTT: Other event id:7[0m
+[0;32mI (2788) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:5, winSize:64[0m
+[0;32mI (2789) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:1, winSize:64[0m
+[0;32mI (2793) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2798) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=26516, return code=0x00[0m
+[0;32mI (2803) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=60481, return code=0x01[0m
+[0;32mI (3026) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (3026) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"quay 1"}][0m
+[0;32mI (3031) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (3035) MQTT_SAVE_NUMBER: Stored 2 devices[0m
+[0;32mI (3039) TAG_NVS: Saved 2 devices to NVS[0m
+[0;32mI (3688) WiFi: Connected with IP: 10.10.1.83[0m
+[0;32mI (3688) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (3788) NVS: last index: -1[0m
+[0;32mI (3788) NVS: wifi index: 0[0m
+[0;33mW (3788) WIFI_UI: WIFI_List_Button is invalid[0m
+STA:STA 
+[0;32mI (10335) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (10335) wifi_scan: Total APs scanned = 15, actual AP number ap_info holds = 15[0m
+[0;32mI (10442) NVS: Have a saved wifi network in NVS: NamTrung[0m
+[0;32mI (10446) wifi_scan: Found saved AP: NamTrung[0m
+[0;32mI (10592) NVS: Have a saved wifi network in NVS: NamTrung[0m
+[0;32mI (10596) wifi_scan: Found saved AP: NamTrung[0m
+[0;32mI (18197) wifi_scan: Max AP number ap_info can hold = 20[0m
+[0;32mI (18197) wifi_scan: Total APs scanned = 16, actual AP number ap_info holds = 16[0m
+[0;32mI (18302) NVS: Have a saved wifi network in NVS: NamTrung[0m
+[0;32mI (18306) wifi_scan: Found saved AP: NamTrung[0m
+[0;32mI (18453) NVS: Have a saved wifi network in NVS: NamTrung[0m
+[0;32mI (18457) wifi_scan: Found saved AP: NamTrung[0m
+esp_wifi_disconnect 
+[0;32mI (30089) wifi:state: run -> init (0x0)[0m
+[0;32mI (30090) wifi:pm stop, total sleep time: 16875038 us / 28355660 us[0m
+
+[0;32mI (30091) wifi:<ba-del>idx:1, tid:0[0m
+[0;32mI (30092) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (30096) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (30104) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (30108) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (30111) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (30116) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (30119) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30144) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30164) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30184) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30204) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30224) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30244) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30264) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30284) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30304) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30324) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30344) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30364) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30384) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30404) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30424) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30444) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30464) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30484) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30504) mqtt_client: Client asked to disconnect[0m
+[0;33mW (30512) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (30513) RSSI: Not connected to any AP[0m
+[0;32mI (30524) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30544) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30564) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30584) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30604) WiFi Sta: Connecting to wifi network, BSSID: DE:5D:29:B5:29:3B[0m
+[0;33mW (30604) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (30609) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30628) wifi:flush txq[0m
+[0;32mI (30628) wifi:stop sw txq[0m
+[0;32mI (30628) wifi:lmac stop hw txq[0m
+[0;32mI (30629) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (30632) wifi:enable tsf[0m
+[0;32mI (30635) WiFi Sta: GET: SSID:iPhone Anh Kiet, password:061002aK[0m
+[0;32mI (30644) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (30648) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (30655) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (30660) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30663) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (30680) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30700) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30709) wifi:connected with iPhone Anh Kiet, aid = 1, channel 6, BW20, bssid = de:5d:29:b5:29:3b[0m
+[0;32mI (30709) wifi:security: WPA2-PSK, phy: bgn, rssi: -34[0m
+[0;32mI (30712) wifi:pm start, type: 1[0m
+
+[0;32mI (30714) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (30723) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30724) WiFi Sta: Connected to SSID:iPhone Anh Kiet, channel:6[0m
+[0;32mI (30733) WiFi Sta: Connected to SSID:iPhone Anh Kiet, channel:6[0m
+[0;32mI (30759) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30763) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (30779) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30799) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30819) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30839) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30859) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30879) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30899) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30919) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30939) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30959) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30979) mqtt_client: Client asked to disconnect[0m
+[0;32mI (30999) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31019) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31039) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31059) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31079) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31099) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31119) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31139) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31140) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (31140) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (31159) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31179) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31199) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31219) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31239) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31259) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31279) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31299) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31319) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31339) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31359) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31379) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31399) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31419) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31439) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31459) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31479) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31499) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31519) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31539) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31559) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31579) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31599) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31619) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31639) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31659) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31679) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31699) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31719) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31739) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31759) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31779) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31799) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31819) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31839) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31859) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31879) mqtt_client: Client asked to disconnect[0m
+[0;32mI (31882) esp_netif_handlers: sta ip: 172.20.10.7, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (31882) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (31884) WiFi Sta: Updating Wi-Fi credentials in NVS...[0m
+[0;32mI (31893) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (31899) MQTT_MANAGER: Starting MQTT safely...[0m
+[0;32mI (31899) MQTT: Other event id:7[0m
+[0;32mI (31901) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (31906) wifi:<ba-add>idx:0 (ifx:0, de:5d:29:b5:29:3b), tid:0, ssn:2, winSize:64[0m
+[0;32mI (32651) WiFi: Connected with IP: 172.20.10.7[0m
+[0;32mI (32651) WiFi Sta: Connected to AP SSID:iPhone Anh Kiet, password:061002aK, bssid:DE:5D:29:B5:29:3B[0m
+[0;32mI (32778) NVS: last index: 1[0m
+[0;32mI (32778) NVS: wifi index: 0[0m
+[1;31mE (41902) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (41902) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (41902) mqtt_client: Error transport connect[0m
+[0;32mI (41905) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (41907) MQTT: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (41913) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (41917) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (41922) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (41925) mqtt_client: Client asked to disconnect[0m
+[0;32mI (41950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (41970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (41990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (42990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (43990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (44990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (45990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (46990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (47990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (48990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (49990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (50990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51925) MQTT: Other event id:7[0m
+[0;32mI (51930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (51990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (52990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (53990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (54990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (55990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56490) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56510) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56530) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56550) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56570) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56590) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56610) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56630) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56650) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56670) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56690) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56710) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56730) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56750) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56770) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56790) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56810) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56830) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56850) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56870) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56890) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56910) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56930) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56950) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56970) mqtt_client: Client asked to disconnect[0m
+[0;32mI (56990) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57010) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57130) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57257) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57277) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57297) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57317) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57337) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57357) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57377) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57397) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57417) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57437) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57457) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57477) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57497) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57517) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57537) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57557) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57577) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57597) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57617) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57637) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57657) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57677) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57697) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57717) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57737) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57757) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57777) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57797) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57817) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57837) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57857) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57877) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57897) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57917) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57937) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57957) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57977) mqtt_client: Client asked to disconnect[0m
+[0;32mI (57997) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58017) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58037) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58057) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58077) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58097) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58117) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58137) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58157) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58177) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58197) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58217) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58237) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58257) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58277) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58297) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58317) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58337) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58357) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58377) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58397) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58417) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58437) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58457) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58477) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58497) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58517) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58537) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58557) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58577) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58597) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58617) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58637) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58657) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58677) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58697) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58717) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58737) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58757) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58777) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58797) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58817) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58837) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58857) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58877) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58897) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58917) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58937) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58957) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58977) mqtt_client: Client asked to disconnect[0m
+[0;32mI (58997) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59017) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59037) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59057) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59077) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59097) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59117) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59137) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59157) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59177) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59197) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59217) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59237) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59257) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59277) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59297) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59317) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59337) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59357) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59377) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59397) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59417) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59437) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59457) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59477) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59497) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59517) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59537) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59557) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59577) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59597) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59617) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59637) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59657) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59677) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59697) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59717) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59737) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59757) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59777) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59797) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59817) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59837) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59857) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59877) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59897) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59917) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59937) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59957) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59977) mqtt_client: Client asked to disconnect[0m
+[0;32mI (59997) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60017) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60037) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60057) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60077) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60097) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60117) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60137) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60157) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60177) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60197) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60217) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60237) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60257) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60277) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60297) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60317) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60337) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60357) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60377) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60397) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60417) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60437) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60457) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60477) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60497) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60517) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60537) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60557) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60577) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60597) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60617) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60637) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60657) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60677) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60697) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60717) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60737) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60757) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60777) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60797) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60817) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60837) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60857) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60877) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60897) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60917) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60937) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60957) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60977) mqtt_client: Client asked to disconnect[0m
+[0;32mI (60997) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61017) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61037) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61057) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61077) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61097) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61117) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61137) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61157) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61177) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61197) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61217) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61237) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61257) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61277) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61297) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61317) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61337) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61357) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61377) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61397) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61417) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61437) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61457) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61477) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61497) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61517) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61537) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61557) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61577) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61597) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61617) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61637) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61657) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61677) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61697) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61717) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61737) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61757) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61777) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61797) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61817) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61837) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61857) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61877) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61897) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61917) mqtt_client: Client asked to disconnect[0m
+[1;31mE (61928) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (61928) transport_base: Failed to open a new connection: 32774[0m
+[1;31mE (61928) mqtt_client: Error transport connect[0m
+[0;32mI (61931) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (61934) MQTT: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (61939) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (61943) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (61948) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (61951) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61976) mqtt_client: Client asked to disconnect[0m
+[0;32mI (61996) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62016) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62036) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62056) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62076) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62096) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62116) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62136) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62156) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62176) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62196) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62216) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62236) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62256) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62276) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62296) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62316) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62336) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62356) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62376) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62396) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62416) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62436) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62456) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62476) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62496) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62516) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62536) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62556) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62576) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62596) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62616) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62636) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62656) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62676) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62696) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62716) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62736) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62756) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62776) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62796) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62816) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62836) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62856) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62876) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62896) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62916) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62936) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62956) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62976) mqtt_client: Client asked to disconnect[0m
+[0;32mI (62996) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63016) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63036) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63056) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63076) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63096) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63116) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63136) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63156) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63176) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63196) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63216) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63236) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63256) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63276) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63296) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63316) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63336) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63356) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63376) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63396) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63416) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63436) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63458) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63478) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63498) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63518) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63538) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63558) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63578) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63598) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63618) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63638) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63658) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63678) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63698) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63718) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63738) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63758) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63778) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63798) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63818) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63838) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63858) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63878) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63898) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63918) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63938) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63958) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63978) mqtt_client: Client asked to disconnect[0m
+[0;32mI (63998) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64018) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64038) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64058) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64078) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64098) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64118) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64138) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64158) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64178) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64198) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64218) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64238) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64258) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64278) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64298) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64318) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64338) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64358) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64378) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64398) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64418) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64438) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64458) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64478) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64498) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64518) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64538) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64558) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64578) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64598) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64618) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64638) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64658) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64678) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64698) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64718) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64738) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64758) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64778) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64798) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64818) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64838) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64858) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64878) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64898) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64918) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64938) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64958) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64978) mqtt_client: Client asked to disconnect[0m
+[0;32mI (64998) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65018) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65038) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65058) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65078) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65098) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65118) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65138) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65158) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65178) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65198) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65218) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65238) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65258) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65278) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65298) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65318) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65338) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65358) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65378) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65398) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65418) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65438) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65458) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65478) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65502) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65523) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65543) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65563) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65583) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65603) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65623) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65643) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65663) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65683) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65703) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65723) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65743) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65763) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65783) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65803) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65823) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65843) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65863) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65883) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65903) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65923) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65943) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65963) mqtt_client: Client asked to disconnect[0m
+[0;32mI (65983) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66003) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66023) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66043) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66063) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66083) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66103) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66123) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66143) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66163) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66183) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66203) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66223) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66243) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66263) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66283) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66303) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66323) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66343) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66363) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66383) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66403) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66423) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66443) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66463) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66483) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66503) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66523) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66543) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66563) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66583) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66603) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66623) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66643) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66663) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66683) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66703) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66723) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66743) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66763) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66783) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66803) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66823) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66843) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66863) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66883) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66903) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66923) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66943) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66963) mqtt_client: Client asked to disconnect[0m
+[0;32mI (66983) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67003) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67023) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67043) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67063) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67083) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67103) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67123) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67143) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67163) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67183) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67203) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67223) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67243) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67263) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67283) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67303) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67323) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67343) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67363) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67383) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67403) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67423) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67443) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67463) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67483) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67503) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67523) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67543) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67563) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67583) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67603) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67623) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67643) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67663) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67683) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67703) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67723) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67743) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67763) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67783) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67803) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67823) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67843) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67863) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67883) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67903) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67923) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67943) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67963) mqtt_client: Client asked to disconnect[0m
+[0;32mI (67983) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68003) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68023) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68043) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68063) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68083) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68103) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68123) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68143) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68163) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68183) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68203) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68223) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68243) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68263) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68283) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68303) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68323) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68343) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68363) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68383) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68403) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68423) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68443) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68463) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68483) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68503) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68523) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68543) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68563) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68583) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68603) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68623) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68643) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68663) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68683) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68703) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68723) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68743) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68763) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68783) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68803) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68823) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68843) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68863) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68883) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68903) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68923) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68943) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68963) mqtt_client: Client asked to disconnect[0m
+[0;32mI (68983) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69003) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69023) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69043) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69063) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69083) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69103) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69123) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69143) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69163) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69183) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69203) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69223) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69243) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69263) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69283) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69303) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69323) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69343) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69363) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69383) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69403) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69423) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69443) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69463) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69483) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69503) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69523) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69543) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69563) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69583) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69603) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69623) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69643) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69663) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69683) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69703) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69723) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69743) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69763) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69783) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69803) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69823) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69843) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69863) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69883) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69903) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69923) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69943) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69963) mqtt_client: Client asked to disconnect[0m
+[0;32mI (69983) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70003) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70023) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70043) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70063) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70083) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70103) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70123) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70143) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70163) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70183) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70203) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70223) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70243) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70263) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70283) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70303) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70323) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70343) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70363) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70383) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70403) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70423) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70443) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70463) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70483) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70503) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70523) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70543) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70563) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70583) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70603) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70623) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70643) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70663) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70683) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70703) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70723) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70743) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70763) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70783) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70803) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70823) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70843) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70863) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70883) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70903) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70923) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70943) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70963) mqtt_client: Client asked to disconnect[0m
+[0;32mI (70983) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71003) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71023) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71043) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71063) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71083) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71103) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71123) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71143) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71163) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71183) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71203) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71223) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71243) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71263) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71283) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71303) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71323) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71343) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71363) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71383) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71403) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71423) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71443) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71463) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71483) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71503) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71523) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71543) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71563) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71583) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71603) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71623) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71643) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71663) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71683) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71703) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71723) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71743) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71763) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71783) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71803) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71823) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71843) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71863) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71883) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71903) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71923) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71943) mqtt_client: Client asked to disconnect[0m
+[0;32mI (71973) mqtt_client: Client asked to disconnect[0m
+esp_wifi_disconnect 
+[0;32mI (71979) wifi:state: run -> init (0x0)[0m
+[0;32mI (71980) wifi:pm stop, total sleep time: 34918845 us / 41265940 us[0m
+
+[0;32mI (71981) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (71982) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (71990) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (71994) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (71998) WiFi Sta: STA disconnected, reason=8[0m
+[0;32mI (72002) WiFi Sta: WIFI STA_DISCONNECTED.[0m
+[0;32mI (72006) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72030) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72050) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72070) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72090) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72110) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72130) mqtt_client: Client asked to disconnect[0m
+[0;33mW (72131) wifi:Haven't to connect to a suitable AP now![0m
+[0;33mW (72132) RSSI: Not connected to any AP[0m
+[0;32mI (72150) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72170) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72190) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72210) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72230) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72250) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72270) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72290) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72310) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72330) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72350) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72370) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72390) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72410) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72430) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72450) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72470) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72490) WiFi Sta: Connecting to wifi network, BSSID: 10:5F:02:75:1E:9A[0m
+[0;33mW (72490) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (72495) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72535) wifi:flush txq[0m
+[0;32mI (72535) wifi:stop sw txq[0m
+[0;32mI (72535) wifi:lmac stop hw txq[0m
+[0;32mI (72536) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (72537) wifi:enable tsf[0m
+[0;32mI (72539) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (72545) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (72551) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (72555) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72561) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (72568) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (72579) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72587) wifi:connected with NamTrung, aid = 32, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (72588) wifi:security: WPA2-PSK, phy: bgn, rssi: -45[0m
+[0;32mI (72591) wifi:pm start, type: 1[0m
+
+[0;32mI (72593) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (72601) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (72607) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72608) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (72616) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (72642) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72662) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72682) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72702) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72722) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72742) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72762) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72782) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72802) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72822) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72842) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72862) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72882) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72902) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72922) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72942) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72962) mqtt_client: Client asked to disconnect[0m
+[0;32mI (72982) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73002) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73022) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73042) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73043) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (73043) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (73062) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73082) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73102) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73122) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73142) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73162) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73182) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73202) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73222) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73242) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73262) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73282) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73302) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73322) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73342) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73362) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73382) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73402) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73422) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73442) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73462) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73482) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73502) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73522) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73542) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73562) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73582) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73602) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73622) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73629) esp_netif_handlers: sta ip: 10.10.1.83, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (73629) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (73630) WiFi Sta: Updating Wi-Fi credentials in NVS...[0m
+[0;32mI (73638) WiFi Sta: Wi-Fi credentials saved successfully![0m
+[0;32mI (73642) mqtt_client: Client asked to disconnect[0m
+[0;32mI (73643) MQTT_MANAGER: Starting MQTT safely...[0m
+[0;32mI (73647) MQTT: Other event id:7[0m
+[0;32mI (73651) MQTT_MANAGER: MQTT started.[0m
+[0;32mI (73657) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:5, winSize:64[0m
+[0;32mI (73670) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:1, winSize:64[0m
+[0;32mI (73671) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (73746) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=59832, return code=0x00[0m
+[0;32mI (73748) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=38413, return code=0x01[0m
+[0;32mI (73903) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (73903) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"quay 1"}][0m
+[0;32mI (73908) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (73912) MQTT_SAVE_NUMBER: Stored 2 devices[0m
+[0;32mI (73916) TAG_NVS: Saved 2 devices to NVS[0m
+[0;32mI (74554) WiFi: Connected with IP: 10.10.1.83[0m
+[0;32mI (74554) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (74668) NVS: last index: 0[0m
+[0;32mI (74668) NVS: wifi index: 1[0m

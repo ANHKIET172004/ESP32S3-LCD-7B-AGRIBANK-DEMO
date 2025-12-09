@@ -46,9 +46,26 @@ void mqtt_retry_init2(void);
 void trigger_mqtt_retry2(void);
 
 void save_number(const char *number);
+
+void save_current_number(const char *number);
+void save_next_number(const char *number);
+
 esp_err_t read_number(char *number, size_t max_len);
 
+esp_err_t read_next_number(char *number, size_t max_len);
 
+
+esp_err_t delete_current_number(void);
+esp_err_t delete_next_number(void);
+
+void reset_recent_number(void);
+
+void save_timeout(const uint8_t time);
+
+esp_err_t read_time(uint8_t* time);
+
+esp_err_t transfer_number(void);
+void send_heartbeat_task(void *pvParameters);
 ///////// mqtt
 
 

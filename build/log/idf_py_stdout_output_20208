@@ -1,0 +1,113 @@
+Command: ninja flash
+[1/10] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/bootloader/bootloader.bin""
+Bootloader binary size 0x5800 bytes. 0x2800 bytes (31%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui_Screen10.c.obj
+D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/ui/ui_Screen10.c: In function 'device_button_event_handler':
+D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/ui/ui_Screen10.c:72:15: warning: unused variable 'btn' [-Wunused-variable]
+   72 |     lv_obj_t *btn = lv_event_get_target(e);
+      |               ^~~
+[5/10] Linking C static library esp-idf\main\libmain.a
+[6/10] Generating esp-idf/esp_system/ld/sections.ld
+[7/10] Linking CXX executable 16_LVGL_UI.elf
+[8/10] Generating binary image from built executable
+esptool.py v4.9.1
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin
+[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/partition_table/partition-table.bin" "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin""
+16_LVGL_UI.bin binary size 0x1c8750 bytes. Smallest app partition is 0x800000 bytes. 0x6378b0 bytes (78%) free.
+[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\components\esptool_py && D:\ESP32_IDF\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5 -D SERIAL_TOOL=D:/ESP32_IDF/Espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build" -P D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32s3 -p COM10 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 16_LVGL_UI.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.9.1
+Serial port COM10
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: 10:20:ba:01:48:a8
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x001d8fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 22528 bytes to 14318...
+Writing at 0x00000000... (100 %)
+Wrote 22528 bytes (14318 compressed) at 0x00000000 in 0.5 seconds (effective 362.2 kbit/s)...
+Hash of data verified.
+Compressed 1869648 bytes to 945728...
+Writing at 0x00010000... (1 %)
+Writing at 0x0001cf68... (3 %)
+Writing at 0x000296f4... (5 %)
+Writing at 0x00032551... (6 %)
+Writing at 0x0003b6bb... (8 %)
+Writing at 0x0004d285... (10 %)
+Writing at 0x0006ef2d... (12 %)
+Writing at 0x00087483... (13 %)
+Writing at 0x0009bd9c... (15 %)
+Writing at 0x000b1ac8... (17 %)
+Writing at 0x000c2c36... (18 %)
+Writing at 0x000cb12d... (20 %)
+Writing at 0x000d417e... (22 %)
+Writing at 0x000dee8c... (24 %)
+Writing at 0x000e5916... (25 %)
+Writing at 0x000eb7d2... (27 %)
+Writing at 0x000f1467... (29 %)
+Writing at 0x000f6c41... (31 %)
+Writing at 0x000fc285... (32 %)
+Writing at 0x001018fe... (34 %)
+Writing at 0x00107b38... (36 %)
+Writing at 0x0010cf0d... (37 %)
+Writing at 0x00112256... (39 %)
+Writing at 0x00117468... (41 %)
+Writing at 0x0011cac5... (43 %)
+Writing at 0x00121fa2... (44 %)
+Writing at 0x00127a63... (46 %)
+Writing at 0x0012d160... (48 %)
+Writing at 0x001328ba... (50 %)
+Writing at 0x00137a7f... (51 %)
+Writing at 0x0013cfe9... (53 %)
+Writing at 0x0014259d... (55 %)
+Writing at 0x00147a06... (56 %)
+Writing at 0x0014cca4... (58 %)
+Writing at 0x00151eb8... (60 %)
+Writing at 0x001574af... (62 %)
+Writing at 0x0015cd2f... (63 %)
+Writing at 0x001621f2... (65 %)
+Writing at 0x00167504... (67 %)
+Writing at 0x0016cb02... (68 %)
+Writing at 0x00172b1d... (70 %)
+Writing at 0x00177a60... (72 %)
+Writing at 0x0017cafa... (74 %)
+Writing at 0x00181d8b... (75 %)
+Writing at 0x00186ffc... (77 %)
+Writing at 0x0018c17c... (79 %)
+Writing at 0x001912c8... (81 %)
+Writing at 0x001964be... (82 %)
+Writing at 0x0019bc2d... (84 %)
+Writing at 0x001a1392... (86 %)
+Writing at 0x001ac1ca... (87 %)
+Writing at 0x001b19e8... (89 %)
+Writing at 0x001b752b... (91 %)
+Writing at 0x001be25b... (93 %)
+Writing at 0x001c3357... (94 %)
+Writing at 0x001c9180... (96 %)
+Writing at 0x001cf10e... (98 %)
+Writing at 0x001d43de... (100 %)
+Wrote 1869648 bytes (945728 compressed) at 0x00010000 in 21.8 seconds (effective 686.3 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 779.3 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

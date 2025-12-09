@@ -1,0 +1,1089 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=d7654h (882260) map[0m
+[0;32mI (222) esp_image: segment 1: paddr=000e767c vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (226) esp_image: segment 2: paddr=000ece24 vaddr=40374000 size=031f4h ( 12788) load[0m
+[0;32mI (229) esp_image: segment 3: paddr=000f0020 vaddr=42000020 size=de0f0h (909552) map[0m
+[0;32mI (369) esp_image: segment 4: paddr=001ce118 vaddr=403771f4 size=1a9bch (108988) load[0m
+[0;32mI (389) esp_image: segment 5: paddr=001e8adc vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (401) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (401) boot: Disabling RNG early entropy source...[0m
+[0;33mW (411) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (412) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (419) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (426) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (430) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (434) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (439) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (444) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (448) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (452) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (457) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (462) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (466) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (471) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (476) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (488) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (488) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (489) esp_psram: Speed: 120MHz[0m
+[0;32mI (528) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (575) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (575) cpu_start: Multicore app[0m
+[0;32mI (735) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (743) cpu_start: Pro cpu start user code[0m
+[0;32mI (743) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (744) app_init: Application information:[0m
+[0;32mI (744) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (748) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (752) app_init: Compile time:     Nov 26 2025 14:24:48[0m
+[0;32mI (757) app_init: ELF file SHA256:  99ca79dbc...[0m
+[0;32mI (762) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (766) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (770) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (774) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (777) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (784) heap_init: At 3FCACCD0 len 0003CA40 (242 KiB): RAM[0m
+[0;32mI (789) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (794) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (799) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (804) esp_psram: Adding pool of 6400K of PSRAM memory to heap allocator[0m
+[0;32mI (811) esp_psram: Adding pool of 34K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (822) spi_flash: detected chip: generic[0m
+[0;32mI (826) spi_flash: flash io: qio[0m
+[0;32mI (829) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (835) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (842) coexist: coex firmware version: 831ec70[0m
+[0;32mI (855) coexist: coexist rom version e7ae62f[0m
+[0;32mI (855) main_task: Started on CPU0[0m
+[0;32mI (856) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (861) main_task: Calling app_main()[0m
+[0;32mI (864) PSRAM: Total heap: 6843024[0m
+[0;32mI (867) PSRAM: Free PSRAM: 6553525[0m
+[0;33mW (881) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1286) GT911: Initialize I2C panel IO[0m
+[0;32mI (1286) GT911: Initialize touch controller GT911[0m
+[0;33mW (1286) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1288) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1291) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1295) example: Install RGB LCD panel driver[0m
+[0;32mI (1335) example: Initialize RGB LCD panel[0m
+[0;32mI (1337) lv_port: Create LVGL task[0m
+[0;32mI (1364) main: Display LVGL demos[0m
+[0;32mI (1382) TAG_NVS: Loaded JSON from NVS: [{"name":"2","device_id":"94:E6:86:09:A4:78"},{"name":"1","device_id":"A8:42:E3:4C:7C:BC"}][0m
+[0;32mI (1383) TAG_NVS: Loaded 2 devices from NVS[0m
+[0;32mI (1388) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1393) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1397) LVGL: Displayed 2 devices[0m
+[0;32mI (1406) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (1557) pp: pp rom version: e7ae62f[0m
+[0;32mI (1557) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1558) RSSI: Not connected to any AP[0m
+[0;32mI (1558) main_task: Returned from app_main()[0m
+[0;32mI (1559) wifi:wifi driver task: 3fcd1e74, prio:23, stack:6656, core=0[0m
+[0;32mI (1574) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1574) wifi:wifi certification version: v7.0[0m
+[0;32mI (1576) wifi:config NVS flash: enabled[0m
+[0;32mI (1579) wifi:config nano formatting: disabled[0m
+[0;32mI (1584) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1588) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1593) wifi:Init management short buffer num: 32[0m
+[0;32mI (1598) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1602) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1605) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1609) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1613) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1617) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1622) wifi_init: rx ba win: 16[0m
+[0;32mI (1624) wifi_init: accept mbox: 6[0m
+[0;32mI (1627) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1630) wifi_init: udp mbox: 6[0m
+[0;32mI (1633) wifi_init: tcp mbox: 6[0m
+[0;32mI (1636) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1639) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1643) wifi_init: tcp mss: 1440[0m
+[0;32mI (1646) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1649) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1653) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1657) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1664) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1706) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1706) wifi:enable tsf[0m
+[0;32mI (1708) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1708) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1740) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1741) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1760) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1769) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1795) wifi:connected with NamTrung, aid = 23, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (1795) wifi:security: WPA2-PSK, phy: bgn, rssi: -54[0m
+[0;32mI (1798) wifi:pm start, type: 1[0m
+
+[0;32mI (1800) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1808) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1817) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1823) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1827) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (2213) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2213) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2843) esp_netif_handlers: sta ip: 10.10.1.65, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2843) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2848) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2849) MQTT: Other event id:7[0m
+[0;32mI (2860) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:7, winSize:64[0m
+[0;32mI (2861) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2861) MQTT_SAVE_NUMBER: deleted retained message to keypad successfully, msg_id=23221[0m
+[0;32mI (2865) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:4, winSize:64[0m
+[0;32mI (2869) MQTT_SAVE_NUMBER: Sent connection message to keypad successfully, msg_id=29188[0m
+[0;32mI (2889) MQTT: MQTT_EVENT_PUBLISHED, msg_id=23221[0m
+[0;32mI (2891) MQTT: MQTT_EVENT_PUBLISHED, msg_id=29188[0m
+[0;32mI (2894) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=22409, return code=0x00[0m
+[0;32mI (2900) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=40679, return code=0x01[0m
+[0;32mI (2906) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (2908) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=679, return code=0x00[0m
+[0;32mI (2917) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=65135, return code=0x00[0m
+[0;32mI (2922) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"2"},{"id":"A8:42:E3:4C:7C:BC","name":"1"}][0m
+[0;32mI (2931) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (2936) MQTT_SAVE_NUMBER: Stored 2 devices[0m
+[0;32mI (2940) TAG_NVS: Saved 2 devices to NVS[0m
+[0;32mI (3104) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=21392, return code=0x00[0m
+[0;32mI (3108) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (3108) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (3108) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (3112) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3118) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (3123) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (3128) MQTT_SAVE_NUMBER: Processing topic: check current number[0m
+[0;32mI (3134) MQTT_SAVE_NUMBER: Data: 2119[0m
+[1;31mE (3137) MQTT_SAVE_NUMBER: Failed to get size for number: ESP_ERR_NVS_NOT_FOUND[0m
+[0;32mI (3144) MQTT_SAVE_NUMBER: check current number[0m
+[0;32mI (3148) MQTT_SAVE_NUMBER: current number: LC�?[0m
+[0;32mI (3153) MQTT_SAVE_NUMBER: Saved number "2119" into key current number successfully[0m
+[0;33mW (3160) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3165) MQTT_SAVE_NUMBER: Save new current number[0m
+[0;32mI (3358) MQTT_SAVE_NUMBER: Processing topic: check current number[0m
+[0;32mI (3358) MQTT_SAVE_NUMBER: Data: 2112[0m
+[0;32mI (3359) MQTT_SAVE_NUMBER: Read number: 2119[0m
+[0;32mI (3360) MQTT_SAVE_NUMBER: check current number[0m
+[0;32mI (3365) MQTT_SAVE_NUMBER: current number: 2119[0m
+[0;32mI (3370) MQTT_SAVE_NUMBER: Saved number "2112" into key current number successfully[0m
+[0;33mW (3376) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3382) MQTT_SAVE_NUMBER: Save new current number[0m
+[0;32mI (3723) WiFi: Connected with IP: 10.10.1.65[0m
+[0;32mI (3723) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (3829) NVS: last index: -1[0m
+[0;32mI (3829) NVS: wifi index: 0[0m
+[0;33mW (3829) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (13084) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (13084) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2120","skip":"no"}[0m
+[0;32mI (13087) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (13092) MQTT_SAVE_NUMBER: Received number: 2120[0m
+[0;32mI (13098) MQTT_SAVE_NUMBER: Saved number "2120" into key "next_number"[0m
+[0;32mI (13103) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (13107) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (18374) MQTT_SAVE_NUMBER: Read number: 2112[0m
+[0;32mI (18374) Feedback: Successfully read number: 2112[0m
+[0;32mI (18375) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (18377) Feedback: diem danh gia: 2[0m
+
+[0;32mI (18382) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (18412) CHECKTIME: Pressed, reset current[0m
+[0;32mI (18414) MQTT_SAVE_NUMBER: copied next_number (2120) to current_number[0m
+[0;32mI (18415) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (27131) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (27132) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2121","skip":"no"}[0m
+[0;32mI (27134) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (27139) MQTT_SAVE_NUMBER: Received number: 2121[0m
+[0;32mI (27145) MQTT_SAVE_NUMBER: Saved number "2121" into key "next_number"[0m
+[0;32mI (27150) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (27154) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (37159) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (37160) MQTT_SAVE_NUMBER: copied next_number (2121) to current_number[0m
+[0;32mI (37161) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (46878) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (46878) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2122","skip":"no"}[0m
+[0;32mI (46880) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (46886) MQTT_SAVE_NUMBER: Received number: 2122[0m
+[0;32mI (46891) MQTT_SAVE_NUMBER: Saved number "2122" into key "next_number"[0m
+[0;32mI (46896) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (46900) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (47947) MQTT_SAVE_NUMBER: Read number: 2121[0m
+[0;32mI (47948) Feedback: Successfully read number: 2121[0m
+[0;32mI (47948) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (47950) Feedback: diem danh gia: 2[0m
+
+[0;32mI (47955) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (48005) CHECKTIME: Pressed, reset current[0m
+[0;32mI (48008) MQTT_SAVE_NUMBER: copied next_number (2122) to current_number[0m
+[0;32mI (48008) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (56809) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (56809) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2123","skip":"no"}[0m
+[0;32mI (56811) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (56816) MQTT_SAVE_NUMBER: Received number: 2123[0m
+[0;32mI (56822) MQTT_SAVE_NUMBER: Saved number "2123" into key "next_number"[0m
+[0;32mI (56827) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (56831) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (58856) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (58857) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2124","skip":"yes"}[0m
+[0;32mI (58859) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (58864) MQTT_SAVE_NUMBER: Received number: 2124[0m
+[0;32mI (58869) MQTT_SAVE_NUMBER: Skip number[0m
+[0;32mI (58872) MQTT_SAVE_NUMBER: Both current_number and next_number exist, skip next number[0m
+[0;32mI (58881) MQTT_SAVE_NUMBER: Saved number "2124" into key next number successfully[0m
+[0;32mI (66063) MQTT_SAVE_NUMBER: Read number: 2122[0m
+[0;32mI (66064) Feedback: Successfully read number: 2122[0m
+[0;32mI (66064) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (66066) Feedback: diem danh gia : 4[0m
+
+[0;32mI (66071) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (66136) CHECKTIME: Pressed, reset current[0m
+[0;32mI (66139) MQTT_SAVE_NUMBER: copied next_number (2124) to current_number[0m
+[0;32mI (66139) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (124803) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (124803) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1150","skip":"no"}[0m
+[0;32mI (124806) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (124811) MQTT_SAVE_NUMBER: Received number: 1150[0m
+[0;32mI (124817) MQTT_SAVE_NUMBER: Saved number "1150" into key "next_number"[0m
+[0;32mI (124822) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (124826) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (134831) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (134833) MQTT_SAVE_NUMBER: copied next_number (1150) to current_number[0m
+[0;32mI (134834) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (138118) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (138118) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1151","skip":"no"}[0m
+[0;32mI (138121) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (138126) MQTT_SAVE_NUMBER: Received number: 1151[0m
+[0;32mI (138132) MQTT_SAVE_NUMBER: Saved number "1151" into key "next_number"[0m
+[0;32mI (138137) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (138141) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (141441) MQTT_SAVE_NUMBER: Read number: 1150[0m
+[0;32mI (141442) Feedback: Successfully read number: 1150[0m
+[0;32mI (141442) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (141445) Feedback: diem danh gia: 3[0m
+
+[0;32mI (141446) CHECKTIME: Pressed, reset current[0m
+[0;32mI (141449) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (141455) MQTT_SAVE_NUMBER: copied next_number (1151) to current_number[0m
+[0;32mI (141463) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (308105) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (308105) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2125","skip":"no"}[0m
+[0;32mI (308108) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (313937) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (313937) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2126","skip":"no"}[0m
+[0;32mI (313940) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (315271) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (315271) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2127","skip":"no"}[0m
+[0;32mI (315274) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (329348) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (329348) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1152","skip":"no"}[0m
+[0;32mI (329351) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (329356) MQTT_SAVE_NUMBER: Received number: 1152[0m
+[0;32mI (329362) MQTT_SAVE_NUMBER: Saved number "1152" into key "next_number"[0m
+[0;32mI (329367) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (329371) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (339376) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (339378) MQTT_SAVE_NUMBER: copied next_number (1152) to current_number[0m
+[0;32mI (339379) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (353976) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (353976) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1153","skip":"no"}[0m
+[0;32mI (353979) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (353984) MQTT_SAVE_NUMBER: Received number: 1153[0m
+[0;32mI (353990) MQTT_SAVE_NUMBER: Saved number "1153" into key "next_number"[0m
+[0;32mI (353995) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (353999) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (364004) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (364006) MQTT_SAVE_NUMBER: copied next_number (1153) to current_number[0m
+[0;32mI (364007) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (377630) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (377630) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1154","skip":"no"}[0m
+[0;32mI (377632) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (377637) MQTT_SAVE_NUMBER: Received number: 1154[0m
+[0;32mI (377643) MQTT_SAVE_NUMBER: Saved number "1154" into key "next_number"[0m
+[0;32mI (377648) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (377652) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (387658) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (387660) MQTT_SAVE_NUMBER: copied next_number (1154) to current_number[0m
+[0;32mI (387661) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (394834) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (394834) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2128","skip":"no"}[0m
+[0;32mI (394836) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (396071) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (396071) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2129","skip":"no"}[0m
+[0;32mI (396074) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (399853) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (399853) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2130","skip":"no"}[0m
+[0;32mI (399856) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (401808) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (401808) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2131","skip":"no"}[0m
+[0;32mI (401810) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (406610) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (406610) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1157","skip":"no"}[0m
+[0;32mI (406613) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (406618) MQTT_SAVE_NUMBER: Received number: 1157[0m
+[0;32mI (406624) MQTT_SAVE_NUMBER: Saved number "1157" into key "next_number"[0m
+[0;32mI (406629) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (406633) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (408969) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (408970) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2132","skip":"no"}[0m
+[0;32mI (408972) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (410297) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (410297) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"1155","skip":"no"}[0m
+[0;32mI (410299) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (412962) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (412962) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"1156","skip":"no"}[0m
+[0;32mI (412965) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (415927) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (415928) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1156","skip":"no"}[0m
+[0;32mI (415930) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (415935) MQTT_SAVE_NUMBER: Received number: 1156[0m
+[0;32mI (415967) MQTT_SAVE_NUMBER: Saved number "1156" into key "next_number"[0m
+[0;32mI (416038) CHECKTIME: New sema, skip next number[0m
+[0;32mI (416638) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (416639) MQTT_SAVE_NUMBER: copied next_number (1156) to current_number[0m
+[0;32mI (416640) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (418491) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (418491) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"1158","skip":"no"}[0m
+[0;32mI (418494) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (419717) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (419717) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"1159","skip":"no"}[0m
+[0;32mI (419719) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (421048) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (421048) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"1160","skip":"no"}[0m
+[0;32mI (421051) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (422299) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (422299) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"1161","skip":"no"}[0m
+[0;32mI (422302) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (423308) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (423309) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"1162","skip":"no"}[0m
+[0;32mI (423311) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (486482) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (486482) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1163","skip":"no"}[0m
+[0;32mI (486485) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (486490) MQTT_SAVE_NUMBER: Received number: 1163[0m
+[0;32mI (486496) MQTT_SAVE_NUMBER: Saved number "1163" into key "next_number"[0m
+[0;32mI (486501) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (486505) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (493856) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (493856) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1165","skip":"no"}[0m
+[0;32mI (493859) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (493864) MQTT_SAVE_NUMBER: Received number: 1165[0m
+[0;32mI (493870) MQTT_SAVE_NUMBER: Saved number "1165" into key "next_number"[0m
+[0;32mI (493910) CHECKTIME: New sema, skip next number[0m
+[0;32mI (495903) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (495903) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2133","skip":"no"}[0m
+[0;32mI (495906) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (496510) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (496512) MQTT_SAVE_NUMBER: copied next_number (1165) to current_number[0m
+[0;32mI (496513) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (507383) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (507383) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (507383) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (507385) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (507391) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (507396) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (519660) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (519660) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1165","skip":"no"}[0m
+[0;32mI (519662) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (519667) MQTT_SAVE_NUMBER: Received number: 1165[0m
+[0;32mI (519673) MQTT_SAVE_NUMBER: Saved number "1165" into key "current_number"[0m
+[0;32mI (523457) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (523457) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1164","skip":"no"}[0m
+[0;32mI (523460) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (523465) MQTT_SAVE_NUMBER: Received number: 1164[0m
+[0;32mI (523471) MQTT_SAVE_NUMBER: Saved number "1164" into key "next_number"[0m
+[0;32mI (523476) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (523480) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (527239) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (527240) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (527240) MQTT_SAVE_NUMBER: transfer number[0m
+[0;32mI (527243) MQTT_SAVE_NUMBER: next_number deleted successfully[0m
+[0;32mI (527247) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (533485) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (533485) MQTT_SAVE_NUMBER:  No next_number exist[0m
+[0;32mI (533485) MQTT_SAVE_NUMBER: No Key next_number exist[0m
+[0;32mI (533489) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (535943) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (535943) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1166","skip":"no"}[0m
+[0;32mI (535946) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (535951) MQTT_SAVE_NUMBER: Received number: 1166[0m
+[0;32mI (535956) MQTT_SAVE_NUMBER: Saved number "1166" into key "current_number"[0m
+[0;32mI (539016) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (539017) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1167","skip":"no"}[0m
+[0;32mI (539019) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (539024) MQTT_SAVE_NUMBER: Received number: 1167[0m
+[0;32mI (539030) MQTT_SAVE_NUMBER: Saved number "1167" into key "next_number"[0m
+[0;32mI (539035) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (539039) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (541140) MQTT_SAVE_NUMBER: Read number: 1166[0m
+[0;32mI (541141) Feedback: Successfully read number: 1166[0m
+[0;32mI (541141) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (541144) Feedback: diem danh gia: 2[0m
+
+[0;32mI (541145) CHECKTIME: Pressed, reset current[0m
+[0;32mI (541148) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (541153) MQTT_SAVE_NUMBER: copied next_number (1167) to current_number[0m
+[0;32mI (541162) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (550690) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (550690) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"1164","skip":"no"}[0m
+[0;32mI (550693) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (566461) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (566461) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1168","skip":"no"}[0m
+[0;32mI (566464) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (566469) MQTT_SAVE_NUMBER: Received number: 1168[0m
+[0;32mI (566475) MQTT_SAVE_NUMBER: Saved number "1168" into key "next_number"[0m
+[0;32mI (566480) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (566484) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (573649) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (573649) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2134","skip":"no"}[0m
+[0;32mI (573651) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (573859) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (573859) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2135","skip":"no"}[0m
+[0;32mI (573861) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (575264) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (575264) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2136","skip":"no"}[0m
+[0;32mI (575266) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (576489) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (576491) MQTT_SAVE_NUMBER: copied next_number (1168) to current_number[0m
+[0;32mI (576492) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (576495) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (576499) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2137","skip":"no"}[0m
+[0;32mI (576508) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (577516) MQTT_SAVE_NUMBER: Processing topic: reset_number[0m
+[0;32mI (577516) MQTT_SAVE_NUMBER: Data: reset[0m
+[0;32mI (577516) MQTT_SAVE_NUMBER: Reset all number[0m
+[0;32mI (577519) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;33mW (577524) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (582439) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (582439) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1169","skip":"no"}[0m
+[0;32mI (582442) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (582447) MQTT_SAVE_NUMBER: Received number: 1169[0m
+[0;32mI (582452) MQTT_SAVE_NUMBER: Saved number "1169" into key "current_number"[0m
+[0;32mI (583048) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (583048) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2138","skip":"no"}[0m
+[0;32mI (583051) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (583252) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (583253) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2139","skip":"no"}[0m
+[0;32mI (583255) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (583455) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (583456) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1170","skip":"no"}[0m
+[0;32mI (583458) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (583463) MQTT_SAVE_NUMBER: Received number: 1170[0m
+[0;32mI (583469) MQTT_SAVE_NUMBER: Saved number "1170" into key "next_number"[0m
+[0;32mI (583474) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (583478) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (584685) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (584685) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1171","skip":"no"}[0m
+[0;32mI (584687) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (584693) MQTT_SAVE_NUMBER: Received number: 1171[0m
+[0;32mI (584698) MQTT_SAVE_NUMBER: Saved number "1171" into key "next_number"[0m
+[0;32mI (584784) CHECKTIME: New sema, skip next number[0m
+[0;32mI (586118) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (586118) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1172","skip":"no"}[0m
+[0;32mI (586120) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (586126) MQTT_SAVE_NUMBER: Received number: 1172[0m
+[0;32mI (586131) MQTT_SAVE_NUMBER: Saved number "1172" into key "next_number"[0m
+[0;32mI (586184) CHECKTIME: New sema, skip next number[0m
+[0;32mI (593484) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (593487) MQTT_SAVE_NUMBER: copied next_number (1172) to current_number[0m
+[0;32mI (593487) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (633336) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (633336) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2140","skip":"no"}[0m
+[0;32mI (633339) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (634561) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (634561) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2141","skip":"no"}[0m
+[0;32mI (634564) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (635783) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (635784) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2142","skip":"no"}[0m
+[0;32mI (635786) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (638547) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (638548) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2143","skip":"no"}[0m
+[0;32mI (638550) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (638608) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (638608) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2144","skip":"no"}[0m
+[0;32mI (638611) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (639161) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (639161) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2145","skip":"no"}[0m
+[0;32mI (639164) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (647974) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (647974) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1173","skip":"no"}[0m
+[0;32mI (647977) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (647982) MQTT_SAVE_NUMBER: Received number: 1173[0m
+[0;32mI (647988) MQTT_SAVE_NUMBER: Saved number "1173" into key "next_number"[0m
+[0;32mI (647993) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (647997) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (658002) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (658004) MQTT_SAVE_NUMBER: copied next_number (1173) to current_number[0m
+[0;32mI (658005) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (709818) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (709818) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1174","skip":"no"}[0m
+[0;32mI (709820) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (709825) MQTT_SAVE_NUMBER: Received number: 1174[0m
+[0;32mI (709831) MQTT_SAVE_NUMBER: Saved number "1174" into key "next_number"[0m
+[0;32mI (709836) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (709840) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (714892) MQTT_SAVE_NUMBER: Read number: 1173[0m
+[0;32mI (714892) Feedback: Successfully read number: 1173[0m
+[0;32mI (714893) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (714896) Feedback: diem danh gia: 3[0m
+
+[0;32mI (714900) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (714946) CHECKTIME: Pressed, reset current[0m
+[0;32mI (714949) MQTT_SAVE_NUMBER: copied next_number (1174) to current_number[0m
+[0;32mI (714949) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (731071) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (731071) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1176","skip":"no"}[0m
+[0;32mI (731073) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (731079) MQTT_SAVE_NUMBER: Received number: 1176[0m
+[0;32mI (731084) MQTT_SAVE_NUMBER: Saved number "1176" into key "next_number"[0m
+[0;32mI (731090) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (731094) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (741099) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (741102) MQTT_SAVE_NUMBER: copied next_number (1176) to current_number[0m
+[0;32mI (741102) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (741672) MQTT_SAVE_NUMBER: Read number: 1176[0m
+[0;32mI (741672) Feedback: Successfully read number: 1176[0m
+[0;32mI (741673) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (741676) Feedback: diem danh gia: 3[0m
+
+[0;32mI (741680) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (746170) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (746170) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1175","skip":"no"}[0m
+[0;32mI (746173) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (746178) MQTT_SAVE_NUMBER: Received number: 1175[0m
+[0;32mI (746184) MQTT_SAVE_NUMBER: Saved number "1175" into key "next_number"[0m
+[0;32mI (746189) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (746193) CHECKTIME: Pressed, reset current[0m
+[0;32mI (746198) MQTT_SAVE_NUMBER: copied next_number (1175) to current_number[0m
+[0;32mI (746204) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (758572) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (758572) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1177","skip":"no"}[0m
+[0;32mI (758575) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (758580) MQTT_SAVE_NUMBER: Received number: 1177[0m
+[0;32mI (758586) MQTT_SAVE_NUMBER: Saved number "1177" into key "next_number"[0m
+[0;32mI (758591) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (758595) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (768600) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (768602) MQTT_SAVE_NUMBER: copied next_number (1177) to current_number[0m
+[0;32mI (768603) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (800788) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (800788) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1178","skip":"no"}[0m
+[0;32mI (800790) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (800796) MQTT_SAVE_NUMBER: Received number: 1178[0m
+[0;32mI (800802) MQTT_SAVE_NUMBER: Saved number "1178" into key "next_number"[0m
+[0;32mI (800807) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (800811) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (801786) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (801786) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2146","skip":"no"}[0m
+[0;32mI (801788) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (804453) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (804453) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2147","skip":"no"}[0m
+[0;32mI (804455) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (805323) MQTT_SAVE_NUMBER: Read number: 1177[0m
+[0;32mI (805324) Feedback: Successfully read number: 1177[0m
+[0;32mI (805324) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (805327) Feedback: diem danh gia : 4[0m
+
+[0;32mI (805331) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (805416) CHECKTIME: Pressed, reset current[0m
+[0;32mI (805419) MQTT_SAVE_NUMBER: copied next_number (1178) to current_number[0m
+[0;32mI (805419) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (806282) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (806282) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2148","skip":"no"}[0m
+[0;32mI (806285) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (807307) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (807307) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2149","skip":"no"}[0m
+[0;32mI (807310) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (808739) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (808739) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2150","skip":"no"}[0m
+[0;32mI (808742) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (810068) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (810069) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"2151","skip":"no"}[0m
+[0;32mI (810071) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (841508) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (841509) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1179","skip":"no"}[0m
+[0;32mI (841511) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (841516) MQTT_SAVE_NUMBER: Received number: 1179[0m
+[0;32mI (841522) MQTT_SAVE_NUMBER: Saved number "1179" into key "next_number"[0m
+[0;32mI (841527) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (841531) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (847962) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (847962) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (847962) MQTT_SAVE_NUMBER: transfer number[0m
+[0;32mI (847965) MQTT_SAVE_NUMBER: next_number deleted successfully[0m
+[0;32mI (847969) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (851537) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (851537) MQTT_SAVE_NUMBER:  No next_number exist[0m
+[0;32mI (851537) MQTT_SAVE_NUMBER: No Key next_number exist[0m
+[0;32mI (851541) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (858609) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (858610) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1180","skip":"no"}[0m
+[0;32mI (858612) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (858617) MQTT_SAVE_NUMBER: Received number: 1180[0m
+[0;32mI (858622) MQTT_SAVE_NUMBER: Saved number "1180" into key "current_number"[0m
+[0;32mI (868542) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (868542) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1181","skip":"no"}[0m
+[0;32mI (868545) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (868550) MQTT_SAVE_NUMBER: Received number: 1181[0m
+[0;32mI (868556) MQTT_SAVE_NUMBER: Saved number "1181" into key "next_number"[0m
+[0;32mI (868561) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (868565) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (878570) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (878571) MQTT_SAVE_NUMBER: copied next_number (1181) to current_number[0m
+[0;32mI (878572) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (905712) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (905712) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1182","skip":"no"}[0m
+[0;32mI (905714) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (905720) MQTT_SAVE_NUMBER: Received number: 1182[0m
+[0;32mI (905726) MQTT_SAVE_NUMBER: Saved number "1182" into key "next_number"[0m
+[0;32mI (905731) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (905735) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (915740) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (915742) MQTT_SAVE_NUMBER: copied next_number (1182) to current_number[0m
+[0;32mI (915743) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (934488) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (934488) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1183","skip":"no"}[0m
+[0;32mI (934491) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (934496) MQTT_SAVE_NUMBER: Received number: 1183[0m
+[0;32mI (934502) MQTT_SAVE_NUMBER: Saved number "1183" into key "next_number"[0m
+[0;32mI (934507) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (934511) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (944516) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (944518) MQTT_SAVE_NUMBER: copied next_number (1183) to current_number[0m
+[0;32mI (944519) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (944834) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (944835) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (944835) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (944837) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (944843) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (944848) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (958859) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (958859) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1184","skip":"no"}[0m
+[0;32mI (958861) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (958867) MQTT_SAVE_NUMBER: Received number: 1184[0m
+[0;32mI (958872) MQTT_SAVE_NUMBER: Saved number "1184" into key "current_number"[0m
+[0;32mI (962134) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (962134) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1185","skip":"no"}[0m
+[0;32mI (962137) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (962142) MQTT_SAVE_NUMBER: Received number: 1185[0m
+[0;32mI (962148) MQTT_SAVE_NUMBER: Saved number "1185" into key "next_number"[0m
+[0;32mI (962153) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (962157) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (964221) MQTT_SAVE_NUMBER: Read number: 1184[0m
+[0;32mI (964222) Feedback: Successfully read number: 1184[0m
+[0;32mI (964222) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (964225) Feedback: diem danh gia : 4[0m
+
+[0;32mI (964229) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (964262) CHECKTIME: Pressed, reset current[0m
+[0;32mI (964263) MQTT_SAVE_NUMBER: copied next_number (1185) to current_number[0m
+[0;32mI (964264) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1017844) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1017844) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1186","skip":"no"}[0m
+[0;32mI (1017847) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1017852) MQTT_SAVE_NUMBER: Received number: 1186[0m
+[0;32mI (1017858) MQTT_SAVE_NUMBER: Saved number "1186" into key "next_number"[0m
+[0;32mI (1017863) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (1017867) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (1022825) MQTT_SAVE_NUMBER: Read number: 1185[0m
+[0;32mI (1022825) Feedback: Successfully read number: 1185[0m
+[0;32mI (1022826) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1022829) Feedback: diem danh gia: 3[0m
+
+[0;32mI (1022834) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1022873) CHECKTIME: Pressed, reset current[0m
+[0;32mI (1022875) MQTT_SAVE_NUMBER: copied next_number (1186) to current_number[0m
+[0;32mI (1022876) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1034309) SAVE TIMEOUT: 20[0m
+[0;32mI (1034311) MQTT_SAVE_NUMBER: Saved "20" into key timeout successfully[0m
+[0;32mI (1034311) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1044570) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1044570) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1187","skip":"no"}[0m
+[0;32mI (1044573) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1044578) MQTT_SAVE_NUMBER: Received number: 1187[0m
+[0;32mI (1044584) MQTT_SAVE_NUMBER: Saved number "1187" into key "next_number"[0m
+[0;32mI (1044589) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1044593) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1056551) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (1056552) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (1056552) MQTT_SAVE_NUMBER: transfer number[0m
+[0;32mI (1056555) MQTT_SAVE_NUMBER: next_number deleted successfully[0m
+[0;32mI (1056559) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (1064599) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (1064599) MQTT_SAVE_NUMBER:  No next_number exist[0m
+[0;32mI (1064599) MQTT_SAVE_NUMBER: No Key next_number exist[0m
+[0;32mI (1064603) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (1073754) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1073754) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1188","skip":"no"}[0m
+[0;32mI (1073757) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1073762) MQTT_SAVE_NUMBER: Received number: 1188[0m
+[0;32mI (1073767) MQTT_SAVE_NUMBER: Saved number "1188" into key "current_number"[0m
+[0;32mI (1077338) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1077338) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1189","skip":"no"}[0m
+[0;32mI (1077341) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1077346) MQTT_SAVE_NUMBER: Received number: 1189[0m
+[0;32mI (1077352) MQTT_SAVE_NUMBER: Saved number "1189" into key "next_number"[0m
+[0;32mI (1077357) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1077361) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1079806) MQTT_SAVE_NUMBER: Read number: 1188[0m
+[0;32mI (1079807) Feedback: Successfully read number: 1188[0m
+[0;32mI (1079807) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1079810) Feedback: diem danh gia: 3[0m
+
+[0;32mI (1079814) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1079867) CHECKTIME: Pressed, reset current[0m
+[0;32mI (1079870) MQTT_SAVE_NUMBER: copied next_number (1189) to current_number[0m
+[0;32mI (1079870) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1088191) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1088191) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1190","skip":"no"}[0m
+[0;32mI (1088194) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1088199) MQTT_SAVE_NUMBER: Received number: 1190[0m
+[0;32mI (1088205) MQTT_SAVE_NUMBER: Saved number "1190" into key "next_number"[0m
+[0;32mI (1088210) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1088214) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1094963) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1094963) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1191","skip":"yes"}[0m
+[0;32mI (1094966) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1094971) MQTT_SAVE_NUMBER: Received number: 1191[0m
+[0;32mI (1094976) MQTT_SAVE_NUMBER: Skip number[0m
+[0;32mI (1094980) MQTT_SAVE_NUMBER: Both current_number and next_number exist, skip next number[0m
+[0;32mI (1094989) MQTT_SAVE_NUMBER: Saved number "1191" into key next number successfully[0m
+[0;32mI (1108220) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (1108221) MQTT_SAVE_NUMBER: copied next_number (1191) to current_number[0m
+[0;32mI (1108222) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1111336) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1111336) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1192","skip":"no"}[0m
+[0;32mI (1111339) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1111344) MQTT_SAVE_NUMBER: Received number: 1192[0m
+[0;32mI (1111350) MQTT_SAVE_NUMBER: Saved number "1192" into key "next_number"[0m
+[0;32mI (1111355) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1111359) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1112600) MQTT_SAVE_NUMBER: Read number: 1191[0m
+[0;32mI (1112601) Feedback: Successfully read number: 1191[0m
+[0;32mI (1112601) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1112604) Feedback: diem danh gia : 4[0m
+
+[0;32mI (1112609) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1112664) CHECKTIME: Pressed, reset current[0m
+[0;32mI (1112667) MQTT_SAVE_NUMBER: copied next_number (1192) to current_number[0m
+[0;32mI (1112667) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1367951) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1367951) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1193","skip":"no"}[0m
+[0;32mI (1367953) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1367959) MQTT_SAVE_NUMBER: Received number: 1193[0m
+[0;32mI (1367989) MQTT_SAVE_NUMBER: Saved number "1193" into key "next_number"[0m
+[0;32mI (1367990) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1367990) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1374365) MQTT_SAVE_NUMBER: Read number: 1192[0m
+[0;32mI (1374365) Feedback: Successfully read number: 1192[0m
+[0;32mI (1374366) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1374369) Feedback: diem danh gia: 3[0m
+
+[0;32mI (1374373) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1374394) CHECKTIME: Pressed, reset current[0m
+[0;32mI (1374395) MQTT_SAVE_NUMBER: copied next_number (1193) to current_number[0m
+[0;32mI (1374396) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1390988) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1390988) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1195","skip":"no"}[0m
+[0;32mI (1390991) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1390996) MQTT_SAVE_NUMBER: Received number: 1195[0m
+[0;32mI (1391002) MQTT_SAVE_NUMBER: Saved number "1195" into key "next_number"[0m
+[0;32mI (1391007) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1391011) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1411016) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (1411017) MQTT_SAVE_NUMBER: copied next_number (1195) to current_number[0m
+[0;32mI (1411017) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1444546) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1444546) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1194","skip":"no"}[0m
+[0;32mI (1444548) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1444554) MQTT_SAVE_NUMBER: Received number: 1194[0m
+[0;32mI (1444560) MQTT_SAVE_NUMBER: Saved number "1194" into key "next_number"[0m
+[0;32mI (1444565) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1444569) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1464574) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (1464576) MQTT_SAVE_NUMBER: copied next_number (1194) to current_number[0m
+[0;32mI (1464577) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1491042) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1491042) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1196","skip":"no"}[0m
+[0;32mI (1491045) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1491050) MQTT_SAVE_NUMBER: Received number: 1196[0m
+[0;32mI (1491056) MQTT_SAVE_NUMBER: Saved number "1196" into key "next_number"[0m
+[0;32mI (1491061) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1491066) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1511071) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (1511073) MQTT_SAVE_NUMBER: copied next_number (1196) to current_number[0m
+[0;32mI (1511074) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1536287) MQTT_SAVE_NUMBER: Read number: 1196[0m
+[0;32mI (1536288) Feedback: Successfully read number: 1196[0m
+[0;32mI (1536288) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1536291) Feedback: diem danh gia : 4[0m
+
+[0;32mI (1536295) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1539166) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1539166) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1197","skip":"no"}[0m
+[0;32mI (1539169) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1539174) MQTT_SAVE_NUMBER: Received number: 1197[0m
+[0;32mI (1539180) MQTT_SAVE_NUMBER: Saved number "1197" into key "next_number"[0m
+[0;32mI (1539186) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1539190) CHECKTIME: Pressed, reset current[0m
+[0;32mI (1539194) MQTT_SAVE_NUMBER: copied next_number (1197) to current_number[0m
+[0;32mI (1539201) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1550958) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1550958) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1198","skip":"no"}[0m
+[0;32mI (1550961) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1550966) MQTT_SAVE_NUMBER: Received number: 1198[0m
+[0;32mI (1550972) MQTT_SAVE_NUMBER: Saved number "1198" into key "next_number"[0m
+[0;32mI (1550978) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1550982) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1559034) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1559035) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1200","skip":"no"}[0m
+[0;32mI (1559037) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1559043) MQTT_SAVE_NUMBER: Received number: 1200[0m
+[0;32mI (1559049) MQTT_SAVE_NUMBER: Saved number "1200" into key "next_number"[0m
+[0;32mI (1559087) CHECKTIME: New sema, skip next number[0m
+[0;32mI (1570987) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (1570989) MQTT_SAVE_NUMBER: copied next_number (1200) to current_number[0m
+[0;32mI (1570990) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1571009) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1571009) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1199","skip":"no"}[0m
+[0;32mI (1571012) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1571017) MQTT_SAVE_NUMBER: Received number: 1199[0m
+[0;32mI (1571023) MQTT_SAVE_NUMBER: Saved number "1199" into key "next_number"[0m
+[0;32mI (1571029) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1571033) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1591038) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (1591040) MQTT_SAVE_NUMBER: copied next_number (1199) to current_number[0m
+[0;32mI (1591041) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1679908) MQTT_SAVE_NUMBER: Read number: 1199[0m
+[0;32mI (1679908) Feedback: Successfully read number: 1199[0m
+[0;32mI (1679909) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1679912) Feedback: diem danh gia : 4[0m
+
+[0;32mI (1679916) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1682374) MQTT_SAVE_NUMBER: Read number: 1199[0m
+[0;32mI (1682374) Feedback: Successfully read number: 1199[0m
+[0;32mI (1682375) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1682378) Feedback: diem danh gia: 3[0m
+
+[0;32mI (1682383) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1686547) MQTT_SAVE_NUMBER: Read number: 1199[0m
+[0;32mI (1686548) Feedback: Successfully read number: 1199[0m
+[0;32mI (1686548) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1686551) Feedback: diem danh gia: 3[0m
+
+[0;32mI (1686555) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1688868) MQTT_SAVE_NUMBER: Read number: 1199[0m
+[0;32mI (1688869) Feedback: Successfully read number: 1199[0m
+[0;32mI (1688869) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1688872) Feedback: diem danh gia: 2[0m
+
+[0;32mI (1688877) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1690462) MQTT_SAVE_NUMBER: Read number: 1199[0m
+[0;32mI (1690463) Feedback: Successfully read number: 1199[0m
+[0;32mI (1690463) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1690466) Feedback: diem danh gia : 4[0m
+
+[0;32mI (1690471) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1697481) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1697481) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1201","skip":"no"}[0m
+[0;32mI (1697484) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1697489) MQTT_SAVE_NUMBER: Received number: 1201[0m
+[0;32mI (1697495) MQTT_SAVE_NUMBER: Saved number "1201" into key "next_number"[0m
+[0;32mI (1697500) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1697504) CHECKTIME: Pressed, reset current[0m
+[0;32mI (1697509) MQTT_SAVE_NUMBER: copied next_number (1201) to current_number[0m
+[0;32mI (1697516) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1702903) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1702903) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1202","skip":"no"}[0m
+[0;32mI (1702906) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1702911) MQTT_SAVE_NUMBER: Received number: 1202[0m
+[0;32mI (1702917) MQTT_SAVE_NUMBER: Saved number "1202" into key "next_number"[0m
+[0;32mI (1702922) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1702926) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1709347) MQTT_SAVE_NUMBER: Read number: 1201[0m
+[0;32mI (1709348) Feedback: Successfully read number: 1201[0m
+[0;32mI (1709348) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1709351) Feedback: diem danh gia: 1[0m
+
+[0;32mI (1709355) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1709432) CHECKTIME: Pressed, reset current[0m
+[0;32mI (1709435) MQTT_SAVE_NUMBER: copied next_number (1202) to current_number[0m
+[0;32mI (1709435) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1841040) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1841040) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1203","skip":"no"}[0m
+[0;32mI (1841043) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1841048) MQTT_SAVE_NUMBER: Received number: 1203[0m
+[0;32mI (1841054) MQTT_SAVE_NUMBER: Saved number "1203" into key "next_number"[0m
+[0;32mI (1841059) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1841063) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1853535) MQTT_SAVE_NUMBER: Read number: 1202[0m
+[0;32mI (1853536) Feedback: Successfully read number: 1202[0m
+[0;32mI (1853536) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1853539) Feedback: diem danh gia: 3[0m
+
+[0;32mI (1853544) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1853568) CHECKTIME: Pressed, reset current[0m
+[0;32mI (1853569) MQTT_SAVE_NUMBER: copied next_number (1203) to current_number[0m
+[0;32mI (1853570) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1971709) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1971709) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"1179","skip":"no"}[0m
+[0;32mI (1971712) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1971871) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1971871) MQTT_SAVE_NUMBER: Data: {"device_id":"94:E6:86:09:A4:78","number":"1179","skip":"no"}[0m
+[0;32mI (1971874) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2040025) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2040025) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1204","skip":"no"}[0m
+[0;32mI (2040028) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2040033) MQTT_SAVE_NUMBER: Received number: 1204[0m
+[0;32mI (2040039) MQTT_SAVE_NUMBER: Saved number "1204" into key "next_number"[0m
+[0;32mI (2040045) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (2040049) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (2058538) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2058538) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1205","skip":"no"}[0m
+[0;32mI (2058541) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2058546) MQTT_SAVE_NUMBER: Received number: 1205[0m
+[0;32mI (2058552) MQTT_SAVE_NUMBER: Saved number "1205" into key "next_number"[0m
+[0;32mI (2058654) CHECKTIME: New sema, skip next number[0m
+[0;32mI (2060054) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (2060055) MQTT_SAVE_NUMBER: copied next_number (1205) to current_number[0m
+[0;32mI (2060056) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (2096477) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2096477) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1206","skip":"no"}[0m
+[0;32mI (2096480) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2096485) MQTT_SAVE_NUMBER: Received number: 1206[0m
+[0;32mI (2096491) MQTT_SAVE_NUMBER: Saved number "1206" into key "next_number"[0m
+[0;32mI (2096496) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (2096500) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (2107522) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2107522) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1207","skip":"no"}[0m
+[0;32mI (2107524) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2107530) MQTT_SAVE_NUMBER: Received number: 1207[0m
+[0;32mI (2107536) MQTT_SAVE_NUMBER: Saved number "1207" into key "next_number"[0m
+[0;32mI (2107606) CHECKTIME: New sema, skip next number[0m
+[0;32mI (2116506) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (2116508) MQTT_SAVE_NUMBER: copied next_number (1207) to current_number[0m
+[0;32mI (2116509) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (2116624) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2116624) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1208","skip":"no"}[0m
+[0;32mI (2116627) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2116632) MQTT_SAVE_NUMBER: Received number: 1208[0m
+[0;32mI (2116638) MQTT_SAVE_NUMBER: Saved number "1208" into key "next_number"[0m
+[0;32mI (2116643) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (2116647) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (2127418) MQTT_SAVE_NUMBER: Read number: 1207[0m
+[0;32mI (2127418) Feedback: Successfully read number: 1207[0m
+[0;32mI (2127419) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2127422) Feedback: diem danh gia: 3[0m
+
+[0;32mI (2127426) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (2127453) CHECKTIME: Pressed, reset current[0m
+[0;32mI (2127456) MQTT_SAVE_NUMBER: copied next_number (1208) to current_number[0m
+[0;32mI (2127456) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (2142007) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2142007) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1209","skip":"no"}[0m
+[0;32mI (2142009) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2142015) MQTT_SAVE_NUMBER: Received number: 1209[0m
+[0;32mI (2142021) MQTT_SAVE_NUMBER: Saved number "1209" into key "next_number"[0m
+[0;32mI (2142026) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (2142030) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (2144359) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2144359) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1210","skip":"yes"}[0m
+[0;32mI (2144361) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2144367) MQTT_SAVE_NUMBER: Received number: 1210[0m
+[0;32mI (2144371) MQTT_SAVE_NUMBER: Skip number[0m
+[0;32mI (2144375) MQTT_SAVE_NUMBER: Both current_number and next_number exist, skip next number[0m
+[0;32mI (2144384) MQTT_SAVE_NUMBER: Saved number "1210" into key next number successfully[0m
+[0;32mI (2152360) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2152360) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1211","skip":"yes"}[0m
+[0;32mI (2152362) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2152368) MQTT_SAVE_NUMBER: Received number: 1211[0m
+[0;32mI (2152372) MQTT_SAVE_NUMBER: Skip number[0m
+[0;32mI (2152376) MQTT_SAVE_NUMBER: Both current_number and next_number exist, skip next number[0m
+[0;32mI (2152385) MQTT_SAVE_NUMBER: Saved number "1211" into key next number successfully[0m
+[0;32mI (2156449) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2156449) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1212","skip":"yes"}[0m
+[0;32mI (2156451) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2156457) MQTT_SAVE_NUMBER: Received number: 1212[0m
+[0;32mI (2156461) MQTT_SAVE_NUMBER: Skip number[0m
+[0;32mI (2156465) MQTT_SAVE_NUMBER: Both current_number and next_number exist, skip next number[0m
+[0;32mI (2156474) MQTT_SAVE_NUMBER: Saved number "1212" into key next number successfully[0m
+[0;32mI (2162035) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (2162036) MQTT_SAVE_NUMBER: copied next_number (1212) to current_number[0m
+[0;32mI (2162037) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (2211425) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2211425) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1213","skip":"yes"}[0m
+[0;32mI (2211428) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2211433) MQTT_SAVE_NUMBER: Received number: 1213[0m
+[0;32mI (2211438) MQTT_SAVE_NUMBER: Skip number[0m
+[0;32mI (2211442) MQTT_SAVE_NUMBER: No next_number found[0m
+[0;33mW (2211446) MQTT_SAVE_NUMBER: Only current_number exists -> deleting it[0m
+[0;32mI (2211454) MQTT_SAVE_NUMBER: Deleted current_number successfully[0m
+[0;32mI (2211459) MQTT_SAVE_NUMBER: Saved number "1213" into key current number successfully[0m
+[0;32mI (2241741) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2241742) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1212","skip":"yes"}[0m
+[0;32mI (2241744) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2241750) MQTT_SAVE_NUMBER: Received number: 1212[0m
+[0;32mI (2241754) MQTT_SAVE_NUMBER: Skip number[0m
+[0;32mI (2241758) MQTT_SAVE_NUMBER: No next_number found[0m
+[0;33mW (2241762) MQTT_SAVE_NUMBER: Only current_number exists -> deleting it[0m
+[0;32mI (2241770) MQTT_SAVE_NUMBER: Deleted current_number successfully[0m
+[0;32mI (2241775) MQTT_SAVE_NUMBER: Saved number "1212" into key current number successfully[0m
+[0;32mI (2257198) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2257198) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1214","skip":"no"}[0m
+[0;32mI (2257201) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2257206) MQTT_SAVE_NUMBER: Received number: 1214[0m
+[0;32mI (2257212) MQTT_SAVE_NUMBER: Saved number "1214" into key "next_number"[0m
+[0;32mI (2257218) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (2257222) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (2270450) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2270450) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1213","skip":"no"}[0m
+[0;32mI (2270453) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2270458) MQTT_SAVE_NUMBER: Received number: 1213[0m
+[0;32mI (2270464) MQTT_SAVE_NUMBER: Saved number "1213" into key "next_number"[0m
+[0;32mI (2270527) CHECKTIME: New sema, skip next number[0m
+[0;32mI (2277227) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (2277229) MQTT_SAVE_NUMBER: copied next_number (1213) to current_number[0m
+[0;32mI (2277230) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (2279827) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2279827) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1215","skip":"no"}[0m
+[0;32mI (2279829) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2279835) MQTT_SAVE_NUMBER: Received number: 1215[0m
+[0;32mI (2279841) MQTT_SAVE_NUMBER: Saved number "1215" into key "next_number"[0m
+[0;32mI (2279846) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (2279850) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (2299855) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (2299857) MQTT_SAVE_NUMBER: copied next_number (1215) to current_number[0m
+[0;32mI (2299858) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (2397690) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2397691) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1216","skip":"no"}[0m
+[0;32mI (2397693) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (2397699) MQTT_SAVE_NUMBER: Received number: 1216[0m
+[0;32mI (2397705) MQTT_SAVE_NUMBER: Saved number "1216" into key "next_number"[0m
+[0;32mI (2397710) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (2397714) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (2417719) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (2417721) MQTT_SAVE_NUMBER: copied next_number (1216) to current_number[0m
+[0;32mI (2417722) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m

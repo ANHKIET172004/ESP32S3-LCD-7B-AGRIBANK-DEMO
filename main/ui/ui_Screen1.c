@@ -8,7 +8,12 @@
 #include "esp_log.h"
 #include "mqtt_client.h"
 #include "esp_mac.h"
+#include "nvs_flash.h"
 
+
+
+#define DEVICE_ID_NAMESPACE "SAVE_DEVICE_ID"
+#define DEVICE_ID_KEY       "device_id"
 
 lv_obj_t * ui_Screen1 = NULL;
 lv_obj_t * ui_Panel1 = NULL;
@@ -47,7 +52,8 @@ lv_obj_t * ui_Image38 = NULL;
  lv_obj_t *ui_Screen1_WifiLabel=NULL;
  //////////
 
-
+ extern uint8_t start;
+extern void reset_recent_number(void);
  ///////
 
 lv_obj_t *area=NULL;
@@ -67,22 +73,28 @@ int rate=0;
 // event funtions
 
 //
+extern int8_t pressed;
 
 char mess[128];
 int mesh_enb=0;
 
 const char *SCREEN1_TAG ="Feedback"; 
 int score=0;
-   uint8_t tx_buf[1469];
+uint8_t tx_buf[1469];
 
-   extern int cnt;
+extern int cnt;
 
+char current_id[19];
 
 extern esp_mqtt_client_handle_t mqttClient;
+
+//extern SemaphoreHandle_t nvs_mutex;
 
 extern void backup_mqtt_data(const char *topic, const char *payload);
 
 extern esp_err_t read_number(char *number, size_t max_len);
+
+extern void delete_current_number(void);
 
 
 void change_screen(lv_timer_t *timer){
@@ -90,62 +102,143 @@ void change_screen(lv_timer_t *timer){
     lv_timer_del(timer);
    // lv_scr_load_anim(ui_Screen1, LV_SCR_LOAD_ANIM_FADE_IN, 500, 0, false);
     _ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen1_screen_init);
+    //_ui_screen_change(&ui_Screen9, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen9_screen_init);
 
 
 
 }
 
-void ui_event_Image1(lv_event_t * e)
+esp_err_t read_selected_device_id(char *id_buffer, size_t buffer_size)
 {
+    nvs_handle_t nvs_handle;
+    esp_err_t err;
+
+    // Mở NVS namespace
+    err = nvs_open(DEVICE_ID_NAMESPACE, NVS_READONLY, &nvs_handle);
+    if (err != ESP_OK) {
+        ESP_LOGE("READ_DEVICE_ID", "Can't open NVS: %s", esp_err_to_name(err));
+        return err;
+    }
+
+    size_t required_size = buffer_size;
+    err = nvs_get_str(nvs_handle, DEVICE_ID_KEY, id_buffer, &required_size);
+
+    if (err == ESP_OK) {
+        ESP_LOGI("READ_DEVICE_ID", "Read device_id: %s", id_buffer);
+    } else if (err == ESP_ERR_NVS_NOT_FOUND) {
+        ESP_LOGW("READ_DEVICE_ID", "No device_id found in NVS");
+        id_buffer[0] = '\0';  // trả về chuỗi rỗng
+    } else {
+        ESP_LOGE("READ_DEVICE_ID", "Error reading device_id: %s", esp_err_to_name(err));
+    }
+
+    nvs_close(nvs_handle);
+    return err;
+}
+
+
+void ui_event_Image1(lv_event_t * e)
+{    
+    
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
         //char mess[20];
+        start++;
         rate=1;
         score=4;
+        pressed=1;
        // snprintf(mess,sizeof(mess),"client:%d",score);
 
     
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
-        char number[32]; 
+        //char number[32]; 
+        char number[128]; 
         
+        //xSemaphoreTake(nvs_mutex, portMAX_DELAY);  
         esp_err_t err = read_number(number, sizeof(number));
+        //xSemaphoreGive(nvs_mutex);  
+
 
         if (err == ESP_OK) {
         ESP_LOGI(SCREEN1_TAG, "Successfully read number: %s", number);
-    } else {
+        } else {
         ESP_LOGE(SCREEN1_TAG, "Failed to read number");
         strcpy(number, "0");
         
-    }
+         }
 
-       snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",mac[0],mac[1],mac[2],
-                                     mac[3],mac[4],mac[5],score,number); 
+       //snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",mac[0],mac[1],mac[2],
+         //                            mac[3],mac[4],mac[5],score,number); 
+       
+        //snprintf(mess,sizeof(mess),"{\"device_id\":\"94:E6:86:09:A4:78\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",score,number); 
 
-       mesh_enb=1;
+        read_selected_device_id(current_id, sizeof(current_id));
+        snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+
+        if (cnt==0){
+            
+        }                     
+
+        //mesh_enb=1;
         
         lv_event_stop_bubbling(e);
         ESP_LOGI(SCREEN1_TAG, "diem danh gia : %d\n",score);
 
         
 		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
+        //delete_current_number();
 
 
         if (msg_id == -1){
          ESP_LOGE("MQTT", "Failed to send data");
-         backup_mqtt_data("feedback",mess);//
+         //backup_mqtt_data("feedback",mess);//
         }
           else
+          {
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
+         //delete_current_number();//
+         
+         /*
+           if (start==1){
+          reset_recent_number();
+          
+            nvs_handle_t nvs_handle;
+            esp_err_t err;
+            
+            size_t required_size = 0;
+
+             err = nvs_open("SAVE_NUMBER", NVS_READONLY, &nvs_handle);
+            if (err != ESP_OK) {
+                ESP_LOGE("TAG", "Failed to open NVS: %s", esp_err_to_name(err));
+                return;
+            }
+
+            err = nvs_get_str(nvs_handle, "current_number", NULL, &required_size);
+
+            nvs_close(nvs_handle);
+            if (err == ESP_OK) {
+            pressed=0;
+            ESP_LOGI("TAG", "Still have current number");
+            } else if (err == ESP_ERR_NVS_NOT_FOUND) {
+                ESP_LOGI("TAG", "No Key current_number exist");
+            } else {
+                ESP_LOGE("TAG", "Can't read current_number: %s", esp_err_to_name(err));
+            }
+          
+           }
+            */
+          }
+
 
         
         
             
         
 
-        mytimer=lv_timer_create(change_screen, 2500, NULL);
+        mytimer=lv_timer_create(change_screen, 800, NULL);
         _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
     }
 }
@@ -155,31 +248,84 @@ void ui_event_Image2(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
+        start++;
         rate=1;
         score=3;
+        pressed=1;
 
        
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
-
-
-       snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d}",mac[0],mac[1],mac[2],
-                                     mac[3],mac[4],mac[5],score);   
+                char number[128]; 
         
-        mesh_enb=1;
+        //xSemaphoreTake(nvs_mutex, portMAX_DELAY);  
+        esp_err_t err = read_number(number, sizeof(number));
+        //xSemaphoreGive(nvs_mutex);  
+
+
+        if (err == ESP_OK) {
+        ESP_LOGI(SCREEN1_TAG, "Successfully read number: %s", number);
+        } else {
+        ESP_LOGE(SCREEN1_TAG, "Failed to read number");
+        strcpy(number, "0");
+        
+        }
+       read_selected_device_id(current_id, sizeof(current_id));
+       //snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",mac[0],mac[1],mac[2],
+         //                            mac[3],mac[4],mac[5],score,number); 
+
+        snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+        
+        //mesh_enb=1;
      
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
         int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
+        //delete_current_number();
+
 
         if (msg_id == -1){
          ESP_LOGE("MQTT", "Failed to send data");
-         backup_mqtt_data("feedback",mess);//
+         //backup_mqtt_data("feedback",mess);//
          }
-          else
+          else{
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
+         //delete_current_number();//
+
+         
+         /*
+        if (start==1){
+          reset_recent_number();
+          
+            nvs_handle_t nvs_handle;
+            esp_err_t err;
+            
+            size_t required_size = 0;
+
+             err = nvs_open("SAVE_NUMBER", NVS_READONLY, &nvs_handle);
+            if (err != ESP_OK) {
+                ESP_LOGE("TAG", "Failed to open NVS: %s", esp_err_to_name(err));
+                return;
+            }
+
+            err = nvs_get_str(nvs_handle, "current_number", NULL, &required_size);
+
+            nvs_close(nvs_handle);
+            if (err == ESP_OK) {
+            pressed=0;
+            ESP_LOGI("TAG", "Still have current number");
+            } else if (err == ESP_ERR_NVS_NOT_FOUND) {
+                ESP_LOGI("TAG", "No Key current_number exist");
+            } else {
+                ESP_LOGE("TAG", "Can't read current_number: %s", esp_err_to_name(err));
+            }
+          
+           }
+           */
+           
+          }
         
 
-        mytimer=lv_timer_create(change_screen, 2500, NULL);
+        mytimer=lv_timer_create(change_screen, 800, NULL);
        _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
     }
 }
@@ -189,30 +335,87 @@ void ui_event_Image3(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
+        start++;
         rate=1;
         score=2;
+        pressed=1;
         
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
 
-       snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d}",mac[0],mac[1],mac[2],
-                                     mac[3],mac[4],mac[5],score); 
+        char number[128]; 
+        
+        //xSemaphoreTake(nvs_mutex, portMAX_DELAY);  
+        esp_err_t err = read_number(number, sizeof(number));
+        //xSemaphoreGive(nvs_mutex);  
+
+
+        if (err == ESP_OK) {
+        ESP_LOGI(SCREEN1_TAG, "Successfully read number: %s", number);
+    } else {
+        ESP_LOGE(SCREEN1_TAG, "Failed to read number");
+        strcpy(number, "0");
+        
+    }
+
+      // snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",mac[0],mac[1],mac[2],
+        //                             mac[3],mac[4],mac[5],score,number); 
+
+         read_selected_device_id(current_id, sizeof(current_id));
+        snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+        
                                      
-        mesh_enb=1;
+        //mesh_enb=1;
                              
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
 
 		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
+        //delete_current_number();
+
         if (msg_id == -1){
          ESP_LOGE("MQTT", "Failed to send data");
-         backup_mqtt_data("feedback",mess);//
+         //backup_mqtt_data("feedback",mess);//
          }
-          else
+          else{
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
+         //delete_current_number();//
+
+        
+         /*
+        if (start==1){
+          reset_recent_number();
+          
+            nvs_handle_t nvs_handle;
+            esp_err_t err;
+            
+            size_t required_size = 0;
+
+             err = nvs_open("SAVE_NUMBER", NVS_READONLY, &nvs_handle);
+            if (err != ESP_OK) {
+                ESP_LOGE("TAG", "Failed to open NVS: %s", esp_err_to_name(err));
+                return;
+            }
+
+            err = nvs_get_str(nvs_handle, "current_number", NULL, &required_size);
+
+            nvs_close(nvs_handle);
+            if (err == ESP_OK) {
+            pressed=0;
+            ESP_LOGI("TAG", "Still have current number");
+            } else if (err == ESP_ERR_NVS_NOT_FOUND) {
+                ESP_LOGI("TAG", "No Key current_number exist");
+            } else {
+                ESP_LOGE("TAG", "Can't read current_number: %s", esp_err_to_name(err));
+            }
+          
+           }
+            */
+        
+        }
         
 
-        mytimer=lv_timer_create(change_screen, 2500, NULL);
+        mytimer=lv_timer_create(change_screen, 800, NULL);
         _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
     }
 }
@@ -222,7 +425,7 @@ void ui_event_Image4(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        mytimer=lv_timer_create(change_screen, 2500, NULL);
+        mytimer=lv_timer_create(change_screen, 800, NULL);
         _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
         _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
     }
@@ -233,29 +436,84 @@ void ui_event_Image5(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
+        start++;
         rate=1;
         score=1;
+        pressed=1;
         
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
 
-        snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d}",mac[0],mac[1],mac[2],
-                                     mac[3],mac[4],mac[5],score);        
+        char number[128]; 
+
+        //xSemaphoreTake(nvs_mutex, portMAX_DELAY);  
+        esp_err_t err = read_number(number, sizeof(number));
+        //xSemaphoreGive(nvs_mutex);  
+
+
+        if (err == ESP_OK) {
+        ESP_LOGI(SCREEN1_TAG, "Successfully read number: %s", number);
+        } else {
+        ESP_LOGE(SCREEN1_TAG, "Failed to read number");
+        strcpy(number, "0");
         
-                                     
+    }
+
+        //snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",mac[0],mac[1],mac[2],
+          //                           mac[3],mac[4],mac[5],score,number);        
         
-        mesh_enb=1;
+        
+        read_selected_device_id(current_id, sizeof(current_id));
+        snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+        
+        
+        //mesh_enb=1;
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
 
 		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
+        //delete_current_number();
+
 
         if (msg_id == -1){
          ESP_LOGE("MQTT", "Failed to send data");
-         backup_mqtt_data("feedback",mess);//
+         //backup_mqtt_data("feedback",mess);//
          }
-          else
+          else{
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
+         //delete_current_number();//
+
+             
+         /*
+         if (start==1){
+          reset_recent_number();
+          
+            nvs_handle_t nvs_handle;
+            esp_err_t err;
+            
+            size_t required_size = 0;
+
+            err = nvs_open("SAVE_NUMBER", NVS_READONLY, &nvs_handle);
+            if (err != ESP_OK) {
+                ESP_LOGE("TAG", "Failed to open NVS: %s", esp_err_to_name(err));
+                return;
+            }
+
+            err = nvs_get_str(nvs_handle, "current_number", NULL, &required_size);
+
+            nvs_close(nvs_handle);
+            if (err == ESP_OK) {
+            pressed=0;
+            ESP_LOGI("TAG", "Still have current number");
+            } else if (err == ESP_ERR_NVS_NOT_FOUND) {
+                ESP_LOGI("TAG", "No Key current_number exist");
+            } else {
+                ESP_LOGE("TAG", "Can't read current_number: %s", esp_err_to_name(err));
+            }
+          
+           }
+           */
+          }
 
         
 
@@ -279,7 +537,8 @@ static void area_click_event_cb(lv_event_t *e) {
         click_count = 0;
         change=1;//
         _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
-        _ui_screen_change(&ui_Main_WIFI, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Wifi_Screen_init);
+        //_ui_screen_change(&ui_Main_WIFI, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Wifi_Screen_init);
+        _ui_screen_change(&ui_Screen9, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen9_screen_init);
 
 
         /////////
@@ -290,7 +549,7 @@ static void area_click_event_cb(lv_event_t *e) {
     _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);//
     lv_obj_clean(ui_WIFI_SCAN_List);
     _ui_flag_modify(ui_WIFI_Details_Win, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-     _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); //
+    _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); //
      
     WIFI_SCAN_FLAG=true;
 }
@@ -506,7 +765,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_add_flag(ui_Image19, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_Image19, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-        ui_Image20 = lv_img_create(ui_Screen1);
+    ui_Image20 = lv_img_create(ui_Screen1);
     lv_img_set_src(ui_Image20, &ui_img_nowifi3_50x50_trans_png);
     lv_obj_set_width(ui_Image20, LV_SIZE_CONTENT);   /// 50
     lv_obj_set_height(ui_Image20, LV_SIZE_CONTENT);    /// 50

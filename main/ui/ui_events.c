@@ -18,6 +18,8 @@
 
 extern esp_mqtt_client_handle_t mqttClient;
 
+bool wifi_open=false;
+
 
 //static const char *TAG = "RECONNECT";
 
@@ -78,11 +80,13 @@ void reconnect_to_saved_wifi() {
 // Event callback for opening the WiFi STA (station) connection
 // This function opens a WiFi STA connection and modifies UI elements accordingly.
 void WIFIOPEN(lv_event_t * e)
-{
+{  
+    wifi_open=true;
     // Open WiFi in STA mode (station mode)
     wifi_open_sta();
     
     // Disable the "Open WiFi" and "Open WiFi AP" buttons
+    _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
     _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);
     _ui_state_modify(ui_WIFI_AP_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);
     
@@ -101,7 +105,9 @@ void WIFIOPEN(lv_event_t * e)
 // Event callback for closing the WiFi STA connection
 // This function closes the WiFi STA connection and updates the UI.
 void WIFICLOSE(lv_event_t * e)
-{
+{    
+    wifi_open=false;
+
     // Close the WiFi STA connection
     wifi_close_sta();
     
@@ -109,6 +115,7 @@ void WIFICLOSE(lv_event_t * e)
     lv_obj_clean(ui_WIFI_SCAN_List);
     
     // Show the WiFi details window (in case any details need to be shown)
+    _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
     _ui_flag_modify(ui_WIFI_Details_Win, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
 }
 
@@ -123,14 +130,15 @@ void WIFIConnection(lv_event_t * e)
     wifi_pwd = (uint8_t *)lv_textarea_get_text(ui_WIFI_INPUT_PWD);
     
     // Set the WiFi STA flag to true, indicating an active connection attempt
-    esp_mqtt_client_stop(mqttClient);//
+    //esp_mqtt_client_stop(mqttClient);//
     WIFI_STA_FLAG = true;
 }
 
 // Event callback for opening a WiFi Access Point (AP)
 // This function sets up the AP mode with the provided SSID, password, and channel.
 void WIFIAPOPEN(lv_event_t * e)
-{
+{  
+    
     // Get the SSID, password, and channel from the respective input fields
     const char *ssid = lv_textarea_get_text(ui_WIFI_AP_NAME);
     const char *pwd = lv_textarea_get_text(ui_WIFI_AP_Password);
@@ -164,7 +172,7 @@ void WIFIAPOPEN(lv_event_t * e)
 // Event callback for closing the WiFi Access Point (AP)
 // This function closes the AP and disables the WiFi AP flag.
 void WIFIAPCLOSE(lv_event_t * e)
-{
+{  
     // Set the WiFi AP flag to false, indicating the AP is closed
     WIFI_AP_FLAG = false;
     

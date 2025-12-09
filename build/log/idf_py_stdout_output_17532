@@ -1,0 +1,995 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=d7664h (882276) map[0m
+[0;32mI (222) esp_image: segment 1: paddr=000e768c vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (226) esp_image: segment 2: paddr=000ece34 vaddr=40374000 size=031e4h ( 12772) load[0m
+[0;32mI (229) esp_image: segment 3: paddr=000f0020 vaddr=42000020 size=de164h (909668) map[0m
+[0;32mI (369) esp_image: segment 4: paddr=001ce18c vaddr=403771e4 size=1a9cch (109004) load[0m
+[0;32mI (389) esp_image: segment 5: paddr=001e8b60 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (401) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (401) boot: Disabling RNG early entropy source...[0m
+[0;33mW (411) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (412) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (419) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (426) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (431) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (435) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (439) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (444) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (448) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (453) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (457) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (462) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (466) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (471) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (476) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (488) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (488) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (489) esp_psram: Speed: 120MHz[0m
+[0;32mI (528) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (575) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (575) cpu_start: Multicore app[0m
+[0;32mI (735) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (744) cpu_start: Pro cpu start user code[0m
+[0;32mI (744) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (744) app_init: Application information:[0m
+[0;32mI (744) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (748) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (752) app_init: Compile time:     Nov 26 2025 14:24:48[0m
+[0;32mI (757) app_init: ELF file SHA256:  93132a8e2...[0m
+[0;32mI (762) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (766) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (770) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (774) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (777) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (784) heap_init: At 3FCACCD0 len 0003CA40 (242 KiB): RAM[0m
+[0;32mI (789) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (794) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (799) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (805) esp_psram: Adding pool of 6400K of PSRAM memory to heap allocator[0m
+[0;32mI (811) esp_psram: Adding pool of 34K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (822) spi_flash: detected chip: generic[0m
+[0;32mI (826) spi_flash: flash io: qio[0m
+[0;32mI (829) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (835) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (842) coexist: coex firmware version: 831ec70[0m
+[0;32mI (855) coexist: coexist rom version e7ae62f[0m
+[0;32mI (855) main_task: Started on CPU0[0m
+[0;32mI (856) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (861) main_task: Calling app_main()[0m
+[0;32mI (864) PSRAM: Total heap: 6843008[0m
+[0;32mI (867) PSRAM: Free PSRAM: 6553509[0m
+[0;33mW (881) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1286) GT911: Initialize I2C panel IO[0m
+[0;32mI (1286) GT911: Initialize touch controller GT911[0m
+[0;33mW (1286) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1288) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1291) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1295) example: Install RGB LCD panel driver[0m
+[0;32mI (1335) example: Initialize RGB LCD panel[0m
+[0;32mI (1337) lv_port: Create LVGL task[0m
+[0;32mI (1364) main: Display LVGL demos[0m
+[0;32mI (1382) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"A8:42:E3:4C:7C:BC"},{"name":"2","device_id":"94:E6:86:09:A4:78"}][0m
+[0;32mI (1384) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1389) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1394) LVGL: Displayed 2 devices[0m
+[0;32mI (1402) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1554) pp: pp rom version: e7ae62f[0m
+[0;32mI (1554) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1555) main_task: Returned from app_main()[0m
+[0;33mW (1555) RSSI: Not connected to any AP[0m
+[0;32mI (1556) wifi:wifi driver task: 3fcd1e74, prio:23, stack:6656, core=0[0m
+[0;32mI (1571) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1571) wifi:wifi certification version: v7.0[0m
+[0;32mI (1573) wifi:config NVS flash: enabled[0m
+[0;32mI (1576) wifi:config nano formatting: disabled[0m
+[0;32mI (1580) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1586) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1590) wifi:Init management short buffer num: 32[0m
+[0;32mI (1595) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1599) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1602) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1606) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1610) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1614) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1619) wifi_init: rx ba win: 16[0m
+[0;32mI (1621) wifi_init: accept mbox: 6[0m
+[0;32mI (1624) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1627) wifi_init: udp mbox: 6[0m
+[0;32mI (1630) wifi_init: tcp mbox: 6[0m
+[0;32mI (1633) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1636) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1639) wifi_init: tcp mss: 1440[0m
+[0;32mI (1643) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1646) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1650) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1654) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1661) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1698) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1698) wifi:enable tsf[0m
+[0;32mI (1700) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1700) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1706) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1712) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1718) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1730) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1742) wifi:connected with NamTrung, aid = 19, channel 11, BW20, bssid = 10:5f:02:75:27:1e[0m
+[0;32mI (1742) wifi:security: WPA2-PSK, phy: bgn, rssi: -65[0m
+[0;32mI (1745) wifi:pm start, type: 1[0m
+
+[0;32mI (1747) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1755) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1764) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1769) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1787) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2204) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2204) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2777) esp_netif_handlers: sta ip: 10.10.1.65, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2777) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2785) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2786) MQTT: Other event id:7[0m
+[0;32mI (2818) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:27:1e), tid:7, ssn:10, winSize:64[0m
+[0;32mI (2869) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:27:1e), tid:0, ssn:1, winSize:64[0m
+[0;32mI (2874) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2875) MQTT_SAVE_NUMBER: deleted retained message to keypad successfully, msg_id=12896[0m
+[0;32mI (2877) MQTT_SAVE_NUMBER: Sent connection message to keypad successfully, msg_id=11065[0m
+[0;32mI (2889) MQTT: MQTT_EVENT_PUBLISHED, msg_id=12896[0m
+[0;32mI (2891) MQTT: MQTT_EVENT_PUBLISHED, msg_id=11065[0m
+[0;32mI (2905) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=54962, return code=0x00[0m
+[0;32mI (2908) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=59257, return code=0x01[0m
+[0;32mI (3343) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=18268, return code=0x00[0m
+[0;32mI (3345) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=6700, return code=0x00[0m
+[0;32mI (3346) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=16484, return code=0x00[0m
+[0;32mI (3353) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (3355) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"2"},{"id":"A8:42:E3:4C:7C:BC","name":"1"}][0m
+[0;32mI (3365) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (3369) MQTT_SAVE_NUMBER: Stored 2 devices[0m
+[0;32mI (3373) TAG_NVS: sorted device list successfully[0m
+[0;32mI (3378) TAG_NVS: Saved 2 devices to NVS[0m
+[0;32mI (3381) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (3386) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (3390) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (3393) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3400) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (3404) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (3409) MQTT_SAVE_NUMBER: Processing topic: check current number[0m
+[0;32mI (3415) MQTT_SAVE_NUMBER: Data: 2013[0m
+[1;31mE (3419) MQTT_SAVE_NUMBER: Failed to get size for number: ESP_ERR_NVS_NOT_FOUND[0m
+[0;32mI (3426) MQTT_SAVE_NUMBER: check current number[0m
+[0;32mI (3430) MQTT_SAVE_NUMBER: current number: <C�?[0m
+[0;32mI (3435) MQTT_SAVE_NUMBER: Saved number "2013" into key current number successfully[0m
+[0;33mW (3442) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3447) MQTT_SAVE_NUMBER: Save new current number[0m
+[0;32mI (3451) MQTT_SAVE_NUMBER: Processing topic: check current number[0m
+[0;32mI (3457) MQTT_SAVE_NUMBER: Data: 2005[0m
+[0;32mI (3461) MQTT_SAVE_NUMBER: Read number: 2013[0m
+[0;32mI (3465) MQTT_SAVE_NUMBER: check current number[0m
+[0;32mI (3469) MQTT_SAVE_NUMBER: current number: 2013[0m
+[0;32mI (3474) MQTT_SAVE_NUMBER: Saved number "2005" into key current number successfully[0m
+[0;33mW (3481) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3486) MQTT_SAVE_NUMBER: Save new current number[0m
+[0;32mI (3714) WiFi: Connected with IP: 10.10.1.65[0m
+[0;32mI (3714) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:27:1E[0m
+[0;32mI (3817) NVS: last index: -1[0m
+[0;32mI (3817) NVS: wifi index: 0[0m
+[0;33mW (3817) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (26121) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (26121) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1018","skip":"no"}[0m
+[0;32mI (26123) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (26128) MQTT_SAVE_NUMBER: Received number: 1018[0m
+[0;32mI (26134) MQTT_SAVE_NUMBER: Saved number "1018" into key "next_number"[0m
+[0;32mI (26139) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (26143) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (29714) MQTT_SAVE_NUMBER: Read number: 2005[0m
+[0;32mI (29714) Feedback: Successfully read number: 2005[0m
+[0;32mI (29715) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (29717) Feedback: diem danh gia: 3[0m
+
+[0;32mI (29722) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (29748) CHECKTIME: Pressed, reset current[0m
+[0;32mI (29749) MQTT_SAVE_NUMBER: copied next_number (1018) to current_number[0m
+[0;32mI (29749) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (33862) MQTT_SAVE_NUMBER: Read number: 1018[0m
+[0;32mI (33863) Feedback: Successfully read number: 1018[0m
+[0;32mI (33863) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (33865) Feedback: diem danh gia: 3[0m
+
+[0;32mI (33870) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (52589) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (52589) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1019","skip":"no"}[0m
+[0;32mI (52591) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (52596) MQTT_SAVE_NUMBER: Received number: 1019[0m
+[0;32mI (52602) MQTT_SAVE_NUMBER: Saved number "1019" into key "next_number"[0m
+[0;32mI (52607) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (52611) CHECKTIME: Pressed, reset current[0m
+[0;32mI (52616) MQTT_SAVE_NUMBER: copied next_number (1019) to current_number[0m
+[0;32mI (52621) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (58428) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (58428) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1020","skip":"no"}[0m
+[0;32mI (58431) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (58436) MQTT_SAVE_NUMBER: Received number: 1020[0m
+[0;32mI (58442) MQTT_SAVE_NUMBER: Saved number "1020" into key "next_number"[0m
+[0;32mI (58447) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (58450) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (78456) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (78457) MQTT_SAVE_NUMBER: copied next_number (1020) to current_number[0m
+[0;32mI (78458) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (136253) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (136253) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1021","skip":"no"}[0m
+[0;32mI (136256) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (136261) MQTT_SAVE_NUMBER: Received number: 1021[0m
+[0;32mI (136267) MQTT_SAVE_NUMBER: Saved number "1021" into key "next_number"[0m
+[0;32mI (136272) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (136276) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (141364) MQTT_SAVE_NUMBER: Read number: 1020[0m
+[0;32mI (141365) Feedback: Successfully read number: 1020[0m
+[0;32mI (141365) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (141368) Feedback: diem danh gia: 3[0m
+
+[0;32mI (141372) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (141381) CHECKTIME: Pressed, reset current[0m
+[0;32mI (141383) MQTT_SAVE_NUMBER: copied next_number (1021) to current_number[0m
+[0;32mI (141387) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (176170) MQTT_SAVE_NUMBER: Read number: 1021[0m
+[0;32mI (176171) Feedback: Successfully read number: 1021[0m
+[0;32mI (176171) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (176174) Feedback: diem danh gia: 3[0m
+
+[0;32mI (176178) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (195645) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (195645) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1022","skip":"no"}[0m
+[0;32mI (195648) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (195653) MQTT_SAVE_NUMBER: Received number: 1022[0m
+[0;32mI (195659) MQTT_SAVE_NUMBER: Saved number "1022" into key "next_number"[0m
+[0;32mI (195664) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (195668) CHECKTIME: Pressed, reset current[0m
+[0;32mI (195673) MQTT_SAVE_NUMBER: copied next_number (1022) to current_number[0m
+[0;32mI (195678) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (316834) MQTT_SAVE_NUMBER: Read number: 1022[0m
+[0;32mI (316835) Feedback: Successfully read number: 1022[0m
+[0;32mI (316835) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (316838) Feedback: diem danh gia: 3[0m
+
+[0;32mI (316842) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (318177) MQTT_SAVE_NUMBER: Read number: 1022[0m
+[0;32mI (318177) Feedback: Successfully read number: 1022[0m
+[0;32mI (318178) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (318180) Feedback: diem danh gia: 3[0m
+
+[0;32mI (318185) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (319263) MQTT_SAVE_NUMBER: Read number: 1022[0m
+[0;32mI (319264) Feedback: Successfully read number: 1022[0m
+[0;32mI (319264) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (319267) Feedback: diem danh gia : 4[0m
+
+[0;32mI (319271) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (325898) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (325899) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1023","skip":"no"}[0m
+[0;32mI (325901) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (325906) MQTT_SAVE_NUMBER: Received number: 1023[0m
+[0;32mI (325912) MQTT_SAVE_NUMBER: Saved number "1023" into key "next_number"[0m
+[0;32mI (325917) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (325921) CHECKTIME: Pressed, reset current[0m
+[0;32mI (325926) MQTT_SAVE_NUMBER: copied next_number (1023) to current_number[0m
+[0;32mI (325932) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (382435) MQTT_SAVE_NUMBER: Read number: 1023[0m
+[0;32mI (382435) Feedback: Successfully read number: 1023[0m
+[0;32mI (382436) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (382438) Feedback: diem danh gia: 3[0m
+
+[0;32mI (382443) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (410685) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (410685) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1024","skip":"no"}[0m
+[0;32mI (410688) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (410693) MQTT_SAVE_NUMBER: Received number: 1024[0m
+[0;32mI (410699) MQTT_SAVE_NUMBER: Saved number "1024" into key "next_number"[0m
+[0;32mI (410704) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (410708) CHECKTIME: Pressed, reset current[0m
+[0;32mI (410713) MQTT_SAVE_NUMBER: copied next_number (1024) to current_number[0m
+[0;32mI (410718) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (414880) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (414880) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1025","skip":"no"}[0m
+[0;32mI (414883) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (414888) MQTT_SAVE_NUMBER: Received number: 1025[0m
+[0;32mI (414894) MQTT_SAVE_NUMBER: Saved number "1025" into key "next_number"[0m
+[0;32mI (414899) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (414903) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (419155) MQTT_SAVE_NUMBER: Read number: 1024[0m
+[0;32mI (419156) Feedback: Successfully read number: 1024[0m
+[0;32mI (419156) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (419159) Feedback: diem danh gia: 3[0m
+
+[0;32mI (419163) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (419208) CHECKTIME: Pressed, reset current[0m
+[0;32mI (419211) MQTT_SAVE_NUMBER: copied next_number (1025) to current_number[0m
+[0;32mI (419211) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (421046) MQTT_SAVE_NUMBER: Read number: 1025[0m
+[0;32mI (421047) Feedback: Successfully read number: 1025[0m
+[0;32mI (421047) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (421050) Feedback: diem danh gia: 3[0m
+
+[0;32mI (421054) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (425635) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (425635) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1026","skip":"no"}[0m
+[0;32mI (425637) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (425643) MQTT_SAVE_NUMBER: Received number: 1026[0m
+[0;32mI (425649) MQTT_SAVE_NUMBER: Saved number "1026" into key "next_number"[0m
+[0;32mI (425654) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (425658) CHECKTIME: Pressed, reset current[0m
+[0;32mI (425662) MQTT_SAVE_NUMBER: copied next_number (1026) to current_number[0m
+[0;32mI (425668) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (449628) LVGL: Clicked device: 2 - 94:E6:86:09:A4:78[0m
+[0;32mI (449630) SAVE_DEVICE_ID: Saved number "94:E6:86:09:A4:78" into key "device_id"[0m
+[0;32mI (449630) SELECTED_DEVICE_ID: 94:E6:86:09:A4:78[0m
+[0;32mI (449635) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"A8:42:E3:4C:7C:BC"},{"name":"2","device_id":"94:E6:86:09:A4:78"}][0m
+[0;32mI (449647) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (449652) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (449657) LVGL: Displayed 2 devices[0m
+[0;32mI (454308) MQTT_SAVE_NUMBER: Read number: 1026[0m
+[0;32mI (454308) Feedback: Successfully read number: 1026[0m
+[0;32mI (454309) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (454312) Feedback: diem danh gia : 4[0m
+
+[0;32mI (454316) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (482468) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (482468) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1027","skip":"no"}[0m
+[0;32mI (482471) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (502233) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (502234) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1028","skip":"no"}[0m
+[0;32mI (502236) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (507301) LVGL: Clicked device: 1 - A8:42:E3:4C:7C:BC[0m
+[0;32mI (507303) SAVE_DEVICE_ID: Saved number "A8:42:E3:4C:7C:BC" into key "device_id"[0m
+[0;32mI (507303) SELECTED_DEVICE_ID: A8:42:E3:4C:7C:BC[0m
+[0;32mI (507308) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"A8:42:E3:4C:7C:BC"},{"name":"2","device_id":"94:E6:86:09:A4:78"}][0m
+[0;32mI (507320) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (507325) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (507330) LVGL: Displayed 2 devices[0m
+[0;32mI (508681) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (508682) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1029","skip":"no"}[0m
+[0;32mI (508684) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (508689) MQTT_SAVE_NUMBER: Received number: 1029[0m
+[0;32mI (508695) MQTT_SAVE_NUMBER: Saved number "1029" into key "next_number"[0m
+[0;32mI (508700) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (508704) CHECKTIME: Pressed, reset current[0m
+[0;32mI (508709) MQTT_SAVE_NUMBER: copied next_number (1029) to current_number[0m
+[0;32mI (508715) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (528445) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (528445) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1030","skip":"no"}[0m
+[0;32mI (528448) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (528453) MQTT_SAVE_NUMBER: Received number: 1030[0m
+[0;32mI (528459) MQTT_SAVE_NUMBER: Saved number "1030" into key "next_number"[0m
+[0;32mI (528464) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (528468) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (532612) MQTT_SAVE_NUMBER: Read number: 1029[0m
+[0;32mI (532612) Feedback: Successfully read number: 1029[0m
+[0;32mI (532613) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (532615) Feedback: diem danh gia: 3[0m
+
+[0;32mI (532620) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (532673) CHECKTIME: Pressed, reset current[0m
+[0;32mI (532675) MQTT_SAVE_NUMBER: copied next_number (1030) to current_number[0m
+[0;32mI (532676) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (533995) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (533995) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1031","skip":"no"}[0m
+[0;32mI (533998) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (534003) MQTT_SAVE_NUMBER: Received number: 1031[0m
+[0;32mI (534009) MQTT_SAVE_NUMBER: Saved number "1031" into key "next_number"[0m
+[0;32mI (534014) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (534018) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (536251) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (536252) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1032","skip":"no"}[0m
+[0;32mI (536254) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (536259) MQTT_SAVE_NUMBER: Received number: 1032[0m
+[0;32mI (536265) MQTT_SAVE_NUMBER: Saved number "1032" into key "next_number"[0m
+[0;32mI (536323) CHECKTIME: New sema, skip next number[0m
+[0;32mI (554023) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (554025) MQTT_SAVE_NUMBER: copied next_number (1032) to current_number[0m
+[0;32mI (554026) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (565004) MQTT_SAVE_NUMBER: Read number: 1032[0m
+[0;32mI (565005) Feedback: Successfully read number: 1032[0m
+[0;32mI (565005) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (565008) Feedback: diem danh gia: 3[0m
+
+[0;32mI (565012) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (578826) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (578826) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1033","skip":"no"}[0m
+[0;32mI (578829) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (578834) MQTT_SAVE_NUMBER: Received number: 1033[0m
+[0;32mI (578840) MQTT_SAVE_NUMBER: Saved number "1033" into key "next_number"[0m
+[0;32mI (578845) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (578849) CHECKTIME: Pressed, reset current[0m
+[0;32mI (578853) MQTT_SAVE_NUMBER: copied next_number (1033) to current_number[0m
+[0;32mI (578859) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (590500) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (590500) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (590500) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (590502) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (590509) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (590513) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (599160) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (599160) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1034","skip":"no"}[0m
+[0;32mI (599163) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (599168) MQTT_SAVE_NUMBER: Received number: 1034[0m
+[0;32mI (599173) MQTT_SAVE_NUMBER: Saved number "1034" into key "current_number"[0m
+[0;32mI (604231) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (604231) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1035","skip":"no"}[0m
+[0;32mI (604234) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (604239) MQTT_SAVE_NUMBER: Received number: 1035[0m
+[0;32mI (604266) MQTT_SAVE_NUMBER: Saved number "1035" into key "next_number"[0m
+[0;32mI (604267) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (604267) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (607613) MQTT_SAVE_NUMBER: Read number: 1034[0m
+[0;32mI (607614) Feedback: Successfully read number: 1034[0m
+[0;32mI (607614) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (607617) Feedback: diem danh gia: 2[0m
+
+[0;32mI (607621) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (607671) CHECKTIME: Pressed, reset current[0m
+[0;32mI (607674) MQTT_SAVE_NUMBER: copied next_number (1035) to current_number[0m
+[0;32mI (607674) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (681232) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (681232) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1033","skip":"no"}[0m
+[0;32mI (681235) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (681240) MQTT_SAVE_NUMBER: Received number: 1033[0m
+[0;32mI (681246) MQTT_SAVE_NUMBER: Saved number "1033" into key "next_number"[0m
+[0;32mI (681251) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (681255) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (701260) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (701262) MQTT_SAVE_NUMBER: copied next_number (1033) to current_number[0m
+[0;32mI (701263) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (1073766) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1073767) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1036","skip":"no"}[0m
+[0;32mI (1073769) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1073775) MQTT_SAVE_NUMBER: Received number: 1036[0m
+[0;32mI (1073781) MQTT_SAVE_NUMBER: Saved number "1036" into key "next_number"[0m
+[0;32mI (1073786) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1073790) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (1083661) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (1083662) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (1083662) MQTT_SAVE_NUMBER: transfer number[0m
+[0;32mI (1083665) MQTT_SAVE_NUMBER: next_number deleted successfully[0m
+[0;32mI (1083669) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (1093795) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (1093795) MQTT_SAVE_NUMBER:  No next_number exist[0m
+[0;32mI (1093795) MQTT_SAVE_NUMBER: No Key next_number exist[0m
+[0;32mI (1093799) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (1100355) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1100355) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1036","skip":"no"}[0m
+[0;32mI (1100358) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1100363) MQTT_SAVE_NUMBER: Received number: 1036[0m
+[0;32mI (1100368) MQTT_SAVE_NUMBER: Saved number "1036" into key "current_number"[0m
+[0;32mI (1103327) MQTT_SAVE_NUMBER: Read number: 1036[0m
+[0;32mI (1103328) Feedback: Successfully read number: 1036[0m
+[0;32mI (1103328) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1103331) Feedback: diem danh gia: 2[0m
+
+[0;32mI (1103335) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (1163231) MQTT_SAVE_NUMBER: Read number: 1036[0m
+[0;32mI (1163231) Feedback: Successfully read number: 1036[0m
+[0;32mI (1163232) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1163235) Feedback: diem danh gia: 3[0m
+
+[0;32mI (1163239) MQTT: Message sent successfully, msg_id=0[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=d7664h (882276) map[0m
+[0;32mI (222) esp_image: segment 1: paddr=000e768c vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (226) esp_image: segment 2: paddr=000ece34 vaddr=40374000 size=031e4h ( 12772) load[0m
+[0;32mI (229) esp_image: segment 3: paddr=000f0020 vaddr=42000020 size=de164h (909668) map[0m
+[0;32mI (369) esp_image: segment 4: paddr=001ce18c vaddr=403771e4 size=1a9cch (109004) load[0m
+[0;32mI (389) esp_image: segment 5: paddr=001e8b60 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (401) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (401) boot: Disabling RNG early entropy source...[0m
+[0;33mW (411) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (412) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (419) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (426) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (431) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (435) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (439) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (444) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (448) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (453) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (457) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (462) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (466) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (471) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (476) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (488) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (488) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (489) esp_psram: Speed: 120MHz[0m
+[0;32mI (528) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (575) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (575) cpu_start: Multicore app[0m
+[0;32mI (735) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (743) cpu_start: Pro cpu start user code[0m
+[0;32mI (744) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (744) app_init: Application information:[0m
+[0;32mI (744) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (748) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (752) app_init: Compile time:     Nov 26 2025 14:24:48[0m
+[0;32mI (757) app_init: ELF file SHA256:  93132a8e2...[0m
+[0;32mI (762) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (766) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (770) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (774) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (777) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (784) heap_init: At 3FCACCD0 len 0003CA40 (242 KiB): RAM[0m
+[0;32mI (789) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (794) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (799) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (805) esp_psram: Adding pool of 6400K of PSRAM memory to heap allocator[0m
+[0;32mI (811) esp_psram: Adding pool of 34K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (822) spi_flash: detected chip: generic[0m
+[0;32mI (826) spi_flash: flash io: qio[0m
+[0;32mI (829) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (835) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (842) coexist: coex firmware version: 831ec70[0m
+[0;32mI (855) coexist: coexist rom version e7ae62f[0m
+[0;32mI (855) main_task: Started on CPU0[0m
+[0;32mI (856) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (861) main_task: Calling app_main()[0m
+[0;32mI (864) PSRAM: Total heap: 6843008[0m
+[0;32mI (867) PSRAM: Free PSRAM: 6553509[0m
+[0;33mW (881) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1286) GT911: Initialize I2C panel IO[0m
+[0;32mI (1286) GT911: Initialize touch controller GT911[0m
+[0;33mW (1286) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1288) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1291) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1295) example: Install RGB LCD panel driver[0m
+[0;32mI (1335) example: Initialize RGB LCD panel[0m
+[0;32mI (1337) lv_port: Create LVGL task[0m
+[0;32mI (1364) main: Display LVGL demos[0m
+[0;32mI (1382) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"A8:42:E3:4C:7C:BC"},{"name":"2","device_id":"94:E6:86:09:A4:78"}][0m
+[0;32mI (1384) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1390) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1394) LVGL: Displayed 2 devices[0m
+[0;32mI (1402) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1554) pp: pp rom version: e7ae62f[0m
+[0;32mI (1554) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1555) main_task: Returned from app_main()[0m
+[0;33mW (1555) RSSI: Not connected to any AP[0m
+[0;32mI (1556) wifi:wifi driver task: 3fcd1e74, prio:23, stack:6656, core=0[0m
+[0;32mI (1571) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1571) wifi:wifi certification version: v7.0[0m
+[0;32mI (1573) wifi:config NVS flash: enabled[0m
+[0;32mI (1576) wifi:config nano formatting: disabled[0m
+[0;32mI (1580) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1586) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1590) wifi:Init management short buffer num: 32[0m
+[0;32mI (1595) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1599) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1602) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1606) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1610) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1614) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1619) wifi_init: rx ba win: 16[0m
+[0;32mI (1621) wifi_init: accept mbox: 6[0m
+[0;32mI (1624) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1627) wifi_init: udp mbox: 6[0m
+[0;32mI (1630) wifi_init: tcp mbox: 6[0m
+[0;32mI (1633) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1636) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1639) wifi_init: tcp mss: 1440[0m
+[0;32mI (1643) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1646) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1650) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1654) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1661) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1702) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1703) wifi:enable tsf[0m
+[0;32mI (1704) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1705) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1715) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1717) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1737) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1748) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1764) wifi:connected with NamTrung, aid = 29, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (1764) wifi:security: WPA2-PSK, phy: bgn, rssi: -54[0m
+[0;32mI (1767) wifi:pm start, type: 1[0m
+
+[0;32mI (1769) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1777) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1786) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1792) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1796) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (2209) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2209) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2814) esp_netif_handlers: sta ip: 10.10.1.65, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2814) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2815) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2819) MQTT: Other event id:7[0m
+[0;32mI (2832) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:7, winSize:64[0m
+[0;32mI (2835) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:1, winSize:64[0m
+[0;32mI (2841) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2842) MQTT_SAVE_NUMBER: deleted retained message to keypad successfully, msg_id=40578[0m
+[0;32mI (2848) MQTT_SAVE_NUMBER: Sent connection message to keypad successfully, msg_id=47156[0m
+[0;32mI (2860) MQTT: MQTT_EVENT_PUBLISHED, msg_id=40578[0m
+[0;32mI (2862) MQTT: MQTT_EVENT_PUBLISHED, msg_id=47156[0m
+[0;32mI (2865) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=8913, return code=0x00[0m
+[0;32mI (2871) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=54848, return code=0x01[0m
+[0;32mI (2877) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (2879) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=41142, return code=0x00[0m
+[0;32mI (2887) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"2"},{"id":"A8:42:E3:4C:7C:BC","name":"1"}][0m
+[0;32mI (2897) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (2901) MQTT_SAVE_NUMBER: Stored 2 devices[0m
+[0;32mI (2905) TAG_NVS: sorted device list successfully[0m
+[0;32mI (2909) TAG_NVS: Saved 2 devices to NVS[0m
+[0;32mI (3075) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=8924, return code=0x00[0m
+[0;32mI (3077) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=10785, return code=0x00[0m
+[0;32mI (3079) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (3081) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (3085) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (3089) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3095) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (3100) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (3330) MQTT_SAVE_NUMBER: Processing topic: check current number[0m
+[0;32mI (3330) MQTT_SAVE_NUMBER: Data: 2005[0m
+[1;31mE (3331) MQTT_SAVE_NUMBER: Failed to get size for number: ESP_ERR_NVS_NOT_FOUND[0m
+[0;32mI (3336) MQTT_SAVE_NUMBER: check current number[0m
+[0;32mI (3340) MQTT_SAVE_NUMBER: current number: <C�?[0m
+[0;32mI (3345) MQTT_SAVE_NUMBER: Saved number "2005" into key current number successfully[0m
+[0;33mW (3352) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3357) MQTT_SAVE_NUMBER: Save new current number[0m
+[0;32mI (3361) MQTT_SAVE_NUMBER: Processing topic: check current number[0m
+[0;32mI (3367) MQTT_SAVE_NUMBER: Data: 1036[0m
+[0;32mI (3371) MQTT_SAVE_NUMBER: Read number: 2005[0m
+[0;32mI (3374) MQTT_SAVE_NUMBER: check current number[0m
+[0;32mI (3379) MQTT_SAVE_NUMBER: current number: 2005[0m
+[0;32mI (3384) MQTT_SAVE_NUMBER: Saved number "1036" into key current number successfully[0m
+[0;33mW (3391) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3396) MQTT_SAVE_NUMBER: Save new current number[0m
+[0;32mI (3719) WiFi: Connected with IP: 10.10.1.65[0m
+[0;32mI (3719) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (3827) NVS: last index: -1[0m
+[0;32mI (3827) NVS: wifi index: 0[0m
+[0;33mW (3827) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (125702) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (125702) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1037","skip":"no"}[0m
+[0;32mI (125705) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (125710) MQTT_SAVE_NUMBER: Received number: 1037[0m
+[0;32mI (125716) MQTT_SAVE_NUMBER: Saved number "1037" into key "next_number"[0m
+[0;32mI (125721) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (125725) CHECKTIME TASK: Start waiting for 20 seconds...[0m
+[0;32mI (133479) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (133479) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1039","skip":"no"}[0m
+[0;32mI (133482) LOAD_DEVICE_ID: Loaded device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (133487) MQTT_SAVE_NUMBER: Received number: 1039[0m
+[0;32mI (133493) MQTT_SAVE_NUMBER: Saved number "1039" into key "next_number"[0m
+[0;32mI (133530) CHECKTIME: New sema, skip next number[0m
+[0;32mI (136176) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (136176) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"Quay 2"},{"id":"00:1A:2B:3C:4D:07","name":"Quay 4"},{"id":"00:1A:2B:3C:4D:09","name":"Quay 4"},{"id":"02:1A:2B:3C:4D:02","name":"Quay 5"},{"id":"10:20:BA:01:48:A8","name":"Quay 7"},{"id":"94:E6:86:09:A4:78","name":"Quay 9"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 6"}][0m
+[0;32mI (136204) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (136208) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (136212) TAG_NVS: sorted device list successfully[0m
+[0;32mI (136219) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (142601) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (142602) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"Quay 2"},{"id":"00:1A:2B:3C:4D:07","name":"Quay 4"},{"id":"00:1A:2B:3C:4D:09","name":"Quay 4"},{"id":"02:1A:2B:3C:4D:02","name":"Quay 5"},{"id":"10:20:BA:01:48:A8","name":"Quay 9"},{"id":"94:E6:86:09:A4:78","name":"Quay 9"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 6"}][0m
+[0;32mI (142629) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (142633) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (142637) TAG_NVS: sorted device list successfully[0m
+[0;32mI (142644) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (145730) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (145732) MQTT_SAVE_NUMBER: copied next_number (1039) to current_number[0m
+[0;32mI (145733) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (149670) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (149670) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"Quay 2"},{"id":"00:1A:2B:3C:4D:07","name":"Quay 4"},{"id":"00:1A:2B:3C:4D:09","name":"Quay 6"},{"id":"02:1A:2B:3C:4D:02","name":"Quay 5"},{"id":"10:20:BA:01:48:A8","name":"Quay 9"},{"id":"94:E6:86:09:A4:78","name":"Quay 9"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 6"}][0m
+[0;32mI (149698) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (149702) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (149706) TAG_NVS: sorted device list successfully[0m
+[0;32mI (149713) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (150478) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (150478) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"Quay 2"},{"id":"00:1A:2B:3C:4D:07","name":"Quay 4"},{"id":"00:1A:2B:3C:4D:09","name":"Quay 6"},{"id":"02:1A:2B:3C:4D:02","name":"Quay 5"},{"id":"10:20:BA:01:48:A8","name":"Quay 9"},{"id":"94:E6:86:09:A4:78","name":"Quay 9"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 6"}][0m
+[0;32mI (150506) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (150510) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (150514) TAG_NVS: sorted device list successfully[0m
+[0;32mI (150519) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (160432) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (160432) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"Quay 2"},{"id":"00:1A:2B:3C:4D:07","name":"Quay 4"},{"id":"00:1A:2B:3C:4D:09","name":"Quay 6"},{"id":"02:1A:2B:3C:4D:02","name":"Quay 5"},{"id":"10:20:BA:01:48:A8","name":"Quay 9"},{"id":"94:E6:86:09:A4:78","name":"Quay 7"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 6"}][0m
+[0;32mI (160459) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (160464) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (160467) TAG_NVS: sorted device list successfully[0m
+[0;32mI (160474) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (174445) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (174445) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"Quay 2"},{"id":"00:1A:2B:3C:4D:07","name":"Quay 4"},{"id":"00:1A:2B:3C:4D:09","name":"Quay 6"},{"id":"02:1A:2B:3C:4D:02","name":"Quay 5"},{"id":"10:20:BA:01:48:A8","name":"Quay 9"},{"id":"94:E6:86:09:A4:78","name":"Quay 7"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 3"}][0m
+[0;32mI (174472) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (174477) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (174481) TAG_NVS: sorted device list successfully[0m
+[0;32mI (174488) TAG_NVS: Saved 8 devices to NVS[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=d7664h (882276) map[0m
+[0;32mI (222) esp_image: segment 1: paddr=000e768c vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (226) esp_image: segment 2: paddr=000ece34 vaddr=40374000 size=031e4h ( 12772) load[0m
+[0;32mI (229) esp_image: segment 3: paddr=000f0020 vaddr=42000020 size=de164h (909668) map[0m
+[0;32mI (369) esp_image: segment 4: paddr=001ce18c vaddr=403771e4 size=1a9cch (109004) load[0m
+[0;32mI (389) esp_image: segment 5: paddr=001e8b60 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (401) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (401) boot: Disabling RNG early entropy source...[0m
+[0;33mW (411) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (412) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (419) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (426) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (431) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (435) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (439) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (444) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (448) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (453) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (457) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (462) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (466) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (471) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (476) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (488) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (488) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (489) esp_psram: Speed: 120MHz[0m
+[0;32mI (528) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (575) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (575) cpu_start: Multicore app[0m
+[0;32mI (735) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (744) cpu_start: Pro cpu start user code[0m
+[0;32mI (744) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (744) app_init: Application information:[0m
+[0;32mI (744) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (748) app_init: App version:      d0f7808-dirty[0m
+[0;32mI (752) app_init: Compile time:     Nov 26 2025 14:24:48[0m
+[0;32mI (757) app_init: ELF file SHA256:  93132a8e2...[0m
+[0;32mI (762) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (766) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (770) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (774) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (777) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (784) heap_init: At 3FCACCD0 len 0003CA40 (242 KiB): RAM[0m
+[0;32mI (789) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (794) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (799) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (805) esp_psram: Adding pool of 6400K of PSRAM memory to heap allocator[0m
+[0;32mI (811) esp_psram: Adding pool of 34K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (822) spi_flash: detected chip: generic[0m
+[0;32mI (826) spi_flash: flash io: qio[0m
+[0;32mI (829) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (835) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (842) coexist: coex firmware version: 831ec70[0m
+[0;32mI (855) coexist: coexist rom version e7ae62f[0m
+[0;32mI (855) main_task: Started on CPU0[0m
+[0;32mI (856) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (861) main_task: Calling app_main()[0m
+[0;32mI (864) PSRAM: Total heap: 6843008[0m
+[0;32mI (867) PSRAM: Free PSRAM: 6553509[0m
+[0;33mW (881) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1286) GT911: Initialize I2C panel IO[0m
+[0;32mI (1286) GT911: Initialize touch controller GT911[0m
+[0;33mW (1286) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1288) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1291) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1295) example: Install RGB LCD panel driver[0m
+[0;32mI (1335) example: Initialize RGB LCD panel[0m
+[0;32mI (1337) lv_port: Create LVGL task[0m
+[0;32mI (1364) main: Display LVGL demos[0m
+[0;32mI (1382) TAG_NVS: Loaded JSON from NVS: [{"name":"Quay 2","device_id":"00:1A:2B:3C:4D:06"},{"name":"Quay 4","device_id":"00:1A:2B:3C:4D:07"},{"name":"Quay 6","device_id":"00:1A:2B:3C:4D:09"},{"name":"Quay 5","device_id":"02:1A:2B:3C:4D:02"},{"name":"Quay 9","device_id":"10:20:BA:01:48:A8"},{"name":"Quay 7","device_id":"94:E6:86:09:A4:78"},{"name":"Quay 3","device_id":"A8:42:E3:4C:7C:BC"},{"name":"1","device_id":"00:1A:2B:3C:4D:05"}][0m
+[0;32mI (1412) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1416) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1421) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1426) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1432) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1437) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1442) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1447) READ_DEVICE_ID: Read device_id: A8:42:E3:4C:7C:BC[0m
+[0;32mI (1451) LVGL: Displayed 8 devices[0m
+[0;32mI (1459) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1614) pp: pp rom version: e7ae62f[0m
+[0;32mI (1615) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1616) main_task: Returned from app_main()[0m
+[0;32mI (1617) wifi:wifi driver task: 3fcd1c9c, prio:23, stack:6656, core=0[0m
+[0;32mI (1632) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1633) wifi:wifi certification version: v7.0[0m
+[0;32mI (1633) wifi:config NVS flash: enabled[0m
+[0;32mI (1633) wifi:config nano formatting: disabled[0m
+[0;32mI (1637) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1643) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1647) wifi:Init management short buffer num: 32[0m
+[0;32mI (1652) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1656) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1659) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1663) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1667) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1671) wifi:Init dynamic rx buffer num: 32[0m
+[0;33mW (1675) RSSI: Not connected to any AP[0m
+[0;32mI (1676) wifi_init: rx ba win: 16[0m
+[0;32mI (1681) wifi_init: accept mbox: 6[0m
+[0;32mI (1685) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1688) wifi_init: udp mbox: 6[0m
+[0;32mI (1691) wifi_init: tcp mbox: 6[0m
+[0;32mI (1693) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1697) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1700) wifi_init: tcp mss: 1440[0m
+[0;32mI (1703) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1707) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1711) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1715) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1722) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1761) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1761) wifi:enable tsf[0m
+[0;32mI (1763) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1763) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1769) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1775) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1796) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1805) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1835) wifi:connected with NamTrung, aid = 21, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (1835) wifi:security: WPA2-PSK, phy: bgn, rssi: -53[0m
+[0;32mI (1838) wifi:pm start, type: 1[0m
+
+[0;32mI (1840) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1848) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1857) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1861) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1879) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2267) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2267) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2871) esp_netif_handlers: sta ip: 10.10.1.65, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2871) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2879) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2880) MQTT: Other event id:7[0m
+[0;32mI (2897) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:6, winSize:64[0m
+[0;32mI (2947) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:1, winSize:64[0m
+[0;32mI (2954) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2955) MQTT_SAVE_NUMBER: deleted retained message to keypad successfully, msg_id=60383[0m
+[0;32mI (2956) MQTT_SAVE_NUMBER: Sent connection message to keypad successfully, msg_id=51547[0m
+[0;32mI (2967) MQTT: MQTT_EVENT_PUBLISHED, msg_id=60383[0m
+[0;32mI (2968) MQTT: MQTT_EVENT_PUBLISHED, msg_id=51547[0m
+[0;32mI (2973) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=51974, return code=0x00[0m
+[0;32mI (2979) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=22685, return code=0x01[0m
+[0;32mI (3143) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (3143) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"Quay 2"},{"id":"00:1A:2B:3C:4D:07","name":"Quay 4"},{"id":"00:1A:2B:3C:4D:09","name":"Quay 6"},{"id":"02:1A:2B:3C:4D:02","name":"Quay 5"},{"id":"10:20:BA:01:48:A8","name":"Quay 9"},{"id":"94:E6:86:09:A4:78","name":"Quay 7"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 3"}][0m
+[0;32mI (3145) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=45808, return code=0x00[0m
+[0;32mI (3177) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=18406, return code=0x00[0m
+[0;32mI (3184) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=43745, return code=0x00[0m
+[0;32mI (3192) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (3193) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (3196) TAG_NVS: sorted device list successfully[0m
+[0;32mI (3201) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (3205) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (3210) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (3213) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (3217) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3224) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (3228) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (3233) MQTT_SAVE_NUMBER: Processing topic: check current number[0m
+[0;32mI (3239) MQTT_SAVE_NUMBER: Data: 2005[0m
+[1;31mE (3242) MQTT_SAVE_NUMBER: Failed to get size for number: ESP_ERR_NVS_NOT_FOUND[0m
+[0;32mI (3249) MQTT_SAVE_NUMBER: check current number[0m
+[0;32mI (3253) MQTT_SAVE_NUMBER: current number: |;�?[0m
+[0;32mI (3258) MQTT_SAVE_NUMBER: Saved number "2005" into key current number successfully[0m
+[0;33mW (3265) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3270) MQTT_SAVE_NUMBER: Save new current number[0m
+[0;32mI (3386) MQTT_SAVE_NUMBER: Processing topic: check current number[0m
+[0;32mI (3386) MQTT_SAVE_NUMBER: Data: 1039[0m
+[0;32mI (3386) MQTT_SAVE_NUMBER: Read number: 2005[0m
+[0;32mI (3388) MQTT_SAVE_NUMBER: check current number[0m
+[0;32mI (3392) MQTT_SAVE_NUMBER: current number: 2005[0m
+[0;32mI (3397) MQTT_SAVE_NUMBER: Saved number "1039" into key current number successfully[0m
+[0;33mW (3404) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3409) MQTT_SAVE_NUMBER: Save new current number[0m
+[0;32mI (3777) WiFi: Connected with IP: 10.10.1.65[0m
+[0;32mI (3777) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (3882) NVS: last index: -1[0m
+[0;32mI (3882) NVS: wifi index: 0[0m
+[0;33mW (3882) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (44284) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (44284) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"2"},{"id":"00:1A:2B:3C:4D:07","name":"Quay 4"},{"id":"00:1A:2B:3C:4D:09","name":"Quay 6"},{"id":"02:1A:2B:3C:4D:02","name":"Quay 5"},{"id":"10:20:BA:01:48:A8","name":"Quay 9"},{"id":"94:E6:86:09:A4:78","name":"Quay 7"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 3"}][0m
+[0;32mI (44311) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (44315) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (44318) TAG_NVS: sorted device list successfully[0m
+[0;32mI (44326) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (49713) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (49713) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"2"},{"id":"00:1A:2B:3C:4D:07","name":"4"},{"id":"00:1A:2B:3C:4D:09","name":"Quay 6"},{"id":"02:1A:2B:3C:4D:02","name":"Quay 5"},{"id":"10:20:BA:01:48:A8","name":"Quay 9"},{"id":"94:E6:86:09:A4:78","name":"Quay 7"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 3"}][0m
+[0;32mI (49739) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (49744) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (49747) TAG_NVS: sorted device list successfully[0m
+[0;32mI (49779) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (55784) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (55784) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"2"},{"id":"00:1A:2B:3C:4D:07","name":"4"},{"id":"00:1A:2B:3C:4D:09","name":"6"},{"id":"02:1A:2B:3C:4D:02","name":"Quay 5"},{"id":"10:20:BA:01:48:A8","name":"Quay 9"},{"id":"94:E6:86:09:A4:78","name":"Quay 7"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 3"}][0m
+[0;32mI (55810) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (55814) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (55818) TAG_NVS: sorted device list successfully[0m
+[0;32mI (55825) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (62212) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (62212) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"2"},{"id":"00:1A:2B:3C:4D:07","name":"4"},{"id":"00:1A:2B:3C:4D:09","name":"6"},{"id":"02:1A:2B:3C:4D:02","name":"5"},{"id":"10:20:BA:01:48:A8","name":"Quay 9"},{"id":"94:E6:86:09:A4:78","name":"Quay 7"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 3"}][0m
+[0;32mI (62238) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (62242) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (62246) TAG_NVS: sorted device list successfully[0m
+[0;32mI (62253) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (70711) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (70711) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"2"},{"id":"00:1A:2B:3C:4D:07","name":"4"},{"id":"00:1A:2B:3C:4D:09","name":"6"},{"id":"02:1A:2B:3C:4D:02","name":"5"},{"id":"10:20:BA:01:48:A8","name":"9"},{"id":"94:E6:86:09:A4:78","name":"Quay 7"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 3"}][0m
+[0;32mI (70736) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (70740) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (70744) TAG_NVS: sorted device list successfully[0m
+[0;32mI (70751) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (76643) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (76643) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"2"},{"id":"00:1A:2B:3C:4D:07","name":"4"},{"id":"00:1A:2B:3C:4D:09","name":"6"},{"id":"02:1A:2B:3C:4D:02","name":"5"},{"id":"10:20:BA:01:48:A8","name":"9"},{"id":"94:E6:86:09:A4:78","name":"7"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 3"}][0m
+[0;32mI (76667) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (76672) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (76675) TAG_NVS: sorted device list successfully[0m
+[0;32mI (76682) TAG_NVS: Saved 8 devices to NVS[0m
+[0;32mI (82385) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (82385) MQTT_SAVE_NUMBER: Data: [{"id":"00:1A:2B:3C:4D:05","name":"1"},{"id":"00:1A:2B:3C:4D:06","name":"2"},{"id":"00:1A:2B:3C:4D:07","name":"4"},{"id":"00:1A:2B:3C:4D:09","name":"6"},{"id":"02:1A:2B:3C:4D:02","name":"5"},{"id":"10:20:BA:01:48:A8","name":"9"},{"id":"94:E6:86:09:A4:78","name":"7"},{"id":"A8:42:E3:4C:7C:BC","name":"3"}][0m
+[0;32mI (82409) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (82413) MQTT_SAVE_NUMBER: Stored 8 devices[0m
+[0;32mI (82417) TAG_NVS: sorted device list successfully[0m
+[0;32mI (82424) TAG_NVS: Saved 8 devices to NVS[0m
