@@ -10,7 +10,8 @@ static int extract_counter_number(const char *name) {
    
     
     if (ptr) {
-        while (*ptr == ' ' || *ptr == ':' || *ptr == '-'||*ptr < '0' || *ptr > '9') {
+        //while (*ptr == ' ' || *ptr == ':' || *ptr == '-'||*ptr < '0' || *ptr > '9') {
+        while (*ptr < '0' || *ptr > '9') {
             ptr++;
         }
         
@@ -74,8 +75,9 @@ void parse_json_and_store(const char *json_data)
     cJSON_ArrayForEach(item, root)
     {
         cJSON *name = cJSON_GetObjectItem(item, "name");
-        cJSON *id = cJSON_GetObjectItem(item, "id");   // sửa đúng key
-        if (name && id && count < MAX_DEVICES)
+        cJSON *id = cJSON_GetObjectItem(item, "id");   
+        if (name && id && count < MAX_DEVICES&&cJSON_IsString(name) && (name->valuestring != NULL)
+        &&cJSON_IsString(id) && id->valuestring)
         {
             strncpy(device_list[count].name, name->valuestring, sizeof(device_list[count].name) - 1);
             strncpy(device_list[count].device_id, id->valuestring, sizeof(device_list[count].device_id) - 1);

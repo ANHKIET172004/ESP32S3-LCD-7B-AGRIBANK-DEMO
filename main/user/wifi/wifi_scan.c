@@ -76,7 +76,16 @@ int wifi_get_wifi_index(void) {
     return wifi_index;
 }
 
-
+static bool ascii_ssid(const uint8_t* ssid){
+       uint8_t* ptr=ssid;
+       while (*ptr){
+           if (*ptr>127){
+               return false;
+           }
+           ptr++;
+       }
+       return true;
+}
 
 
 esp_err_t read_wifi_credentials_from_nvs(char *ssid, size_t *ssid_len, char *password, size_t *password_len,uint8_t* bssid) {
@@ -294,7 +303,7 @@ void wifi_update_list_cb1(lv_timer_t * timer) {
 
     // Duyá»‡t danh sÃ¡ch AP
     for (int i = 0; i < DEFAULT_SCAN_LIST_SIZE; i++) {
-        if (ap_info[i].rssi == 0 && ap_info[i].ssid[0] == '\0') {
+        if (ap_info[i].rssi == 0 && ap_info[i].ssid[0] == '\0'&&ascii_ssid(ap_info[i].ssid)) {
             break;
         }
 

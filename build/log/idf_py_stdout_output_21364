@@ -1,0 +1,520 @@
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=d7664h (882276) map[0m
+[0;32mI (222) esp_image: segment 1: paddr=000e768c vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (226) esp_image: segment 2: paddr=000ece34 vaddr=40374000 size=031e4h ( 12772) load[0m
+[0;32mI (229) esp_image: segment 3: paddr=000f0020 vaddr=42000020 size=de26ch (909932) map[0m
+[0;32mI (369) esp_image: segment 4: paddr=001ce294 vaddr=403771e4 size=1a9cch (109004) load[0m
+[0;32mI (389) esp_image: segment 5: paddr=001e8c68 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (401) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (401) boot: Disabling RNG early entropy source...[0m
+[0;33mW (411) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (412) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (419) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (426) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (431) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (434) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (439) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (444) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (448) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (453) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (457) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (462) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (466) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (471) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (476) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (488) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (488) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (489) esp_psram: Speed: 120MHz[0m
+[0;32mI (528) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (575) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (575) cpu_start: Multicore app[0m
+[0;32mI (735) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (744) cpu_start: Pro cpu start user code[0m
+[0;32mI (744) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (744) app_init: Application information:[0m
+[0;32mI (744) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (748) app_init: App version:      5b130cd-dirty[0m
+[0;32mI (752) app_init: Compile time:     Dec 10 2025 21:10:15[0m
+[0;32mI (757) app_init: ELF file SHA256:  4030edb08...[0m
+[0;32mI (762) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (766) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (770) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (774) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (777) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (784) heap_init: At 3FCACCD0 len 0003CA40 (242 KiB): RAM[0m
+[0;32mI (789) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (794) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (799) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (805) esp_psram: Adding pool of 6400K of PSRAM memory to heap allocator[0m
+[0;32mI (811) esp_psram: Adding pool of 34K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (822) spi_flash: detected chip: generic[0m
+[0;32mI (826) spi_flash: flash io: qio[0m
+[0;32mI (829) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (835) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (842) coexist: coex firmware version: 831ec70[0m
+[0;32mI (855) coexist: coexist rom version e7ae62f[0m
+[0;32mI (855) main_task: Started on CPU0[0m
+[0;32mI (856) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (861) main_task: Calling app_main()[0m
+[0;32mI (864) PSRAM: Total heap: 6843008[0m
+[0;32mI (867) PSRAM: Free PSRAM: 6553509[0m
+[0;33mW (881) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1286) GT911: Initialize I2C panel IO[0m
+[0;32mI (1286) GT911: Initialize touch controller GT911[0m
+[0;33mW (1286) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1288) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1291) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1295) example: Install RGB LCD panel driver[0m
+[0;32mI (1335) example: Initialize RGB LCD panel[0m
+[0;32mI (1337) lv_port: Create LVGL task[0m
+[0;32mI (1364) main: Display LVGL demos[0m
+[0;32mI (1382) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"A8:42:E3:4C:7C:BC"},{"name":"2","device_id":"94:E6:86:09:A4:78"},{"name":"3","device_id":"R1:42:E3:4C:7C:BC"},{"name":"4","device_id":"R2:42:E3:4C:7C:BC"}][0m
+[0;32mI (1392) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1396) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1402) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1407) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1411) LVGL: Displayed 4 devices[0m
+[0;32mI (1420) MQTT_SAVE_NUMBER: Saved timeout: 20[0m
+[0;32mI (1571) pp: pp rom version: e7ae62f[0m
+[0;32mI (1572) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1572) RSSI: Not connected to any AP[0m
+[0;32mI (1572) main_task: Returned from app_main()[0m
+[0;32mI (1573) wifi:wifi driver task: 3fcc8654, prio:23, stack:6656, core=0[0m
+[0;32mI (1591) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1592) wifi:wifi certification version: v7.0[0m
+[0;32mI (1592) wifi:config NVS flash: enabled[0m
+[0;32mI (1593) wifi:config nano formatting: disabled[0m
+[0;32mI (1597) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1602) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1607) wifi:Init management short buffer num: 32[0m
+[0;32mI (1612) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1616) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1619) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1623) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1627) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1631) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1635) wifi_init: rx ba win: 16[0m
+[0;32mI (1638) wifi_init: accept mbox: 6[0m
+[0;32mI (1641) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1644) wifi_init: udp mbox: 6[0m
+[0;32mI (1647) wifi_init: tcp mbox: 6[0m
+[0;32mI (1650) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1653) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1657) wifi_init: tcp mss: 1440[0m
+[0;32mI (1660) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1664) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1667) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1671) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1678) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1721) wifi:mode : sta (10:20:ba:01:48:a8)[0m
+[0;32mI (1721) wifi:enable tsf[0m
+[0;32mI (1722) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1723) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1728) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1735) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1755) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1761) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1790) wifi:connected with NamTrung, aid = 30, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (1791) wifi:security: WPA2-PSK, phy: bgn, rssi: -56[0m
+[0;32mI (1793) wifi:pm start, type: 1[0m
+
+[0;32mI (1795) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1803) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1812) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1818) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1822) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (2239) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2239) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2841) esp_netif_handlers: sta ip: 10.10.1.65, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2841) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2842) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2846) MQTT: Other event id:7[0m
+[0;32mI (2860) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:5, winSize:64[0m
+[0;32mI (2869) wifi:<ba-del>idx:0, tid:7[0m
+[0;32mI (2872) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:5, winSize:64[0m
+[0;32mI (2884) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:1, winSize:64[0m
+[0;32mI (2910) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2911) MQTT_SAVE_NUMBER: deleted retained message to keypad successfully, msg_id=29934[0m
+[0;32mI (2912) MQTT_SAVE_NUMBER: Sent connection message to keypad successfully, msg_id=49345[0m
+[0;32mI (2922) MQTT: MQTT_EVENT_PUBLISHED, msg_id=29934[0m
+[0;32mI (2924) MQTT: MQTT_EVENT_PUBLISHED, msg_id=49345[0m
+[0;32mI (2928) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=32195, return code=0x00[0m
+[0;32mI (2935) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=30518, return code=0x01[0m
+[0;32mI (2941) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (2942) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=49825, return code=0x00[0m
+[0;32mI (2950) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"2"},{"id":"A8:42:E3:4C:7C:BC","name":"1"},{"id":"R1:42:E3:4C:7C:BC","name":"3"},{"id":"R2:42:E3:4C:7C:BC","name":"4"}][0m
+[0;32mI (2966) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (2971) MQTT_SAVE_NUMBER: Stored 4 devices[0m
+[0;32mI (2974) TAG_NVS: sorted device list successfully[0m
+[0;32mI (2979) TAG_NVS: Saved 4 devices to NVS[0m
+[0;32mI (3102) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=15245, return code=0x00[0m
+[0;32mI (3104) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=58893, return code=0x00[0m
+[0;32mI (3106) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (3109) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (3112) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (3116) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3122) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (3127) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (3393) MQTT_SAVE_NUMBER: Processing topic: check current number[0m
+[0;32mI (3393) MQTT_SAVE_NUMBER: Data: 2108[0m
+[1;31mE (3394) MQTT_SAVE_NUMBER: Failed to get size for number: ESP_ERR_NVS_NOT_FOUND[0m
+[0;32mI (3398) MQTT_SAVE_NUMBER: check current number[0m
+[0;32mI (3403) MQTT_SAVE_NUMBER: current number: �F�?[0m
+[0;32mI (3408) MQTT_SAVE_NUMBER: Saved number "2108" into key current number successfully[0m
+[0;33mW (3414) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (3420) MQTT_SAVE_NUMBER: Save new current number[0m
+[0;32mI (3749) WiFi: Connected with IP: 10.10.1.65[0m
+[0;32mI (3749) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (3856) NVS: last index: -1[0m
+[0;32mI (3856) NVS: wifi index: 0[0m
+[0;33mW (3856) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (9688) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (9688) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2109","skip":"no"}[0m
+[0;32mI (9690) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (15742) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (15743) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2110","skip":"no"}[0m
+[0;32mI (15745) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (33958) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (33958) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2111","skip":"no"}[0m
+[0;32mI (33960) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (40255) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (40255) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2112","skip":"no"}[0m
+[0;32mI (40257) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (47068) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (47068) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2113","skip":"no"}[0m
+[0;32mI (47070) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (91506) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (91506) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2114","skip":"no"}[0m
+[0;32mI (91509) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (101344) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (101344) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2115","skip":"no"}[0m
+[0;32mI (101347) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (123642) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (123642) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2116","skip":"no"}[0m
+[0;32mI (123644) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (129702) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (129702) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2117","skip":"no"}[0m
+[0;32mI (129705) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (139853) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (139853) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2118","skip":"no"}[0m
+[0;32mI (139856) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (171081) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (171081) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2119","skip":"no"}[0m
+[0;32mI (171083) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (192383) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (192383) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2120","skip":"no"}[0m
+[0;32mI (192386) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (236825) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (236825) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2121","skip":"no"}[0m
+[0;32mI (236828) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (244698) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (244698) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2122","skip":"no"}[0m
+[0;32mI (244701) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (257908) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (257908) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2123","skip":"no"}[0m
+[0;32mI (257911) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (271126) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (271126) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2124","skip":"no"}[0m
+[0;32mI (271128) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (345768) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (345768) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2125","skip":"no"}[0m
+[0;32mI (345771) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (355803) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (355803) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2126","skip":"no"}[0m
+[0;32mI (355806) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (373929) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (373929) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2127","skip":"no"}[0m
+[0;32mI (373932) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (399238) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (399239) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2128","skip":"no"}[0m
+[0;32mI (399241) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (413476) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (413476) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2129","skip":"no"}[0m
+[0;32mI (413479) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (421444) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (421444) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2130","skip":"no"}[0m
+[0;32mI (421447) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (426456) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (426456) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2131","skip":"no"}[0m
+[0;32mI (426458) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (443768) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (443768) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2132","skip":"no"}[0m
+[0;32mI (443770) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (467932) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (467932) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1151","skip":"no"}[0m
+[0;32mI (467935) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (493124) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (493125) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2133","skip":"no"}[0m
+[0;32mI (493127) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (548726) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (548726) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2134","skip":"no"}[0m
+[0;32mI (548729) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (565827) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (565827) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2135","skip":"no"}[0m
+[0;32mI (565830) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (582928) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (582929) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2136","skip":"no"}[0m
+[0;32mI (582931) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (605149) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (605149) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2137","skip":"no"}[0m
+[0;32mI (605152) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (671911) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (671911) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2138","skip":"no"}[0m
+[0;32mI (671913) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (686866) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (686866) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2139","skip":"no"}[0m
+[0;32mI (686868) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (694247) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (694247) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2140","skip":"no"}[0m
+[0;32mI (694249) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (777593) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (777593) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2141","skip":"no"}[0m
+[0;32mI (777595) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (784658) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (784658) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2142","skip":"no"}[0m
+[0;32mI (784661) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (828398) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (828398) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2143","skip":"no"}[0m
+[0;32mI (828401) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (844383) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (844383) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2144","skip":"no"}[0m
+[0;32mI (844386) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (858492) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (858493) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2145","skip":"no"}[0m
+[0;32mI (858495) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (882765) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (882765) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2146","skip":"no"}[0m
+[0;32mI (882767) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (889935) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (889935) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2147","skip":"no"}[0m
+[0;32mI (889937) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (904985) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (904986) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2148","skip":"no"}[0m
+[0;32mI (904988) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (909996) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (909996) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2149","skip":"no"}[0m
+[0;32mI (909999) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (954336) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (954336) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2150","skip":"no"}[0m
+[0;32mI (954339) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (980653) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (980653) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2151","skip":"no"}[0m
+[0;32mI (980655) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (992641) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (992641) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2152","skip":"no"}[0m
+[0;32mI (992644) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (998880) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (998880) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2153","skip":"no"}[0m
+[0;32mI (998883) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1038121) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1038122) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2154","skip":"no"}[0m
+[0;32mI (1038124) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1088791) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1088791) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2155","skip":"no"}[0m
+[0;32mI (1088794) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1093910) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1093911) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2156","skip":"no"}[0m
+[0;32mI (1093913) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1110090) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1110090) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2157","skip":"no"}[0m
+[0;32mI (1110093) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1119099) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1119099) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2158","skip":"no"}[0m
+[0;32mI (1119102) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1129134) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1129135) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2159","skip":"no"}[0m
+[0;32mI (1129137) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1167432) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1167432) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2160","skip":"no"}[0m
+[0;32mI (1167435) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1200714) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1200714) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2161","skip":"no"}[0m
+[0;32mI (1200717) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1209935) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1209935) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2162","skip":"no"}[0m
+[0;32mI (1209937) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1237174) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1237174) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2163","skip":"no"}[0m
+[0;32mI (1237176) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1262592) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1262592) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2164","skip":"no"}[0m
+[0;32mI (1262595) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1286423) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1286424) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2165","skip":"no"}[0m
+[0;32mI (1286426) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1311819) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1311819) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2166","skip":"no"}[0m
+[0;32mI (1311822) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1326871) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1326871) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2167","skip":"no"}[0m
+[0;32mI (1326874) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1355268) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1355268) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2168","skip":"no"}[0m
+[0;32mI (1355271) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1364760) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1364760) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2169","skip":"no"}[0m
+[0;32mI (1364763) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1393431) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1393431) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2170","skip":"no"}[0m
+[0;32mI (1393434) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1411454) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1411454) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2171","skip":"no"}[0m
+[0;32mI (1411457) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1471380) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1471380) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2172","skip":"no"}[0m
+[0;32mI (1471383) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1479141) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1479141) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2173","skip":"no"}[0m
+[0;32mI (1479144) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1511708) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1511708) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2174","skip":"no"}[0m
+[0;32mI (1511711) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1521536) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1521537) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2175","skip":"no"}[0m
+[0;32mI (1521539) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1556966) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1556966) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2176","skip":"no"}[0m
+[0;32mI (1556968) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1564850) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1564850) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2177","skip":"no"}[0m
+[0;32mI (1564853) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1584217) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1584217) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2178","skip":"no"}[0m
+[0;32mI (1584219) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1620146) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1620146) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2179","skip":"no"}[0m
+[0;32mI (1620148) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1664590) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1664590) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2180","skip":"no"}[0m
+[0;32mI (1664593) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1680767) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1680767) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2181","skip":"no"}[0m
+[0;32mI (1680770) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1714051) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1714051) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2182","skip":"no"}[0m
+[0;32mI (1714054) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1760641) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1760642) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2183","skip":"no"}[0m
+[0;32mI (1760644) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1786650) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1786650) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2184","skip":"no"}[0m
+[0;32mI (1786653) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1815940) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1815940) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2185","skip":"no"}[0m
+[0;32mI (1815943) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1831911) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1831912) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2186","skip":"no"}[0m
+[0;32mI (1831914) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1868367) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1868367) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2187","skip":"no"}[0m
+[0;32mI (1868370) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1876356) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1876356) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2188","skip":"no"}[0m
+[0;32mI (1876358) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (1976195) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (1976195) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1201","skip":"no"}[0m
+[0;32mI (1976198) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2000465) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2000466) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1202","skip":"no"}[0m
+[0;32mI (2000468) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2071017) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2071017) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2191","skip":"no"}[0m
+[0;32mI (2071020) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2109522) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2109522) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2192","skip":"no"}[0m
+[0;32mI (2109525) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2117404) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2117404) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2193","skip":"no"}[0m
+[0;32mI (2117407) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2126519) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2126520) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1206","skip":"no"}[0m
+[0;32mI (2126522) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2151711) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2151711) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1208","skip":"no"}[0m
+[0;32mI (2151713) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2164816) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2164816) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1209","skip":"no"}[0m
+[0;32mI (2164819) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2256670) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2256670) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2194","skip":"no"}[0m
+[0;32mI (2256672) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2314014) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2314014) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2195","skip":"no"}[0m
+[0;32mI (2314017) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2346374) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2346374) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2196","skip":"no"}[0m
+[0;32mI (2346376) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2361325) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2361325) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2197","skip":"no"}[0m
+[0;32mI (2361327) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2369720) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2369720) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1215","skip":"no"}[0m
+[0;32mI (2369723) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2396653) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2396653) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2198","skip":"no"}[0m
+[0;32mI (2396656) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2402797) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2402797) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1218","skip":"no"}[0m
+[0;32mI (2402800) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2436077) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2436077) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2199","skip":"no"}[0m
+[0;32mI (2436080) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2495881) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2495882) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2200","skip":"no"}[0m
+[0;32mI (2495884) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2609644) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2609644) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2202","skip":"no"}[0m
+[0;32mI (2609647) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2626851) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2626851) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2203","skip":"no"}[0m
+[0;32mI (2626854) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2675078) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2675078) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2207","skip":"no"}[0m
+[0;32mI (2675081) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2691389) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2691389) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2208","skip":"no"}[0m
+[0;32mI (2691391) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2727508) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2727508) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2209","skip":"no"}[0m
+[0;32mI (2727511) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2751875) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2751875) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2210","skip":"no"}[0m
+[0;32mI (2751878) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2776266) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2776267) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2211","skip":"no"}[0m
+[0;32mI (2776269) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2801441) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2801441) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1226","skip":"no"}[0m
+[0;32mI (2801444) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2810375) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2810375) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"1227","skip":"no"}[0m
+[0;32mI (2810378) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
+[0;32mI (2854795) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (2854795) MQTT_SAVE_NUMBER: Data: {"device_id":"A8:42:E3:4C:7C:BC","number":"2212","skip":"no"}[0m
+[0;32mI (2854798) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
