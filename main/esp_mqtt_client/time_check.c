@@ -2,17 +2,16 @@
 
 static char* TAG ="MQTT_SAVE_NUMBER";
 
-extern lv_obj_t * ui_TextArea4 ;
+extern lv_obj_t * ui_TextArea ;
 
 
 void save_timeout(const uint8_t time){
-    /*
-        if (time == NULL) {
+
+    
+    if (!time) {
         ESP_LOGE(TAG, "Invalid number ");
         return;
     }
-*/
-   
 
     nvs_handle_t nvs_handle;
     esp_err_t err = nvs_open("SAVE_TIME", NVS_READWRITE, &nvs_handle);
@@ -46,12 +45,12 @@ void save_timeout(const uint8_t time){
     static char str[10];
     sprintf(str,"%d",tmp);
     
-    //lv_textarea_set_placeholder_text(ui_TextArea4, "Placeholder...");
+    //lv_textarea_set_placeholder_text(ui_TextArea, "Placeholder...");
     
     
     if (lvgl_port_lock(-1)){
-    lv_textarea_set_placeholder_text(ui_TextArea4, str);
-    lvgl_port_unlock();
+        lv_textarea_set_placeholder_text(ui_TextArea, str);
+        lvgl_port_unlock();
     }
     
 
@@ -59,7 +58,11 @@ void save_timeout(const uint8_t time){
 
 
 esp_err_t read_time(uint8_t* time)
-{
+{    
+    if (time==NULL){
+        ESP_LOGE("SAVE_TIME", "time is NULL");
+        return ESP_ERR_INVALID_ARG;
+    }
     nvs_handle_t nvs_handle;
     esp_err_t err = nvs_open("SAVE_TIME", NVS_READONLY, &nvs_handle);
     if (err != ESP_OK) {

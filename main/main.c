@@ -198,7 +198,7 @@ void app_main()
     }
 
     //xTaskCreate(mqtt_process_task, "mqtt_process_task", 4096, NULL, 5, NULL);
-    xTaskCreatePinnedToCore(mqtt_process_task,  "mqtt_retry",  4096, NULL, 4, NULL, 1 );
+    xTaskCreatePinnedToCore(mqtt_process_task,  "mqtt_process_task",  8*1024, NULL, 4, NULL, 1 );
     //xTaskCreatePinnedToCore(mqtt_process_task,  "mqtt_retry",  6*1024, NULL, 4, NULL, 1 );
 
 
@@ -235,11 +235,11 @@ void app_main()
 
    // esp_task_wdt_add(NULL);  // main task
    
-   /*
+   
     while (1) {
         //system_state_proccessing();
-        //esp_task_wdt_reset();       // Reset watchdog cho main
-       // ESP_LOGI("HEAP", "Free heap: %u", esp_get_free_heap_size());
+        ///esp_task_wdt_reset();       // Reset watchdog cho main
+         ESP_LOGI("HEAP", "Free heap: %u", esp_get_free_heap_size());
         if (start<255){
             start++;
         }
@@ -249,7 +249,7 @@ void app_main()
         vTaskDelay(1000 / portTICK_PERIOD_MS);   // Nhường CPU
     }
    
-  */
+  
 
 
 }

@@ -44,7 +44,7 @@ extern int change;
 extern int cnt;
 int connect_success=0;
 
-extern lv_obj_t * ui_Image38;
+extern lv_obj_t * ui_Image16;
 int8_t pressed=0;
 //SemaphoreHandle_t check_sema=NULL;
 extern SemaphoreHandle_t check_sema;
@@ -370,11 +370,11 @@ int8_t get_rssi_level(int8_t rssi){
 
 void hide_all_icon(){
 
-            lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );  
-            lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN );
-            lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN );
-            lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
-            lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image9, LV_OBJ_FLAG_HIDDEN );  
+            lv_obj_add_flag(ui_Image10, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image12, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image11, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image13, LV_OBJ_FLAG_HIDDEN );
 
 }
 
@@ -403,23 +403,23 @@ void mainscreen_wifi_rssi_task(void *pvParameters) {
             
             switch(current_rssi_level){
                 case 0:
-                 lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN ); 
+                 lv_obj_clear_flag(ui_Image9, LV_OBJ_FLAG_HIDDEN ); 
                  break;
 
                 case 1:
-                 lv_obj_clear_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN ); 
+                 lv_obj_clear_flag(ui_Image10, LV_OBJ_FLAG_HIDDEN ); 
                  break;
 
                 case 2:
-                 lv_obj_clear_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN ); 
+                 lv_obj_clear_flag(ui_Image11, LV_OBJ_FLAG_HIDDEN ); 
                  break; 
                 
                 case 3:
-                 lv_obj_clear_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN ); 
+                 lv_obj_clear_flag(ui_Image12, LV_OBJ_FLAG_HIDDEN ); 
                  break;
                 
                 case 4:
-                 lv_obj_clear_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN ); 
+                 lv_obj_clear_flag(ui_Image13, LV_OBJ_FLAG_HIDDEN ); 
                  break;
 
 
@@ -440,9 +440,9 @@ void mainscreen_wifi_rssi_task(void *pvParameters) {
 
             hide_all_icon();
             
-            lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN ); // không kết nối đến mqtt
+            lv_obj_clear_flag(ui_Image16, LV_OBJ_FLAG_HIDDEN ); // không kết nối đến mqtt
 
-            lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN );  
+            lv_obj_clear_flag(ui_Image9, LV_OBJ_FLAG_HIDDEN );  
 
             lvgl_port_unlock();
             }

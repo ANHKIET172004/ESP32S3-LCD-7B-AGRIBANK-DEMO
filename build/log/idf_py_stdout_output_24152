@@ -1,7 +1,7 @@
-Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM7 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py'
 ESP-ROM:esp32s3-20210327
 Build:Mar 27 2021
-rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
 SPIWP:0xee
 mode:DIO, clock div:1
 load:0x3fce2820,len:0x1710
@@ -24,583 +24,1154 @@ entry 0x403c894c
 [0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
 [0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
 [0;32mI (81) boot: End of partition table[0m
-[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c150020 size=dc72ch (902956) map[0m
-[0;32mI (225) esp_image: segment 1: paddr=000ec754 vaddr=3fca6400 size=038c4h ( 14532) load[0m
-[0;32mI (228) esp_image: segment 2: paddr=000f0020 vaddr=42000020 size=142b6ch (1321836) map[0m
-[0;32mI (425) esp_image: segment 3: paddr=00232b94 vaddr=3fca9cc4 size=026f0h (  9968) load[0m
-[0;32mI (428) esp_image: segment 4: paddr=0023528c vaddr=40374000 size=2230ch (140044) load[0m
-[0;32mI (456) esp_image: segment 5: paddr=002575a0 vaddr=600fe000 size=00020h (    32) load[0m
-[0;32mI (469) boot: Loaded app from partition at offset 0x10000[0m
-[0;32mI (469) boot: Disabling RNG early entropy source...[0m
-[0;33mW (479) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
-[0;33mW (480) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
-[0;33mW (487) flash HPM: High performance mode of this flash model hasn't been supported.[0m
-[0;32mI (494) MSPI Timing: Flash timing tuning index: 2[0m
-[0;32mI (498) octal_psram: vendor id    : 0x0d (AP)[0m
-[0;32mI (502) octal_psram: dev id       : 0x02 (generation 3)[0m
-[0;32mI (507) octal_psram: density      : 0x03 (64 Mbit)[0m
-[0;32mI (512) octal_psram: good-die     : 0x01 (Pass)[0m
-[0;32mI (516) octal_psram: Latency      : 0x01 (Fixed)[0m
-[0;32mI (520) octal_psram: VCC          : 0x01 (3V)[0m
-[0;32mI (525) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
-[0;32mI (530) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
-[0;32mI (534) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
-[0;32mI (539) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
-[0;32mI (544) octal_psram: DriveStrength: 0x00 (1/1)[0m
-[0;32mI (556) MSPI Timing: PSRAM timing tuning index: 2[0m
-[0;32mI (556) esp_psram: Found 8MB PSRAM device[0m
-[0;32mI (557) esp_psram: Speed: 120MHz[0m
-[0;32mI (596) mmu_psram: Read only data copied and mapped to SPIRAM[0m
-[0;32mI (666) mmu_psram: Instructions copied and mapped to SPIRAM[0m
-[0;32mI (666) cpu_start: Multicore app[0m
-[0;32mI (815) esp_psram: SPI SRAM memory test OK[0m
-[0;32mI (823) cpu_start: Pro cpu start user code[0m
-[0;32mI (823) cpu_start: cpu freq: 240000000 Hz[0m
-[0;32mI (823) app_init: Application information:[0m
-[0;32mI (824) app_init: Project name:     16_LVGL_UI[0m
-[0;32mI (828) app_init: App version:      b442d3f-dirty[0m
-[0;32mI (832) app_init: Compile time:     Oct  8 2025 13:29:38[0m
-[0;32mI (837) app_init: ELF file SHA256:  9687c588e...[0m
-[0;32mI (841) app_init: ESP-IDF:          v5.5-dirty[0m
-[0;32mI (846) efuse_init: Min chip rev:     v0.0[0m
-[0;32mI (849) efuse_init: Max chip rev:     v0.99 [0m
-[0;32mI (853) efuse_init: Chip rev:         v0.2[0m
-[0;32mI (857) heap_init: Initializing. RAM available for dynamic allocation:[0m
-[0;32mI (864) heap_init: At 3FCB6D88 len 00032988 (202 KiB): RAM[0m
-[0;32mI (869) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
-[0;32mI (874) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
-[0;32mI (879) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
-[0;32mI (884) esp_psram: Adding pool of 5952K of PSRAM memory to heap allocator[0m
-[0;32mI (891) esp_psram: Adding pool of 14K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
-[0;32mI (902) spi_flash: detected chip: generic[0m
-[0;32mI (906) spi_flash: flash io: qio[0m
-[0;32mI (909) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
-[0;32mI (915) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
-[0;32mI (922) coexist: coex firmware version: 831ec70[0m
-[0;32mI (934) coexist: coexist rom version e7ae62f[0m
-[0;32mI (935) main_task: Started on CPU0[0m
-[0;32mI (936) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
-[0;32mI (941) main_task: Calling app_main()[0m
-[0;33mW (953) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
-[0;32mI (1360) GT911: Initialize I2C panel IO[0m
-[0;32mI (1360) GT911: Initialize touch controller GT911[0m
-[0;33mW (1360) GT911: Unable to initialize the I2C address[0m
-[0;32mI (1362) GT911: TouchPad_ID:0x39,0x31,0x31[0m
-[0;32mI (1365) GT911: TouchPad_Config_Version:91[0m
-[0;32mI (1369) example: Install RGB LCD panel driver[0m
-[0;32mI (1409) example: Initialize RGB LCD panel[0m
-[0;32mI (1411) lv_port: Create LVGL task[0m
-[0;32mI (1438) main: Display LVGL demos[0m
-[0;32mI (1600) pp: pp rom version: e7ae62f[0m
-[0;32mI (1601) net80211: net80211 rom version: e7ae62f[0m
-[0;32mI (1601) BLE_INIT: BT controller compile version [4713a69][0m
-[0;32mI (1602) wifi:wifi driver task: 3fcd7c40, prio:23, stack:6656, core=0I (1602) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
-
-[0;32mI (1617) BLE_INIT: Bluetooth MAC: 10:20:ba:01:48:aa[0m
-[0;32mI (1622) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
-[0;32mI (1626) wifi:wifi firmware version: f3dbad7[0m
-[0;32mI (1631) wifi:wifi certification version: v7.0[0m
-[0;32mI (1635) wifi:config NVS flash: enabled[0m
-[0;32mI (1638) wifi:config nano formatting: disabled[0m
-[0;32mI (1643) wifi:Init data frame dynamic rx buffer num: 32[0m
-[0;32mI (1648) wifi:Init static rx mgmt buffer num: 5[0m
-[0;32mI (1652) wifi:Init management short buffer num: 32[0m
-[0;33mW (1626) RSSI: Not connected to any AP[0m
-[0;32mI (1659) wifi:Init static tx buffer num: 16[0m
-[0;32mI (1665) wifi:Init tx cache buffer num: 32[0m
-[0;32mI (1668) wifi:Init static tx FG buffer num: 2[0m
-[0;32mI (1672) wifi:Init static rx buffer size: 1600[0m
-[0;32mI (1676) wifi:Init static rx buffer num: 16[0m
-[0;32mI (1680) wifi:Init dynamic rx buffer num: 32[0m
-[0;32mI (1684) wifi_init: rx ba win: 16[0m
-[0;32mI (1687) wifi_init: accept mbox: 6[0m
-[0;32mI (1690) wifi_init: tcpip mbox: 32[0m
-[0;32mI (1693) wifi_init: udp mbox: 6[0m
-[0;32mI (1696) wifi_init: tcp mbox: 6[0m
-[0;32mI (1698) wifi_init: tcp tx win: 5760[0m
-[0;32mI (1698) BLE_SERVER: REGISTER_APP_EVT, status 0, app_id 0[0m
-[0;32mI (1698) BLE_SERVER: ***** BLE GATT SERVER STARTED *****[0m
-[0;32mI (1712) BLE_SERVER: ***** WAITING FOR CLIENT CONNECTION *****[0m
-[0;33mW (1707) BT_BTM: BTM_BleWriteAdvData, Partial data write into ADV[0m
-[0;32mI (1702) wifi_init: tcp rx win: 5760[0m
-[0;33mW (1724) BT_BTM: BTM_BleWriteScanRsp, Partial data write into ADV[0m
-[0;32mI (1727) wifi_init: tcp mss: 1440[0m
-[0;32mI (1733) BLE_SERVER: CREATE_SERVICE_EVT, status 0,  service_handle 40[0m
-[0;32mI (1736) wifi_init: WiFi/LWIP prefer SPIRAM[0m
-[0;32mI (1744) BLE_SERVER: Advertising started successfully[0m
-[0;32mI (1746) wifi_init: WiFi IRAM OP enabled[0m
-[0;32mI (1750) BLE_SERVER: ADD_CHAR_EVT, status 0,  attr_handle 42, service_handle 40[0m
-[0;32mI (1754) wifi_init: WiFi RX IRAM OP enabled[0m
-[0;32mI (1626) main_task: Returned from app_main()[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=d78c4h (882884) map[0m
+[0;32mI (222) esp_image: segment 1: paddr=000e78ec vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (227) esp_image: segment 2: paddr=000ed094 vaddr=40374000 size=02f84h ( 12164) load[0m
+[0;32mI (229) esp_image: segment 3: paddr=000f0020 vaddr=42000020 size=de66ch (910956) map[0m
+[0;32mI (369) esp_image: segment 4: paddr=001ce694 vaddr=40376f84 size=1ac2ch (109612) load[0m
+[0;32mI (390) esp_image: segment 5: paddr=001e92c8 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (402) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (402) boot: Disabling RNG early entropy source...[0m
+[0;33mW (412) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (412) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (419) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (427) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (431) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (435) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (440) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (444) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (449) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (453) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (457) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (462) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (467) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (471) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (477) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (489) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (489) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (489) esp_psram: Speed: 120MHz[0m
+[0;32mI (529) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (575) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (575) cpu_start: Multicore app[0m
+[0;32mI (736) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (744) cpu_start: Pro cpu start user code[0m
+[0;32mI (744) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (744) app_init: Application information:[0m
+[0;32mI (744) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (748) app_init: App version:      0bd1f90-dirty[0m
+[0;32mI (753) app_init: Compile time:     Dec 27 2025 10:50:51[0m
+[0;32mI (758) app_init: ELF file SHA256:  29e50c034...[0m
+[0;32mI (762) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (766) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (770) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (774) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (778) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (784) heap_init: At 3FCACCD0 len 0003CA40 (242 KiB): RAM[0m
+[0;32mI (789) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (794) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (800) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (805) esp_psram: Adding pool of 6400K of PSRAM memory to heap allocator[0m
+[0;32mI (811) esp_psram: Adding pool of 33K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (823) spi_flash: detected chip: generic[0m
+[0;32mI (826) spi_flash: flash io: qio[0m
+[0;32mI (829) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (836) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (842) coexist: coex firmware version: 831ec70[0m
+[0;32mI (855) coexist: coexist rom version e7ae62f[0m
+[0;32mI (855) main_task: Started on CPU0[0m
+[0;32mI (856) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (861) main_task: Calling app_main()[0m
+[0;32mI (864) PSRAM: Total heap: 6842400[0m
+[0;32mI (867) PSRAM: Free PSRAM: 6552901[0m
+[0;33mW (880) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1286) GT911: Initialize I2C panel IO[0m
+[0;32mI (1286) GT911: Initialize touch controller GT911[0m
+[0;33mW (1286) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1288) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1291) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1295) example: Install RGB LCD panel driver[0m
+[0;32mI (1335) example: Initialize RGB LCD panel[0m
+[0;32mI (1337) lv_port: Create LVGL task[0m
+[0;32mI (1364) main: Display LVGL demos[0m
+[0;32mI (1382) TAG_NVS: Loaded JSON from NVS: [{"name":"Device_0001","device_id":"A8:42:E3:4C:7C:BC"},{"name":"Device_0002","device_id":"94:E6:86:09:A4:78"},{"name":"Device_0003","device_id":"R1:42:E3:4C:7C:BC"},{"name":"Device_0004","device_id":"R2:42:E3:4C:7C:BC"},{"name":"Device_0005","device_id":"B8:D6:1A:B9:DA:A4"}][0m
+[0;32mI (1400) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1405) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1410) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1416) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1421) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1425) LVGL: Displayed 5 devices[0m
+[0;32mI (1434) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (1586) pp: pp rom version: e7ae62f[0m
+[0;32mI (1586) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1587) RSSI: Not connected to any AP[0m
+[0;32mI (1587) HEAP: Free heap: 4242356[0m
+[0;32mI (1588) wifi:wifi driver task: 3fcd33e8, prio:23, stack:6656, core=0[0m
+[0;32mI (1601) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1602) wifi:wifi certification version: v7.0[0m
+[0;32mI (1604) wifi:config NVS flash: enabled[0m
+[0;32mI (1607) wifi:config nano formatting: disabled[0m
+[0;32mI (1611) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1617) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1621) wifi:Init management short buffer num: 32[0m
+[0;32mI (1625) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1630) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1633) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1637) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1641) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1645) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1650) wifi_init: rx ba win: 16[0m
+[0;32mI (1652) wifi_init: accept mbox: 6[0m
+[0;32mI (1655) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1658) wifi_init: udp mbox: 6[0m
+[0;32mI (1661) wifi_init: tcp mbox: 6[0m
+[0;32mI (1664) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1667) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1670) wifi_init: tcp mss: 1440[0m
+[0;32mI (1674) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1677) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1681) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1685) reconnect: Found saved WiFi: NamTrung[0m
 Wi-Fi event handler registered.
-[0;32mI (1772) wifi:mode : null[0m
-[0;33mW (3660) RSSI: Not connected to any AP[0m
-[0;32mI (4136) wifi:flush txq[0m
-[0;32mI (4136) wifi:stop sw txq[0m
-[0;32mI (4136) wifi:lmac stop hw txq[0m
-STA:STA 
-[0;32mI (4139) wifi:mode : sta (10:20:ba:01:48:a8)[0m
-[0;32mI (4139) wifi:enable tsf[0m
-[0;33mW (5660) wifi:Haven't to connect to a suitable AP now![0m
-[0;33mW (5660) RSSI: Not connected to any AP[0m
-[0;33mW (7660) wifi:Haven't to connect to a suitable AP now![0m
-[0;33mW (7660) RSSI: Not connected to any AP[0m
-[0;32mI (9049) wifi_scan: Max AP number ap_info can hold = 20[0m
-[0;32mI (9049) wifi_scan: Total APs scanned = 16, actual AP number ap_info holds = 16[0m
-[0;32mI (9160) NVS: Have a saved wifi network in NVS[0m
-[0;32mI (9165) wifi_scan: [0m
-[0;32mI (9165) wifi_scan: Found saved wifi network in scan list, ssid: Namtrung 2.4G[0m
-[0;32mI (9165) wifi_scan: BSSID 12:5F:02:15:27:1E[0m
-[0;32mI (9190) WiFi Sta: Connecting to specific BSSID: 12:5F:02:15:27:1E[0m
-[0;32mI (9190) wifi:flush txq[0m
-[0;32mI (9191) wifi:stop sw txq[0m
-[0;32mI (9191) wifi:lmac stop hw txq[0m
-[0;32mI (9193) wifi:mode : sta (10:20:ba:01:48:a8)[0m
-[0;32mI (9196) wifi:enable tsf[0m
-[0;32mI (9199) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
-[0;32mI (9204) WiFi Sta: Failed to connect to the AP[0m
-[0;32mI (9208) WiFi Sta: Retrying to connect to the AP[0m
-[0;32mI (9209) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
-[0;32mI (9220) wifi:state: init -> auth (0xb0)[0m
-[0;32mI (9230) wifi:state: auth -> assoc (0x0)[0m
-[0;32mI (9237) wifi:state: assoc -> run (0x10)[0m
-[0;32mI (9260) wifi:connected with Namtrung 2.4G, aid = 18, channel 1, BW20, bssid = 12:5f:02:15:27:1e[0m
-[0;32mI (9260) wifi:security: WPA2-PSK, phy: bgn, rssi: -50[0m
-[0;32mI (9263) wifi:pm start, type: 1[0m
+[0;32mI (1692) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1732) wifi:mode : sta (10:20:ba:05:9b:9c)[0m
+[0;32mI (1733) wifi:enable tsf[0m
+[0;32mI (1735) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1735) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1742) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1747) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1759) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1765) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1795) wifi:connected with NamTrung, aid = 22, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (1795) wifi:security: WPA2-PSK, phy: bgn, rssi: -53[0m
+[0;32mI (1798) wifi:pm start, type: 1[0m
 
-[0;32mI (9265) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
-[0;32mI (9273) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
-[0;32mI (9282) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:1[0m
-[0;32mI (9283) wifi:I (9287) MQTT: Other event id:7[0m
-AP's beacon interval = 102400 us, DTIM period = 1
-[1;31mE (9292) esp-tls: [sock=54] connect() error: Host is unreachable[0m
-[1;31mE (9301) transport_base: Failed to open a new connection: 32772[0m
-[1;31mE (9307) mqtt_client: Error transport connect[0m
-[0;32mI (9311) MQTT: MQTT_EVENT_ERROR[0m
-[0;32mI (9314) MQTT: Last error code reported from esp-tls: 0x8004[0m
-[0;32mI (9319) MQTT: Last tls stack error number: 0x0[0m
-[0;32mI (9323) MQTT: Last captured errno : 0 (Success)[0m
-[0;32mI (9328) MQTT: MQTT_EVENT_DISCONNECTED[0m
-[0;33mW (9328) wifi:m f null[0m
+[0;32mI (1800) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1808) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1817) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1822) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1884) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2239) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2239) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2739) HEAP: Free heap: 4122208[0m
+[0;32mI (2828) esp_netif_handlers: sta ip: 10.10.1.38, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2828) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2837) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2838) MQTT: Other event id:7[0m
+[0;32mI (2844) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:5, winSize:64[0m
+[0;32mI (2849) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2850) MQTT_SAVE_NUMBER: deleted retained message to keypad successfully, msg_id=48371[0m
+[0;32mI (2854) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:7, winSize:64[0m
+[0;32mI (2854) MQTT_SAVE_NUMBER: Sent connection message to keypad successfully, msg_id=30380[0m
+[0;32mI (2874) MQTT: MQTT_EVENT_PUBLISHED, msg_id=48371[0m
+[0;32mI (2876) MQTT: MQTT_EVENT_PUBLISHED, msg_id=30380[0m
+[0;32mI (2879) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=63250, return code=0x00[0m
+[0;32mI (2885) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=42697, return code=0x01[0m
+[0;32mI (2892) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (2894) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=2910, return code=0x00[0m
+[0;32mI (2901) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"qu\u1ea7y 2"},{"id":"A8:42:E3:4C:7C:BC","name":"1"},{"id":"B8:D6:1A:B9:DA:A4","name":"5"},{"id":"R1:42:E3:4C:7C:BC","name":"3"},{"id":"R2:42:E3:4C:7C:BC","name":"4"}][0m
+[0;32mI (2921) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (2926) MQTT_SAVE_NUMBER: Parsed 5 devices from MQTT[0m
+[0;32mI (2931) MQTT_SAVE_NUMBER: Device list changed, save new list[0m
+[0;32mI (2938) TAG_NVS: Saved NEW device list (5 devices)[0m
+[0;32mI (3091) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=55587, return code=0x00[0m
+[0;32mI (3093) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=29495, return code=0x00[0m
+[0;32mI (3095) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (3097) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (3101) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (3105) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;33mW (3110) MQTT_SAVE_NUMBER: current_number does not exist in NVS[0m
+[0;32mI (3116) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (3739) HEAP: Free heap: 4111344[0m
+[0;32mI (3749) WiFi: Connected with IP: 10.10.1.38[0m
+[0;32mI (3749) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (3857) NVS: last index: -1[0m
+[0;32mI (3857) NVS: wifi index: 0[0m
+[0;33mW (3857) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (4740) HEAP: Free heap: 4107940[0m
+[0;32mI (5629) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"A8:42:E3:4C:7C:BC"},{"name":"2","device_id":"94:E6:86:09:A4:78"},{"name":"3","device_id":"R1:42:E3:4C:7C:BC"},{"name":"4","device_id":"R2:42:E3:4C:7C:BC"},{"name":"5","device_id":"B8:D6:1A:B9:DA:A4"}][0m
+[0;32mI (5643) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (5647) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (5653) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (5658) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (5663) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (5667) LVGL: Displayed 5 devices[0m
+[0;32mI (5740) HEAP: Free heap: 4108048[0m
+[0;32mI (6742) HEAP: Free heap: 4110196[0m
+[0;32mI (7750) HEAP: Free heap: 4110124[0m
+[0;32mI (8750) HEAP: Free heap: 4111220[0m
+[0;32mI (9750) HEAP: Free heap: 4111256[0m
+[0;32mI (10750) HEAP: Free heap: 4111276[0m
+[0;32mI (11750) HEAP: Free heap: 4111276[0m
+[0;32mI (12750) HEAP: Free heap: 4111240[0m
+[0;32mI (13750) HEAP: Free heap: 4111276[0m
+[0;32mI (14750) HEAP: Free heap: 4111276[0m
+[0;32mI (15750) HEAP: Free heap: 4111276[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=d78c4h (882884) map[0m
+[0;32mI (222) esp_image: segment 1: paddr=000e78ec vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (227) esp_image: segment 2: paddr=000ed094 vaddr=40374000 size=02f84h ( 12164) load[0m
+[0;32mI (229) esp_image: segment 3: paddr=000f0020 vaddr=42000020 size=de66ch (910956) map[0m
+[0;32mI (369) esp_image: segment 4: paddr=001ce694 vaddr=40376f84 size=1ac2ch (109612) load[0m
+[0;32mI (390) esp_image: segment 5: paddr=001e92c8 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (402) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (402) boot: Disabling RNG early entropy source...[0m
+[0;33mW (412) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (412) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (419) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (427) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (431) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (435) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (440) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (444) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (449) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (453) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (457) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (462) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (467) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (471) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (477) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (489) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (489) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (489) esp_psram: Speed: 120MHz[0m
+[0;32mI (529) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (575) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (575) cpu_start: Multicore app[0m
+[0;32mI (736) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (744) cpu_start: Pro cpu start user code[0m
+[0;32mI (744) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (744) app_init: Application information:[0m
+[0;32mI (744) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (748) app_init: App version:      0bd1f90-dirty[0m
+[0;32mI (753) app_init: Compile time:     Dec 27 2025 10:50:51[0m
+[0;32mI (758) app_init: ELF file SHA256:  29e50c034...[0m
+[0;32mI (762) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (766) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (770) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (774) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (778) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (784) heap_init: At 3FCACCD0 len 0003CA40 (242 KiB): RAM[0m
+[0;32mI (789) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (794) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (800) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (805) esp_psram: Adding pool of 6400K of PSRAM memory to heap allocator[0m
+[0;32mI (811) esp_psram: Adding pool of 33K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (823) spi_flash: detected chip: generic[0m
+[0;32mI (826) spi_flash: flash io: qio[0m
+[0;32mI (829) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (836) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (842) coexist: coex firmware version: 831ec70[0m
+[0;32mI (855) coexist: coexist rom version e7ae62f[0m
+[0;32mI (855) main_task: Started on CPU0[0m
+[0;32mI (856) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (861) main_task: Calling app_main()[0m
+[0;32mI (864) PSRAM: Total heap: 6842400[0m
+[0;32mI (867) PSRAM: Free PSRAM: 6552901[0m
+[0;33mW (880) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1286) GT911: Initialize I2C panel IO[0m
+[0;32mI (1286) GT911: Initialize touch controller GT911[0m
+[0;33mW (1286) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1288) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1291) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1295) example: Install RGB LCD panel driver[0m
+[0;32mI (1335) example: Initialize RGB LCD panel[0m
+[0;32mI (1337) lv_port: Create LVGL task[0m
+[0;32mI (1364) main: Display LVGL demos[0m
+[0;32mI (1382) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"A8:42:E3:4C:7C:BC"},{"name":"2","device_id":"94:E6:86:09:A4:78"},{"name":"3","device_id":"R1:42:E3:4C:7C:BC"},{"name":"4","device_id":"R2:42:E3:4C:7C:BC"},{"name":"5","device_id":"B8:D6:1A:B9:DA:A4"}][0m
+[0;32mI (1396) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1401) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1406) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1411) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1416) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1421) LVGL: Displayed 5 devices[0m
+[0;32mI (1428) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (1581) pp: pp rom version: e7ae62f[0m
+[0;32mI (1581) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1582) HEAP: Free heap: 4245572[0m
+[0;32mI (1583) wifi:wifi driver task: 3fcd2758, prio:23, stack:6656, core=0[0m
+[0;32mI (1597) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1598) wifi:wifi certification version: v7.0[0m
+[0;32mI (1598) wifi:config NVS flash: enabled[0m
+[0;32mI (1599) wifi:config nano formatting: disabled[0m
+[0;32mI (1603) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1608) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1612) wifi:Init management short buffer num: 32[0m
+[0;32mI (1617) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1622) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1624) wifi:Init static tx FG buffer num: 2[0m
+[0;33mW (1582) RSSI: Not connected to any AP[0m
+[0;32mI (1628) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1636) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1640) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1644) wifi_init: rx ba win: 16[0m
+[0;32mI (1647) wifi_init: accept mbox: 6[0m
+[0;32mI (1650) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1653) wifi_init: udp mbox: 6[0m
+[0;32mI (1656) wifi_init: tcp mbox: 6[0m
+[0;32mI (1659) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1662) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1666) wifi_init: tcp mss: 1440[0m
+[0;32mI (1669) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1672) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1676) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1680) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1687) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1726) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1760) wifi:mode : sta (10:20:ba:05:9b:9c)[0m
+[0;32mI (1760) wifi:enable tsf[0m
+[0;32mI (1762) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1763) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1832) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1833) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1844) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1855) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1869) wifi:connected with NamTrung, aid = 22, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (1869) wifi:security: WPA2-PSK, phy: bgn, rssi: -68[0m
+[0;32mI (1871) wifi:pm start, type: 1[0m
 
-[0;32mI (9660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-50 dBm[0m
-[0;32mI (10234) WiFi Sta: Failed to connect to the AP[0m
-[0;32mI (10234) WiFi Sta: Retrying to connect to the AP[0m
-[0;32mI (10310) esp_netif_handlers: sta ip: 10.10.1.48, mask: 255.255.252.0, gw: 10.10.1.1[0m
-[0;32mI (10731) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:27:1e), tid:7, ssn:16, winSize:64[0m
-[0;32mI (11244) WiFi: Connected with IP: 10.10.1.48[0m
-[0;32mI (11244) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:27:1E[0m
-[0;32mI (11347) NVS: last index: 1[0m
-[0;32mI (11347) NVS: wifi index: 1[0m
-[0;32mI (11660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-51 dBm[0m
-[0;32mI (13660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-50 dBm[0m
-[0;32mI (15660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-50 dBm[0m
-[0;32mI (17660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-51 dBm[0m
-[0;32mI (19331) MQTT: Other event id:7[0m
-[0;32mI (19660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-50 dBm[0m
-[0;32mI (21660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-50 dBm[0m
-[0;32mI (22998) wifi_scan: Max AP number ap_info can hold = 20[0m
-[0;32mI (22998) wifi_scan: Total APs scanned = 11, actual AP number ap_info holds = 11[0m
-[0;32mI (23108) NVS: Have a saved wifi network in NVS[0m
-[0;32mI (23113) wifi_scan: [0m
-[0;32mI (23113) wifi_scan: Found saved wifi network in scan list, ssid: Namtrung 2.4G[0m
-[0;32mI (23113) wifi_scan: BSSID 12:5F:02:15:27:1E[0m
-[0;32mI (23660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-52 dBm[0m
-index:3
-[0;32mI (24128) wifi_scan: BSSID 12:5F:02:15:1E:9A[0m
-[0;32mI (24129) wifi_scan: Authmode 	WIFI_AUTH_WPA2_PSK[0m
-[0;32mI (24129) wifi_scan: Pairwise Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
-[0;32mI (24132) wifi_scan: Group Cipher 	WIFI_CIPHER_TYPE_CCMP[0m
-[0;32mI (25660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-54 dBm[0m
-[0;32mI (27660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-51 dBm[0m
-[1;31mE (29333) esp-tls: [sock=54] select() timeout[0m
-[1;31mE (29333) transport_base: Failed to open a new connection: 32774[0m
-[1;31mE (29333) mqtt_client: Error transport connect[0m
-[0;32mI (29336) MQTT: MQTT_EVENT_ERROR[0m
-[0;32mI (29339) MQTT: Last error code reported from esp-tls: 0x8006[0m
-[0;32mI (29344) MQTT: Last tls stack error number: 0x0[0m
-[0;32mI (29348) MQTT: Last captured errno : 0 (Success)[0m
-[0;32mI (29353) MQTT: MQTT_EVENT_DISCONNECTED[0m
-[0;32mI (29660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-50 dBm[0m
-[0;32mI (31660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-51 dBm[0m
-[0;32mI (33660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:27:1E, RSSI:-53 dBm[0m
-esp_wifi_disconnect 
-[0;32mI (34356) wifi:state: run -> init (0x0)[0m
-[0;32mI (34357) wifi:pm stop, total sleep time: 12840165 us / 25092002 us[0m
+[0;32mI (1874) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1882) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1891) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1895) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1934) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2267) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2267) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2629) HEAP: Free heap: 4122188[0m
+[0;32mI (2902) esp_netif_handlers: sta ip: 10.10.1.38, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2902) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2912) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2913) MQTT: Other event id:7[0m
+[0;32mI (2918) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:6, winSize:64[0m
+[0;32mI (2926) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2927) MQTT_SAVE_NUMBER: deleted retained message to keypad successfully, msg_id=35259[0m
+[0;32mI (2927) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:4, winSize:64[0m
+[0;32mI (2928) MQTT_SAVE_NUMBER: Sent connection message to keypad successfully, msg_id=65193[0m
+[0;32mI (2948) MQTT: MQTT_EVENT_PUBLISHED, msg_id=35259[0m
+[0;32mI (2950) MQTT: MQTT_EVENT_PUBLISHED, msg_id=65193[0m
+[0;32mI (2953) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=60447, return code=0x00[0m
+[0;32mI (2959) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=29509, return code=0x01[0m
+[0;32mI (2966) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (2968) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"qu\u1ea7y 2"},{"id":"A8:42:E3:4C:7C:BC","name":"1"},{"id":"B8:D6:1A:B9:DA:A4","name":"5"},{"id":"R1:42:E3:4C:7C:BC","name":"3"},{"id":"R2:42:E3:4C:7C:BC","name":"4"}][0m
+[0;32mI (2989) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (2994) MQTT_SAVE_NUMBER: Parsed 5 devices from MQTT[0m
+[0;32mI (2999) MQTT_SAVE_NUMBER: Device list unchanged, skip save[0m
+[0;32mI (3171) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=14825, return code=0x00[0m
+[0;32mI (3173) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=32960, return code=0x00[0m
+[0;32mI (3175) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=47472, return code=0x00[0m
+[0;32mI (3180) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (3183) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (3187) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (3191) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;33mW (3196) MQTT_SAVE_NUMBER: current_number does not exist in NVS[0m
+[0;32mI (3201) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (3629) HEAP: Free heap: 4111332[0m
+[0;32mI (3777) WiFi: Connected with IP: 10.10.1.38[0m
+[0;32mI (3777) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (3876) NVS: last index: -1[0m
+[0;32mI (3876) NVS: wifi index: 0[0m
+[0;33mW (3876) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (4629) HEAP: Free heap: 4111332[0m
+[0;32mI (5629) HEAP: Free heap: 4111332[0m
+[0;32mI (6629) HEAP: Free heap: 4111368[0m
+[0;32mI (7629) HEAP: Free heap: 4111368[0m
+[0;32mI (8629) HEAP: Free heap: 4111344[0m
+[0;32mI (9366) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"A8:42:E3:4C:7C:BC"},{"name":"2","device_id":"94:E6:86:09:A4:78"},{"name":"3","device_id":"R1:42:E3:4C:7C:BC"},{"name":"4","device_id":"R2:42:E3:4C:7C:BC"},{"name":"5","device_id":"B8:D6:1A:B9:DA:A4"}][0m
+[0;32mI (9381) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (9385) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (9390) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (9396) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (9401) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (9405) LVGL: Displayed 5 devices[0m
+[0;32mI (9629) HEAP: Free heap: 4111296[0m
+[0;32mI (10629) HEAP: Free heap: 4109276[0m
+[0;32mI (11634) HEAP: Free heap: 4109996[0m
+[0;32mI (12635) HEAP: Free heap: 4111288[0m
+[0;32mI (13652) HEAP: Free heap: 4110664[0m
+[0;32mI (14653) HEAP: Free heap: 4111308[0m
+[0;32mI (15653) HEAP: Free heap: 4111272[0m
+[0;32mI (16653) HEAP: Free heap: 4111308[0m
+[0;32mI (17653) HEAP: Free heap: 4111308[0m
+[0;32mI (18653) HEAP: Free heap: 4111308[0m
+[0;32mI (19653) HEAP: Free heap: 4111272[0m
+[0;32mI (20653) HEAP: Free heap: 4111308[0m
+[0;32mI (21653) HEAP: Free heap: 4111308[0m
+[0;32mI (22653) HEAP: Free heap: 4111308[0m
+[0;32mI (23653) HEAP: Free heap: 4111308[0m
+[0;32mI (24653) HEAP: Free heap: 4111308[0m
+[0;32mI (25653) HEAP: Free heap: 4111308[0m
+[0;32mI (26653) HEAP: Free heap: 4111308[0m
+[0;32mI (27653) HEAP: Free heap: 4111308[0m
+[0;32mI (28653) HEAP: Free heap: 4111272[0m
+[0;32mI (29653) HEAP: Free heap: 4111308[0m
+[0;32mI (30653) HEAP: Free heap: 4111308[0m
+[0;32mI (31653) HEAP: Free heap: 4111308[0m
+[0;32mI (32653) HEAP: Free heap: 4111272[0m
+[0;32mI (33653) HEAP: Free heap: 4111308[0m
+[0;32mI (34653) HEAP: Free heap: 4111308[0m
+[0;32mI (35653) HEAP: Free heap: 4111272[0m
+[0;32mI (36653) HEAP: Free heap: 4109484[0m
+[0;32mI (37653) HEAP: Free heap: 4111308[0m
+[0;32mI (38653) HEAP: Free heap: 4111308[0m
+[0;32mI (39653) HEAP: Free heap: 4111308[0m
+[0;32mI (40653) HEAP: Free heap: 4111308[0m
+[0;32mI (41653) HEAP: Free heap: 4111288[0m
+[0;32mI (42653) HEAP: Free heap: 4111288[0m
+[0;32mI (43653) HEAP: Free heap: 4111288[0m
+[0;32mI (44653) HEAP: Free heap: 4111248[0m
+[0;32mI (45653) HEAP: Free heap: 4111248[0m
+[0;32mI (46653) HEAP: Free heap: 4111288[0m
+[0;32mI (47653) HEAP: Free heap: 4111288[0m
+[0;32mI (48641) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (48641) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"1008","skip":"no"}[0m
+[0;32mI (48644) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (48649) MQTT_SAVE_NUMBER: Received number: 1008[0m
+[0;32mI (48653) HEAP: Free heap: 4110968[0m
+[0;32mI (48654) MQTT_SAVE_NUMBER: Saved number "1008" into key "current_number"[0m
+[0;32mI (49656) HEAP: Free heap: 4111288[0m
+[0;32mI (50375) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (50375) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"1009","skip":"no"}[0m
+[0;32mI (50378) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (50383) MQTT_SAVE_NUMBER: Received number: 1009[0m
+[0;32mI (50389) MQTT_SAVE_NUMBER: Saved number "1009" into key "next_number"[0m
+[0;32mI (50394) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (50398) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (50656) HEAP: Free heap: 4111288[0m
+[0;32mI (51656) HEAP: Free heap: 4111288[0m
+[0;32mI (52656) HEAP: Free heap: 4111288[0m
+[0;32mI (53656) HEAP: Free heap: 4111248[0m
+[0;32mI (54656) HEAP: Free heap: 4111288[0m
+[0;32mI (55656) HEAP: Free heap: 4111288[0m
+[0;32mI (56656) HEAP: Free heap: 4111288[0m
+[0;32mI (57656) HEAP: Free heap: 4111288[0m
+[0;32mI (58376) MQTT_SAVE_NUMBER: Read number: 1008[0m
+[0;32mI (58376) Feedback: Successfully read number: 1008[0m
+[0;32mI (58377) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (58379) Feedback: diem danh gia: 3[0m
 
-[0;32mI (34358) wifi:<ba-del>idx:0, tid:7[0m
-[0;32mI (34359) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
-[0;32mI (34367) WiFi Sta: Connecting to specific BSSID: 12:5F:02:15:1E:9A[0m
-[0;32mI (34367) WiFi Sta: STA disconnected, reason=8[0m
-[0;32mI (34378) WiFi Sta: WIFI STA_DISCONNECTED.[0m
-[0;33mW (34406) mqtt_client: Client asked to stop, but was not started[0m
-[0;32mI (34406) wifi:flush txq[0m
-[0;32mI (34406) wifi:stop sw txq[0m
-[0;32mI (34408) wifi:lmac stop hw txq[0m
-[0;32mI (34411) wifi:mode : sta (10:20:ba:01:48:a8)[0m
-[0;32mI (34415) wifi:enable tsf[0m
-[0;32mI (34417) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
-[0;33mW (34423) wifi:Haven't to connect to a suitable AP now![0m
-[0;32mI (34428) wifi:: Failed to get the ap_info[0m
-[0;32mI (34432) WiFi: Connected with IP: 10.10.1.48[0m
-[0;32mI (34436) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:\^I<[0m
-[0;32mI (34447) WiFi Sta: Updating Wi-Fi credentials in NVS...[0m
-[0;32mI (34450) WiFi Sta: Wi-Fi credentials saved successfully![0m
-[0;32mI (34454) WiFi Sta: Saved AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:\^I<[0m
-[0;32mI (34575) NVS: last index: 1[0m
-[0;32mI (34575) NVS: wifi index: 3[0m
-[0;33mW (35660) wifi:Haven't to connect to a suitable AP now![0m
-[0;33mW (35660) RSSI: Not connected to any AP[0m
-[0;32mI (36829) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
-[0;32mI (36829) wifi:state: init -> auth (0xb0)[0m
-[0;32mI (36860) wifi:state: auth -> assoc (0x0)[0m
-[0;32mI (36870) wifi:state: assoc -> run (0x10)[0m
-[0;32mI (36925) wifi:connected with Namtrung 2.4G, aid = 28, channel 11, BW20, bssid = 12:5f:02:15:1e:9a[0m
-[0;32mI (36926) wifi:security: WPA2-PSK, phy: bgn, rssi: -57[0m
-[0;32mI (36934) wifi:pm start, type: 1[0m
+[0;32mI (58384) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (58403) CHECKTIME: Pressed, reset current[0m
+[0;32mI (58405) MQTT_SAVE_NUMBER: copied next_number (1009) to current_number[0m
+[0;32mI (58406) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (58656) HEAP: Free heap: 4111072[0m
+[0;32mI (59656) HEAP: Free heap: 4111108[0m
+[0;32mI (60656) HEAP: Free heap: 4111108[0m
+[0;32mI (61656) HEAP: Free heap: 4111052[0m
+[0;32mI (62656) HEAP: Free heap: 4111052[0m
+[0;32mI (63656) HEAP: Free heap: 4111088[0m
+[0;32mI (64656) HEAP: Free heap: 4111088[0m
+[0;32mI (65226) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (65226) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"1010","skip":"yes"}[0m
+[0;32mI (65228) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (65233) MQTT_SAVE_NUMBER: Received number: 1010[0m
+[0;32mI (65238) MQTT_SAVE_NUMBER: Skip number[0m
+[0;32mI (65242) MQTT_SAVE_NUMBER: No next_number found[0m
+[0;33mW (65246) MQTT_SAVE_NUMBER: Only current_number exists -> deleting it[0m
+[0;32mI (65253) MQTT_SAVE_NUMBER: Deleted current_number successfully[0m
+[0;32mI (65258) MQTT_SAVE_NUMBER: Saved number "1010" into key current number successfully[0m
+[0;32mI (65656) HEAP: Free heap: 4111088[0m
+[0;32mI (66656) HEAP: Free heap: 4111052[0m
+[0;32mI (67656) HEAP: Free heap: 4111088[0m
+[0;32mI (68656) HEAP: Free heap: 4111088[0m
+[0;32mI (69656) HEAP: Free heap: 4111088[0m
+[0;32mI (70656) HEAP: Free heap: 4111088[0m
+[0;32mI (71656) HEAP: Free heap: 4111088[0m
+[0;32mI (72656) HEAP: Free heap: 4111088[0m
+[0;32mI (73656) HEAP: Free heap: 4111088[0m
+[0;32mI (74656) HEAP: Free heap: 4111088[0m
+[0;32mI (75656) HEAP: Free heap: 4111052[0m
+[0;32mI (76656) HEAP: Free heap: 4111088[0m
+[0;32mI (77455) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (77455) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"1011","skip":"yes"}[0m
+[0;32mI (77457) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (77463) MQTT_SAVE_NUMBER: Received number: 1011[0m
+[0;32mI (77467) MQTT_SAVE_NUMBER: Skip number[0m
+[0;32mI (77471) MQTT_SAVE_NUMBER: No next_number found[0m
+[0;33mW (77475) MQTT_SAVE_NUMBER: Only current_number exists -> deleting it[0m
+[0;32mI (77482) MQTT_SAVE_NUMBER: Deleted current_number successfully[0m
+[0;32mI (77487) MQTT_SAVE_NUMBER: Saved number "1011" into key current number successfully[0m
+[0;32mI (77656) HEAP: Free heap: 4111088[0m
+[0;32mI (78656) HEAP: Free heap: 4111088[0m
+[0;32mI (79656) HEAP: Free heap: 4111088[0m
+[0;32mI (80656) HEAP: Free heap: 4111088[0m
+[0;32mI (81656) HEAP: Free heap: 4111088[0m
+[0;32mI (82656) HEAP: Free heap: 4111088[0m
+[0;32mI (83454) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (83454) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"2009","skip":"no"}[0m
+[0;32mI (83456) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (83462) MQTT_SAVE_NUMBER: Received number: 2009[0m
+[0;32mI (83467) MQTT_SAVE_NUMBER: Saved number "2009" into key "next_number"[0m
+[0;32mI (83472) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (83476) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (83656) HEAP: Free heap: 4111088[0m
+[0;32mI (84656) HEAP: Free heap: 4111088[0m
+[0;32mI (85656) HEAP: Free heap: 4111088[0m
+[0;32mI (86656) HEAP: Free heap: 4111088[0m
+[0;32mI (87656) HEAP: Free heap: 4111088[0m
+[0;32mI (88656) HEAP: Free heap: 4111088[0m
+[0;32mI (88766) MQTT_SAVE_NUMBER: Read number: 1011[0m
+[0;32mI (88767) Feedback: Successfully read number: 1011[0m
+[0;32mI (88767) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (88769) Feedback: diem danh gia: 3[0m
 
-[0;32mI (36934) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
-[0;32mI (36940) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:11[0m
-[0;32mI (36945) MQTT: Other event id:7[0m
-[1;31mE (36949) esp-tls: [sock=54] connect() error: Host is unreachable[0m
-[0;32mI (36951) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
-[1;31mE (36954) transport_base: Failed to open a new connection: 32772[0m
-[1;31mE (36966) mqtt_client: Error transport connect[0m
-[0;32mI (36970) MQTT: MQTT_EVENT_ERROR[0m
-[0;32mI (36973) MQTT: Last error code reported from esp-tls: 0x8004[0m
-[0;32mI (36978) MQTT: Last tls stack error number: 0x0[0m
-[0;32mI (36982) MQTT: Last captured errno : 0 (Success)[0m
-[0;32mI (36987) MQTT: MQTT_EVENT_DISCONNECTED[0m
-[0;32mI (37660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
-[0;32mI (38083) esp_netif_handlers: sta ip: 10.10.1.48, mask: 255.255.252.0, gw: 10.10.1.1[0m
-[0;32mI (38696) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:1e:9a), tid:7, ssn:15, winSize:64[0m
-[0;32mI (39660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (41660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (43660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (45660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-48 dBm[0m
-[0;32mI (46990) MQTT: Other event id:7[0m
-[0;32mI (47660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-47 dBm[0m
-[0;32mI (49660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-60 dBm[0m
-[0;32mI (51660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-51 dBm[0m
-[0;32mI (53660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-53 dBm[0m
-[0;32mI (55660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[1;31mE (56992) esp-tls: [sock=54] select() timeout[0m
-[1;31mE (56992) transport_base: Failed to open a new connection: 32774[0m
-[1;31mE (56992) mqtt_client: Error transport connect[0m
-[0;32mI (56995) MQTT: MQTT_EVENT_ERROR[0m
-[0;32mI (56998) MQTT: Last error code reported from esp-tls: 0x8006[0m
-[0;32mI (57003) MQTT: Last tls stack error number: 0x0[0m
-[0;32mI (57007) MQTT: Last captured errno : 0 (Success)[0m
-[0;32mI (57012) MQTT: MQTT_EVENT_DISCONNECTED[0m
-[0;32mI (57660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (59660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (61660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (63660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (65660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (67015) MQTT: Other event id:7[0m
-[0;32mI (67660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (69660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (71660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (73660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (75660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[1;31mE (77017) esp-tls: [sock=54] select() timeout[0m
-[1;31mE (77017) transport_base: Failed to open a new connection: 32774[0m
-[1;31mE (77017) mqtt_client: Error transport connect[0m
-[0;32mI (77020) MQTT: MQTT_EVENT_ERROR[0m
-[0;32mI (77023) MQTT: Last error code reported from esp-tls: 0x8006[0m
-[0;32mI (77028) MQTT: Last tls stack error number: 0x0[0m
-[0;32mI (77032) MQTT: Last captured errno : 0 (Success)[0m
-[0;32mI (77037) MQTT: MQTT_EVENT_DISCONNECTED[0m
-[0;32mI (77660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (79660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (81660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (83660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (85660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (87040) MQTT: Other event id:7[0m
-[0;32mI (87660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (89660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (91660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (93660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (95660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
-[1;31mE (97043) esp-tls: [sock=54] select() timeout[0m
-[1;31mE (97043) transport_base: Failed to open a new connection: 32774[0m
-[1;31mE (97043) mqtt_client: Error transport connect[0m
-[0;32mI (97046) MQTT: MQTT_EVENT_ERROR[0m
-[0;32mI (97049) MQTT: Last error code reported from esp-tls: 0x8006[0m
-[0;32mI (97054) MQTT: Last tls stack error number: 0x0[0m
-[0;32mI (97058) MQTT: Last captured errno : 0 (Success)[0m
-[0;32mI (97063) MQTT: MQTT_EVENT_DISCONNECTED[0m
-[0;32mI (97660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (99660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (101660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
-[0;32mI (103660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
-[0;32mI (105660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (107066) MQTT: Other event id:7[0m
-[0;32mI (107660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (109660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-53 dBm[0m
-[0;32mI (111660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-52 dBm[0m
-[0;32mI (113660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-51 dBm[0m
-[0;32mI (115660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[1;31mE (117068) esp-tls: [sock=54] select() timeout[0m
-[1;31mE (117068) transport_base: Failed to open a new connection: 32774[0m
-[1;31mE (117068) mqtt_client: Error transport connect[0m
-[0;32mI (117071) MQTT: MQTT_EVENT_ERROR[0m
-[0;32mI (117074) MQTT: Last error code reported from esp-tls: 0x8006[0m
-[0;32mI (117080) MQTT: Last tls stack error number: 0x0[0m
-[0;32mI (117084) MQTT: Last captured errno : 0 (Success)[0m
-[0;32mI (117089) MQTT: MQTT_EVENT_DISCONNECTED[0m
-[0;32mI (117660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (119660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (121660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (123660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (125660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (127092) MQTT: Other event id:7[0m
-[0;32mI (127660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (129660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (131660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (133660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (135660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[1;31mE (137095) esp-tls: [sock=54] select() timeout[0m
-[1;31mE (137095) transport_base: Failed to open a new connection: 32774[0m
-[1;31mE (137095) mqtt_client: Error transport connect[0m
-[0;32mI (137098) MQTT: MQTT_EVENT_ERROR[0m
-[0;32mI (137101) MQTT: Last error code reported from esp-tls: 0x8006[0m
-[0;32mI (137106) MQTT: Last tls stack error number: 0x0[0m
-[0;32mI (137111) MQTT: Last captured errno : 0 (Success)[0m
-[0;32mI (137115) MQTT: MQTT_EVENT_DISCONNECTED[0m
-[0;32mI (137660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (139660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (141660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (143660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (145660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (147119) MQTT: Other event id:7[0m
-[0;32mI (147353) wifi:<ba-add>idx:1 (ifx:0, 12:5f:02:15:1e:9a), tid:0, ssn:1, winSize:64[0m
-[0;32mI (147354) MQTT: MQTT_EVENT_CONNECTED[0m
-[0;32mI (147660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (149660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-52 dBm[0m
-[0;32mI (151660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (153660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (155660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (157660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (159660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (161660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (163660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (165660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (167660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (169660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (171660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (173660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
-[0;32mI (175660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (177660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (179660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (181660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (183660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (185660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (187660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (189660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (191660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (193660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (195660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-52 dBm[0m
-[0;32mI (197660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (199660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (201660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (203660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (205660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (207660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (209660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (211660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (213660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
-[0;32mI (215660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (217660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (219660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (221660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (223660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (225660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (227660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (229660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (231660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (233660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (235660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
-[0;32mI (237660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (239660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (241660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (243660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (245660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (247660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (249660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (251660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (253660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (255660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (257660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (259660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (261660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (263660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (265660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (267660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (269660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (271660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (273660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (275660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (277660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (279660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (281660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (283660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (285660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-51 dBm[0m
-[0;32mI (287660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (289660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (291660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (293660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (295660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (297660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (299660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (301660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (303660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (305660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (307660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (309660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (311660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (313660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (315660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (317660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (319660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (321660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (323660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (325660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (327660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (329660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-52 dBm[0m
-[0;32mI (331660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (333660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (335660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (337660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (339660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (341660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (343660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (345660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (347660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (349660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (351660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (353660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (355660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (357660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (359660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (361660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (363660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (365660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (367660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (369660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (371660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (373660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (375660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (377660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (379660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (381660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (383660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (385660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (387660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (389660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (391660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (393660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-51 dBm[0m
-[0;32mI (395660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (397660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (399660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (401660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-53 dBm[0m
-[0;32mI (403660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (405660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (407660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (409660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (411660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-51 dBm[0m
-[0;32mI (413660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (415660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (417660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (419660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (421660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (423660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (425660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (427660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (429660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (431660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (433660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (435660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (437660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (439660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (441660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (443660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (445660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (447660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (449660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (451660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
-[0;32mI (453660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (455660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (457660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (459660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (461660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (463660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (465660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (467660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-52 dBm[0m
-[0;32mI (469660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (471660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (473660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (475660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (477660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (479660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (481660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (483660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (485660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (487660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (489660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (491660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-53 dBm[0m
-[0;32mI (493660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-58 dBm[0m
-[0;32mI (495660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (497660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (499660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (501660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (503660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (505660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (507660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (509660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (511660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-51 dBm[0m
-[0;32mI (513660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (515660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (517660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (519660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (521660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-52 dBm[0m
-[0;32mI (523660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (525660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (527660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (529660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (531660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (533660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (535660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (537660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (539660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (541660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (543660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (545660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (547660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (549660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (551660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (553660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (555660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (557660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (559660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (561660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (563660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-56 dBm[0m
-[0;32mI (565660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (567660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (569660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (571660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (573660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (575660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (577660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (579660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (581660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
-[0;32mI (583660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (585660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (587660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-58 dBm[0m
-[0;32mI (589660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-52 dBm[0m
-[0;32mI (591660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-50 dBm[0m
-[0;32mI (593660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-54 dBm[0m
-[0;32mI (595660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-60 dBm[0m
-[0;32mI (597660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-57 dBm[0m
-[0;32mI (599660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-60 dBm[0m
-[0;32mI (601660) RSSI: Connected SSID:Namtrung 2.4G, BSSID:12:5F:02:15:1E:9A, RSSI:-55 dBm[0m
+[0;32mI (88774) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (88781) CHECKTIME: Pressed, reset current[0m
+[0;32mI (88783) MQTT_SAVE_NUMBER: copied next_number (2009) to current_number[0m
+[0;32mI (88788) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (89678) HEAP: Free heap: 4107948[0m
+[0;32mI (90678) HEAP: Free heap: 4111108[0m
+[0;32mI (91678) HEAP: Free heap: 4111108[0m
+[0;32mI (92678) HEAP: Free heap: 4111072[0m
+[0;32mI (93678) HEAP: Free heap: 4111072[0m
+[0;32mI (94678) HEAP: Free heap: 4111108[0m
+[0;32mI (95678) HEAP: Free heap: 4111108[0m
+[0;32mI (96678) HEAP: Free heap: 4111072[0m
+[0;32mI (97678) HEAP: Free heap: 4110944[0m
+[0;32mI (98678) HEAP: Free heap: 4111108[0m
+[0;32mI (99678) HEAP: Free heap: 4111108[0m
+[0;32mI (100678) HEAP: Free heap: 4111072[0m
+[0;32mI (101678) HEAP: Free heap: 4111072[0m
+[0;32mI (102678) HEAP: Free heap: 4111108[0m
+[0;32mI (103678) HEAP: Free heap: 4111108[0m
+[0;32mI (104678) HEAP: Free heap: 4111108[0m
+[0;32mI (105678) HEAP: Free heap: 4111072[0m
+[0;32mI (106678) HEAP: Free heap: 4111108[0m
+[0;32mI (107678) HEAP: Free heap: 4111108[0m
+[0;32mI (108678) HEAP: Free heap: 4111108[0m
+[0;32mI (109678) HEAP: Free heap: 4111108[0m
+[0;32mI (110678) HEAP: Free heap: 4111072[0m
+[0;32mI (111678) HEAP: Free heap: 4111108[0m
+[0;32mI (112678) HEAP: Free heap: 4111108[0m
+[0;32mI (113678) HEAP: Free heap: 4111108[0m
+[0;32mI (114678) HEAP: Free heap: 4111072[0m
+[0;32mI (115678) HEAP: Free heap: 4111088[0m
+[0;32mI (116678) HEAP: Free heap: 4111088[0m
+[0;32mI (117678) HEAP: Free heap: 4111088[0m
+[0;32mI (118678) HEAP: Free heap: 4111052[0m
+[0;32mI (119678) HEAP: Free heap: 4111088[0m
+[0;32mI (120678) HEAP: Free heap: 4111088[0m
+[0;32mI (121678) HEAP: Free heap: 4111088[0m
+[0;32mI (122678) HEAP: Free heap: 4111072[0m
+[0;32mI (123678) HEAP: Free heap: 4111072[0m
+[0;32mI (124678) HEAP: Free heap: 4111108[0m
+[0;32mI (125678) HEAP: Free heap: 4111108[0m
+[0;32mI (126678) HEAP: Free heap: 4111072[0m
+[0;32mI (127678) HEAP: Free heap: 4111072[0m
+[0;32mI (128678) HEAP: Free heap: 4111072[0m
+[0;32mI (129678) HEAP: Free heap: 4111108[0m
+[0;32mI (130678) HEAP: Free heap: 4111108[0m
+[0;32mI (131678) HEAP: Free heap: 4111108[0m
+[0;32mI (132678) HEAP: Free heap: 4111108[0m
+[0;32mI (133678) HEAP: Free heap: 4111108[0m
+[0;32mI (134678) HEAP: Free heap: 4111108[0m
+[0;32mI (135678) HEAP: Free heap: 4111108[0m
+[0;32mI (136678) HEAP: Free heap: 4111108[0m
+[0;32mI (137678) HEAP: Free heap: 4111108[0m
+[0;32mI (138678) HEAP: Free heap: 4111108[0m
+[0;32mI (139678) HEAP: Free heap: 4111108[0m
+[0;32mI (140678) HEAP: Free heap: 4111108[0m
+[0;32mI (141678) HEAP: Free heap: 4111108[0m
+[0;32mI (142678) HEAP: Free heap: 4111072[0m
+[0;32mI (143678) HEAP: Free heap: 4111108[0m
+[0;32mI (144678) HEAP: Free heap: 4111072[0m
+[0;32mI (145678) HEAP: Free heap: 4111108[0m
+[0;32mI (146678) HEAP: Free heap: 4111108[0m
+[0;32mI (147678) HEAP: Free heap: 4111108[0m
+[0;32mI (148678) HEAP: Free heap: 4111072[0m
+[0;32mI (149678) HEAP: Free heap: 4111108[0m
+[0;32mI (150678) HEAP: Free heap: 4111108[0m
+[0;32mI (151678) HEAP: Free heap: 4111108[0m
+[0;32mI (152678) HEAP: Free heap: 4111108[0m
+[0;32mI (153678) HEAP: Free heap: 4111108[0m
+[0;32mI (154678) HEAP: Free heap: 4111108[0m
+[0;32mI (155678) HEAP: Free heap: 4111108[0m
+[0;32mI (156678) HEAP: Free heap: 4111072[0m
+[0;32mI (156876) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (156876) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"1012","skip":"no"}[0m
+[0;32mI (156879) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (156884) MQTT_SAVE_NUMBER: Received number: 1012[0m
+[0;32mI (156890) MQTT_SAVE_NUMBER: Saved number "1012" into key "next_number"[0m
+[0;32mI (156895) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (156899) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (157678) HEAP: Free heap: 4111072[0m
+[0;32mI (158678) HEAP: Free heap: 4111108[0m
+[0;32mI (159678) HEAP: Free heap: 4111108[0m
+[0;32mI (160462) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (160462) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"1013","skip":"no"}[0m
+[0;32mI (160465) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (160470) MQTT_SAVE_NUMBER: Received number: 1013[0m
+[0;32mI (160476) MQTT_SAVE_NUMBER: Saved number "1013" into key "next_number"[0m
+[0;32mI (160504) CHECKTIME: New sema, skip next number[0m
+[0;32mI (160678) HEAP: Free heap: 4110940[0m
+[0;32mI (161678) HEAP: Free heap: 4110940[0m
+[0;32mI (162678) HEAP: Free heap: 4110976[0m
+[0;32mI (163678) HEAP: Free heap: 4110976[0m
+[0;32mI (164678) HEAP: Free heap: 4110976[0m
+[0;32mI (165678) HEAP: Free heap: 4110940[0m
+[0;32mI (166678) HEAP: Free heap: 4110976[0m
+[0;32mI (166904) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (166906) MQTT_SAVE_NUMBER: copied next_number (1013) to current_number[0m
+[0;32mI (166907) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (167678) HEAP: Free heap: 4110976[0m
+[0;32mI (168678) HEAP: Free heap: 4110976[0m
+[0;32mI (169678) HEAP: Free heap: 4110976[0m
+[0;32mI (170678) HEAP: Free heap: 4110976[0m
+[0;32mI (171678) HEAP: Free heap: 4110976[0m
+[0;32mI (172678) HEAP: Free heap: 4110976[0m
+[0;32mI (173678) HEAP: Free heap: 4110976[0m
+[0;32mI (174678) HEAP: Free heap: 4110940[0m
+[0;32mI (175678) HEAP: Free heap: 4110976[0m
+[0;32mI (176678) HEAP: Free heap: 4110976[0m
+[0;32mI (177678) HEAP: Free heap: 4110940[0m
+[0;32mI (178678) HEAP: Free heap: 4110940[0m
+[0;32mI (179678) HEAP: Free heap: 4110976[0m
+[0;32mI (180678) HEAP: Free heap: 4110976[0m
+[0;32mI (181678) HEAP: Free heap: 4110976[0m
+[0;32mI (182678) HEAP: Free heap: 4110976[0m
+[0;32mI (183678) HEAP: Free heap: 4110976[0m
+[0;32mI (184678) HEAP: Free heap: 4110940[0m
+[0;32mI (185678) HEAP: Free heap: 4110976[0m
+[0;32mI (186469) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (186469) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"1014","skip":"no"}[0m
+[0;32mI (186471) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (186477) MQTT_SAVE_NUMBER: Received number: 1014[0m
+[0;32mI (186482) MQTT_SAVE_NUMBER: Saved number "1014" into key "next_number"[0m
+[0;32mI (186488) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (186492) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (186678) HEAP: Free heap: 4110940[0m
+[0;32mI (187678) HEAP: Free heap: 4110976[0m
+[0;32mI (188678) HEAP: Free heap: 4110976[0m
+[0;32mI (189678) HEAP: Free heap: 4110976[0m
+[0;32mI (190678) HEAP: Free heap: 4110940[0m
+[0;32mI (191678) HEAP: Free heap: 4110940[0m
+[0;32mI (192678) HEAP: Free heap: 4110976[0m
+[0;32mI (193678) HEAP: Free heap: 4110976[0m
+[0;32mI (194678) HEAP: Free heap: 4110976[0m
+[0;32mI (195678) HEAP: Free heap: 4110976[0m
+[0;32mI (196497) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (196499) MQTT_SAVE_NUMBER: copied next_number (1014) to current_number[0m
+[0;32mI (196500) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (196678) HEAP: Free heap: 4110976[0m
+[0;32mI (197678) HEAP: Free heap: 4110976[0m
+[0;32mI (198678) HEAP: Free heap: 4110976[0m
+[0;32mI (199678) HEAP: Free heap: 4110976[0m
+[0;32mI (200008) MQTT_SAVE_NUMBER: Read number: 1014[0m
+[0;32mI (200009) Feedback: Successfully read number: 1014[0m
+[0;32mI (200009) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (200012) Feedback: diem danh gia: 3[0m
+
+[0;32mI (200016) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (200678) HEAP: Free heap: 4110956[0m
+[0;32mI (201678) HEAP: Free heap: 4110976[0m
+[0;32mI (202678) HEAP: Free heap: 4110976[0m
+[0;32mI (203678) HEAP: Free heap: 4110976[0m
+[0;32mI (204678) HEAP: Free heap: 4110976[0m
+[0;32mI (205678) HEAP: Free heap: 4110976[0m
+[0;32mI (206678) HEAP: Free heap: 4110976[0m
+[0;32mI (207678) HEAP: Free heap: 4110976[0m
+[0;32mI (208678) HEAP: Free heap: 4110940[0m
+[0;32mI (209678) HEAP: Free heap: 4110976[0m
+[0;32mI (210678) HEAP: Free heap: 4110976[0m
+[0;32mI (211678) HEAP: Free heap: 4110976[0m
+[0;32mI (212678) HEAP: Free heap: 4110940[0m
+[0;32mI (213678) HEAP: Free heap: 4110976[0m
+[0;32mI (214678) HEAP: Free heap: 4110976[0m
+[0;32mI (215678) HEAP: Free heap: 4110976[0m
+[0;32mI (216678) HEAP: Free heap: 4110940[0m
+[0;32mI (217678) HEAP: Free heap: 4110976[0m
+[0;32mI (218678) HEAP: Free heap: 4110976[0m
+[0;32mI (219678) HEAP: Free heap: 4110940[0m
+[0;32mI (220678) HEAP: Free heap: 4110940[0m
+[0;32mI (221678) HEAP: Free heap: 4110976[0m
+[0;32mI (222678) HEAP: Free heap: 4110976[0m
+[0;32mI (223678) HEAP: Free heap: 4110976[0m
+[0;32mI (224678) HEAP: Free heap: 4110976[0m
+[0;32mI (225678) HEAP: Free heap: 4110940[0m
+[0;32mI (226678) HEAP: Free heap: 4110976[0m
+[0;32mI (227678) HEAP: Free heap: 4110976[0m
+[0;32mI (228678) HEAP: Free heap: 4110976[0m
+[0;32mI (229678) HEAP: Free heap: 4110940[0m
+[0;32mI (230678) HEAP: Free heap: 4110976[0m
+[0;32mI (231678) HEAP: Free heap: 4110976[0m
+[0;32mI (232678) HEAP: Free heap: 4110976[0m
+[0;32mI (233129) MQTT_SAVE_NUMBER: Read number: 1014[0m
+[0;32mI (233129) Feedback: Successfully read number: 1014[0m
+[0;32mI (233130) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (233132) Feedback: diem danh gia: 2[0m
+
+[0;32mI (233137) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (233678) HEAP: Free heap: 4110956[0m
+[0;32mI (234678) HEAP: Free heap: 4110996[0m
+[0;32mI (235678) HEAP: Free heap: 4110996[0m
+[0;32mI (236678) HEAP: Free heap: 4110996[0m
+[0;32mI (237678) HEAP: Free heap: 4110960[0m
+[0;32mI (238678) HEAP: Free heap: 4110940[0m
+[0;32mI (239678) HEAP: Free heap: 4110976[0m
+[0;32mI (240678) HEAP: Free heap: 4110976[0m
+[0;32mI (241463) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (241463) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"2010","skip":"no"}[0m
+[0;32mI (241466) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (241471) MQTT_SAVE_NUMBER: Received number: 2010[0m
+[0;32mI (241477) MQTT_SAVE_NUMBER: Saved number "2010" into key "next_number"[0m
+[0;32mI (241482) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (241486) CHECKTIME: Pressed, reset current[0m
+[0;32mI (241491) MQTT_SAVE_NUMBER: copied next_number (2010) to current_number[0m
+[0;32mI (241497) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (241678) HEAP: Free heap: 4110940[0m
+[0;32mI (242678) HEAP: Free heap: 4110976[0m
+[0;32mI (243678) HEAP: Free heap: 4110976[0m
+[0;32mI (244678) HEAP: Free heap: 4110976[0m
+[0;32mI (245678) HEAP: Free heap: 4110940[0m
+[0;32mI (246678) HEAP: Free heap: 4110940[0m
+[0;32mI (247678) HEAP: Free heap: 4110976[0m
+[0;32mI (248678) HEAP: Free heap: 4110976[0m
+[0;32mI (249032) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (249032) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"2011","skip":"no"}[0m
+[0;32mI (249035) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (249040) MQTT_SAVE_NUMBER: Received number: 2011[0m
+[0;32mI (249046) MQTT_SAVE_NUMBER: Saved number "2011" into key "next_number"[0m
+[0;32mI (249051) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (249055) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (249678) HEAP: Free heap: 4110976[0m
+[0;32mI (250678) HEAP: Free heap: 4110940[0m
+[0;32mI (251678) HEAP: Free heap: 4110976[0m
+[0;32mI (252678) HEAP: Free heap: 4110976[0m
+[0;32mI (253678) HEAP: Free heap: 4110976[0m
+[0;32mI (254678) HEAP: Free heap: 4110976[0m
+[0;32mI (255678) HEAP: Free heap: 4110940[0m
+[0;32mI (256678) HEAP: Free heap: 4110976[0m
+[0;32mI (257678) HEAP: Free heap: 4110976[0m
+[0;32mI (258678) HEAP: Free heap: 4110976[0m
+[0;32mI (259060) CHECKTIME TASK: TIMEOUT, reset current[0m
+[0;32mI (259062) MQTT_SAVE_NUMBER: copied next_number (2011) to current_number[0m
+[0;32mI (259063) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (259678) HEAP: Free heap: 4110940[0m
+[0;32mI (260678) HEAP: Free heap: 4110976[0m
+[0;32mI (261678) HEAP: Free heap: 4110976[0m
+[0;32mI (262678) HEAP: Free heap: 4110976[0m
+[0;32mI (263678) HEAP: Free heap: 4110940[0m
+[0;32mI (264678) HEAP: Free heap: 4110976[0m
+[0;32mI (265678) HEAP: Free heap: 4110976[0m
+[0;32mI (266678) HEAP: Free heap: 4110976[0m
+[0;32mI (267678) HEAP: Free heap: 4110976[0m
+[0;32mI (268678) HEAP: Free heap: 4110976[0m
+[0;32mI (269678) HEAP: Free heap: 4110976[0m
+[0;32mI (270678) HEAP: Free heap: 4110940[0m
+[0;32mI (271678) HEAP: Free heap: 4110940[0m
+[0;32mI (272678) HEAP: Free heap: 4110940[0m
+[0;32mI (273678) HEAP: Free heap: 4110976[0m
+[0;32mI (274225) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (274226) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (274226) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (274228) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;32mI (274234) MQTT_SAVE_NUMBER: current_number deleted successfully[0m
+[0;32mI (274239) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (274678) HEAP: Free heap: 4111108[0m
+[0;32mI (275678) HEAP: Free heap: 4111108[0m
+[0;32mI (276678) HEAP: Free heap: 4111108[0m
+[0;32mI (277678) HEAP: Free heap: 4111108[0m
+[0;32mI (278678) HEAP: Free heap: 4111108[0m
+[0;32mI (278937) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (278937) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"2012","skip":"no"}[0m
+[0;32mI (278939) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (278945) MQTT_SAVE_NUMBER: Received number: 2012[0m
+[0;32mI (278950) MQTT_SAVE_NUMBER: Saved number "2012" into key "current_number"[0m
+[0;32mI (279678) HEAP: Free heap: 4110976[0m
+[0;32mI (280678) HEAP: Free heap: 4110976[0m
+[0;32mI (281678) HEAP: Free heap: 4110976[0m
+[0;32mI (282678) HEAP: Free heap: 4110976[0m
+[0;32mI (283442) MQTT_SAVE_NUMBER: Processing topic: number[0m
+[0;32mI (283442) MQTT_SAVE_NUMBER: Data: {"device_id":"B8:D6:1A:B9:DA:A4","number":"2013","skip":"no"}[0m
+[0;32mI (283445) LOAD_DEVICE_ID: Loaded device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (283450) MQTT_SAVE_NUMBER: Received number: 2013[0m
+[0;32mI (283456) MQTT_SAVE_NUMBER: Saved number "2013" into key "next_number"[0m
+[0;32mI (283461) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (283465) CHECKTIME TASK: Start waiting for 10 seconds...[0m
+[0;32mI (283678) HEAP: Free heap: 4110940[0m
+[0;32mI (284678) HEAP: Free heap: 4110976[0m
+[0;32mI (285678) HEAP: Free heap: 4110976[0m
+[0;32mI (286678) HEAP: Free heap: 4110976[0m
+[0;32mI (286914) MQTT_SAVE_NUMBER: Read number: 2012[0m
+[0;32mI (286915) Feedback: Successfully read number: 2012[0m
+[0;32mI (286915) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (286918) Feedback: diem danh gia: 3[0m
+
+[0;32mI (286922) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (286970) CHECKTIME: Pressed, reset current[0m
+[0;32mI (286973) MQTT_SAVE_NUMBER: copied next_number (2013) to current_number[0m
+[0;32mI (286973) MQTT_SAVE_NUMBER: Deleted key next_number successfully[0m
+[0;32mI (287678) HEAP: Free heap: 4110956[0m
+[0;32mI (288678) HEAP: Free heap: 4110960[0m
+[0;32mI (289678) HEAP: Free heap: 4110960[0m
+[0;32mI (290678) HEAP: Free heap: 4110976[0m
+[0;32mI (291678) HEAP: Free heap: 4110976[0m
+[0;32mI (292678) HEAP: Free heap: 4110976[0m
+[0;32mI (293678) HEAP: Free heap: 4110976[0m
+[0;32mI (294678) HEAP: Free heap: 4110976[0m
+[0;32mI (295678) HEAP: Free heap: 4110976[0m
+[0;32mI (296678) HEAP: Free heap: 4110940[0m
+[0;32mI (297678) HEAP: Free heap: 4110976[0m
+[0;32mI (298678) HEAP: Free heap: 4110976[0m
+[0;32mI (299678) HEAP: Free heap: 4110976[0m
+[0;32mI (300678) HEAP: Free heap: 4110976[0m
+[0;32mI (301678) HEAP: Free heap: 4110940[0m
+[0;32mI (302678) HEAP: Free heap: 4110940[0m
+[0;32mI (303678) HEAP: Free heap: 4110976[0m
+[0;32mI (304678) HEAP: Free heap: 4110976[0m
+[0;32mI (305678) HEAP: Free heap: 4110976[0m
+[0;32mI (306678) HEAP: Free heap: 4110940[0m
+[0;32mI (307678) HEAP: Free heap: 4110976[0m
+[0;32mI (308678) HEAP: Free heap: 4110976[0m
+[0;32mI (309678) HEAP: Free heap: 4110976[0m
+[0;32mI (310678) HEAP: Free heap: 4110940[0m
+[0;32mI (311678) HEAP: Free heap: 4110976[0m
+[0;32mI (312678) HEAP: Free heap: 4110976[0m
+[0;32mI (313678) HEAP: Free heap: 4110976[0m
+[0;32mI (314678) HEAP: Free heap: 4110976[0m
+[0;32mI (315678) HEAP: Free heap: 4110976[0m
+[0;32mI (316678) HEAP: Free heap: 4110976[0m
+[0;32mI (317678) HEAP: Free heap: 4110976[0m
+[0;32mI (318678) HEAP: Free heap: 4110940[0m
+[0;32mI (319678) HEAP: Free heap: 4110940[0m
+[0;32mI (320678) HEAP: Free heap: 4110976[0m
+[0;32mI (321678) HEAP: Free heap: 4110976[0m
+[0;32mI (322678) HEAP: Free heap: 4110940[0m
+[0;32mI (323678) HEAP: Free heap: 4110940[0m
+[0;32mI (324678) HEAP: Free heap: 4110976[0m
+[0;32mI (325678) HEAP: Free heap: 4110976[0m
+[0;32mI (326678) HEAP: Free heap: 4110940[0m
+[0;32mI (327678) HEAP: Free heap: 4110940[0m
+[0;32mI (328678) HEAP: Free heap: 4110976[0m
+[0;32mI (329678) HEAP: Free heap: 4110976[0m
+[0;32mI (330678) HEAP: Free heap: 4110976[0m
+[0;32mI (331678) HEAP: Free heap: 4110940[0m
+[0;32mI (332678) HEAP: Free heap: 4110976[0m
+[0;32mI (333678) HEAP: Free heap: 4110976[0m
+[0;32mI (334678) HEAP: Free heap: 4110976[0m
+[0;32mI (335678) HEAP: Free heap: 4110940[0m
+[0;32mI (336678) HEAP: Free heap: 4110940[0m
+[0;32mI (337678) HEAP: Free heap: 4110976[0m
+[0;32mI (338678) HEAP: Free heap: 4110976[0m
+[0;32mI (339678) HEAP: Free heap: 4110976[0m
+[0;32mI (340678) HEAP: Free heap: 4110940[0m
+[0;32mI (341678) HEAP: Free heap: 4110976[0m
+[0;32mI (342678) HEAP: Free heap: 4110976[0m
+[0;32mI (343678) HEAP: Free heap: 4110976[0m
+[0;32mI (344678) HEAP: Free heap: 4110940[0m
+[0;32mI (345678) HEAP: Free heap: 4110976[0m
+[0;32mI (346678) HEAP: Free heap: 4110976[0m
+[0;32mI (347678) HEAP: Free heap: 4110976[0m
+[0;32mI (348678) HEAP: Free heap: 4110976[0m
+[0;32mI (349678) HEAP: Free heap: 4110976[0m
+[0;32mI (350678) HEAP: Free heap: 4110976[0m
+[0;32mI (351678) HEAP: Free heap: 4110940[0m
+[0;32mI (352678) HEAP: Free heap: 4110940[0m
+[0;32mI (353678) HEAP: Free heap: 4110940[0m
+[0;32mI (354678) HEAP: Free heap: 4110976[0m
+[0;32mI (355678) HEAP: Free heap: 4110976[0m
+[0;32mI (356678) HEAP: Free heap: 4110940[0m
+[0;32mI (357678) HEAP: Free heap: 4110976[0m
+[0;32mI (358678) HEAP: Free heap: 4110976[0m
+[0;32mI (359678) HEAP: Free heap: 4110976[0m
+[0;32mI (360678) HEAP: Free heap: 4110976[0m
+[0;32mI (361678) HEAP: Free heap: 4110940[0m
+[0;32mI (362678) HEAP: Free heap: 4110976[0m
+[0;32mI (363678) HEAP: Free heap: 4110976[0m
+[0;32mI (364678) HEAP: Free heap: 4110976[0m
+[0;32mI (365678) HEAP: Free heap: 4110976[0m
+[0;32mI (366678) HEAP: Free heap: 4110940[0m
+[0;32mI (367678) HEAP: Free heap: 4110976[0m
+[0;32mI (368678) HEAP: Free heap: 4110976[0m
+[0;32mI (369678) HEAP: Free heap: 4110976[0m
+[0;32mI (370678) HEAP: Free heap: 4110940[0m
+[0;32mI (371678) HEAP: Free heap: 4110976[0m
+[0;32mI (372678) HEAP: Free heap: 4110976[0m
+[0;32mI (373678) HEAP: Free heap: 4110976[0m
+[0;32mI (374678) HEAP: Free heap: 4110976[0m
+[0;32mI (375678) HEAP: Free heap: 4110976[0m
+[0;32mI (376678) HEAP: Free heap: 4110976[0m
+[0;32mI (377678) HEAP: Free heap: 4110940[0m
+[0;32mI (378678) HEAP: Free heap: 4110976[0m
+[0;32mI (379678) HEAP: Free heap: 4110976[0m
+[0;32mI (380678) HEAP: Free heap: 4110976[0m
+[0;32mI (381678) HEAP: Free heap: 4110976[0m
+[0;32mI (382678) HEAP: Free heap: 4110940[0m
+[0;32mI (383678) HEAP: Free heap: 4110940[0m
+[0;32mI (384678) HEAP: Free heap: 4110976[0m
+[0;32mI (385678) HEAP: Free heap: 4110976[0m
+[0;32mI (386678) HEAP: Free heap: 4110940[0m
+[0;32mI (387678) HEAP: Free heap: 4110940[0m
+[0;32mI (388678) HEAP: Free heap: 4110976[0m
+[0;32mI (389678) HEAP: Free heap: 4110976[0m
+[0;32mI (390678) HEAP: Free heap: 4110976[0m
+[0;32mI (391678) HEAP: Free heap: 4110940[0m
+[0;32mI (392678) HEAP: Free heap: 4110976[0m
+[0;32mI (393678) HEAP: Free heap: 4110976[0m
+[0;32mI (394678) HEAP: Free heap: 4110976[0m
+[0;32mI (395678) HEAP: Free heap: 4110940[0m
+[0;32mI (396678) HEAP: Free heap: 4110976[0m
+[0;32mI (397678) HEAP: Free heap: 4110976[0m
+[0;32mI (398678) HEAP: Free heap: 4110976[0m
+[0;32mI (399678) HEAP: Free heap: 4110976[0m
+[0;32mI (400678) HEAP: Free heap: 4110940[0m
+[0;32mI (401678) HEAP: Free heap: 4110976[0m
+[0;32mI (402678) HEAP: Free heap: 4110976[0m
+[0;32mI (403678) HEAP: Free heap: 4110940[0m
+[0;32mI (404678) HEAP: Free heap: 4110976[0m
+[0;32mI (405678) HEAP: Free heap: 4110976[0m
+[0;32mI (406678) HEAP: Free heap: 4110976[0m
+[0;32mI (407678) HEAP: Free heap: 4110976[0m
+[0;32mI (408678) HEAP: Free heap: 4110976[0m
+[0;32mI (409678) HEAP: Free heap: 4110976[0m
+[0;32mI (410678) HEAP: Free heap: 4110976[0m
+[0;32mI (411678) HEAP: Free heap: 4110976[0m
+[0;32mI (412678) HEAP: Free heap: 4110888[0m
+[0;32mI (413678) HEAP: Free heap: 4110976[0m
+[0;32mI (414678) HEAP: Free heap: 4110976[0m
+[0;32mI (415678) HEAP: Free heap: 4110976[0m
+[0;32mI (416678) HEAP: Free heap: 4110976[0m
+[0;32mI (417678) HEAP: Free heap: 4110940[0m
+[0;32mI (418678) HEAP: Free heap: 4110976[0m
+[0;32mI (419678) HEAP: Free heap: 4110976[0m
+[0;32mI (420678) HEAP: Free heap: 4110976[0m
+[0;32mI (421678) HEAP: Free heap: 4110940[0m
+[0;32mI (422678) HEAP: Free heap: 4110976[0m
+[0;32mI (423678) HEAP: Free heap: 4110976[0m
+[0;32mI (424678) HEAP: Free heap: 4110976[0m
+[0;32mI (425678) HEAP: Free heap: 4110976[0m
+[0;32mI (426678) HEAP: Free heap: 4110940[0m
+[0;32mI (427678) HEAP: Free heap: 4110976[0m
+[0;32mI (428678) HEAP: Free heap: 4110976[0m
+[0;32mI (429678) HEAP: Free heap: 4110976[0m
+[0;32mI (430678) HEAP: Free heap: 4110976[0m
+[0;32mI (431678) HEAP: Free heap: 4110976[0m
+[0;32mI (432678) HEAP: Free heap: 4110940[0m
+[0;32mI (433678) HEAP: Free heap: 4110976[0m
+[0;32mI (434678) HEAP: Free heap: 4110940[0m
+[0;32mI (435678) HEAP: Free heap: 4110976[0m
+[0;32mI (436678) HEAP: Free heap: 4110976[0m
+[0;32mI (437678) HEAP: Free heap: 4110940[0m
+[0;32mI (438678) HEAP: Free heap: 4110940[0m
+[0;32mI (439678) HEAP: Free heap: 4110976[0m
+[0;32mI (440678) HEAP: Free heap: 4110976[0m
+[0;32mI (441678) HEAP: Free heap: 4110976[0m
+[0;32mI (442678) HEAP: Free heap: 4110940[0m
+[0;32mI (443678) HEAP: Free heap: 4110976[0m
+[0;32mI (444678) HEAP: Free heap: 4110976[0m
+[0;32mI (445678) HEAP: Free heap: 4110940[0m
+[0;32mI (446678) HEAP: Free heap: 4110940[0m
+[0;32mI (447678) HEAP: Free heap: 4110940[0m
+[0;32mI (448678) HEAP: Free heap: 4110976[0m
+[0;32mI (449678) HEAP: Free heap: 4110976[0m
+[0;32mI (450678) HEAP: Free heap: 4110940[0m
+[0;32mI (451678) HEAP: Free heap: 4110976[0m
+[0;32mI (452678) HEAP: Free heap: 4110976[0m
+[0;32mI (453678) HEAP: Free heap: 4110976[0m
+[0;32mI (454678) HEAP: Free heap: 4110976[0m
+[0;32mI (455678) HEAP: Free heap: 4110976[0m
+[0;32mI (456678) HEAP: Free heap: 4110976[0m
+[0;32mI (457678) HEAP: Free heap: 4110976[0m
+[0;32mI (458678) HEAP: Free heap: 4110976[0m
+[0;32mI (459678) HEAP: Free heap: 4110940[0m
+[0;32mI (460678) HEAP: Free heap: 4110976[0m
+[0;32mI (461678) HEAP: Free heap: 4110976[0m
+[0;32mI (462678) HEAP: Free heap: 4110976[0m
+[0;32mI (463678) HEAP: Free heap: 4110940[0m
+[0;32mI (464678) HEAP: Free heap: 4110940[0m
+[0;32mI (465678) HEAP: Free heap: 4110976[0m
+[0;32mI (466678) HEAP: Free heap: 4110976[0m
+[0;32mI (467678) HEAP: Free heap: 4110976[0m
+[0;32mI (468678) HEAP: Free heap: 4110976[0m
+[0;32mI (469678) HEAP: Free heap: 4110976[0m
+[0;32mI (470678) HEAP: Free heap: 4110976[0m
+[0;32mI (471678) HEAP: Free heap: 4110976[0m
+[0;32mI (472678) HEAP: Free heap: 4110940[0m
+[0;32mI (473678) HEAP: Free heap: 4110976[0m
+[0;32mI (474678) HEAP: Free heap: 4110976[0m
+[0;32mI (475678) HEAP: Free heap: 4110976[0m
+[0;32mI (476678) HEAP: Free heap: 4110976[0m
+[0;32mI (477678) HEAP: Free heap: 4110976[0m
+[0;32mI (478678) HEAP: Free heap: 4110976[0m
+[0;32mI (479678) HEAP: Free heap: 4110976[0m
+[0;32mI (480678) HEAP: Free heap: 4110940[0m
+[0;32mI (481678) HEAP: Free heap: 4110940[0m
+[0;32mI (482678) HEAP: Free heap: 4110976[0m
+[0;32mI (483678) HEAP: Free heap: 4110976[0m
+[0;32mI (484678) HEAP: Free heap: 4110976[0m
+[0;32mI (485678) HEAP: Free heap: 4110940[0m
+[0;32mI (486678) HEAP: Free heap: 4110976[0m
+[0;32mI (487678) HEAP: Free heap: 4110976[0m
+[0;32mI (488678) HEAP: Free heap: 4110976[0m
+[0;32mI (489678) HEAP: Free heap: 4110940[0m
+[0;32mI (490678) HEAP: Free heap: 4110976[0m
+[0;32mI (491678) HEAP: Free heap: 4110976[0m
+[0;32mI (492678) HEAP: Free heap: 4110976[0m
+[0;32mI (493678) HEAP: Free heap: 4110976[0m
+[0;32mI (494678) HEAP: Free heap: 4110976[0m
+[0;32mI (495678) HEAP: Free heap: 4110976[0m
+[0;32mI (496678) HEAP: Free heap: 4110976[0m
+[0;32mI (497678) HEAP: Free heap: 4110976[0m
+[0;32mI (498678) HEAP: Free heap: 4110940[0m
+[0;32mI (499678) HEAP: Free heap: 4110976[0m
+[0;32mI (500678) HEAP: Free heap: 4110976[0m
+[0;32mI (501678) HEAP: Free heap: 4110976[0m
+[0;32mI (502678) HEAP: Free heap: 4110940[0m
+[0;32mI (503678) HEAP: Free heap: 4110940[0m
+[0;32mI (504678) HEAP: Free heap: 4110976[0m
+[0;32mI (505678) HEAP: Free heap: 4110976[0m
+[0;32mI (506678) HEAP: Free heap: 4110976[0m
+[0;32mI (507678) HEAP: Free heap: 4110976[0m
+[0;32mI (508678) HEAP: Free heap: 4110940[0m
+[0;32mI (509678) HEAP: Free heap: 4110976[0m
+[0;32mI (510678) HEAP: Free heap: 4110940[0m
+[0;32mI (511678) HEAP: Free heap: 4110940[0m
+[0;32mI (512678) HEAP: Free heap: 4110976[0m
+[0;32mI (513678) HEAP: Free heap: 4110976[0m
+[0;32mI (514678) HEAP: Free heap: 4110940[0m
+[0;32mI (515678) HEAP: Free heap: 4110976[0m
+[0;32mI (516678) HEAP: Free heap: 4110976[0m
+[0;32mI (517678) HEAP: Free heap: 4110976[0m
+[0;32mI (518678) HEAP: Free heap: 4110976[0m
+[0;32mI (519678) HEAP: Free heap: 4110940[0m
+[0;32mI (520678) HEAP: Free heap: 4110976[0m
+[0;32mI (521678) HEAP: Free heap: 4110976[0m
+[0;32mI (522678) HEAP: Free heap: 4110940[0m
+[0;32mI (523678) HEAP: Free heap: 4110940[0m
+[0;32mI (524678) HEAP: Free heap: 4110976[0m
+[0;32mI (525678) HEAP: Free heap: 4110976[0m
+[0;32mI (526678) HEAP: Free heap: 4110976[0m
+[0;32mI (527678) HEAP: Free heap: 4110940[0m
+[0;32mI (528678) HEAP: Free heap: 4110940[0m
+[0;32mI (529678) HEAP: Free heap: 4110976[0m
+[0;32mI (530678) HEAP: Free heap: 4110976[0m
+[0;32mI (531678) HEAP: Free heap: 4110940[0m
+[0;32mI (532678) HEAP: Free heap: 4110976[0m
+[0;32mI (533678) HEAP: Free heap: 4110976[0m
+[0;32mI (534678) HEAP: Free heap: 4110976[0m
+[0;32mI (535678) HEAP: Free heap: 4110976[0m
+[0;32mI (536678) HEAP: Free heap: 4110976[0m
+[0;32mI (537678) HEAP: Free heap: 4110976[0m
+[0;32mI (538678) HEAP: Free heap: 4110976[0m
+[0;32mI (539678) HEAP: Free heap: 4110976[0m
+[0;32mI (540678) HEAP: Free heap: 4110940[0m
+[0;32mI (541678) HEAP: Free heap: 4110976[0m
+[0;32mI (542678) HEAP: Free heap: 4110976[0m
+[0;32mI (543678) HEAP: Free heap: 4110976[0m
+[0;32mI (544678) HEAP: Free heap: 4110940[0m
+[0;32mI (545678) HEAP: Free heap: 4110940[0m
+[0;32mI (546678) HEAP: Free heap: 4110976[0m
+[0;32mI (547678) HEAP: Free heap: 4110976[0m
+[0;32mI (548678) HEAP: Free heap: 4110940[0m
+[0;32mI (549678) HEAP: Free heap: 4110940[0m
+[0;32mI (550678) HEAP: Free heap: 4110976[0m
+[0;32mI (551678) HEAP: Free heap: 4110976[0m
+[0;32mI (552678) HEAP: Free heap: 4110976[0m
+[0;32mI (553678) HEAP: Free heap: 4110940[0m
+[0;32mI (554678) HEAP: Free heap: 4110976[0m
+[0;32mI (555678) HEAP: Free heap: 4110976[0m
+[0;32mI (556678) HEAP: Free heap: 4110976[0m
+[0;32mI (557678) HEAP: Free heap: 4110976[0m
+[0;32mI (558678) HEAP: Free heap: 4110976[0m
+[0;32mI (559678) HEAP: Free heap: 4110976[0m
+[0;32mI (560678) HEAP: Free heap: 4110976[0m
+[0;32mI (561678) HEAP: Free heap: 4110940[0m
+[0;32mI (562678) HEAP: Free heap: 4110940[0m
+[0;32mI (563678) HEAP: Free heap: 4110976[0m
+[0;32mI (564678) HEAP: Free heap: 4110976[0m
+[0;32mI (565678) HEAP: Free heap: 4110976[0m
+[0;32mI (566678) HEAP: Free heap: 4110976[0m
+[0;32mI (567678) HEAP: Free heap: 4110976[0m
+[0;32mI (568678) HEAP: Free heap: 4110976[0m
+[0;32mI (569678) HEAP: Free heap: 4110976[0m
+[0;32mI (570678) HEAP: Free heap: 4110976[0m
+[0;32mI (571678) HEAP: Free heap: 4110976[0m
+[0;32mI (572678) HEAP: Free heap: 4110976[0m
+[0;32mI (573678) HEAP: Free heap: 4110976[0m
+[0;32mI (574678) HEAP: Free heap: 4110976[0m
+[0;32mI (575678) HEAP: Free heap: 4110940[0m
+[0;32mI (576678) HEAP: Free heap: 4110976[0m
+[0;32mI (577678) HEAP: Free heap: 4110976[0m
+[0;32mI (578678) HEAP: Free heap: 4110976[0m
+[0;32mI (579678) HEAP: Free heap: 4110940[0m
+[0;32mI (580678) HEAP: Free heap: 4110976[0m
+[0;32mI (581678) HEAP: Free heap: 4110976[0m
+[0;32mI (582678) HEAP: Free heap: 4110976[0m
+[0;32mI (583678) HEAP: Free heap: 4110976[0m
+[0;32mI (584678) HEAP: Free heap: 4110976[0m
+[0;32mI (585678) HEAP: Free heap: 4110976[0m
+[0;32mI (586678) HEAP: Free heap: 4110976[0m
+[0;32mI (587678) HEAP: Free heap: 4110976[0m
+[0;32mI (588678) HEAP: Free heap: 4110976[0m
+[0;32mI (589678) HEAP: Free heap: 4110976[0m
+[0;32mI (590678) HEAP: Free heap: 4110976[0m
+[0;32mI (591678) HEAP: Free heap: 4110940[0m
+[0;32mI (592678) HEAP: Free heap: 4110940[0m
+[0;32mI (593678) HEAP: Free heap: 4110976[0m
+[0;32mI (594678) HEAP: Free heap: 4110976[0m
+[0;32mI (595678) HEAP: Free heap: 4110940[0m
+[0;32mI (596678) HEAP: Free heap: 4110976[0m
+[0;32mI (597678) HEAP: Free heap: 4110976[0m
+[0;32mI (598678) HEAP: Free heap: 4110976[0m
+[0;32mI (599678) HEAP: Free heap: 4110976[0m
+[0;32mI (600678) HEAP: Free heap: 4110976[0m
+[0;32mI (601678) HEAP: Free heap: 4110976[0m
+[0;32mI (602678) HEAP: Free heap: 4110976[0m
+[0;32mI (603678) HEAP: Free heap: 4110976[0m
+[0;32mI (604678) HEAP: Free heap: 4110940[0m
+[0;32mI (605678) HEAP: Free heap: 4110976[0m
+[0;32mI (606678) HEAP: Free heap: 4110976[0m
+[0;32mI (607678) HEAP: Free heap: 4110976[0m
+[0;32mI (608678) HEAP: Free heap: 4110976[0m
+[0;32mI (609678) HEAP: Free heap: 4110940[0m
+[0;32mI (610678) HEAP: Free heap: 4110976[0m
+[0;32mI (611678) HEAP: Free heap: 4110976[0m
+[0;32mI (612678) HEAP: Free heap: 4110976[0m
+[0;32mI (613678) HEAP: Free heap: 4110940[0m
+[0;32mI (614678) HEAP: Free heap: 4110976[0m
+[0;32mI (615678) HEAP: Free heap: 4110976[0m
+[0;32mI (616678) HEAP: Free heap: 4110980[0m
+[0;32mI (617678) HEAP: Free heap: 4110976[0m
+[0;32mI (618678) HEAP: Free heap: 4110976[0m
+[0;32mI (619678) HEAP: Free heap: 4110976[0m
+[0;32mI (620678) HEAP: Free heap: 4110976[0m
+[0;32mI (621678) HEAP: Free heap: 4110976[0m
+[0;32mI (622678) HEAP: Free heap: 4110976[0m
+[0;32mI (623678) HEAP: Free heap: 4110976[0m
+[0;32mI (624678) HEAP: Free heap: 4110976[0m
+[0;32mI (625678) HEAP: Free heap: 4110940[0m
+[0;32mI (626678) HEAP: Free heap: 4110940[0m
+[0;32mI (627678) HEAP: Free heap: 4110976[0m
+[0;32mI (628678) HEAP: Free heap: 4110976[0m
+[0;32mI (629678) HEAP: Free heap: 4110976[0m
+[0;32mI (630678) HEAP: Free heap: 4110940[0m
+[0;32mI (631678) HEAP: Free heap: 4110976[0m
+[0;32mI (632678) HEAP: Free heap: 4110976[0m
+[0;32mI (633678) HEAP: Free heap: 4110976[0m
+[0;32mI (634678) HEAP: Free heap: 4110940[0m
+[0;32mI (635678) HEAP: Free heap: 4110976[0m
+[0;32mI (636678) HEAP: Free heap: 4110976[0m
+[0;32mI (637678) HEAP: Free heap: 4110976[0m
+[0;32mI (638678) HEAP: Free heap: 4110976[0m

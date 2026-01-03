@@ -2,17 +2,18 @@
 #include "lvgl.h"
 #include "lvgl_port.h"
 #include "mqtt_data.h"
+#include "list_handler.h"
 
 #ifndef MIN
 #define MIN(a, b)  ((a) < (b) ? (a) : (b))
 #endif
 
 
-extern lv_obj_t * ui_Image20 ;
-extern lv_obj_t * ui_Image24 ;
-extern lv_obj_t * ui_Image31 ;
-extern lv_obj_t * ui_Image34 ;
-extern lv_obj_t * ui_Image32 ;
+extern lv_obj_t * ui_Imag9 ;
+extern lv_obj_t * ui_Image10 ;
+extern lv_obj_t * ui_Image11 ;
+extern lv_obj_t * ui_Image13 ;
+extern lv_obj_t * ui_Image12 ;
 
 //lv_obj_t * ui_Image37 = NULL;
 
@@ -52,10 +53,10 @@ extern QueueHandle_t mqtt_queue;
 
 
 
-extern lv_obj_t * ui_Image38;
+extern lv_obj_t * ui_Image16;
 
-extern lv_obj_t* ui_TextArea2;
-extern lv_obj_t* ui_TextArea3;
+//extern lv_obj_t* ui_TextArea2;
+//extern lv_obj_t* ui_TextArea3;
 
 
 
@@ -63,6 +64,15 @@ char selected_keypad_id[18]={0};
 
 
 extern volatile bool checktime_stop;
+
+int device_compare_by_name(const void *a, const void *b)
+{
+    const device_info_t *da = (const device_info_t *)a;
+    const device_info_t *db = (const device_info_t *)b;
+
+    return strcmp(da->name, db->name);
+}
+
 
 
 void mqtt_process_task(void *pvParameters)
@@ -75,12 +85,19 @@ void mqtt_process_task(void *pvParameters)
             ESP_LOGI(TAG, "Processing topic: %s", msg.topic);
             ESP_LOGI(TAG, "Data: %s", msg.data);
 
-            // Parse JSON từ payload
-            cJSON *root = cJSON_Parse(msg.data);
-            if (!root&&strcmp(msg.topic,"reset_number")!=0&&strcmp(msg.topic,"transfer_number")!=0) {
-                ESP_LOGE(TAG, "Failed to parse JSON");
-                continue;
+            // parse JSON từ payload, chỉ parse payload kiểu json của 2 topic number và device/list
+            cJSON *root = NULL;
+ 
+            if (strcmp(msg.topic, "number") == 0 ||
+                strcmp(msg.topic, "device/list") == 0) {
+
+                root = cJSON_Parse(msg.data);
+                if (!root) {
+                    ESP_LOGE(TAG, "JSON parse failed");
+                    continue;
+                }
             }
+
 
             // Xử lý topic "number"
             if (strcmp(msg.topic, "number") == 0) {
@@ -122,8 +139,50 @@ void mqtt_process_task(void *pvParameters)
 
             else if (strcmp(msg.topic, "device/list") == 0) {
                 ESP_LOGI(TAG, "Device list received");
-                parse_json_and_store(msg.data);   
-                save_device_list_to_nvs();       
+                //parse_json_and_store(msg.data);   
+                //sort_device_list_by_counter(device_count);//
+
+                device_info_t new_list[MAX_DEVICES] = {0};
+                int new_count = 0;
+
+                if (parse_json_to_device_list(msg.data, new_list, &new_count) != ESP_OK) {
+                    ESP_LOGE(TAG, "Parse device list failed");
+                    //return;
+                    cJSON_Delete(root);
+                    continue;
+                }
+                build_new_list(new_list,new_count);//
+
+                device_info_t old_list[MAX_DEVICES] = {0};
+                int old_count = 0;
+
+                esp_err_t err = load_device_list_from_nvs_to_buffer(old_list, &old_count);
+                
+                qsort(new_list, new_count, sizeof(device_info_t), device_compare_by_counter);
+                qsort(old_list, old_count, sizeof(device_info_t), device_compare_by_counter);
+
+
+                bool need_save = false;
+
+                if (err != ESP_OK) {
+                    ESP_LOGI(TAG, "No device list in NVS, save new list");
+                    need_save = true;
+                } else if (device_list_is_different(new_list, new_count,
+                                                    old_list, old_count)) {
+                    ESP_LOGI(TAG, "Device list changed, save new list");
+                    need_save = true;
+                } else {
+                    ESP_LOGI(TAG, "Device list unchanged, skip save");
+                }
+
+                if (need_save) {
+                    memcpy(device_list, new_list, sizeof(device_info_t) * new_count);
+                    device_count = new_count;
+                    //save_device_list_to_nvs();
+                    save_device_list_to_nvs_from_buffer(new_list,new_count);//
+                }
+
+               // save_device_list_to_nvs();       
             }
              else if (strcmp(msg.topic, "reset_number") == 0) {
                 ESP_LOGI(TAG, "Reset all number");
@@ -156,12 +215,7 @@ void mqtt_process_task(void *pvParameters)
                 if (strcmp(msg.data,current_num)!=0){
                    
                    save_current_number(msg.data);
-                   /*
-                    if (lvgl_port_lock(-1)){
-                    lv_textarea_set_placeholder_text(ui_TextArea2, msg.data);
-                    lvgl_port_unlock();
-                    }
-                    */
+
                    delete_next_number();
                    ESP_LOGI(TAG, "Save new current number");
 
@@ -180,7 +234,9 @@ void mqtt_process_task(void *pvParameters)
             }
 
             // Giải phóng bộ nhớ JSON
+            if (root){
             cJSON_Delete(root);
+            }
         }
     }
 }
@@ -217,8 +273,8 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
 
 
         if (lvgl_port_lock(-1)) {
-        lv_obj_add_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN ); // ẩn icon lỗi kết nối
-        lvgl_port_unlock();
+            lv_obj_add_flag(ui_Image16, LV_OBJ_FLAG_HIDDEN ); // ẩn icon lỗi kết nối
+            lvgl_port_unlock();
         }
         
         msg_id = esp_mqtt_client_subscribe(client, "number", 0);
@@ -237,7 +293,7 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
 
         
         if (lvgl_port_lock(-1)) {
-        lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_HIDDEN ); 
+        lv_obj_clear_flag(ui_Image16, LV_OBJ_FLAG_HIDDEN ); 
         lvgl_port_unlock();
         }
         

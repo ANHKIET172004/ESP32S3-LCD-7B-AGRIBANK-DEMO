@@ -30,7 +30,7 @@ extern void wifi_update_list_cb(lv_timer_t * timer) ;
 extern void mqtt_start(void);
 extern esp_mqtt_client_handle_t mqttClient;
 
-extern lv_obj_t * ui_Image38;
+extern lv_obj_t * ui_Image16;
 
 uint8_t s_retry_num=0;
 

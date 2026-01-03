@@ -3,8 +3,8 @@
 // LVGL version: 8.3.6
 // Project name: SquareLine_Project
 
-#ifndef UI_SCREEN4_H
-#define UI_SCREEN4_H
+#ifndef ui_Screen4_H
+#define ui_Screen4_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,18 +14,15 @@ extern "C" {
 extern void ui_Screen4_screen_init(void);
 extern void ui_Screen4_screen_destroy(void);
 extern lv_obj_t * ui_Screen4;
-extern lv_obj_t * ui_Label20;
-extern lv_obj_t * ui_Panel7;
-extern void ui_event_TextArea1(lv_event_t * e);
-extern lv_obj_t * ui_TextArea1;
-extern void ui_event_Keyboard1(lv_event_t * e);
-extern lv_obj_t * ui_Keyboard1;
-extern void ui_event_Image28(lv_event_t * e);
-extern lv_obj_t * ui_Image28;
-extern void ui_event_Image29(lv_event_t * e);
-extern lv_obj_t * ui_Image29;
-extern lv_obj_t * ui_Panel11;
-extern lv_obj_t * ui_Image27;
+extern lv_obj_t * ui_Panel17;
+extern lv_obj_t * ui_Label17;
+extern void ui_event_Panel9(lv_event_t * e);
+extern lv_obj_t * ui_Panel9;
+extern lv_obj_t * ui_Label10;
+extern lv_obj_t * ui_Panel10;
+extern lv_obj_t * ui_Label11;
+extern void ui_event_Image21(lv_event_t * e);
+extern lv_obj_t * ui_Image21;
 // CUSTOM VARIABLES
 
 #ifdef __cplusplus

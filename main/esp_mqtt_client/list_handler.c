@@ -14,16 +14,41 @@ static int extract_counter_number(const char *name) {
         while (*ptr < '0' || *ptr > '9') {
             ptr++;
         }
+        if (!*ptr) return -1;
         
         if (*ptr >= '0' && *ptr <= '9') {
             int num = atoi(ptr);
+            
             if (num >= 1 && num <= 50) {
                 return num;
             }
+           
         }
     }
     
     return -1; 
+}
+int device_compare_by_counter(const void *a, const void *b)
+{
+    const device_info_t *da = a;
+    const device_info_t *db = b;
+
+    int c1 = extract_counter_number(da->name);
+    int c2 = extract_counter_number(db->name);
+
+    return c1 - c2; // tăng dần
+}
+
+ void build_new_list(device_info_t *new_list, int count)
+{
+    for (int i = 0; i < count; i++) {
+        int counter = extract_counter_number(new_list[i].name);
+
+       // new_list[i] = device_list[i]; // copy toàn bộ struct
+
+        // tạo name mới sau khi extract
+        snprintf(new_list[i].name,sizeof(new_list[i].name), "%d", counter);
+    }
 }
 
 
@@ -102,7 +127,7 @@ void save_device_list_to_nvs(void)
     }
     ///
     //ESP_LOGI("TAG_NVS", "Loaded %d devices from NVS", device_count);
-    sort_device_list_by_counter(device_count);//
+    //sort_device_list_by_counter(device_count);//
     ESP_LOGI("TAG_NVS", "sorted device list successfully");
     //save_device_list_to_nvs();
     ///
@@ -219,5 +244,185 @@ esp_err_t load_selected_device_id(char *id_buf, size_t buf_size)
     }
 
     nvs_close(nvs_handle);
+    return err;
+}
+
+bool device_list_is_different(device_info_t *list1, int count1,
+                              device_info_t *list2, int count2)
+{
+    if (count1 != count2) {
+        return true;
+    }
+
+    for (int i = 0; i < count1; i++) {
+        if (strcmp(list1[i].device_id, list2[i].device_id)   != 0 ||
+            strcmp(list1[i].name, list2[i].name) != 0) {
+            return true;
+        }
+    }
+
+    return false; // giống nhau
+}
+
+esp_err_t load_device_list_from_nvs_to_buffer(device_info_t *list, int *count)
+{
+    nvs_handle_t nvs_handle;
+    esp_err_t err = nvs_open("DEVICE_LIST", NVS_READONLY, &nvs_handle);
+    if (err != ESP_OK) {
+        return err;
+    }
+
+    size_t required_size = 0;
+    err = nvs_get_str(nvs_handle, "device_list", NULL, &required_size);
+    if (err != ESP_OK || required_size == 0) {
+        nvs_close(nvs_handle);
+        return ESP_ERR_NOT_FOUND;
+    }
+
+    char *json_str = malloc(required_size);
+    if (!json_str) {
+        nvs_close(nvs_handle);
+        return ESP_ERR_NO_MEM;
+    }
+
+    err = nvs_get_str(nvs_handle, "device_list", json_str, &required_size);
+    nvs_close(nvs_handle);
+    if (err != ESP_OK) {
+        free(json_str);
+        return err;
+    }
+
+    cJSON *root = cJSON_Parse(json_str);
+    free(json_str);
+    if (!root || !cJSON_IsArray(root)) {
+        if (root) cJSON_Delete(root);
+        return ESP_FAIL;
+    }
+
+    int cnt = 0;
+    cJSON *item;
+    cJSON_ArrayForEach(item, root) {
+        if (cnt >= MAX_DEVICES) break;
+
+        cJSON *name = cJSON_GetObjectItem(item, "name");
+        cJSON *id   = cJSON_GetObjectItem(item, "device_id");
+
+        if (cJSON_IsString(name) && cJSON_IsString(id)) {
+            strncpy(list[cnt].name, name->valuestring, MAX_NAME_LEN - 1);
+            strncpy(list[cnt].device_id, id->valuestring, MAX_ID_LEN - 1);
+            cnt++;
+        }
+    }
+
+    *count = cnt;
+    cJSON_Delete(root);
+    return ESP_OK;
+}
+
+esp_err_t parse_json_to_device_list(const char *json,
+                                    device_info_t *list,
+                                    int *count)
+{
+    if (!json || !list || !count) {
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    *count = 0;
+    memset(list, 0, sizeof(device_info_t) * MAX_DEVICES);
+
+    cJSON *root = cJSON_Parse(json);
+    if (!root) {
+        ESP_LOGE(TAG, "Failed to parse device list JSON");
+        return ESP_FAIL;
+    }
+
+    if (!cJSON_IsArray(root)) {
+        ESP_LOGE(TAG, "Device list JSON is not array");
+        cJSON_Delete(root);
+        return ESP_FAIL;
+    }
+
+    int idx = 0;
+    cJSON *item = NULL;
+
+    cJSON_ArrayForEach(item, root) {
+        if (idx >= MAX_DEVICES) {
+            ESP_LOGW(TAG, "Device list exceeds MAX_DEVICES");
+            break;
+        }
+
+        cJSON *name = cJSON_GetObjectItem(item, "name");
+        cJSON *id   = cJSON_GetObjectItem(item, "id");
+
+        if (!cJSON_IsString(name) || !cJSON_IsString(id)) {
+            ESP_LOGW(TAG, "Invalid device entry, skip");
+            continue;
+        }
+
+        strncpy(list[idx].name, name->valuestring, MAX_NAME_LEN - 1);
+        strncpy(list[idx].device_id, id->valuestring, MAX_ID_LEN - 1);
+
+        idx++;
+    }
+
+    *count = idx;
+    cJSON_Delete(root);
+
+    ESP_LOGI(TAG, "Parsed %d devices from MQTT", *count);
+    return ESP_OK;
+}
+
+esp_err_t save_device_list_to_nvs_from_buffer(
+        const device_info_t *list,
+        int count)
+{
+    if (!list || count <= 0) {
+        ESP_LOGW("TAG_NVS", "New device list empty, skip saving");
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    nvs_handle_t nvs_handle;
+    esp_err_t err = nvs_open("DEVICE_LIST", NVS_READWRITE, &nvs_handle);
+    if (err != ESP_OK) {
+        ESP_LOGE("TAG_NVS", "Failed to open NVS: %s", esp_err_to_name(err));
+        return err;
+    }
+
+    cJSON *root = cJSON_CreateArray();
+    if (!root) {
+        nvs_close(nvs_handle);
+        return ESP_ERR_NO_MEM;
+    }
+
+    for (int i = 0; i < count; i++) {
+        cJSON *item = cJSON_CreateObject();
+        if (!item) continue;
+
+        cJSON_AddStringToObject(item, "name", list[i].name);
+        cJSON_AddStringToObject(item, "device_id", list[i].device_id);
+        cJSON_AddItemToArray(root, item);
+    }
+
+    char *json_str = cJSON_PrintUnformatted(root);
+    if (!json_str) {
+        cJSON_Delete(root);
+        nvs_close(nvs_handle);
+        return ESP_ERR_NO_MEM;
+    }
+
+    err = nvs_set_str(nvs_handle, "device_list", json_str);
+    if (err == ESP_OK) {
+        err = nvs_commit(nvs_handle);
+        if (err == ESP_OK) {
+            ESP_LOGI("TAG_NVS", "Saved NEW device list (%d devices)", count);
+        }
+    } else {
+        ESP_LOGE("TAG_NVS", "Failed to save JSON: %s", esp_err_to_name(err));
+    }
+
+    free(json_str);
+    cJSON_Delete(root);
+    nvs_close(nvs_handle);
+
     return err;
 }

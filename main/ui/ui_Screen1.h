@@ -35,15 +35,15 @@ extern lv_obj_t * ui_Label5;
 extern void ui_event_Image5(lv_event_t * e);
 extern lv_obj_t * ui_Image5;
 extern lv_obj_t * ui_Label6;
-extern lv_obj_t * ui_Panel8;
+extern lv_obj_t * ui_Panel6;
 extern lv_obj_t * ui_Image6;
 extern lv_obj_t * ui_Image7;
-extern lv_obj_t * ui_Image19;
-extern lv_obj_t * ui_Image20;
-extern lv_obj_t * ui_Image24 ;
-extern lv_obj_t * ui_Image31 ;
-extern lv_obj_t * ui_Image32 ;
-extern lv_obj_t * ui_Image34 ;
+extern lv_obj_t * ui_Image8;
+extern lv_obj_t * ui_Image9;
+extern lv_obj_t * ui_Image10 ;
+extern lv_obj_t * ui_Image11 ;
+extern lv_obj_t * ui_Image12 ;
+extern lv_obj_t * ui_Image13 ;
 
 /////////
 extern lv_obj_t *ui_Screen1_WifiIcon;

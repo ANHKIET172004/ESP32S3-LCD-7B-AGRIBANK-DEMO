@@ -11,7 +11,6 @@
 #include "nvs_flash.h"
 
 
-
 #define DEVICE_ID_NAMESPACE "SAVE_DEVICE_ID"
 #define DEVICE_ID_KEY       "device_id"
 
@@ -19,31 +18,37 @@ lv_obj_t * ui_Screen1 = NULL;
 lv_obj_t * ui_Panel1 = NULL;
 lv_obj_t * ui_Label1 = NULL;
 lv_obj_t * ui_Image1 = NULL;
+
 lv_obj_t * ui_Panel2 = NULL;
 lv_obj_t * ui_Label2 = NULL;
 lv_obj_t * ui_Image2 = NULL;
+
 lv_obj_t * ui_Panel3 = NULL;
 lv_obj_t * ui_Label3 = NULL;
 lv_obj_t * ui_Image3 = NULL;
+
 lv_obj_t * ui_Panel4 = NULL;
 lv_obj_t * ui_Label4 = NULL;
 lv_obj_t * ui_Image4 = NULL;
+
 lv_obj_t * ui_Panel5 = NULL;
 lv_obj_t * ui_Label5 = NULL;
 lv_obj_t * ui_Image5 = NULL;
+
+lv_obj_t * ui_Panel6 = NULL;
 lv_obj_t * ui_Label6 = NULL;
-lv_obj_t * ui_Panel8 = NULL;
+
 lv_obj_t * ui_Image6 = NULL;
 lv_obj_t * ui_Image7 = NULL;
-lv_obj_t * ui_Image19 = NULL;
-lv_obj_t * ui_Image20 = NULL;
-lv_obj_t * ui_Image24 = NULL;
-lv_obj_t * ui_Image31 = NULL;
-lv_obj_t * ui_Image32 = NULL;
-lv_obj_t * ui_Image34 = NULL;
-lv_obj_t * ui_Image36 = NULL;
-lv_obj_t * ui_Image37 = NULL;
-lv_obj_t * ui_Image38 = NULL;
+lv_obj_t * ui_Image8 = NULL;
+lv_obj_t * ui_Image9 = NULL;
+lv_obj_t * ui_Image10 = NULL;
+lv_obj_t * ui_Image11 = NULL;
+lv_obj_t * ui_Image12 = NULL;
+lv_obj_t * ui_Image13 = NULL;
+lv_obj_t * ui_Image14 = NULL;
+lv_obj_t * ui_Image15 = NULL;
+lv_obj_t * ui_Image16 = NULL;
 
 
 
@@ -154,7 +159,6 @@ void ui_event_Image1(lv_event_t * e)
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
-        //char number[32]; 
         char number[128]; 
         
         //xSemaphoreTake(nvs_mutex, portMAX_DELAY);  
@@ -170,19 +174,12 @@ void ui_event_Image1(lv_event_t * e)
         
          }
 
-       //snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",mac[0],mac[1],mac[2],
-         //                            mac[3],mac[4],mac[5],score,number); 
-       
-        //snprintf(mess,sizeof(mess),"{\"device_id\":\"94:E6:86:09:A4:78\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",score,number); 
-
         read_selected_device_id(current_id, sizeof(current_id));
         snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
 
         if (cnt==0){
             
         }                     
-
-        //mesh_enb=1;
         
         lv_event_stop_bubbling(e);
         ESP_LOGI(SCREEN1_TAG, "diem danh gia : %d\n",score);
@@ -201,45 +198,13 @@ void ui_event_Image1(lv_event_t * e)
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
          //delete_current_number();//
          
-         /*
-           if (start==1){
-          reset_recent_number();
-          
-            nvs_handle_t nvs_handle;
-            esp_err_t err;
-            
-            size_t required_size = 0;
 
-             err = nvs_open("SAVE_NUMBER", NVS_READONLY, &nvs_handle);
-            if (err != ESP_OK) {
-                ESP_LOGE("TAG", "Failed to open NVS: %s", esp_err_to_name(err));
-                return;
-            }
-
-            err = nvs_get_str(nvs_handle, "current_number", NULL, &required_size);
-
-            nvs_close(nvs_handle);
-            if (err == ESP_OK) {
-            pressed=0;
-            ESP_LOGI("TAG", "Still have current number");
-            } else if (err == ESP_ERR_NVS_NOT_FOUND) {
-                ESP_LOGI("TAG", "No Key current_number exist");
-            } else {
-                ESP_LOGE("TAG", "Can't read current_number: %s", esp_err_to_name(err));
-            }
-          
-           }
-            */
           }
 
-
-        
-        
-            
-        
+  
 
         mytimer=lv_timer_create(change_screen, 800, NULL);
-        _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
+        _ui_screen_change(&ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen2_screen_init);
     }
 }
 
@@ -279,54 +244,26 @@ void ui_event_Image2(lv_event_t * e)
         //mesh_enb=1;
      
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
+        if (strncmp(number,"0",sizeof(number))!=0){
         int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
         //delete_current_number();
 
 
         if (msg_id == -1){
-         ESP_LOGE("MQTT", "Failed to send data");
+            ESP_LOGE("MQTT", "Failed to send data");
          //backup_mqtt_data("feedback",mess);//
          }
-          else{
-         ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
+        else{
+              ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
          //delete_current_number();//
 
          
-         /*
-        if (start==1){
-          reset_recent_number();
-          
-            nvs_handle_t nvs_handle;
-            esp_err_t err;
-            
-            size_t required_size = 0;
-
-             err = nvs_open("SAVE_NUMBER", NVS_READONLY, &nvs_handle);
-            if (err != ESP_OK) {
-                ESP_LOGE("TAG", "Failed to open NVS: %s", esp_err_to_name(err));
-                return;
-            }
-
-            err = nvs_get_str(nvs_handle, "current_number", NULL, &required_size);
-
-            nvs_close(nvs_handle);
-            if (err == ESP_OK) {
-            pressed=0;
-            ESP_LOGI("TAG", "Still have current number");
-            } else if (err == ESP_ERR_NVS_NOT_FOUND) {
-                ESP_LOGI("TAG", "No Key current_number exist");
-            } else {
-                ESP_LOGE("TAG", "Can't read current_number: %s", esp_err_to_name(err));
-            }
-          
-           }
-           */
            
           }
-        
+        }
 
         mytimer=lv_timer_create(change_screen, 800, NULL);
-       _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
+       _ui_screen_change(&ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen2_screen_init);
     }
 }
 
@@ -382,41 +319,12 @@ void ui_event_Image3(lv_event_t * e)
          //delete_current_number();//
 
         
-         /*
-        if (start==1){
-          reset_recent_number();
-          
-            nvs_handle_t nvs_handle;
-            esp_err_t err;
-            
-            size_t required_size = 0;
-
-             err = nvs_open("SAVE_NUMBER", NVS_READONLY, &nvs_handle);
-            if (err != ESP_OK) {
-                ESP_LOGE("TAG", "Failed to open NVS: %s", esp_err_to_name(err));
-                return;
-            }
-
-            err = nvs_get_str(nvs_handle, "current_number", NULL, &required_size);
-
-            nvs_close(nvs_handle);
-            if (err == ESP_OK) {
-            pressed=0;
-            ESP_LOGI("TAG", "Still have current number");
-            } else if (err == ESP_ERR_NVS_NOT_FOUND) {
-                ESP_LOGI("TAG", "No Key current_number exist");
-            } else {
-                ESP_LOGE("TAG", "Can't read current_number: %s", esp_err_to_name(err));
-            }
-          
-           }
-            */
-        
+       
         }
         
 
         mytimer=lv_timer_create(change_screen, 800, NULL);
-        _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
+        _ui_screen_change(&ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen2_screen_init);
     }
 }
 
@@ -427,7 +335,7 @@ void ui_event_Image4(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         mytimer=lv_timer_create(change_screen, 800, NULL);
         _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
-        _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
+        _ui_screen_change(&ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen2_screen_init);
     }
 }
 
@@ -460,15 +368,11 @@ void ui_event_Image5(lv_event_t * e)
         
     }
 
-        //snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",mac[0],mac[1],mac[2],
-          //                           mac[3],mac[4],mac[5],score,number);        
-        
+
         
         read_selected_device_id(current_id, sizeof(current_id));
         snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
-        
-        
-        //mesh_enb=1;
+
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
 
 		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
@@ -483,42 +387,13 @@ void ui_event_Image5(lv_event_t * e)
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
          //delete_current_number();//
 
-             
-         /*
-         if (start==1){
-          reset_recent_number();
-          
-            nvs_handle_t nvs_handle;
-            esp_err_t err;
-            
-            size_t required_size = 0;
 
-            err = nvs_open("SAVE_NUMBER", NVS_READONLY, &nvs_handle);
-            if (err != ESP_OK) {
-                ESP_LOGE("TAG", "Failed to open NVS: %s", esp_err_to_name(err));
-                return;
-            }
-
-            err = nvs_get_str(nvs_handle, "current_number", NULL, &required_size);
-
-            nvs_close(nvs_handle);
-            if (err == ESP_OK) {
-            pressed=0;
-            ESP_LOGI("TAG", "Still have current number");
-            } else if (err == ESP_ERR_NVS_NOT_FOUND) {
-                ESP_LOGI("TAG", "No Key current_number exist");
-            } else {
-                ESP_LOGE("TAG", "Can't read current_number: %s", esp_err_to_name(err));
-            }
-          
-           }
-           */
           }
 
         
 
         mytimer=lv_timer_create(change_screen, 1000, NULL);
-        _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen5_screen_init);
+        _ui_screen_change(&ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen2_screen_init);
     }
 }
 
@@ -538,7 +413,7 @@ static void area_click_event_cb(lv_event_t *e) {
         change=1;//
         _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
         //_ui_screen_change(&ui_Main_WIFI, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Wifi_Screen_init);
-        _ui_screen_change(&ui_Screen9, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen9_screen_init);
+        _ui_screen_change(&ui_Screen4, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen4_screen_init);
 
 
         /////////
@@ -723,17 +598,17 @@ void ui_Screen1_screen_init(void)
     lv_label_set_text(ui_Label6, "Quý khách có hài lòng với dịch vụ của chúng tôi không?");
     lv_obj_set_style_text_font(ui_Label6, &ui_font_BOLD_VN35, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_Panel8 = lv_obj_create(ui_Screen1);
-    lv_obj_set_width(ui_Panel8, 1028);
-    lv_obj_set_height(ui_Panel8, 130);
-    lv_obj_set_x(ui_Panel8, 0);
-    lv_obj_set_y(ui_Panel8, -237);
-    lv_obj_set_align(ui_Panel8, LV_ALIGN_CENTER);
-    lv_obj_clear_flag(ui_Panel8, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
-    lv_obj_set_style_bg_color(ui_Panel8, lv_color_hex(0xA59898), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui_Panel8, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_Panel6 = lv_obj_create(ui_Screen1);
+    lv_obj_set_width(ui_Panel6, 1028);
+    lv_obj_set_height(ui_Panel6, 130);
+    lv_obj_set_x(ui_Panel6, 0);
+    lv_obj_set_y(ui_Panel6, -237);
+    lv_obj_set_align(ui_Panel6, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_Panel6, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_Panel6, lv_color_hex(0xA59898), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_Panel6, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_Image6 = lv_img_create(ui_Panel8);
+    ui_Image6 = lv_img_create(ui_Panel6);
     lv_img_set_src(ui_Image6, &ui_img_27268529);
     lv_obj_set_width(ui_Image6, LV_SIZE_CONTENT);   /// 400
     lv_obj_set_height(ui_Image6, LV_SIZE_CONTENT);    /// 72
@@ -742,118 +617,107 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_align(ui_Image6, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_Image6, LV_OBJ_FLAG_CLICKABLE);     /// Flags
     lv_obj_clear_flag(ui_Image6, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
-/*
-    ui_Image7 = lv_img_create(ui_Screen1);
-    lv_img_set_src(ui_Image7, &ui_img_nowifi_50x50_png);
-    lv_obj_set_width(ui_Image7, LV_SIZE_CONTENT);   /// 50
-    lv_obj_set_height(ui_Image7, LV_SIZE_CONTENT);    /// 50
-    lv_obj_set_x(ui_Image7, 461);
-    lv_obj_set_y(ui_Image7, -263);
-    lv_obj_set_align(ui_Image7, LV_ALIGN_CENTER);
-    //lv_obj_add_flag(ui_Image7, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-   // lv_obj_add_flag( ui_Image7,LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_Image7, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
-*/
 
-    ui_Image19 = lv_img_create(ui_Screen1);
-    lv_img_set_src(ui_Image19, &ui_img_wifiicon2_50x50_png);
-    lv_obj_set_width(ui_Image19, LV_SIZE_CONTENT);   /// 50
-    lv_obj_set_height(ui_Image19, LV_SIZE_CONTENT);    /// 50
-    lv_obj_set_x(ui_Image19, 461);
-    lv_obj_set_y(ui_Image19, -263);
-    lv_obj_set_align(ui_Image19, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Image19, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_Image19, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_Image20 = lv_img_create(ui_Screen1);
-    lv_img_set_src(ui_Image20, &ui_img_nowifi3_50x50_trans_png);
-    lv_obj_set_width(ui_Image20, LV_SIZE_CONTENT);   /// 50
-    lv_obj_set_height(ui_Image20, LV_SIZE_CONTENT);    /// 50
-    lv_obj_set_x(ui_Image20, 461);
-    lv_obj_set_y(ui_Image20, -263);
-    lv_obj_set_align(ui_Image20, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Image20, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_Image20, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_Image8 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image8, &ui_img_wifiicon2_50x50_png);
+    lv_obj_set_width(ui_Image8, LV_SIZE_CONTENT);   /// 50
+    lv_obj_set_height(ui_Image8, LV_SIZE_CONTENT);    /// 50
+    lv_obj_set_x(ui_Image8, 461);
+    lv_obj_set_y(ui_Image8, -263);
+    lv_obj_set_align(ui_Image8, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image8, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image8, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_Image24 = lv_img_create(ui_Screen1);
-    lv_img_set_src(ui_Image24, &ui_img_wifi1_tran_png);
-    lv_obj_set_width(ui_Image24, LV_SIZE_CONTENT);   /// 50
-    lv_obj_set_height(ui_Image24, LV_SIZE_CONTENT);    /// 50
-    lv_obj_set_x(ui_Image24, 461);
-    lv_obj_set_y(ui_Image24, -263);
-    lv_obj_set_align(ui_Image24, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Image24, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_Image24, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_Image9 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image9, &ui_img_nowifi3_50x50_trans_png);
+    lv_obj_set_width(ui_Image9, LV_SIZE_CONTENT);   /// 50
+    lv_obj_set_height(ui_Image9, LV_SIZE_CONTENT);    /// 50
+    lv_obj_set_x(ui_Image9, 461);
+    lv_obj_set_y(ui_Image9, -263);
+    lv_obj_set_align(ui_Image9, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image9, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image9, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_Image31 = lv_img_create(ui_Screen1);
-    lv_img_set_src(ui_Image31, &ui_img_785059581);
-    lv_obj_set_width(ui_Image31, LV_SIZE_CONTENT);   /// 50
-    lv_obj_set_height(ui_Image31, LV_SIZE_CONTENT);    /// 50
-    lv_obj_set_x(ui_Image31, 461);
-    lv_obj_set_y(ui_Image31, -263);
-    lv_obj_set_align(ui_Image31, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_Image31, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_Image10 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image10, &ui_img_wifi1_tran_png);
+    lv_obj_set_width(ui_Image10, LV_SIZE_CONTENT);   /// 50
+    lv_obj_set_height(ui_Image10, LV_SIZE_CONTENT);    /// 50
+    lv_obj_set_x(ui_Image10, 461);
+    lv_obj_set_y(ui_Image10, -263);
+    lv_obj_set_align(ui_Image10, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image10, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image10, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_Image32 = lv_img_create(ui_Screen1);
-    lv_img_set_src(ui_Image32, &ui_img_1279478591);
-    lv_obj_set_width(ui_Image32, LV_SIZE_CONTENT);   /// 50
-    lv_obj_set_height(ui_Image32, LV_SIZE_CONTENT);    /// 50
-    lv_obj_set_x(ui_Image32, 461);
-    lv_obj_set_y(ui_Image32, -263);
-    lv_obj_set_align(ui_Image32, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Image32, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_Image32, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_Image11 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image11, &ui_img_785059581);
+    lv_obj_set_width(ui_Image11, LV_SIZE_CONTENT);   /// 50
+    lv_obj_set_height(ui_Image11, LV_SIZE_CONTENT);    /// 50
+    lv_obj_set_x(ui_Image11, 461);
+    lv_obj_set_y(ui_Image11, -263);
+    lv_obj_set_align(ui_Image11, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image11, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image11, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_Image34 = lv_img_create(ui_Screen1);
-    lv_img_set_src(ui_Image34, &ui_img_776640815);
-    lv_obj_set_width(ui_Image34, LV_SIZE_CONTENT);   /// 50
-    lv_obj_set_height(ui_Image34, LV_SIZE_CONTENT);    /// 50
-    lv_obj_set_x(ui_Image34, 461);
-    lv_obj_set_y(ui_Image34, -263);
-    lv_obj_set_align(ui_Image34, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Image34, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_Image34, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_Image12 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image12, &ui_img_1279478591);
+    lv_obj_set_width(ui_Image12, LV_SIZE_CONTENT);   /// 50
+    lv_obj_set_height(ui_Image12, LV_SIZE_CONTENT);    /// 50
+    lv_obj_set_x(ui_Image12, 461);
+    lv_obj_set_y(ui_Image12, -263);
+    lv_obj_set_align(ui_Image12, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image12, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image12, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+    ui_Image13 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image13, &ui_img_776640815);
+    lv_obj_set_width(ui_Image13, LV_SIZE_CONTENT);   /// 50
+    lv_obj_set_height(ui_Image13, LV_SIZE_CONTENT);    /// 50
+    lv_obj_set_x(ui_Image13, 461);
+    lv_obj_set_y(ui_Image13, -263);
+    lv_obj_set_align(ui_Image13, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image13, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image13, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
 
 
-    ui_Image36 = lv_img_create(ui_Screen1);
-    lv_img_set_src(ui_Image36, &ui_img_red_circle_70x70_png);
-    lv_obj_set_width(ui_Image36, LV_SIZE_CONTENT);   /// 70
-    lv_obj_set_height(ui_Image36, LV_SIZE_CONTENT);    /// 70
-    lv_obj_set_x(ui_Image36, -468);
-    lv_obj_set_y(ui_Image36, -254);
-    lv_obj_set_align(ui_Image36, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Image36, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-   // lv_obj_add_flag(ui_Image36, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_Image36, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_Image14 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image14, &ui_img_red_circle_70x70_png);
+    lv_obj_set_width(ui_Image14, LV_SIZE_CONTENT);   /// 70
+    lv_obj_set_height(ui_Image14, LV_SIZE_CONTENT);    /// 70
+    lv_obj_set_x(ui_Image14, -468);
+    lv_obj_set_y(ui_Image14, -254);
+    lv_obj_set_align(ui_Image14, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image14, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+   // lv_obj_add_flag(ui_Image14, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image14, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_Image37 = lv_img_create(ui_Screen1);
-    lv_img_set_src(ui_Image37, &ui_img_green_circle_2_70x70_png);
-    lv_obj_set_width(ui_Image37, LV_SIZE_CONTENT);   /// 70
-    lv_obj_set_height(ui_Image37, LV_SIZE_CONTENT);    /// 70
-    lv_obj_set_x(ui_Image37, -468);
-    lv_obj_set_y(ui_Image37, -254);
-    lv_obj_set_align(ui_Image37, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Image37, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_Image37, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_Image15 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image15, &ui_img_green_circle_2_70x70_png);
+    lv_obj_set_width(ui_Image15, LV_SIZE_CONTENT);   /// 70
+    lv_obj_set_height(ui_Image15, LV_SIZE_CONTENT);    /// 70
+    lv_obj_set_x(ui_Image15, -468);
+    lv_obj_set_y(ui_Image15, -254);
+    lv_obj_set_align(ui_Image15, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image15, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image15, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
 
-    ui_Image38 = lv_img_create(ui_Screen1);
-    lv_img_set_src(ui_Image38, &ui_img_red_circle_20x20_png);
-    lv_obj_set_width(ui_Image38, LV_SIZE_CONTENT);   /// 20
-    lv_obj_set_height(ui_Image38, LV_SIZE_CONTENT);    /// 20
-    lv_obj_set_x(ui_Image38, 476);
-    lv_obj_set_y(ui_Image38, 275);
-    lv_obj_set_align(ui_Image38, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_Image38, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_Image38, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    ui_Image16 = lv_img_create(ui_Screen1);
+    lv_img_set_src(ui_Image16, &ui_img_red_circle_20x20_png);
+    lv_obj_set_width(ui_Image16, LV_SIZE_CONTENT);   /// 20
+    lv_obj_set_height(ui_Image16, LV_SIZE_CONTENT);    /// 20
+    lv_obj_set_x(ui_Image16, 476);
+    lv_obj_set_y(ui_Image16, 275);
+    lv_obj_set_align(ui_Image16, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Image16, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image16, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
 
 
 
 
-    area=lv_obj_create(ui_Panel8);
+    area=lv_obj_create(ui_Panel6);
     lv_obj_set_width(area, 120);   
     lv_obj_set_height(area, 120);    
     lv_obj_set_style_bg_color(area,lv_color_hex(0xA59898),LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -896,7 +760,7 @@ void ui_Screen1_screen_destroy(void)
     ui_Label5 = NULL;
     ui_Image5 = NULL;
     ui_Label6 = NULL;
-    ui_Panel8 = NULL;
+    ui_Panel6 = NULL;
     ui_Image6 = NULL;
 
 }

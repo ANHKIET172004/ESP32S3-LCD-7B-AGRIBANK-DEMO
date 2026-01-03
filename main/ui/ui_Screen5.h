@@ -3,8 +3,8 @@
 // LVGL version: 8.3.6
 // Project name: SquareLine_Project
 
-#ifndef UI_SCREEN5_H
-#define UI_SCREEN5_H
+#ifndef ui_Screen5_H
+#define ui_Screen5_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -13,13 +13,8 @@ extern "C" {
 // SCREEN: ui_Screen5
 extern void ui_Screen5_screen_init(void);
 extern void ui_Screen5_screen_destroy(void);
+void ui_Screen5_update_device_list(void);
 extern lv_obj_t * ui_Screen5;
-extern lv_obj_t * ui_Label21;
-extern void ui_event_Image33(lv_event_t * e);
-extern lv_obj_t * ui_Image33;
-extern lv_obj_t * ui_Image35;
-extern lv_obj_t * ui_Panel12;
-extern lv_obj_t * ui_Image30;
 // CUSTOM VARIABLES
 
 #ifdef __cplusplus

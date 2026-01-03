@@ -1,289 +1,101 @@
-Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM10'
-ESP-ROM:esp32s3-20210327
-Build:Mar 27 2021
-rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
-SPIWP:0xee
-mode:DIO, clock div:1
-load:0x3fce2820,len:0x1710
-load:0x403c8700,len:0xec0
-load:0x403cb700,len:0x31d4
-entry 0x403c894c
-[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
-[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
-[0;32mI (25) boot: Multicore bootloader[0m
-[0;32mI (26) boot: chip revision: v0.2[0m
-[0;32mI (28) boot: efuse block revision: v1.3[0m
-[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
-[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
-[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
-[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
-[0;32mI (48) boot: Enabling RNG early entropy source...[0m
-[0;32mI (52) boot: Partition Table:[0m
-[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
-[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
-[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
-[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
-[0;32mI (81) boot: End of partition table[0m
-[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=cda74h (842356) map[0m
-[0;32mI (216) esp_image: segment 1: paddr=000dda9c vaddr=3fca1c00 size=0257ch (  9596) load[0m
-[0;32mI (218) esp_image: segment 2: paddr=000e0020 vaddr=42000020 size=ddbb8h (908216) map[0m
-[0;32mI (355) esp_image: segment 3: paddr=001bdbe0 vaddr=3fca417c size=03224h ( 12836) load[0m
-[0;32mI (358) esp_image: segment 4: paddr=001c0e0c vaddr=40374000 size=1dbb0h (121776) load[0m
-[0;32mI (382) esp_image: segment 5: paddr=001de9c4 vaddr=600fe000 size=00020h (    32) load[0m
-[0;32mI (394) boot: Loaded app from partition at offset 0x10000[0m
-[0;32mI (394) boot: Disabling RNG early entropy source...[0m
-[0;33mW (404) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
-[0;33mW (404) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
-[0;33mW (411) flash HPM: High performance mode of this flash model hasn't been supported.[0m
-[0;32mI (419) MSPI Timing: Flash timing tuning index: 2[0m
-[0;32mI (423) octal_psram: vendor id    : 0x0d (AP)[0m
-[0;32mI (427) octal_psram: dev id       : 0x02 (generation 3)[0m
-[0;32mI (432) octal_psram: density      : 0x03 (64 Mbit)[0m
-[0;32mI (436) octal_psram: good-die     : 0x01 (Pass)[0m
-[0;32mI (440) octal_psram: Latency      : 0x01 (Fixed)[0m
-[0;32mI (445) octal_psram: VCC          : 0x01 (3V)[0m
-[0;32mI (449) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
-[0;32mI (454) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
-[0;32mI (459) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
-[0;32mI (463) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
-[0;32mI (468) octal_psram: DriveStrength: 0x00 (1/1)[0m
-[0;32mI (480) MSPI Timing: PSRAM timing tuning index: 2[0m
-[0;32mI (480) esp_psram: Found 8MB PSRAM device[0m
-[0;32mI (481) esp_psram: Speed: 120MHz[0m
-[0;32mI (518) mmu_psram: Read only data copied and mapped to SPIRAM[0m
-[0;32mI (564) mmu_psram: Instructions copied and mapped to SPIRAM[0m
-[0;32mI (565) cpu_start: Multicore app[0m
-[0;32mI (726) esp_psram: SPI SRAM memory test OK[0m
-[0;32mI (735) cpu_start: Pro cpu start user code[0m
-[0;32mI (735) cpu_start: cpu freq: 240000000 Hz[0m
-[0;32mI (735) app_init: Application information:[0m
-[0;32mI (735) app_init: Project name:     16_LVGL_UI[0m
-[0;32mI (739) app_init: App version:      d0f7808-dirty[0m
-[0;32mI (744) app_init: Compile time:     Nov 10 2025 14:56:37[0m
-[0;32mI (749) app_init: ELF file SHA256:  50a401187...[0m
-[0;32mI (753) app_init: ESP-IDF:          v5.5-dirty[0m
-[0;32mI (757) efuse_init: Min chip rev:     v0.0[0m
-[0;32mI (761) efuse_init: Max chip rev:     v0.99 [0m
-[0;32mI (765) efuse_init: Chip rev:         v0.2[0m
-[0;32mI (769) heap_init: Initializing. RAM available for dynamic allocation:[0m
-[0;32mI (775) heap_init: At 3FCACD30 len 0003C9E0 (242 KiB): RAM[0m
-[0;32mI (780) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
-[0;32mI (785) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
-[0;32mI (790) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
-[0;32mI (796) esp_psram: Adding pool of 6464K of PSRAM memory to heap allocator[0m
-[0;32mI (802) esp_psram: Adding pool of 9K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
-[0;32mI (814) spi_flash: detected chip: generic[0m
-[0;32mI (817) spi_flash: flash io: qio[0m
-[0;32mI (820) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
-[0;32mI (826) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
-[0;32mI (833) coexist: coex firmware version: 831ec70[0m
-[0;32mI (846) coexist: coexist rom version e7ae62f[0m
-[0;32mI (846) main_task: Started on CPU0[0m
-[0;32mI (847) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
-[0;32mI (852) main_task: Calling app_main()[0m
-[0;32mI (855) PSRAM: Total heap: 6883220[0m
-[0;32mI (858) PSRAM: Free PSRAM: 6593817[0m
-[0;33mW (872) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
-[0;32mI (1277) GT911: Initialize I2C panel IO[0m
-[0;32mI (1277) GT911: Initialize touch controller GT911[0m
-[0;33mW (1277) GT911: Unable to initialize the I2C address[0m
-[0;32mI (1279) GT911: TouchPad_ID:0x39,0x31,0x31[0m
-[0;32mI (1282) GT911: TouchPad_Config_Version:91[0m
-[0;32mI (1286) example: Install RGB LCD panel driver[0m
-[0;32mI (1326) example: Initialize RGB LCD panel[0m
-[0;32mI (1328) lv_port: Create LVGL task[0m
-[0;32mI (1355) main: Display LVGL demos[0m
-[0;32mI (1372) TAG_NVS: Loaded JSON from NVS: [{"name":"Quay 2","device_id":"94:E6:86:09:A4:78"},{"name":"Quay 1","device_id":"A8:42:E3:4C:7C:BC"}][0m
-[0;32mI (1373) TAG_NVS: Loaded 2 devices from NVS[0m
-[0;32mI (1379) LVGL: Displayed 2 devices[0m
-[0;32mI (1527) pp: pp rom version: e7ae62f[0m
-[0;32mI (1527) net80211: net80211 rom version: e7ae62f[0m
-[0;33mW (1528) RSSI: Not connected to any AP[0m
-[0;32mI (1528) main_task: Returned from app_main()[0m
-[0;32mI (1529) wifi:wifi driver task: 3fccdbfc, prio:23, stack:6656, core=0[0m
-[0;32mI (1545) wifi:wifi firmware version: f3dbad7[0m
-[0;32mI (1546) wifi:wifi certification version: v7.0[0m
-[0;32mI (1546) wifi:config NVS flash: enabled[0m
-[0;32mI (1549) wifi:config nano formatting: disabled[0m
-[0;32mI (1553) wifi:Init data frame dynamic rx buffer num: 32[0m
-[0;32mI (1559) wifi:Init static rx mgmt buffer num: 5[0m
-[0;32mI (1563) wifi:Init management short buffer num: 32[0m
-[0;32mI (1568) wifi:Init static tx buffer num: 16[0m
-[0;32mI (1572) wifi:Init tx cache buffer num: 32[0m
-[0;32mI (1575) wifi:Init static tx FG buffer num: 2[0m
-[0;32mI (1579) wifi:Init static rx buffer size: 1600[0m
-[0;32mI (1583) wifi:Init static rx buffer num: 16[0m
-[0;32mI (1587) wifi:Init dynamic rx buffer num: 32[0m
-[0;32mI (1591) wifi_init: rx ba win: 16[0m
-[0;32mI (1594) wifi_init: accept mbox: 6[0m
-[0;32mI (1597) wifi_init: tcpip mbox: 32[0m
-[0;32mI (1600) wifi_init: udp mbox: 6[0m
-[0;32mI (1603) wifi_init: tcp mbox: 6[0m
-[0;32mI (1606) wifi_init: tcp tx win: 5760[0m
-[0;32mI (1609) wifi_init: tcp rx win: 5760[0m
-[0;32mI (1613) wifi_init: tcp mss: 1440[0m
-[0;32mI (1616) wifi_init: WiFi/LWIP prefer SPIRAM[0m
-[0;32mI (1619) wifi_init: WiFi IRAM OP enabled[0m
-[0;32mI (1623) wifi_init: WiFi RX IRAM OP enabled[0m
-[0;32mI (1627) reconnect: Found saved WiFi: Namtrung 2.4G[0m
-Wi-Fi event handler registered.
-[0;32mI (1635) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
-[0;32mI (1673) wifi:mode : sta (10:20:ba:01:48:a8)[0m
-[0;32mI (1674) wifi:enable tsf[0m
-[0;32mI (1675) reconnect: WiFi init complete, waiting for connection...[0m
-[0;32mI (1676) WiFi Sta: GET: SSID:Namtrung 2.4G, password:nt@14092011[0m
-[0;32mI (1683) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
-[0;32mI (1688) wifi:state: init -> auth (0xb0)[0m
-[0;32mI (1701) wifi:state: auth -> assoc (0x0)[0m
-[0;32mI (1709) wifi:state: assoc -> run (0x10)[0m
-[0;32mI (1739) wifi:connected with Namtrung 2.4G, aid = 18, channel 6, BW20, bssid = 12:5f:02:15:1e:9a[0m
-[0;32mI (1740) wifi:security: WPA2-PSK, phy: bgn, rssi: -50[0m
-[0;32mI (1742) wifi:pm start, type: 1[0m
+Command: ninja flash
+[1/5] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/partition_table/partition-table.bin" "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin""
+16_LVGL_UI.bin binary size 0x1d91b0 bytes. Smallest app partition is 0x800000 bytes. 0x626e50 bytes (77%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/bootloader/bootloader.bin""
+Bootloader binary size 0x5800 bytes. 0x2800 bytes (31%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\components\esptool_py && D:\ESP32_IDF\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5 -D SERIAL_TOOL=D:/ESP32_IDF/Espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build" -P D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32s3 -p COM7 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 16_LVGL_UI.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.9.1
+Serial port COM7
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: 10:20:ba:05:9b:9c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x001e9fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 22528 bytes to 14318...
+Writing at 0x00000000... (100 %)
+Wrote 22528 bytes (14318 compressed) at 0x00000000 in 0.5 seconds (effective 358.5 kbit/s)...
+Hash of data verified.
+Compressed 1937840 bytes to 976051...
+Writing at 0x00010000... (1 %)
+Writing at 0x0001ccae... (3 %)
+Writing at 0x00029478... (5 %)
+Writing at 0x00032255... (6 %)
+Writing at 0x0003b48a... (8 %)
+Writing at 0x0004cf01... (10 %)
+Writing at 0x0006ec1f... (11 %)
+Writing at 0x00087184... (13 %)
+Writing at 0x0009ba9b... (15 %)
+Writing at 0x000b1669... (16 %)
+Writing at 0x000c2a0c... (18 %)
+Writing at 0x000caed4... (20 %)
+Writing at 0x000d4e41... (21 %)
+Writing at 0x000de9f4... (23 %)
+Writing at 0x000eacad... (25 %)
+Writing at 0x000f1c12... (26 %)
+Writing at 0x000f77da... (28 %)
+Writing at 0x000fd4d0... (30 %)
+Writing at 0x00103041... (31 %)
+Writing at 0x0010895a... (33 %)
+Writing at 0x0010e019... (35 %)
+Writing at 0x001134f0... (36 %)
+Writing at 0x00119b9e... (38 %)
+Writing at 0x0011ea5c... (40 %)
+Writing at 0x00123da5... (41 %)
+Writing at 0x00129012... (43 %)
+Writing at 0x0012e74f... (45 %)
+Writing at 0x00133b5f... (46 %)
+Writing at 0x0013960c... (48 %)
+Writing at 0x0013ed04... (50 %)
+Writing at 0x001443f2... (51 %)
+Writing at 0x001495b0... (53 %)
+Writing at 0x0014eb7d... (55 %)
+Writing at 0x0015425b... (56 %)
+Writing at 0x00159679... (58 %)
+Writing at 0x0015e958... (60 %)
+Writing at 0x00163b3d... (61 %)
+Writing at 0x001690fa... (63 %)
+Writing at 0x0016e91e... (65 %)
+Writing at 0x00173e41... (66 %)
+Writing at 0x00179183... (68 %)
+Writing at 0x0017e84e... (70 %)
+Writing at 0x0018492e... (71 %)
+Writing at 0x0018978d... (73 %)
+Writing at 0x0018e82e... (75 %)
+Writing at 0x00193a43... (76 %)
+Writing at 0x00198c9c... (78 %)
+Writing at 0x0019de30... (80 %)
+Writing at 0x001a3042... (81 %)
+Writing at 0x001a822c... (83 %)
+Writing at 0x001ad9e0... (85 %)
+Writing at 0x001b3372... (86 %)
+Writing at 0x001bd425... (88 %)
+Writing at 0x001c4436... (90 %)
+Writing at 0x001c9d76... (91 %)
+Writing at 0x001cf8e5... (93 %)
+Writing at 0x001d4ae4... (95 %)
+Writing at 0x001daa46... (96 %)
+Writing at 0x001e0bb4... (98 %)
+Writing at 0x001e5a2a... (100 %)
+Wrote 1937840 bytes (976051 compressed) at 0x00010000 in 22.6 seconds (effective 686.2 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 853.2 kbit/s)...
+Hash of data verified.
 
-[0;32mI (1745) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
-[0;32mI (1753) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
-[0;32mI (1762) WiFi Sta: Connected to SSID:Namtrung 2.4G, channel:6[0m
-[0;32mI (1786) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
-[0;32mI (2180) WiFi Sta: Failed to connect to the AP[0m
-[0;32mI (2180) WiFi Sta: Retrying to connect to the AP[0m
-[0;32mI (2809) esp_netif_handlers: sta ip: 10.10.1.46, mask: 255.255.252.0, gw: 10.10.1.1[0m
-[0;32mI (3690) WiFi: Connected with IP: 10.10.1.46[0m
-[0;32mI (3690) WiFi Sta: Connected to AP SSID:Namtrung 2.4G, password:nt@14092011, bssid:12:5F:02:15:1E:9A[0m
-[0;32mI (3708) MQTT_MANAGER: No existing client, creating new one...[0m
-[0;32mI (3708) MQTT: Other event id:7[0m
-[0;32mI (3722) wifi:<ba-add>idx:0 (ifx:0, 12:5f:02:15:1e:9a), tid:7, ssn:8, winSize:64[0m
-[0;32mI (3777) wifi:<ba-add>idx:1 (ifx:0, 12:5f:02:15:1e:9a), tid:0, ssn:1, winSize:64[0m
-[0;32mI (3784) MQTT: MQTT_EVENT_CONNECTED[0m
-[0;32mI (3790) NVS: last index: -1[0m
-[0;32mI (3790) NVS: wifi index: 0[0m
-[0;33mW (3790) WIFI_UI: WIFI_List_Button is invalid[0m
-[0;32mI (3790) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=33920, return code=0x00 [0m
-[0;32mI (3796) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=46174, return code=0x00 [0m
-[0;32mI (4149) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=52490, return code=0x01 [0m
-[0;32mI (4151) MQTT: MQTT_EVENT_DATA[0m
-TOPIC=device/list
-DATA=[{"id":"94:E6:86:09:A4:78","name":"Quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 1"}]
-[0;32mI (4157) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (4162) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: [{"id":"94:E6:86:09:A4:78","name":"Quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 1"}][0m
-[0;32mI (4174) MQTT_BACKUP: MQTT JSON received: [{"id":"94:E6:86:09:A4:78","name":"Quay 2"},{"id":"A8:42:E3:4C:7C:BC","name":"Quay 1"}][0m
-[0;32mI (4186) MQTT_BACKUP: Stored 2 devices[0m
-[0;32mI (4189) TAG_NVS: Saved 2 devices to NVS[0m
-[0;32mI (7022) MQTT: MQTT_EVENT_DATA[0m
-TOPIC=number
-DATA={"device_id":"94:E6:86:09:A4:78","number":"1209"}
-[0;32mI (7023) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (7026) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: {"device_id":"94:E6:86:09:A4:78","number":"1209"}[0m
-[0;32mI (7035) MQTT_BACKUP: Number: 1209[0m
-[0;32mI (7038) WAIT TASK: Start waiting for 10 seconds...[0m
-[0;32mI (7039) MQTT_BACKUP: Saved number "1209" into key "next_number"[0m
-[0;32mI (11687) MQTT_BACKUP: Read number: 1208[0m
-[0;32mI (11687) Feedback: Successfully read number: 1208[0m
-[0;32mI (11688) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (11690) Feedback: diem danh gia: 1[0m
-
-[0;32mI (11694) MQTT: Message sent successfully, msg_id=0[0m
-[0;32mI (11742) WAIT TASK: Pressed[0m
-[0;32mI (11744) MQTT_BACKUP: copied next_number (1209) to current_number[0m
-[0;32mI (11745) MQTT_BACKUP: Delete key next_number successfully[0m
-[0;32mI (15583) MQTT_BACKUP: Read number: 1209[0m
-[0;32mI (15583) Feedback: Successfully read number: 1209[0m
-[0;32mI (15584) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (15586) Feedback: diem danh gia : 4[0m
-
-[0;32mI (15590) MQTT: Message sent successfully, msg_id=0[0m
-[0;32mI (39680) MQTT: MQTT_EVENT_DATA[0m
-TOPIC=number
-DATA={"device_id":"94:E6:86:09:A4:78","number":"1210"}
-[0;32mI (39681) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (39684) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: {"device_id":"94:E6:86:09:A4:78","number":"1210"}[0m
-[0;32mI (39693) MQTT_BACKUP: Number: 1210[0m
-[0;32mI (39696) WAIT TASK: Start waiting for 10 seconds...[0m
-[0;32mI (39697) MQTT_BACKUP: Saved number "1210" into key "next_number"[0m
-[0;32mI (39702) WAIT TASK: Pressed[0m
-[0;32mI (39710) MQTT_BACKUP: copied next_number (1210) to current_number[0m
-[0;32mI (39715) MQTT_BACKUP: Delete key next_number successfully[0m
-[0;32mI (79209) MQTT: MQTT_EVENT_DATA[0m
-TOPIC=number
-DATA={"device_id":"94:E6:86:09:A4:78","number":"1211"}
-[0;32mI (79210) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (79213) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: {"device_id":"94:E6:86:09:A4:78","number":"1211"}[0m
-[0;32mI (79222) MQTT_BACKUP: Number: 1211[0m
-[0;32mI (79225) WAIT TASK: Start waiting for 10 seconds...[0m
-[0;32mI (79226) MQTT_BACKUP: Saved number "1211" into key "next_number"[0m
-[0;32mI (89230) WAIT TASK: TIMEOUT [0m
-[0;32mI (89231) MQTT_BACKUP: copied next_number (1211) to current_number[0m
-[0;32mI (89231) MQTT_BACKUP: Delete key next_number successfully[0m
-[0;32mI (124170) MQTT: MQTT_EVENT_DATA[0m
-TOPIC=number
-DATA={"device_id":"94:E6:86:09:A4:78","number":"1212"}
-[0;32mI (124171) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (124174) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: {"device_id":"94:E6:86:09:A4:78","number":"1212"}[0m
-[0;32mI (124183) MQTT_BACKUP: Number: 1212[0m
-[0;32mI (124186) WAIT TASK: Start waiting for 10 seconds...[0m
-[0;32mI (124187) MQTT_BACKUP: Saved number "1212" into key "next_number"[0m
-[0;32mI (128788) MQTT_BACKUP: Read number: 1211[0m
-[0;32mI (128789) Feedback: Successfully read number: 1211[0m
-[0;32mI (128789) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (128791) WAIT TASK: Pressed[0m
-[0;32mI (128791) Feedback: diem danh gia : 4[0m
-
-[0;32mI (128795) MQTT_BACKUP: copied next_number (1212) to current_number[0m
-[0;32mI (128798) MQTT: Message sent successfully, msg_id=0[0m
-[0;32mI (128804) MQTT_BACKUP: Delete key next_number successfully[0m
-[0;32mI (182425) MQTT: MQTT_EVENT_DATA[0m
-TOPIC=number
-DATA={"device_id":"94:E6:86:09:A4:78","number":"1213"}
-[0;32mI (182426) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (182429) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: {"device_id":"94:E6:86:09:A4:78","number":"1213"}[0m
-[0;32mI (182438) MQTT_BACKUP: Number: 1213[0m
-[0;32mI (182441) WAIT TASK: Start waiting for 10 seconds...[0m
-[0;32mI (182443) MQTT_BACKUP: Saved number "1213" into key "next_number"[0m
-[0;32mI (192447) WAIT TASK: TIMEOUT [0m
-[0;32mI (192448) MQTT_BACKUP: copied next_number (1213) to current_number[0m
-[0;32mI (192449) MQTT_BACKUP: Delete key next_number successfully[0m
-[0;32mI (198043) MQTT_BACKUP: Read number: 1213[0m
-[0;32mI (198044) Feedback: Successfully read number: 1213[0m
-[0;32mI (198044) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (198046) Feedback: diem danh gia: 3[0m
-
-[0;32mI (198051) MQTT: Message sent successfully, msg_id=0[0m
-[0;32mI (211408) MQTT: MQTT_EVENT_DATA[0m
-TOPIC=number
-DATA={"device_id":"94:E6:86:09:A4:78","number":"1214"}
-[0;32mI (211408) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (211412) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: {"device_id":"94:E6:86:09:A4:78","number":"1214"}[0m
-[0;32mI (211421) MQTT_BACKUP: Number: 1214[0m
-[0;32mI (211424) WAIT TASK: Start waiting for 10 seconds...[0m
-[0;32mI (211425) MQTT_BACKUP: Saved number "1214" into key "next_number"[0m
-[0;32mI (211428) WAIT TASK: Pressed[0m
-[0;32mI (211438) MQTT_BACKUP: copied next_number (1214) to current_number[0m
-[0;32mI (211443) MQTT_BACKUP: Delete key next_number successfully[0m
-[0;32mI (257998) MQTT: MQTT_EVENT_DATA[0m
-TOPIC=number
-DATA={"device_id":"94:E6:86:09:A4:78","number":"1215"}
-[0;32mI (257998) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (258002) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: {"device_id":"94:E6:86:09:A4:78","number":"1215"}[0m
-[0;32mI (258011) MQTT_BACKUP: Number: 1215[0m
-[0;32mI (258014) WAIT TASK: Start waiting for 10 seconds...[0m
-[0;32mI (258015) MQTT_BACKUP: Saved number "1215" into key "next_number"[0m
-[0;32mI (261997) MQTT: MQTT_EVENT_DATA[0m
-TOPIC=skipnumber_display
-DATA=skip
-[0;32mI (261997) LOAD_DEVICE_ID: Loaded device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (261998) MQTT_BACKUP: MQTT_EVENT_DATA. Payload: skip[0m
-[0;32mI (262003) MQTT_BACKUP: Both current_number and next_number exist -> skip doing anything[0m
-[0;32mI (268019) WAIT TASK: TIMEOUT [0m
-[0;32mI (268020) MQTT_BACKUP: copied next_number (1215) to current_number[0m
-[0;32mI (268020) MQTT_BACKUP: Delete key next_number successfully[0m
-[0;32mI (342072) MQTT_BACKUP: Read number: 1215[0m
-[0;32mI (342073) Feedback: Successfully read number: 1215[0m
-[0;32mI (342073) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (342075) Feedback: diem danh gia : 4[0m
-
-[0;32mI (342080) MQTT: Message sent successfully, msg_id=0[0m
-[0;32mI (343733) MQTT_BACKUP: Read number: 1215[0m
-[0;32mI (343734) Feedback: Successfully read number: 1215[0m
-[0;32mI (343734) READ_DEVICE_ID: Read device_id: 94:E6:86:09:A4:78[0m
-[0;32mI (343736) Feedback: diem danh gia: 2[0m
-
-[0;32mI (343741) MQTT: Message sent successfully, msg_id=0[0m
+Leaving...
+Hard resetting via RTS pin...

@@ -106,7 +106,7 @@ extern int rate;
 extern esp_mqtt_client_handle_t mqttClient;
 
 
-extern void mqtt_retry_publish_task(void *pvParameters);
+//extern void mqtt_retry_publish_task(void *pvParameters);
 extern void mqtt_start(void);
 /////wifi
 
@@ -168,7 +168,7 @@ void ui_event_WIFI_Button0(lv_event_t * e)
         // Change the screen back to the main screen with a fade animation
         //_ui_screen_change(&ui_Main, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Main_screen_init);
         //_ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Wifi_Screen_init);
-        _ui_screen_change(&ui_Screen9, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Screen9_screen_init);
+        _ui_screen_change(&ui_Screen4, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Screen4_screen_init);
     }
 }
 
@@ -392,6 +392,7 @@ void ui_event_WIFI_Button2(lv_event_t * e)
 /******************WIFI AP HANDLERS*********************** */
 
 // Event handler for the AP name input field
+/*
 void ui_event_WIFI_AP_NAME(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -511,6 +512,7 @@ void ui_event_WIFI_AP_OPEN(lv_event_t * e)
         WIFIAPCLOSE(e);
     }
 }
+    */
 //////////////// WIFI AP
 
 void ui_init(void)
@@ -520,14 +522,11 @@ void ui_init(void)
                                                false, LV_FONT_DEFAULT);
     lv_disp_set_theme(dispp, theme);
     ui_Screen1_screen_init();
-   // ui_Screen2_screen_init();
-    //ui_Screen3_screen_init();
-    //ui_Screen4_screen_init();
+    ui_Screen2_screen_init();
+    ui_Screen3_screen_init();
+    ui_Screen4_screen_init();
     ui_Screen5_screen_init();
-    ui_Screen8_screen_init();
-    ui_Screen9_screen_init();
-    ui_Screen10_screen_init();
-    ui_Screen11_screen_init();
+    ui_Screen6_screen_init();
     ui_Wifi_Screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_Screen1);
@@ -536,13 +535,10 @@ void ui_init(void)
 void ui_destroy(void)
 {
     ui_Screen1_screen_destroy();
-   // ui_Screen2_screen_destroy();
-    //ui_Screen3_screen_destroy();
-    //ui_Screen4_screen_destroy();
+    ui_Screen2_screen_destroy();
+    ui_Screen3_screen_destroy();
+    ui_Screen4_screen_destroy();
     ui_Screen5_screen_destroy();
-    ui_Screen8_screen_destroy();
-    ui_Screen9_screen_destroy();
-    ui_Screen10_screen_destroy();
-    ui_Screen11_screen_destroy();
+    ui_Screen6_screen_destroy();
     
 }

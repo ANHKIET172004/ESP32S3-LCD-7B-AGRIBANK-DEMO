@@ -1,119 +1,580 @@
-Command: ninja flash
-[1/10] Performing build step for 'bootloader'
-[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/bootloader/bootloader.bin""
-Bootloader binary size 0x5800 bytes. 0x2800 bytes (31%) free.
-[2/10] No install step for 'bootloader'
-[3/10] Completed 'bootloader'
-[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/esp_mqtt_client/esp_mqtt_client.c.obj
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c: In function 'save_current_number':
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c:253:12: warning: unused variable 'required_size' [-Wunused-variable]
-  253 |     size_t required_size = sizeof(temp);
-      |            ^~~~~~~~~~~~~
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c: In function 'save_next_number':
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/esp_mqtt_client/esp_mqtt_client.c:296:12: warning: unused variable 'required_size' [-Wunused-variable]
-  296 |     size_t required_size = sizeof(temp);
-      |            ^~~~~~~~~~~~~
-[5/10] Linking C static library esp-idf\main\libmain.a
-[6/10] Generating esp-idf/esp_system/ld/sections.ld
-[7/10] Linking CXX executable 16_LVGL_UI.elf
-[8/10] Generating binary image from built executable
-esptool.py v4.9.1
-Creating esp32s3 image...
-Merged 2 ELF sections
-Successfully created esp32s3 image.
-Generated D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin
-[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/partition_table/partition-table.bin" "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin""
-16_LVGL_UI.bin binary size 0x1d85a0 bytes. Smallest app partition is 0x800000 bytes. 0x627a60 bytes (77%) free.
-[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\components\esptool_py && D:\ESP32_IDF\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5 -D SERIAL_TOOL=D:/ESP32_IDF/Espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build" -P D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/run_serial_tool.cmake"
-esptool.py --chip esp32s3 -p COM10 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 16_LVGL_UI.bin 0x8000 partition_table/partition-table.bin
-esptool.py v4.9.1
-Serial port COM10
-Connecting...
-Chip is ESP32-S3 (QFN56) (revision v0.2)
-Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
-Crystal is 40MHz
-MAC: 10:20:ba:01:48:a8
-Uploading stub...
-Running stub...
-Stub running...
-Changing baud rate to 460800
-Changed.
-Configuring flash size...
-Flash will be erased from 0x00000000 to 0x00005fff...
-Flash will be erased from 0x00010000 to 0x001e8fff...
-Flash will be erased from 0x00008000 to 0x00008fff...
-SHA digest in image updated
-Compressed 22528 bytes to 14318...
-Writing at 0x00000000... (100 %)
-Wrote 22528 bytes (14318 compressed) at 0x00000000 in 0.5 seconds (effective 356.6 kbit/s)...
-Hash of data verified.
-Compressed 1934752 bytes to 974421...
-Writing at 0x00010000... (1 %)
-Writing at 0x0001cb5d... (3 %)
-Writing at 0x0002933a... (5 %)
-Writing at 0x000322b6... (6 %)
-Writing at 0x0003b213... (8 %)
-Writing at 0x0004d092... (10 %)
-Writing at 0x0006ec54... (11 %)
-Writing at 0x000871aa... (13 %)
-Writing at 0x0009babd... (15 %)
-Writing at 0x000b17d1... (16 %)
-Writing at 0x000c27c7... (18 %)
-Writing at 0x000cad02... (20 %)
-Writing at 0x000d4e04... (21 %)
-Writing at 0x000de8bb... (23 %)
-Writing at 0x000eabee... (25 %)
-Writing at 0x000f1915... (26 %)
-Writing at 0x000f7527... (28 %)
-Writing at 0x000fd215... (30 %)
-Writing at 0x00102cf2... (31 %)
-Writing at 0x0010865b... (33 %)
-Writing at 0x0010dcf1... (35 %)
-Writing at 0x00113197... (36 %)
-Writing at 0x00119858... (38 %)
-Writing at 0x0011e6ea... (40 %)
-Writing at 0x00123a18... (41 %)
-Writing at 0x00128cab... (43 %)
-Writing at 0x0012e322... (45 %)
-Writing at 0x00133813... (46 %)
-Writing at 0x001392bf... (48 %)
-Writing at 0x0013e97f... (50 %)
-Writing at 0x00144036... (51 %)
-Writing at 0x001492f0... (53 %)
-Writing at 0x0014e824... (55 %)
-Writing at 0x00153f99... (56 %)
-Writing at 0x001592a3... (58 %)
-Writing at 0x0015e60c... (60 %)
-Writing at 0x001637bd... (61 %)
-Writing at 0x00168e0c... (63 %)
-Writing at 0x0016e5d0... (65 %)
-Writing at 0x00173a6d... (66 %)
-Writing at 0x00178e65... (68 %)
-Writing at 0x0017e4ac... (70 %)
-Writing at 0x001845f3... (71 %)
-Writing at 0x001893cf... (73 %)
-Writing at 0x0018e542... (75 %)
-Writing at 0x00193685... (76 %)
-Writing at 0x0019890e... (78 %)
-Writing at 0x0019dae6... (80 %)
-Writing at 0x001a2bfd... (81 %)
-Writing at 0x001a7edd... (83 %)
-Writing at 0x001ad633... (85 %)
-Writing at 0x001b32c2... (86 %)
-Writing at 0x001bd67c... (88 %)
-Writing at 0x001c4264... (90 %)
-Writing at 0x001c9a34... (91 %)
-Writing at 0x001cf51b... (93 %)
-Writing at 0x001d479d... (95 %)
-Writing at 0x001da6b5... (96 %)
-Writing at 0x001e0711... (98 %)
-Writing at 0x001e5601... (100 %)
-Wrote 1934752 bytes (974421 compressed) at 0x00010000 in 22.4 seconds (effective 689.9 kbit/s)...
-Hash of data verified.
-Compressed 3072 bytes to 105...
-Writing at 0x00008000... (100 %)
-Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 791.2 kbit/s)...
-Hash of data verified.
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM7 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Oct  8 2025 11:43:15[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=d7874h (882804) map[0m
+[0;32mI (222) esp_image: segment 1: paddr=000e789c vaddr=3fca1c00 size=057a0h ( 22432) load[0m
+[0;32mI (227) esp_image: segment 2: paddr=000ed044 vaddr=40374000 size=02fd4h ( 12244) load[0m
+[0;32mI (229) esp_image: segment 3: paddr=000f0020 vaddr=42000020 size=de560h (910688) map[0m
+[0;32mI (369) esp_image: segment 4: paddr=001ce588 vaddr=40376fd4 size=1abdch (109532) load[0m
+[0;32mI (390) esp_image: segment 5: paddr=001e916c vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (402) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (402) boot: Disabling RNG early entropy source...[0m
+[0;33mW (412) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (412) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (419) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (427) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (431) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (435) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (440) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (444) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (448) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (453) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (457) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (462) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (467) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (471) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (476) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (488) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (489) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (489) esp_psram: Speed: 120MHz[0m
+[0;32mI (529) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (575) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (575) cpu_start: Multicore app[0m
+[0;32mI (735) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (744) cpu_start: Pro cpu start user code[0m
+[0;32mI (744) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (744) app_init: Application information:[0m
+[0;32mI (744) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (748) app_init: App version:      0bd1f90-dirty[0m
+[0;32mI (753) app_init: Compile time:     Dec 27 2025 10:50:51[0m
+[0;32mI (758) app_init: ELF file SHA256:  d5b15c849...[0m
+[0;32mI (762) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (766) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (770) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (774) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (778) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (784) heap_init: At 3FCACCD0 len 0003CA40 (242 KiB): RAM[0m
+[0;32mI (789) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (794) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (800) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (805) esp_psram: Adding pool of 6400K of PSRAM memory to heap allocator[0m
+[0;32mI (811) esp_psram: Adding pool of 33K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (823) spi_flash: detected chip: generic[0m
+[0;32mI (826) spi_flash: flash io: qio[0m
+[0;32mI (829) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (835) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (842) coexist: coex firmware version: 831ec70[0m
+[0;32mI (855) coexist: coexist rom version e7ae62f[0m
+[0;32mI (855) main_task: Started on CPU0[0m
+[0;32mI (856) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (861) main_task: Calling app_main()[0m
+[0;32mI (864) PSRAM: Total heap: 6842480[0m
+[0;32mI (867) PSRAM: Free PSRAM: 6552981[0m
+[0;33mW (879) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1286) GT911: Initialize I2C panel IO[0m
+[0;32mI (1286) GT911: Initialize touch controller GT911[0m
+[0;33mW (1286) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1288) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1291) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1295) example: Install RGB LCD panel driver[0m
+[0;32mI (1335) example: Initialize RGB LCD panel[0m
+[0;32mI (1337) lv_port: Create LVGL task[0m
+[0;32mI (1364) main: Display LVGL demos[0m
+[0;32mI (1382) TAG_NVS: Loaded JSON from NVS: [{"name":"2","device_id":"94:E6:86:09:A4:78"},{"name":"1","device_id":"A8:42:E3:4C:7C:BC"},{"name":"5","device_id":"B8:D6:1A:B9:DA:A4"},{"name":"3","device_id":"R1:42:E3:4C:7C:BC"},{"name":"4","device_id":"R2:42:E3:4C:7C:BC"}][0m
+[0;32mI (1396) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1401) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1406) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1411) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1417) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1421) LVGL: Displayed 5 devices[0m
+[0;32mI (1429) MQTT_SAVE_NUMBER: Saved timeout: 10[0m
+[0;32mI (1581) pp: pp rom version: e7ae62f[0m
+[0;32mI (1581) net80211: net80211 rom version: e7ae62f[0m
+[0;33mW (1582) RSSI: Not connected to any AP[0m
+[0;32mI (1582) HEAP: Free heap: 4245652[0m
+[0;32mI (1583) wifi:wifi driver task: 3fcd2758, prio:23, stack:6656, core=0[0m
+[0;32mI (1601) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1602) wifi:wifi certification version: v7.0[0m
+[0;32mI (1602) wifi:config NVS flash: enabled[0m
+[0;32mI (1602) wifi:config nano formatting: disabled[0m
+[0;32mI (1607) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1611) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1616) wifi:Init management short buffer num: 32[0m
+[0;32mI (1620) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1625) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1628) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1632) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1636) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1640) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1644) wifi_init: rx ba win: 16[0m
+[0;32mI (1647) wifi_init: accept mbox: 6[0m
+[0;32mI (1650) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1653) wifi_init: udp mbox: 6[0m
+[0;32mI (1656) wifi_init: tcp mbox: 6[0m
+[0;32mI (1659) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1662) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1666) wifi_init: tcp mss: 1440[0m
+[0;32mI (1669) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1672) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1676) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1680) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1687) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1731) wifi:mode : sta (10:20:ba:05:9b:9c)[0m
+[0;32mI (1732) wifi:enable tsf[0m
+[0;32mI (1734) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1734) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1797) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1797) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1809) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1816) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1844) wifi:connected with NamTrung, aid = 23, channel 11, BW20, bssid = 10:5f:02:75:1e:9a[0m
+[0;32mI (1845) wifi:security: WPA2-PSK, phy: bgn, rssi: -54[0m
+[0;32mI (1847) wifi:pm start, type: 1[0m
 
-Leaving...
-Hard resetting via RTS pin...
+[0;32mI (1849) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1857) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1867) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1871) WiFi Sta: Connected to SSID:NamTrung, channel:11[0m
+[0;32mI (1898) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2238) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2238) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2738) HEAP: Free heap: 4122332[0m
+[0;32mI (2884) esp_netif_handlers: sta ip: 10.10.1.38, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2884) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2892) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2893) MQTT: Other event id:7[0m
+[0;32mI (2906) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:1e:9a), tid:7, ssn:5, winSize:64[0m
+[0;32mI (2908) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (2909) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:1e:9a), tid:0, ssn:7, winSize:64[0m
+[0;32mI (2909) MQTT_SAVE_NUMBER: deleted retained message to keypad successfully, msg_id=14525[0m
+[0;32mI (2921) MQTT_SAVE_NUMBER: Sent connection message to keypad successfully, msg_id=35278[0m
+[0;32mI (2933) MQTT: MQTT_EVENT_PUBLISHED, msg_id=14525[0m
+[0;32mI (2957) MQTT: MQTT_EVENT_PUBLISHED, msg_id=35278[0m
+[0;32mI (2959) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=13206, return code=0x00[0m
+[0;32mI (3147) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=63144, return code=0x01[0m
+[0;32mI (3150) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=23183, return code=0x00[0m
+[0;32mI (3152) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=48571, return code=0x00[0m
+[0;32mI (3155) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=47633, return code=0x00[0m
+[0;32mI (3162) MQTT_SAVE_NUMBER: Processing topic: device/list[0m
+[0;32mI (3165) MQTT_SAVE_NUMBER: Data: [{"id":"94:E6:86:09:A4:78","name":"2"},{"id":"A8:42:E3:4C:7C:BC","name":"1"},{"id":"B8:D6:1A:B9:DA:A4","name":"5"},{"id":"R1:42:E3:4C:7C:BC","name":"3"},{"id":"R2:42:E3:4C:7C:BC","name":"4"}][0m
+[0;32mI (3185) MQTT_SAVE_NUMBER: Device list received[0m
+[0;32mI (3189) MQTT_SAVE_NUMBER: Parsed 5 devices from MQTT[0m
+[0;32mI (3194) MQTT_SAVE_NUMBER: Device list unchanged → skip save[0m
+[0;32mI (3199) MQTT_SAVE_NUMBER: Processing topic: transfer_number[0m
+[0;32mI (3205) MQTT_SAVE_NUMBER: Data: YES[0m
+[0;32mI (3208) MQTT_SAVE_NUMBER: transfer number[0m
+[0;33mW (3212) MQTT_SAVE_NUMBER: next_number does not exist in NVS[0m
+[0;33mW (3217) MQTT_SAVE_NUMBER: current_number does not exist in NVS[0m
+[0;32mI (3223) MQTT_SAVE_NUMBER: transfered number successfully[0m
+[0;32mI (3738) HEAP: Free heap: 4111416[0m
+[0;32mI (3748) WiFi: Connected with IP: 10.10.1.38[0m
+[0;32mI (3748) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:1E:9A[0m
+[0;32mI (3856) NVS: last index: -1[0m
+[0;32mI (3856) NVS: wifi index: 0[0m
+[0;33mW (3856) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (4738) HEAP: Free heap: 4111452[0m
+[0;32mI (5738) HEAP: Free heap: 4111452[0m
+[0;32mI (6738) HEAP: Free heap: 4111416[0m
+[0;32mI (7738) HEAP: Free heap: 4111416[0m
+[0;32mI (8738) HEAP: Free heap: 4111452[0m
+[0;32mI (9738) HEAP: Free heap: 4111452[0m
+[0;32mI (10738) HEAP: Free heap: 4111452[0m
+[0;32mI (11738) HEAP: Free heap: 4111416[0m
+[0;32mI (12738) HEAP: Free heap: 4111452[0m
+[0;32mI (13738) HEAP: Free heap: 4111452[0m
+[0;32mI (14738) HEAP: Free heap: 4111452[0m
+[0;32mI (15738) HEAP: Free heap: 4111452[0m
+[0;32mI (16738) HEAP: Free heap: 4111452[0m
+[0;32mI (17738) HEAP: Free heap: 4111452[0m
+[0;32mI (18738) HEAP: Free heap: 4111452[0m
+[0;32mI (19738) HEAP: Free heap: 4111452[0m
+[0;32mI (20738) HEAP: Free heap: 4111416[0m
+[0;32mI (21738) HEAP: Free heap: 4111452[0m
+[0;32mI (22738) HEAP: Free heap: 4111452[0m
+[0;32mI (23738) HEAP: Free heap: 4111452[0m
+[0;32mI (24738) HEAP: Free heap: 4111452[0m
+[0;32mI (25738) HEAP: Free heap: 4111452[0m
+[0;32mI (26738) HEAP: Free heap: 4111452[0m
+[0;32mI (27738) HEAP: Free heap: 4111452[0m
+[0;32mI (28738) HEAP: Free heap: 4111416[0m
+[0;32mI (29738) HEAP: Free heap: 4111452[0m
+[0;32mI (30738) HEAP: Free heap: 4111452[0m
+[0;32mI (31738) HEAP: Free heap: 4111452[0m
+[0;32mI (32738) HEAP: Free heap: 4111452[0m
+[0;32mI (33738) HEAP: Free heap: 4111452[0m
+[0;32mI (34738) HEAP: Free heap: 4111452[0m
+[0;32mI (35738) HEAP: Free heap: 4111452[0m
+[0;32mI (36738) HEAP: Free heap: 4111452[0m
+[0;32mI (37738) HEAP: Free heap: 4111416[0m
+[0;32mI (38738) HEAP: Free heap: 4111452[0m
+[0;32mI (39738) HEAP: Free heap: 4111452[0m
+[0;32mI (40738) HEAP: Free heap: 4111452[0m
+[0;32mI (41738) HEAP: Free heap: 4111416[0m
+[0;32mI (42738) HEAP: Free heap: 4111452[0m
+[0;32mI (43738) HEAP: Free heap: 4111452[0m
+[0;32mI (44738) HEAP: Free heap: 4111452[0m
+[0;32mI (45738) HEAP: Free heap: 4111416[0m
+[0;32mI (46738) HEAP: Free heap: 4111452[0m
+[0;32mI (47738) HEAP: Free heap: 4111452[0m
+[0;32mI (48738) HEAP: Free heap: 4111452[0m
+[0;32mI (49738) HEAP: Free heap: 4111452[0m
+[0;32mI (50738) HEAP: Free heap: 4111416[0m
+[0;32mI (51738) HEAP: Free heap: 4111452[0m
+[0;32mI (52738) HEAP: Free heap: 4111452[0m
+[0;32mI (53738) HEAP: Free heap: 4111452[0m
+[0;32mI (54738) HEAP: Free heap: 4111416[0m
+[0;32mI (55738) HEAP: Free heap: 4111452[0m
+[0;32mI (56738) HEAP: Free heap: 4111452[0m
+[0;32mI (57738) HEAP: Free heap: 4111452[0m
+[0;32mI (58738) HEAP: Free heap: 4111452[0m
+[0;32mI (59738) HEAP: Free heap: 4111452[0m
+[0;32mI (60738) HEAP: Free heap: 4111452[0m
+[0;32mI (61738) HEAP: Free heap: 4111416[0m
+[0;32mI (62738) HEAP: Free heap: 4111452[0m
+[0;32mI (63738) HEAP: Free heap: 4111452[0m
+[0;32mI (64738) HEAP: Free heap: 4111452[0m
+[0;32mI (65738) HEAP: Free heap: 4111452[0m
+[0;32mI (66738) HEAP: Free heap: 4111452[0m
+[0;32mI (67738) HEAP: Free heap: 4111416[0m
+[0;32mI (68738) HEAP: Free heap: 4111452[0m
+[0;32mI (69738) HEAP: Free heap: 4111452[0m
+[0;32mI (70738) HEAP: Free heap: 4111452[0m
+[0;32mI (71738) HEAP: Free heap: 4111416[0m
+[0;32mI (72738) HEAP: Free heap: 4111452[0m
+[0;32mI (73738) HEAP: Free heap: 4111452[0m
+[0;32mI (74738) HEAP: Free heap: 4111452[0m
+[0;32mI (75738) HEAP: Free heap: 4111416[0m
+[0;32mI (76738) HEAP: Free heap: 4111452[0m
+[0;32mI (77738) HEAP: Free heap: 4111452[0m
+[0;32mI (78738) HEAP: Free heap: 4111452[0m
+[0;32mI (79738) HEAP: Free heap: 4111452[0m
+[0;32mI (80738) HEAP: Free heap: 4111452[0m
+[0;32mI (81738) HEAP: Free heap: 4111452[0m
+[0;32mI (82738) HEAP: Free heap: 4111452[0m
+[0;32mI (83738) HEAP: Free heap: 4111452[0m
+[0;32mI (84738) HEAP: Free heap: 4111416[0m
+[0;32mI (85738) HEAP: Free heap: 4111452[0m
+[0;32mI (86738) HEAP: Free heap: 4111452[0m
+[0;32mI (87738) HEAP: Free heap: 4111452[0m
+[0;32mI (88738) HEAP: Free heap: 4111452[0m
+[0;32mI (89738) HEAP: Free heap: 4111452[0m
+[0;32mI (90738) HEAP: Free heap: 4111452[0m
+[0;32mI (91738) HEAP: Free heap: 4111452[0m
+[0;32mI (92738) HEAP: Free heap: 4111416[0m
+[0;32mI (93738) HEAP: Free heap: 4111452[0m
+[0;32mI (94738) HEAP: Free heap: 4111452[0m
+[0;32mI (95738) HEAP: Free heap: 4111452[0m
+[0;32mI (96738) HEAP: Free heap: 4111452[0m
+[0;32mI (97738) HEAP: Free heap: 4111452[0m
+[0;32mI (98738) HEAP: Free heap: 4111452[0m
+[0;32mI (99738) HEAP: Free heap: 4111452[0m
+[0;32mI (100738) HEAP: Free heap: 4111452[0m
+[0;32mI (101738) HEAP: Free heap: 4111416[0m
+[0;32mI (102738) HEAP: Free heap: 4111452[0m
+[0;32mI (103738) HEAP: Free heap: 4111452[0m
+[0;32mI (104738) HEAP: Free heap: 4111452[0m
+[0;32mI (105738) HEAP: Free heap: 4111416[0m
+[0;32mI (106738) HEAP: Free heap: 4111452[0m
+[0;32mI (107738) HEAP: Free heap: 4111452[0m
+[0;32mI (108738) HEAP: Free heap: 4111452[0m
+[0;32mI (109738) HEAP: Free heap: 4111452[0m
+[0;32mI (110738) HEAP: Free heap: 4111452[0m
+[0;32mI (111738) HEAP: Free heap: 4111452[0m
+[0;32mI (112738) HEAP: Free heap: 4111416[0m
+[0;32mI (113738) HEAP: Free heap: 4111452[0m
+[0;32mI (114738) HEAP: Free heap: 4111416[0m
+[0;32mI (115738) HEAP: Free heap: 4111452[0m
+[0;32mI (116738) HEAP: Free heap: 4111452[0m
+[0;32mI (117738) HEAP: Free heap: 4111452[0m
+[0;32mI (118738) HEAP: Free heap: 4111416[0m
+[0;32mI (119738) HEAP: Free heap: 4111452[0m
+[0;32mI (120738) HEAP: Free heap: 4111452[0m
+[0;32mI (121738) HEAP: Free heap: 4111416[0m
+[0;32mI (122738) HEAP: Free heap: 4111424[0m
+[0;32mI (123738) HEAP: Free heap: 4111460[0m
+[0;32mI (124738) HEAP: Free heap: 4111460[0m
+[0;32mI (125738) HEAP: Free heap: 4111460[0m
+[0;32mI (126738) HEAP: Free heap: 4111460[0m
+[0;32mI (127738) HEAP: Free heap: 4111460[0m
+[0;32mI (128738) HEAP: Free heap: 4111460[0m
+[0;32mI (129738) HEAP: Free heap: 4111460[0m
+[0;32mI (130738) HEAP: Free heap: 4111460[0m
+[0;32mI (131738) HEAP: Free heap: 4111424[0m
+[0;32mI (132738) HEAP: Free heap: 4111460[0m
+[0;32mI (133738) HEAP: Free heap: 4111460[0m
+[0;32mI (134738) HEAP: Free heap: 4111460[0m
+[0;32mI (135738) HEAP: Free heap: 4111424[0m
+[0;32mI (136738) HEAP: Free heap: 4111460[0m
+[0;32mI (137738) HEAP: Free heap: 4111460[0m
+[0;32mI (138738) HEAP: Free heap: 4111460[0m
+[0;32mI (139738) HEAP: Free heap: 4111460[0m
+[0;32mI (140738) HEAP: Free heap: 4111460[0m
+[0;32mI (141738) HEAP: Free heap: 4111460[0m
+[0;32mI (142738) HEAP: Free heap: 4111460[0m
+[0;32mI (143738) HEAP: Free heap: 4111460[0m
+[0;32mI (144738) HEAP: Free heap: 4111460[0m
+[0;32mI (145738) HEAP: Free heap: 4111460[0m
+[0;32mI (146738) HEAP: Free heap: 4111460[0m
+[0;32mI (147738) HEAP: Free heap: 4111460[0m
+[0;32mI (148738) HEAP: Free heap: 4111424[0m
+[0;32mI (149738) HEAP: Free heap: 4111460[0m
+[0;32mI (150738) HEAP: Free heap: 4111460[0m
+[0;32mI (151738) HEAP: Free heap: 4111460[0m
+[0;32mI (152738) HEAP: Free heap: 4111460[0m
+[0;32mI (153738) HEAP: Free heap: 4111460[0m
+[0;32mI (154738) HEAP: Free heap: 4111460[0m
+[0;32mI (155738) HEAP: Free heap: 4111460[0m
+[0;32mI (156738) HEAP: Free heap: 4111460[0m
+[0;32mI (157738) HEAP: Free heap: 4111460[0m
+[0;32mI (158738) HEAP: Free heap: 4111460[0m
+[0;32mI (159738) HEAP: Free heap: 4111460[0m
+[0;32mI (160738) HEAP: Free heap: 4111460[0m
+[0;32mI (161738) HEAP: Free heap: 4111460[0m
+[0;32mI (162738) HEAP: Free heap: 4111460[0m
+[0;32mI (163738) HEAP: Free heap: 4111460[0m
+[0;32mI (164738) HEAP: Free heap: 4111460[0m
+[0;32mI (165738) HEAP: Free heap: 4111424[0m
+[0;32mI (166738) HEAP: Free heap: 4111460[0m
+[0;32mI (167738) HEAP: Free heap: 4111460[0m
+[0;32mI (168738) HEAP: Free heap: 4111460[0m
+[0;32mI (169738) HEAP: Free heap: 4111460[0m
+[0;32mI (170738) HEAP: Free heap: 4111460[0m
+[0;32mI (171738) HEAP: Free heap: 4111460[0m
+[0;32mI (172738) HEAP: Free heap: 4111424[0m
+[0;32mI (173738) HEAP: Free heap: 4111460[0m
+[0;32mI (174738) HEAP: Free heap: 4111460[0m
+[0;32mI (175738) HEAP: Free heap: 4111460[0m
+[0;32mI (176738) HEAP: Free heap: 4111460[0m
+[0;32mI (177738) HEAP: Free heap: 4111460[0m
+[0;32mI (178738) HEAP: Free heap: 4111424[0m
+[0;32mI (179738) HEAP: Free heap: 4111460[0m
+[0;32mI (180738) HEAP: Free heap: 4111460[0m
+[0;32mI (181738) HEAP: Free heap: 4111424[0m
+[0;32mI (182738) HEAP: Free heap: 4111424[0m
+[0;32mI (183738) HEAP: Free heap: 4111460[0m
+[0;32mI (184738) HEAP: Free heap: 4111460[0m
+[0;32mI (185738) HEAP: Free heap: 4111460[0m
+[0;32mI (186738) HEAP: Free heap: 4111460[0m
+[0;32mI (187738) HEAP: Free heap: 4111460[0m
+[0;32mI (188738) HEAP: Free heap: 4111424[0m
+[0;32mI (189738) HEAP: Free heap: 4111460[0m
+[0;32mI (190738) HEAP: Free heap: 4111460[0m
+[0;32mI (191738) HEAP: Free heap: 4111460[0m
+[0;32mI (192738) HEAP: Free heap: 4111460[0m
+[0;32mI (193738) HEAP: Free heap: 4111460[0m
+[0;32mI (194738) HEAP: Free heap: 4111460[0m
+[0;32mI (195738) HEAP: Free heap: 4111424[0m
+[0;32mI (196738) HEAP: Free heap: 4111460[0m
+[0;32mI (197738) HEAP: Free heap: 4111460[0m
+[0;32mI (198738) HEAP: Free heap: 4111460[0m
+[0;32mI (199738) HEAP: Free heap: 4111460[0m
+[0;32mI (200738) HEAP: Free heap: 4111460[0m
+[0;32mI (201738) HEAP: Free heap: 4111460[0m
+[0;32mI (202738) HEAP: Free heap: 4111460[0m
+[0;32mI (203738) HEAP: Free heap: 4111424[0m
+[0;32mI (204738) HEAP: Free heap: 4111460[0m
+[0;32mI (205738) HEAP: Free heap: 4111424[0m
+[0;32mI (206738) HEAP: Free heap: 4111460[0m
+[0;32mI (207738) HEAP: Free heap: 4111460[0m
+[0;32mI (208738) HEAP: Free heap: 4111460[0m
+[0;32mI (209738) HEAP: Free heap: 4111460[0m
+[0;32mI (210738) HEAP: Free heap: 4111460[0m
+[0;32mI (211738) HEAP: Free heap: 4111460[0m
+[0;32mI (212738) HEAP: Free heap: 4111424[0m
+[0;32mI (213738) HEAP: Free heap: 4111460[0m
+[0;32mI (214738) HEAP: Free heap: 4111460[0m
+[0;32mI (215738) HEAP: Free heap: 4111424[0m
+[0;32mI (216738) HEAP: Free heap: 4111424[0m
+[0;32mI (217738) HEAP: Free heap: 4111460[0m
+[0;32mI (218738) HEAP: Free heap: 4111460[0m
+[0;32mI (219738) HEAP: Free heap: 4111460[0m
+[0;32mI (220738) HEAP: Free heap: 4111424[0m
+[0;32mI (221738) HEAP: Free heap: 4111460[0m
+[0;32mI (222738) HEAP: Free heap: 4111460[0m
+[0;32mI (223738) HEAP: Free heap: 4111460[0m
+[0;32mI (224738) HEAP: Free heap: 4111424[0m
+[0;32mI (225738) HEAP: Free heap: 4111460[0m
+[0;32mI (226738) HEAP: Free heap: 4111460[0m
+[0;32mI (227738) HEAP: Free heap: 4111460[0m
+[0;32mI (228738) HEAP: Free heap: 4111460[0m
+[0;32mI (229738) HEAP: Free heap: 4111424[0m
+[0;32mI (230738) HEAP: Free heap: 4111460[0m
+[0;32mI (231738) HEAP: Free heap: 4111460[0m
+[0;32mI (232738) HEAP: Free heap: 4111424[0m
+[0;32mI (233738) HEAP: Free heap: 4111424[0m
+[0;32mI (234738) HEAP: Free heap: 4111460[0m
+[0;32mI (235738) HEAP: Free heap: 4111460[0m
+[0;32mI (236738) HEAP: Free heap: 4111460[0m
+[0;32mI (237738) HEAP: Free heap: 4111460[0m
+[0;32mI (238738) HEAP: Free heap: 4111460[0m
+[0;32mI (239738) HEAP: Free heap: 4111460[0m
+[0;32mI (240738) HEAP: Free heap: 4111460[0m
+[0;32mI (241738) HEAP: Free heap: 4111424[0m
+[0;32mI (242738) HEAP: Free heap: 4111460[0m
+[0;32mI (243738) HEAP: Free heap: 4111460[0m
+[0;32mI (244738) HEAP: Free heap: 4111460[0m
+[0;32mI (245738) HEAP: Free heap: 4111460[0m
+[0;32mI (246738) HEAP: Free heap: 4111424[0m
+[0;32mI (247738) HEAP: Free heap: 4111460[0m
+[0;32mI (248738) HEAP: Free heap: 4111460[0m
+[0;32mI (249738) HEAP: Free heap: 4111460[0m
+[0;32mI (250738) HEAP: Free heap: 4111460[0m
+[0;32mI (251738) HEAP: Free heap: 4111460[0m
+[0;32mI (252738) HEAP: Free heap: 4111460[0m
+[0;32mI (253738) HEAP: Free heap: 4111460[0m
+[0;32mI (254738) HEAP: Free heap: 4111460[0m
+[0;32mI (255738) HEAP: Free heap: 4111460[0m
+[0;32mI (256738) HEAP: Free heap: 4111460[0m
+[0;32mI (257738) HEAP: Free heap: 4111460[0m
+[0;32mI (258738) HEAP: Free heap: 4111460[0m
+[0;32mI (259738) HEAP: Free heap: 4111424[0m
+[0;32mI (260738) HEAP: Free heap: 4111460[0m
+[0;32mI (261738) HEAP: Free heap: 4111460[0m
+[0;32mI (262738) HEAP: Free heap: 4111460[0m
+[0;32mI (263738) HEAP: Free heap: 4111424[0m
+[0;32mI (264738) HEAP: Free heap: 4111460[0m
+[0;32mI (265738) HEAP: Free heap: 4111460[0m
+[0;32mI (266738) HEAP: Free heap: 4111460[0m
+[0;32mI (267738) HEAP: Free heap: 4111460[0m
+[0;32mI (268738) HEAP: Free heap: 4111460[0m
+[0;32mI (269738) HEAP: Free heap: 4111460[0m
+[0;32mI (270738) HEAP: Free heap: 4111460[0m
+[0;32mI (271738) HEAP: Free heap: 4111460[0m
+[0;32mI (272738) HEAP: Free heap: 4111460[0m
+[0;32mI (273738) HEAP: Free heap: 4111460[0m
+[0;32mI (274738) HEAP: Free heap: 4111460[0m
+[0;32mI (275738) HEAP: Free heap: 4111460[0m
+[0;32mI (276738) HEAP: Free heap: 4111424[0m
+[0;32mI (277738) HEAP: Free heap: 4111460[0m
+[0;32mI (278738) HEAP: Free heap: 4111460[0m
+[0;32mI (279738) HEAP: Free heap: 4111460[0m
+[0;32mI (280738) HEAP: Free heap: 4111424[0m
+[0;32mI (281738) HEAP: Free heap: 4111460[0m
+[0;32mI (282738) HEAP: Free heap: 4111460[0m
+[0;32mI (283738) HEAP: Free heap: 4111460[0m
+[0;32mI (284738) HEAP: Free heap: 4111424[0m
+[0;32mI (285738) HEAP: Free heap: 4111460[0m
+[0;32mI (286738) HEAP: Free heap: 4111460[0m
+[0;32mI (287738) HEAP: Free heap: 4111460[0m
+[0;32mI (288738) HEAP: Free heap: 4111424[0m
+[0;32mI (289738) HEAP: Free heap: 4111460[0m
+[0;32mI (290738) HEAP: Free heap: 4111472[0m
+[0;32mI (291738) HEAP: Free heap: 4111460[0m
+[0;32mI (292738) HEAP: Free heap: 4111424[0m
+[0;32mI (293738) HEAP: Free heap: 4111424[0m
+[0;32mI (294738) HEAP: Free heap: 4111460[0m
+[0;32mI (295738) HEAP: Free heap: 4111460[0m
+[0;32mI (296738) HEAP: Free heap: 4111424[0m
+[0;32mI (297738) HEAP: Free heap: 4111424[0m
+[0;32mI (298738) HEAP: Free heap: 4111460[0m
+[0;32mI (299738) HEAP: Free heap: 4111460[0m
+[0;32mI (300738) HEAP: Free heap: 4111460[0m
+[0;32mI (301738) HEAP: Free heap: 4111424[0m
+[0;32mI (302738) HEAP: Free heap: 4111460[0m
+[0;32mI (303738) HEAP: Free heap: 4111424[0m
+[0;32mI (304738) HEAP: Free heap: 4111460[0m
+[0;32mI (305738) HEAP: Free heap: 4111460[0m
+[0;32mI (306738) HEAP: Free heap: 4111460[0m
+[0;32mI (307738) HEAP: Free heap: 4111460[0m
+[0;32mI (308738) HEAP: Free heap: 4111460[0m
+[0;32mI (309738) HEAP: Free heap: 4111460[0m
+[0;32mI (310738) HEAP: Free heap: 4111424[0m
+[0;32mI (311738) HEAP: Free heap: 4111460[0m
+[0;32mI (312738) HEAP: Free heap: 4111460[0m
+[0;32mI (313738) HEAP: Free heap: 4111460[0m
+[0;32mI (314738) HEAP: Free heap: 4111424[0m
+[0;32mI (315738) HEAP: Free heap: 4111460[0m
+[0;32mI (316738) HEAP: Free heap: 4111460[0m
+[0;32mI (317738) HEAP: Free heap: 4111460[0m
+[0;32mI (318738) HEAP: Free heap: 4111460[0m
+[0;32mI (319738) HEAP: Free heap: 4111460[0m
+[0;32mI (320738) HEAP: Free heap: 4111460[0m
+[0;32mI (321738) HEAP: Free heap: 4111460[0m
+[0;32mI (322738) HEAP: Free heap: 4111424[0m
+[0;32mI (323738) HEAP: Free heap: 4111424[0m
+[0;32mI (324738) HEAP: Free heap: 4111460[0m
+[0;32mI (325738) HEAP: Free heap: 4111460[0m
+[0;32mI (326738) HEAP: Free heap: 4111460[0m
+[0;32mI (327738) HEAP: Free heap: 4111424[0m
+[0;32mI (328738) HEAP: Free heap: 4111460[0m
+[0;32mI (329738) HEAP: Free heap: 4111460[0m
+[0;32mI (330738) HEAP: Free heap: 4111460[0m
+[0;32mI (331738) HEAP: Free heap: 4111460[0m
+[0;32mI (332738) HEAP: Free heap: 4111460[0m
+[0;32mI (333738) HEAP: Free heap: 4111460[0m
+[0;32mI (334738) HEAP: Free heap: 4111460[0m
+[0;32mI (335738) HEAP: Free heap: 4111460[0m
+[0;32mI (336738) HEAP: Free heap: 4111460[0m
+[0;32mI (337738) HEAP: Free heap: 4111460[0m
+[0;32mI (338738) HEAP: Free heap: 4111460[0m
+[0;32mI (339738) HEAP: Free heap: 4111460[0m
+[0;32mI (340738) HEAP: Free heap: 4111424[0m
+[0;32mI (341738) HEAP: Free heap: 4111460[0m
+[0;32mI (342738) HEAP: Free heap: 4111460[0m
+[0;32mI (343738) HEAP: Free heap: 4111460[0m
+[0;32mI (344738) HEAP: Free heap: 4111460[0m
+[0;32mI (345738) HEAP: Free heap: 4111460[0m
+[0;32mI (346738) HEAP: Free heap: 4111460[0m
+[0;32mI (347738) HEAP: Free heap: 4111460[0m
+[0;32mI (348738) HEAP: Free heap: 4111424[0m
+[0;32mI (349738) HEAP: Free heap: 4111460[0m
+[0;32mI (350738) HEAP: Free heap: 4111460[0m
+[0;32mI (351738) HEAP: Free heap: 4111460[0m
+[0;32mI (352738) HEAP: Free heap: 4111424[0m
+[0;32mI (353738) HEAP: Free heap: 4111460[0m
+[0;32mI (354738) HEAP: Free heap: 4111460[0m
+[0;32mI (355738) HEAP: Free heap: 4111460[0m
+[0;32mI (356738) HEAP: Free heap: 4111460[0m
+[0;32mI (357738) HEAP: Free heap: 4111424[0m
+[0;32mI (358738) HEAP: Free heap: 4111460[0m
+[0;32mI (359738) HEAP: Free heap: 4111460[0m
+[0;32mI (360738) HEAP: Free heap: 4111460[0m
+[0;32mI (361738) HEAP: Free heap: 4111424[0m
+[0;32mI (362738) HEAP: Free heap: 4111460[0m
+[0;32mI (363738) HEAP: Free heap: 4111424[0m
+[0;32mI (364738) HEAP: Free heap: 4111460[0m
+[0;32mI (365738) HEAP: Free heap: 4111460[0m
+[0;32mI (366738) HEAP: Free heap: 4111460[0m
+[0;32mI (367738) HEAP: Free heap: 4111460[0m
+[0;32mI (368738) HEAP: Free heap: 4111460[0m
+[0;32mI (369738) HEAP: Free heap: 4111460[0m
+[0;32mI (370738) HEAP: Free heap: 4111460[0m
+[0;32mI (371738) HEAP: Free heap: 4111460[0m
+[0;32mI (372738) HEAP: Free heap: 4111460[0m
+[0;32mI (373738) HEAP: Free heap: 4111460[0m
+[0;32mI (374738) HEAP: Free heap: 4111424[0m
+[0;32mI (375739) HEAP: Free heap: 4111460[0m
+[0;32mI (376740) HEAP: Free heap: 4111460[0m
+[0;32mI (377741) HEAP: Free heap: 4111460[0m
+[0;32mI (378742) HEAP: Free heap: 4111424[0m
+[0;32mI (379743) HEAP: Free heap: 4111460[0m
+[0;32mI (380744) HEAP: Free heap: 4111460[0m
+[0;32mI (381744) HEAP: Free heap: 4111460[0m
+[0;32mI (382744) HEAP: Free heap: 4111460[0m
+[0;32mI (383744) HEAP: Free heap: 4111400[0m
+[0;32mI (384171) TAG_NVS: Loaded JSON from NVS: [{"name":"2","device_id":"94:E6:86:09:A4:78"},{"name":"1","device_id":"A8:42:E3:4C:7C:BC"},{"name":"5","device_id":"B8:D6:1A:B9:DA:A4"},{"name":"3","device_id":"R1:42:E3:4C:7C:BC"},{"name":"4","device_id":"R2:42:E3:4C:7C:BC"}][0m
+[0;32mI (384186) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (384191) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (384196) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (384201) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (384207) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (384211) LVGL: Displayed 5 devices[0m
+[0;32mI (384744) HEAP: Free heap: 4111424[0m
+[0;32mI (385744) HEAP: Free heap: 4111388[0m
+[0;32mI (386744) HEAP: Free heap: 4111388[0m
+[0;32mI (387744) HEAP: Free heap: 4111352[0m
+[0;32mI (388744) HEAP: Free heap: 4111388[0m

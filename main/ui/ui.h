@@ -23,10 +23,7 @@ extern "C" {
 #include "ui_Screen3.h"
 #include "ui_Screen4.h"
 #include "ui_Screen5.h"
-#include "ui_Screen8.h"
-#include "ui_Screen9.h"
-#include "ui_Screen10.h"
-#include "ui_Screen11.h"
+#include "ui_Screen6.h"
 
 ///////////////////// VARIABLES ////////////////////
 
