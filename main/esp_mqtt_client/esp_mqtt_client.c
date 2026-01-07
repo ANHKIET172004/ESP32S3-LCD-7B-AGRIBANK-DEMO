@@ -15,10 +15,6 @@ extern lv_obj_t * ui_Image11 ;
 extern lv_obj_t * ui_Image13 ;
 extern lv_obj_t * ui_Image12 ;
 
-//lv_obj_t * ui_Image37 = NULL;
-
-
-
 esp_mqtt_client_handle_t mqttClient;
 
 
@@ -55,11 +51,6 @@ extern QueueHandle_t mqtt_queue;
 
 extern lv_obj_t * ui_Image16;
 
-//extern lv_obj_t* ui_TextArea2;
-//extern lv_obj_t* ui_TextArea3;
-
-
-
 char selected_keypad_id[18]={0};
 
 
@@ -74,72 +65,40 @@ int device_compare_by_name(const void *a, const void *b)
 }
 
 
+void handle_number_topic(cJSON* root){
+      cJSON* device_id_item=cJSON_GetObjectItem(root,"device_id");
+      cJSON* number_item=cJSON_GetObjectItem(root,"number");
+      cJSON* skip_item=cJSON_GetObjectItem(root,"skip");
 
+      if (cJSON_IsString(device_id_item)&&cJSON_IsString(number_item)&&cJSON_IsString(skip_item)){
+         if( load_selected_device_id(selected_keypad_id,sizeof(selected_keypad_id))!=ESP_OK){// chưa có device id lưu trong nvs
+             selected_keypad_id[0]='\0';
+         }
 
+         if (strcmp(device_id_item->valuestring,selected_keypad_id)==0){
+            
+                ESP_LOGI(TAG, "Received number: %s", number_item->valuestring);
 
-void mqtt_process_task(void *pvParameters)
-{
-    mqtt_message_t msg;
-
-    while (1) {
-        if (xQueueReceive(mqtt_queue, &msg, portMAX_DELAY)) {
-
-            ESP_LOGI(TAG, "Processing topic: %s", msg.topic);
-            ESP_LOGI(TAG, "Data: %s", msg.data);
-
-            // parse JSON từ payload, chỉ parse payload kiểu json của 2 topic number và device/list
-            cJSON *root = NULL;
- 
-            if (strcmp(msg.topic, "number") == 0 ||
-                strcmp(msg.topic, "device/list") == 0||strcmp(msg.topic, "check current number") == 0) {
-
-                root = cJSON_Parse(msg.data);
-                if (!root) {
-                    ESP_LOGE(TAG, "JSON parse failed");
-                    continue;
+                if (skip_item  && strcmp(skip_item->valuestring, "yes") == 0) {
+                    ESP_LOGI(TAG, "Skip number");
+                    skip_number(number_item->valuestring);  
+                    
                 }
-            }
-
-
-            // Xử lý topic "number"
-            if (strcmp(msg.topic, "number") == 0) {
-                cJSON *device_id_item = cJSON_GetObjectItem(root, "device_id");
-                cJSON *number_item    = cJSON_GetObjectItem(root, "number");
-                cJSON *skip_item      = cJSON_GetObjectItem(root, "skip");
-
-                if (cJSON_IsString(device_id_item) && cJSON_IsString(number_item)) {
-
-                    if (load_selected_device_id(selected_keypad_id, sizeof(selected_keypad_id)) != ESP_OK) {
-                        selected_keypad_id[0] = '\0'; 
+                    
+                else if (skip_item && strcmp(skip_item->valuestring, "no") == 0){
+                    checktime_stop=false;
+                    
+                    save_number(number_item->valuestring);
+                }
+         }
+        }
+        else {
+            ESP_LOGW(TAG, "Invalid JSON fields in 'number' topic");
                     }
 
+}
 
-                    if (strcmp(device_id_item->valuestring, selected_keypad_id) == 0) {
-
-                        ESP_LOGI(TAG, "Received number: %s", number_item->valuestring);
-
-                        if (skip_item && cJSON_IsString(skip_item) &&
-                            strcmp(skip_item->valuestring, "yes") == 0) {
-                            ESP_LOGI(TAG, "Skip number");
-                            //checktime_stop=true;
-                            skip_number(number_item->valuestring);  
-                           
-                        }
-                         
-                        else if (skip_item && cJSON_IsString(skip_item) &&
-                            strcmp(skip_item->valuestring, "no") == 0){
-                            checktime_stop=false;
-                            
-                            save_number(number_item->valuestring);
-                        }
-
-                    }
-                } else {
-                    ESP_LOGW(TAG, "Invalid JSON fields in 'number' topic");
-                }
-            }
-
-            else if (strcmp(msg.topic, "device/list") == 0) {
+void handle_device_list(cJSON* root, mqtt_message_t msg ){
                 ESP_LOGI(TAG, "Device list received");
                 //parse_json_and_store(msg.data);   
                 //sort_device_list_by_counter(device_count);//
@@ -151,7 +110,8 @@ void mqtt_process_task(void *pvParameters)
                     ESP_LOGE(TAG, "Parse device list failed");
                     //return;
                     cJSON_Delete(root);
-                    continue;
+                    //continue;
+                    return;
                 }
                 build_new_list(new_list,new_count);//
 
@@ -184,30 +144,11 @@ void mqtt_process_task(void *pvParameters)
                     save_device_list_to_nvs_from_buffer(new_list,new_count);//
                 }
 
-               // save_device_list_to_nvs();       
-            }
-             else if (strcmp(msg.topic, "reset_number") == 0) {
-                ESP_LOGI(TAG, "Reset all number");
-                delete_current_number();
-                
-                delete_next_number();
-                
-            }
+               // save_device_list_to_nvs();     
+}
 
-            else if (strcmp(msg.topic, "transfer_number") == 0) {
-                ESP_LOGI(TAG, "transfer number");            
-                if (transfer_number()==ESP_OK){
-                    ESP_LOGI(TAG, "transfered number successfully");
-                }
-                else {
-                     ESP_LOGI(TAG, "transfered number failed");
-                }
-                
-                
-            }
-
-            else if (strcmp(msg.topic, "check current number") == 0) {
-                cJSON *device_id_item = cJSON_GetObjectItem(root, "device_id");
+void handle_check_current_number(cJSON* root){
+                    cJSON *device_id_item = cJSON_GetObjectItem(root, "device_id");
                 cJSON *number_item    = cJSON_GetObjectItem(root, "number");
                 char current_num[5];
                 size_t len=sizeof(current_num);
@@ -230,8 +171,64 @@ void mqtt_process_task(void *pvParameters)
                 else {
                     ESP_LOGI(TAG, "No new current number, skip saving");
                 }
+}
+void mqtt_process_task(void *pvParameters)
+{
+    mqtt_message_t msg;
 
+    while (1) {
+        if (xQueueReceive(mqtt_queue, &msg, portMAX_DELAY)) {
+
+            ESP_LOGI(TAG, "Processing topic: %s", msg.topic);
+            ESP_LOGI(TAG, "Data: %s", msg.data);
+
+            // parse JSON từ payload, chỉ parse payload kiểu json của 2 topic number, device/list và check current number
+            cJSON *root = NULL;
+ 
+            if (strcmp(msg.topic, "number") == 0 ||
+                strcmp(msg.topic, "device/list") == 0||strcmp(msg.topic, "check current number") == 0) {
+
+                root = cJSON_Parse(msg.data);
+                if (!root) {
+                    ESP_LOGE(TAG, "JSON parse failed");
+                    continue;
+                }
+            }
+
+
+            // Xử lý topic "number"
+            if (strcmp(msg.topic, "number") == 0) {
+                handle_number_topic(root);//
+               
+
+            }
+
+            else if (strcmp(msg.topic, "device/list") == 0) {
+                handle_device_list(root,msg);
               
+            }
+             else if (strcmp(msg.topic, "reset_number") == 0) {
+                ESP_LOGI(TAG, "Reset all number");
+                delete_current_number();
+                delete_next_number();
+                
+            }
+
+            else if (strcmp(msg.topic, "transfer_number") == 0) {
+                ESP_LOGI(TAG, "transfer number");            
+                if (transfer_number()==ESP_OK){
+                    ESP_LOGI(TAG, "transfered number successfully");
+                }
+                else {
+                     ESP_LOGI(TAG, "transfered number failed");
+                }
+                
+                
+            }
+
+            else if (strcmp(msg.topic, "check current number") == 0) {
+                handle_check_current_number(root);
+                
              
             }
 
@@ -259,6 +256,7 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
     case MQTT_EVENT_CONNECTED:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_CONNECTED");
 
+        /*
         msg_id = esp_mqtt_client_publish(mqttClient, "feedback_status", "", 0, 1, 1);// xóa retained mess
 
         if (msg_id >= 0) {
@@ -267,7 +265,7 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
             ESP_LOGW(TAG, "delete retained message to keypad failed!");
             vTaskDelay(pdMS_TO_TICKS(1000));
         }
-
+*/
         msg_id = esp_mqtt_client_publish(mqttClient, "feedback_status", "connected", 0, 1, 0);// gửi thông báo đến topic đã kết nối thành công
 
         if (msg_id >= 0) {
@@ -277,9 +275,6 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
             vTaskDelay(pdMS_TO_TICKS(1000));
         }
 
-            char json_msg[128];
-            sprintf(json_msg,"{\"device_id\":\"%s\"}",selected_keypad_id);//
-            esp_mqtt_client_publish(mqttClient, "recallnumber", json_msg, 0, 0, 0);
 
         if (lvgl_port_lock(-1)) {
             lv_obj_add_flag(ui_Image16, LV_OBJ_FLAG_HIDDEN ); // ẩn icon lỗi kết nối

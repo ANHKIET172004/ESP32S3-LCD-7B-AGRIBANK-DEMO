@@ -25,8 +25,8 @@
 #include "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/ui/ui.h"
 #include "nvs_flash.h"
 #include "mqtt_client.h"
-#include "esp_crt_bundle.h"
-#include "esp_http_client.h"
+//#include "esp_crt_bundle.h"
+//#include "esp_http_client.h"
 #include "cJSON.h"
 #include "freertos/event_groups.h"
 #include "esp_mqtt_client/esp_mqtt_client.h"
@@ -54,7 +54,6 @@ extern void wifi_mqtt_manager_task(void *pv);
 extern void checktime_task (void* pvParameters);
 
 SemaphoreHandle_t check_sema=NULL;
-//SemaphoreHandle_t nvs_mutex=NULL;
 
 
 QueueHandle_t mqtt_queue=NULL;
@@ -63,8 +62,6 @@ typedef struct {
     char data[512];
 } mqtt_message_t;
 
-//extern lv_obj_t * ui_Image37;
-//extern lv_obj_t * ui_Image36;
 
 SemaphoreHandle_t nvs_mutex = NULL;
 
@@ -223,17 +220,6 @@ void app_main()
     //xTaskCreate(checktime_task, "check_sem_task", 4*1024, NULL, 4, NULL);//
     xTaskCreatePinnedToCore(checktime_task, "check_sem_task", 4 * 1024, NULL, 4, NULL, 1);
 
-
-    /*
-    if (delete_current_number()==ESP_OK){
-        ESP_LOGI(TAG,"DELETE CURRENT NUMBER SUCCESSFULLY");
-    }
-    else {
-        ESP_LOGI(TAG,"DELETE CURRENT NUMBER FAILED");
-    }
-        */
-
-   // esp_task_wdt_add(NULL);  // main task
    
    
     while (1) {
@@ -246,7 +232,7 @@ void app_main()
         else {
             start=0;
         }
-        vTaskDelay(1000 / portTICK_PERIOD_MS);   // Nhường CPU
+        vTaskDelay(10000 / portTICK_PERIOD_MS);   // Nhường CPU
     }
    
   
