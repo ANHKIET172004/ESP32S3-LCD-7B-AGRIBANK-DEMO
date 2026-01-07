@@ -75,6 +75,8 @@ int device_compare_by_name(const void *a, const void *b)
 
 
 
+
+
 void mqtt_process_task(void *pvParameters)
 {
     mqtt_message_t msg;
@@ -89,7 +91,7 @@ void mqtt_process_task(void *pvParameters)
             cJSON *root = NULL;
  
             if (strcmp(msg.topic, "number") == 0 ||
-                strcmp(msg.topic, "device/list") == 0) {
+                strcmp(msg.topic, "device/list") == 0||strcmp(msg.topic, "check current number") == 0) {
 
                 root = cJSON_Parse(msg.data);
                 if (!root) {
@@ -205,22 +207,26 @@ void mqtt_process_task(void *pvParameters)
             }
 
             else if (strcmp(msg.topic, "check current number") == 0) {
+                cJSON *device_id_item = cJSON_GetObjectItem(root, "device_id");
+                cJSON *number_item    = cJSON_GetObjectItem(root, "number");
                 char current_num[5];
                 size_t len=sizeof(current_num);
                 read_number(current_num,len);
                
                 ESP_LOGI(TAG, "check current number");
-               
-                ESP_LOGI(TAG, "current number: %s",current_num);
-                if (strcmp(msg.data,current_num)!=0){
-                   
-                   save_current_number(msg.data);
-
+                if (strncmp(device_id_item->valuestring,selected_keypad_id,18)){
+                ESP_LOGI(TAG, "current number of counter: %s",number_item->valuestring);
+                //if (strcmp(msg.data,current_num)!=0){
+                if (strcmp(number_item->valuestring,current_num)!=0){
+                  
+                   //save_current_number(msg.data);
+                   save_current_number(number_item->valuestring);
                    delete_next_number();
                    ESP_LOGI(TAG, "Save new current number");
 
 
                 }
+            }
                 else {
                     ESP_LOGI(TAG, "No new current number, skip saving");
                 }
@@ -271,6 +277,9 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
             vTaskDelay(pdMS_TO_TICKS(1000));
         }
 
+            char json_msg[128];
+            sprintf(json_msg,"{\"device_id\":\"%s\"}",selected_keypad_id);//
+            esp_mqtt_client_publish(mqttClient, "recallnumber", json_msg, 0, 0, 0);
 
         if (lvgl_port_lock(-1)) {
             lv_obj_add_flag(ui_Image16, LV_OBJ_FLAG_HIDDEN ); // ẩn icon lỗi kết nối
@@ -281,6 +290,7 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
 
         esp_mqtt_client_subscribe(event->client, "device/list", 1);
         esp_mqtt_client_subscribe(event->client, "check current number", 0);
+
         esp_mqtt_client_subscribe(event->client, "reset_number", 0);
         esp_mqtt_client_subscribe(event->client, "transfer_number", 0);
 

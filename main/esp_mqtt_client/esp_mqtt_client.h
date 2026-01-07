@@ -15,6 +15,13 @@
 #include "time_check.h"//
 #include "list_handler.h"//
 
+#define MQTT_MAX_TOPIC_LEN 64
+#define MQTT_MAX_PAYLOAD_LEN 1024
+
+typedef struct {
+    char topic[MQTT_MAX_TOPIC_LEN];
+    char payload[MQTT_MAX_PAYLOAD_LEN];
+} mqtt_mess_t;
 
 void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data);
 

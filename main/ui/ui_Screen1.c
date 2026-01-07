@@ -184,7 +184,7 @@ void ui_event_Image1(lv_event_t * e)
         lv_event_stop_bubbling(e);
         ESP_LOGI(SCREEN1_TAG, "diem danh gia : %d\n",score);
 
-        
+        if (strncmp(number,"0",sizeof(number))!=0){
 		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
         //delete_current_number();
 
@@ -200,7 +200,7 @@ void ui_event_Image1(lv_event_t * e)
          
 
           }
-
+        }
   
 
         mytimer=lv_timer_create(change_screen, 800, NULL);
@@ -306,6 +306,7 @@ void ui_event_Image3(lv_event_t * e)
         //mesh_enb=1;
                              
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
+        if (strncmp(number,"0",sizeof(number))!=0){
 
 		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
         //delete_current_number();
@@ -322,7 +323,7 @@ void ui_event_Image3(lv_event_t * e)
        
         }
         
-
+    }
         mytimer=lv_timer_create(change_screen, 800, NULL);
         _ui_screen_change(&ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen2_screen_init);
     }
@@ -375,6 +376,7 @@ void ui_event_Image5(lv_event_t * e)
 
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
 
+        if (strncmp(number,"0",sizeof(number))!=0){
 		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
         //delete_current_number();
 
@@ -390,7 +392,7 @@ void ui_event_Image5(lv_event_t * e)
 
           }
 
-        
+        }
 
         mytimer=lv_timer_create(change_screen, 1000, NULL);
         _ui_screen_change(&ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen2_screen_init);
