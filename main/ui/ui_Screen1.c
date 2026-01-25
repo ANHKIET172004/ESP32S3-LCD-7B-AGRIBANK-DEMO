@@ -9,10 +9,16 @@
 #include "mqtt_client.h"
 #include "esp_mac.h"
 #include "nvs_flash.h"
+#include "esp_mqtt_client/time_check.h"
+#include "freertos/event_groups.h"
+
 
 
 #define DEVICE_ID_NAMESPACE "SAVE_DEVICE_ID"
 #define DEVICE_ID_KEY       "device_id"
+#define EVT_PUBLISH (1<<0)
+
+extern EventGroupHandle_t event_group ;
 
 lv_obj_t * ui_Screen1 = NULL;
 lv_obj_t * ui_Panel1 = NULL;
@@ -57,7 +63,7 @@ lv_obj_t * ui_Image16 = NULL;
  lv_obj_t *ui_Screen1_WifiLabel=NULL;
  //////////
 
- extern uint8_t start;
+//extern uint8_t start;
 extern void reset_recent_number(void);
  ///////
 
@@ -65,10 +71,11 @@ lv_obj_t *area=NULL;
  ///////
 
 ///////
+extern uint8_t max_touch_cnt;
 static int click_count = 0;
 static uint32_t last_click_time = 0;
 int change=0;
-int rate=0;
+//int rate=0;
  extern int connect_success;
 
 //////
@@ -78,7 +85,7 @@ int rate=0;
 // event funtions
 
 //
-extern int8_t pressed;
+//extern int8_t pressed;
 
 char mess[128];
 int mesh_enb=0;
@@ -91,6 +98,10 @@ extern int cnt;
 
 char current_id[19];
 
+uint8_t max_backup_mqtt=10;
+
+extern uint8_t staff_id;
+
 extern esp_mqtt_client_handle_t mqttClient;
 
 //extern SemaphoreHandle_t nvs_mutex;
@@ -100,6 +111,176 @@ extern void backup_mqtt_data(const char *topic, const char *payload);
 extern esp_err_t read_number(char *number, size_t max_len);
 
 extern void delete_current_number(void);
+
+static TickType_t last_publish_tick=0;
+//bool first_publish=true;
+//uint8_t wait_time=0;
+
+bool wait_publish=false;
+bool publish_flag=false;
+
+extern TimerHandle_t publish_timer;
+
+
+
+extern uint16_t read_last_id();
+
+//EventGroupHandle_t  event_group;
+
+void backup_mqtt_msg(const char *msg)
+{
+    nvs_handle_t nvs;
+    esp_err_t err;
+
+    err = nvs_open("BACKUP_MQTT", NVS_READWRITE, &nvs);
+    if (err != ESP_OK) {
+        ESP_LOGE("BACKUP MQTT", "Open NVS failed");
+        return;
+    }
+
+    uint8_t cnt = 0;
+
+    err=nvs_get_u8(nvs, "cnt", &cnt);
+    if (err!=ESP_OK){
+        cnt=0;
+        nvs_set_u8(nvs, "cnt", 0);
+
+        ESP_LOGI("BACKUP MQTT","NO BACKUP DATA");
+    }
+
+
+    if (cnt>=max_backup_mqtt){
+         ESP_LOGE("NVS", "Full backup data, skip back up");
+         nvs_close(nvs);
+         return;
+    }
+    char key[10];
+    snprintf(key, sizeof(key), "msg%d", cnt);
+    err = nvs_set_str(nvs, key, msg);
+    if (err != ESP_OK) {
+        ESP_LOGE("NVS", "Save msg failed");
+        nvs_close(nvs);
+        return;
+    }
+    cnt++;
+    err=nvs_set_u8(nvs,"cnt",cnt);
+    if (err != ESP_OK) {
+        ESP_LOGE("NVS", "Save cnt failed");
+        nvs_close(nvs);
+        return;
+    }
+    nvs_commit(nvs);
+    nvs_close(nvs);
+
+    ESP_LOGI("NVS", "backup MQTT msg (cnt=%d)", cnt-1);
+}
+
+
+void publish_feeback_task(void* pv){
+    while (1){
+
+    if (publish_flag){
+        publish_flag=false;
+              int msg_id=esp_mqtt_client_publish(mqttClient,"feedback",mess,0,0,0);
+
+
+        if (msg_id == -1){
+            ESP_LOGE("MQTT", "Failed to send data");
+            backup_mqtt_msg(mess);//
+         }
+        else{
+              ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
+              
+        }
+
+    }
+    vTaskDelay(pdMS_TO_TICKS(100));
+}
+     
+}
+
+/*
+
+void publish_feeback_task(void* pv){
+    while (1){
+        EventBits_t ev = xEventGroupWaitBits(
+            event_group,
+            EVT_PUBLISH,
+            pdTRUE,
+            pdFALSE,
+            portMAX_DELAY
+        );
+
+        if (ev & EVT_PUBLISH) {
+            wait_publish = false;
+            publish_flag = true;
+
+            ESP_LOGI("PUBLISH", "TIMEOUT, PUBLISH FEEDBACK");
+
+            int msg_id = esp_mqtt_client_publish(
+                mqttClient, "feedback", mess, 0, 0, 0
+            );
+
+            if (msg_id == -1)
+                ESP_LOGE("MQTT", "Failed to send data");
+        }
+    }
+}
+*/
+
+
+void publish_timer_cb(TimerHandle_t ptimer){
+     // ESP_LOGI("PUBLISH_TIMER","TIMEOUT, PUBLISH FEEDBACK");
+      wait_publish=false;
+      publish_flag=true;
+
+
+
+}
+    
+
+/*
+void publish_timer_cb(TimerHandle_t ptimer){
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    xEventGroupSetBitsFromISR(event_group, EVT_PUBLISH, &xHigherPriorityTaskWoken);
+}
+*/
+
+/*
+static bool publish_blocked(){
+    
+    TickType_t now=xTaskGetTickCount();
+    read_time(&wait_time);//
+
+    if (first_publish){
+        first_publish=false;
+        ESP_LOGI("TAG","FIRST PUBLISH");
+        last_click_time=now;
+        return false;
+    }
+
+    if (now-last_click_time>=pdMS_TO_TICKS(wait_time*1000)){
+        last_click_time=now;
+        return false;
+    }
+    return true;
+}
+    */
+void feedback_handle(){
+       //if (!wait_publish){
+          // xTimerDelete(publish_timer,0);
+           //wait_publish=true;
+          // read_time(&wait_time);
+          // xTimerChangePeriod(publish_timer,pdMS_TO_TICKS(wait_time*1000),0);
+           //xTimerStart(publish_timer,0);
+           xTimerReset(publish_timer, 0);   //RESET
+
+           
+      // }
+      
+
+}
+
 
 
 void change_screen(lv_timer_t *timer){
@@ -142,6 +323,7 @@ esp_err_t read_selected_device_id(char *id_buffer, size_t buffer_size)
 }
 
 
+
 void ui_event_Image1(lv_event_t * e)
 {    
     
@@ -149,19 +331,20 @@ void ui_event_Image1(lv_event_t * e)
 
     if(event_code == LV_EVENT_CLICKED) {
         //char mess[20];
-        start++;
-        rate=1;
+        //start++;
+        //rate=1;
         score=4;
-        pressed=1;
+        //pressed=1;
        // snprintf(mess,sizeof(mess),"client:%d",score);
 
-    
+    /*
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
         char number[128]; 
-        
+        */
         //xSemaphoreTake(nvs_mutex, portMAX_DELAY);  
+        /*
         esp_err_t err = read_number(number, sizeof(number));
         //xSemaphoreGive(nvs_mutex);  
 
@@ -173,19 +356,24 @@ void ui_event_Image1(lv_event_t * e)
         strcpy(number, "0");
         
          }
-
-        read_selected_device_id(current_id, sizeof(current_id));
-        snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
-
+*/
+      //  read_selected_device_id(current_id, sizeof(current_id));
+        //snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+        snprintf(mess,sizeof(mess),"{\"staff_id\":%d,\"value\":%d}",read_last_id(),score); 
+        /*
         if (cnt==0){
             
         }                     
-        
+        */
         lv_event_stop_bubbling(e);
         ESP_LOGI(SCREEN1_TAG, "diem danh gia : %d\n",score);
+        feedback_handle();
 
-        if (strncmp(number,"0",sizeof(number))!=0){
+       // if (strncmp(number,"0",sizeof(number))!=0){
+       /*
+        if (!publish_blocked()){
 		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
+       
         //delete_current_number();
 
 
@@ -196,11 +384,14 @@ void ui_event_Image1(lv_event_t * e)
           else
           {
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
+          }
+        }
+        */
          //delete_current_number();//
          
 
-          }
-        }
+          
+       // }
   
 
         mytimer=lv_timer_create(change_screen, 800, NULL);
@@ -213,16 +404,17 @@ void ui_event_Image2(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        start++;
-        rate=1;
+        //start++;
+        //rate=1;
         score=3;
-        pressed=1;
+        //pressed=1;
 
-       
+       /*
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
                 char number[128]; 
-        
+                */
+     /*   
         //xSemaphoreTake(nvs_mutex, portMAX_DELAY);  
         esp_err_t err = read_number(number, sizeof(number));
         //xSemaphoreGive(nvs_mutex);  
@@ -235,16 +427,22 @@ void ui_event_Image2(lv_event_t * e)
         strcpy(number, "0");
         
         }
-       read_selected_device_id(current_id, sizeof(current_id));
+        */
+   //   read_selected_device_id(current_id, sizeof(current_id));
        //snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",mac[0],mac[1],mac[2],
          //                            mac[3],mac[4],mac[5],score,number); 
 
-        snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+        //snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+        snprintf(mess,sizeof(mess),"{\"staff_id\":%d,\"value\":%d}",read_last_id(),score); 
+
         
         //mesh_enb=1;
      
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
-        if (strncmp(number,"0",sizeof(number))!=0){
+        feedback_handle();
+      //  if (strncmp(number,"0",sizeof(number))!=0){
+      /*
+        if (!publish_blocked()){
         int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
         //delete_current_number();
 
@@ -261,6 +459,8 @@ void ui_event_Image2(lv_event_t * e)
            
           }
         }
+        */
+      //  }
 
         mytimer=lv_timer_create(change_screen, 800, NULL);
        _ui_screen_change(&ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen2_screen_init);
@@ -272,17 +472,19 @@ void ui_event_Image3(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        start++;
-        rate=1;
+        //start++;
+        //rate=1;
         score=2;
-        pressed=1;
-        
+        //pressed=1;
+      
+        /*
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
 
         char number[128]; 
-        
+        */
+        /*
         //xSemaphoreTake(nvs_mutex, portMAX_DELAY);  
         esp_err_t err = read_number(number, sizeof(number));
         //xSemaphoreGive(nvs_mutex);  
@@ -295,18 +497,23 @@ void ui_event_Image3(lv_event_t * e)
         strcpy(number, "0");
         
     }
-
+*/
       // snprintf(mess,sizeof(mess),"{\"device_id\":\"%02X:%02X:%02X:%02X:%02X:%02X\",\"name\":\"Device-02\",\"value\":%d,\"number\":\"%s\"}",mac[0],mac[1],mac[2],
         //                             mac[3],mac[4],mac[5],score,number); 
 
-         read_selected_device_id(current_id, sizeof(current_id));
-        snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+        // read_selected_device_id(current_id, sizeof(current_id));
+        //snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+        snprintf(mess,sizeof(mess),"{\"staff_id\":%d,\"value\":%d}",read_last_id(),score); 
+
         
                                      
         //mesh_enb=1;
                              
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
-        if (strncmp(number,"0",sizeof(number))!=0){
+        feedback_handle();
+     //   if (strncmp(number,"0",sizeof(number))!=0){
+     /*
+        if (!publish_blocked()){
 
 		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
         //delete_current_number();
@@ -319,11 +526,10 @@ void ui_event_Image3(lv_event_t * e)
          ESP_LOGI("MQTT", "Message sent successfully, msg_id=%d", msg_id);
          //delete_current_number();//
 
-        
-       
         }
-        
     }
+        */
+    //}
         mytimer=lv_timer_create(change_screen, 800, NULL);
         _ui_screen_change(&ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen2_screen_init);
     }
@@ -345,22 +551,23 @@ void ui_event_Image5(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        start++;
-        rate=1;
+        //start++;
+        //rate=1;
         score=1;
-        pressed=1;
+        //pressed=1;
         
+        /*
         uint8_t mac[6];
         esp_read_mac(mac, ESP_MAC_WIFI_STA);
 
 
         char number[128]; 
-
+*/
         //xSemaphoreTake(nvs_mutex, portMAX_DELAY);  
-        esp_err_t err = read_number(number, sizeof(number));
+     //   esp_err_t err = read_number(number, sizeof(number));
         //xSemaphoreGive(nvs_mutex);  
 
-
+/*
         if (err == ESP_OK) {
         ESP_LOGI(SCREEN1_TAG, "Successfully read number: %s", number);
         } else {
@@ -369,14 +576,20 @@ void ui_event_Image5(lv_event_t * e)
         
     }
 
-
+*/
         
-        read_selected_device_id(current_id, sizeof(current_id));
-        snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+       // read_selected_device_id(current_id, sizeof(current_id));
+       // snprintf(mess,sizeof(mess),"{\"device_id\":\"%s\",\"value\":%d,\"number\":\"%s\"}",current_id,score,number); 
+        snprintf(mess,sizeof(mess),"{\"staff_id\":%d,\"value\":%d}",read_last_id(),score); 
+
 
         ESP_LOGI(SCREEN1_TAG, "diem danh gia: %d\n",score);
+        feedback_handle();
+       // if (strncmp(number,"0",sizeof(number))!=0){
+       
+       /*
+        if (!publish_blocked()){
 
-        if (strncmp(number,"0",sizeof(number))!=0){
 		int msg_id = esp_mqtt_client_publish(mqttClient, "feedback", mess, 0, 0, 0);
         //delete_current_number();
 
@@ -391,8 +604,10 @@ void ui_event_Image5(lv_event_t * e)
 
 
           }
-
+         
         }
+        */
+      //  }
 
         mytimer=lv_timer_create(change_screen, 1000, NULL);
         _ui_screen_change(&ui_Screen2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen2_screen_init);
@@ -410,7 +625,7 @@ static void area_click_event_cb(lv_event_t *e) {
         last_click_time = current_time;
     }
 
-    if (click_count >= 7) {
+    if (click_count >= max_touch_cnt) {
         click_count = 0;
         change=1;//
         _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//

@@ -9,6 +9,8 @@
 //#include "esp_mqtt_client/time_check.h"
 #include "lvgl_port.h"
 
+uint8_t wait_time=0;
+
 lv_obj_t * ui_Screen6 = NULL;
 //lv_obj_t * ui_Keyboard2 = NULL;
 //lv_obj_t * ui_TextArea2 = NULL;
@@ -30,6 +32,7 @@ lv_obj_t * ui_Keyboard = NULL;
 
 lv_obj_t * ui_Image23 = NULL;
 
+extern TimerHandle_t publish_timer;
 
 
 char input_buffer[17]={0};
@@ -185,6 +188,8 @@ void ui_event_Enter_Button(lv_event_t * e)
          ESP_LOGI("SAVE TIMEOUT","%d",x);
          
          save_timeout(x);
+         read_time(&wait_time);//
+         xTimerChangePeriod(publish_timer,pdMS_TO_TICKS(wait_time*1000),0);//
          }
          
          
@@ -247,7 +252,10 @@ void ui_Screen6_screen_init(void)
     lv_obj_add_flag(Enter_Button, LV_OBJ_FLAG_SCROLL_ON_FOCUS);                                       // Enable scrolling on focus
     lv_obj_clear_flag(Enter_Button, LV_OBJ_FLAG_SCROLLABLE);                                          // Disable scrolling
     lv_obj_set_style_bg_color(Enter_Button, lv_color_hex(0x0080FF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_align(Enter_Button, LV_ALIGN_TOP_LEFT, 20, 20);
+    //lv_obj_align(Enter_Button, LV_ALIGN_TOP_LEFT, 20, 20);
+    lv_obj_align(Enter_Button, LV_ALIGN_BOTTOM_RIGHT,20,20);//
+    lv_obj_set_x(Enter_Button,-30);
+    lv_obj_set_y(Enter_Button,-35);
     
 
 
@@ -284,7 +292,8 @@ void ui_Screen6_screen_init(void)
 
     
     ui_Image23 = lv_img_create(ui_Screen6);
-    lv_img_set_src(ui_Image23, &ui_img_turn_back2_png);
+    //lv_img_set_src(ui_Image23, &ui_img_turn_back2_png);
+    lv_img_set_src(ui_Image23, &ui_img_left_arrow_70x70_png);
     lv_obj_set_width(ui_Image23, LV_SIZE_CONTENT);   /// 70
     lv_obj_set_height(ui_Image23, LV_SIZE_CONTENT);    /// 70
     lv_obj_set_x(ui_Image23, -447);
@@ -365,10 +374,12 @@ void ui_Screen6_screen_init(void)
     //lv_obj_set_x(ui_Label12, -386);
     //lv_obj_set_x(ui_Label12, -217);
     //lv_obj_set_y(ui_Label12, -14);
+    //lv_obj_set_x(ui_Label12, -255);
+    //lv_obj_set_y(ui_Label12, -167);
     lv_obj_set_x(ui_Label12, -255);
     lv_obj_set_y(ui_Label12, -167);
     lv_obj_set_align(ui_Label12, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label12, "THỜI GIAN CHỜ (S)");
+    lv_label_set_text(ui_Label12, "THỜI GIAN CHỜ ĐÁNH GIÁ (S)");
     lv_obj_set_style_text_font(ui_Label12, &ui_font_BOLD_VN25, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_TextArea = lv_textarea_create(ui_Screen6);
@@ -377,7 +388,9 @@ void ui_Screen6_screen_init(void)
     lv_obj_set_height(ui_TextArea, 60);
     //lv_obj_set_x(ui_TextArea, 1);
     //lv_obj_set_y(ui_TextArea, -11);
-    lv_obj_set_x(ui_TextArea, -38);
+    //lv_obj_set_x(ui_TextArea, -38);
+    //lv_obj_set_y(ui_TextArea, -165);
+    lv_obj_set_x(ui_TextArea, 112);//
     lv_obj_set_y(ui_TextArea, -165);
     lv_obj_set_align(ui_TextArea, LV_ALIGN_CENTER);
 
@@ -446,6 +459,8 @@ void ui_Screen6_screen_init(void)
     lv_obj_add_event_cb(ui_Image23, ui_event_Back_Button, LV_EVENT_ALL, NULL);
 
     lv_keyboard_set_textarea(ui_Keyboard, ui_TextArea);
+    lv_keyboard_set_mode(ui_Keyboard, LV_KEYBOARD_MODE_NUMBER);
+
 
 
   //  lv_textarea_set_accepted_chars(ui_TextArea2, "0123456789");

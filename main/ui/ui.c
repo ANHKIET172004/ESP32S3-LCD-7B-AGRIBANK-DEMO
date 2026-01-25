@@ -8,7 +8,7 @@
 #include "stdio.h"
 #include "wifi.h"
 #include "mqtt_client.h"
-
+#include "nvs_flash.h"
 
 
 ///////////////////// VARIABLES ////////////////////
@@ -98,10 +98,10 @@ void ui_WIFI_list_event_cb(lv_event_t * e);
 char bssid_str[18];
 extern bool found_saved_ap;
 
-bool user_selected_wifi = false;
+bool user_selected_wifi = false;// cờ báo khi user nhập wifi cred thủ công 
 
 extern int refresh_index;
-extern int rate;
+//extern int rate;
 
 extern esp_mqtt_client_handle_t mqttClient;
 
@@ -112,7 +112,10 @@ extern void mqtt_start(void);
 
 extern bool wifi_need_mqtt_stop;
 extern lv_obj_t* ui_WIFI_Rescan_Button;
+extern lv_obj_t* ui_WIFI_CONT;
 
+
+extern bool login;
 //extern int reconnect2;
 
 // EVENTS
@@ -168,7 +171,13 @@ void ui_event_WIFI_Button0(lv_event_t * e)
         // Change the screen back to the main screen with a fade animation
         //_ui_screen_change(&ui_Main, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Main_screen_init);
         //_ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Wifi_Screen_init);
+        //if (login){
+        if (check_login_status()){
         _ui_screen_change(&ui_Screen4, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Screen4_screen_init);
+        }
+        else {
+        _ui_screen_change(&ui_Screen7, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_Screen7_screen_init);   
+        }
     }
 }
 
@@ -312,7 +321,11 @@ void ui_event_WIFI_Connection_BUTTON(lv_event_t * e)
     // Triggered when the connection button is clicked
     if(event_code == LV_EVENT_CLICKED) {
         // Show the password input field
+        lv_textarea_set_text(ui_WIFI_INPUT_PWD, "");//
+
         _ui_flag_modify(ui_WIFI_INPUT_PWD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_WIFI_CONT, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);//
+       
         _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
     }
 }
@@ -326,7 +339,9 @@ void ui_event_WIFI_INPUT_PWD(lv_event_t * e)
     if(event_code == LV_EVENT_DEFOCUSED) {
         // Hide the keyboard and the password input field when it loses focus
         _ui_flag_modify(ui_WIFI_INPUT_KEYBOARD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_WIFI_INPUT_PWD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        //_ui_flag_modify(ui_WIFI_INPUT_PWD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+       // _ui_flag_modify(ui_WIFI_CONT, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
+
     }
     
     // Triggered when the password input field gains focus
@@ -335,6 +350,7 @@ void ui_event_WIFI_INPUT_PWD(lv_event_t * e)
         _ui_keyboard_set_target(ui_WIFI_INPUT_KEYBOARD, ui_WIFI_INPUT_PWD);
         // Show the keyboard and hide the password input field
         _ui_flag_modify(ui_WIFI_INPUT_KEYBOARD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+
     }
     
     // Triggered when the user has finished entering the password
@@ -351,6 +367,8 @@ void ui_event_WIFI_INPUT_PWD(lv_event_t * e)
         // Hide the keyboard and password field after connection attempt
         _ui_flag_modify(ui_WIFI_INPUT_KEYBOARD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_WIFI_INPUT_PWD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_WIFI_CONT, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
+
         // Show the waiting for connection window
         _ui_flag_modify(ui_WIFI_Wait_CONNECTION, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
@@ -515,6 +533,45 @@ void ui_event_WIFI_AP_OPEN(lv_event_t * e)
     */
 //////////////// WIFI AP
 
+bool check_login_status()
+{
+    nvs_handle_t nvs_handle;
+    esp_err_t err = nvs_open("login", NVS_READWRITE, &nvs_handle);
+    if (err != ESP_OK) {
+        ESP_LOGE("LOGIN STATUS", "Failed to open NVS handle!");// khi mở "login" thất bại thì ko cần close
+
+        return false;
+    }
+
+    
+    char old_status[4] = {0};
+
+    size_t status_len = sizeof(old_status);
+
+
+    err=nvs_get_str(nvs_handle, "status", old_status, &status_len);
+
+    bool status_update = false;
+    
+    if (err==ESP_OK){
+
+        if (strcmp(old_status, "YES") == 0) {
+            nvs_close(nvs_handle);
+            return true;
+        }
+    }
+    else if (err==ESP_ERR_NVS_NOT_FOUND){
+        ESP_LOGW("LOGIN STATS","NOT FOUND SAVED STATUS");
+    }
+    else {
+        ESP_LOGE("LOGIN STATS","FAILED TO READ SAVED STATUS");
+    } 
+   
+
+    nvs_close(nvs_handle);
+    return false;
+}
+
 void ui_init(void)
 {
     lv_disp_t * dispp = lv_disp_get_default();
@@ -527,9 +584,27 @@ void ui_init(void)
     ui_Screen4_screen_init();
     ui_Screen5_screen_init();
     ui_Screen6_screen_init();
+    ui_Screen7_screen_init();
     ui_Wifi_Screen_init();
+
     ui____initial_actions0 = lv_obj_create(NULL);
-    lv_disp_load_scr(ui_Screen1);
+    //lv_disp_load_scr(ui_Screen1);
+    
+    if (check_login_status()){
+       // login=true;
+        lv_disp_load_scr(ui_Screen1);// màn hình đánh giá
+    }
+    else {// login=false-> chưa login hoặc đã logout
+    
+     //   login=false;
+        lv_disp_load_scr(ui_Screen7);// màn hình đăng nhập
+    }
+}
+bool check_ui_init(){
+    if (ui_Screen1==NULL||ui_Screen2==NULL||ui_Screen3==NULL||ui_WIFI_CONT==NULL){
+        return false;
+    }
+    return true;
 }
 
 void ui_destroy(void)
@@ -540,5 +615,6 @@ void ui_destroy(void)
     ui_Screen4_screen_destroy();
     ui_Screen5_screen_destroy();
     ui_Screen6_screen_destroy();
+    ui_Screen7_screen_destroy();
     
 }

@@ -16,9 +16,11 @@ extern "C" {
 
 // Open/Enable Wi-Fi connection
 void WIFIOPEN(lv_event_t * e);
+void WIFIOPEN1();
 
 // Close/Disable Wi-Fi connection
 void WIFICLOSE(lv_event_t * e);
+void WIFICLOSE1();
 
 // Handle Wi-Fi connection (e.g., connect to a network with provided credentials)
 void WIFIConnection(lv_event_t * e);

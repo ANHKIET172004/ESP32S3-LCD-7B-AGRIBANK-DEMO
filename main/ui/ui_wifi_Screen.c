@@ -20,6 +20,7 @@ extern void wifi_scan(void);
 
 lv_obj_t *label_rescan=NULL;
 lv_obj_t *ui_WIFI_Rescan_Button=NULL;
+lv_obj_t* ui_WIFI_CONT=NULL;
 
 /*
 static void background_click_event_cb(lv_event_t *e) {
@@ -78,9 +79,65 @@ static void wifi_background_event_cb(lv_event_t * e)
 {
     if(lv_event_get_code(e) == LV_EVENT_CLICKED) {
          _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_WIFI_CONT, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
+        _ui_flag_modify(ui_WIFI_INPUT_KEYBOARD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
+
+
 
 
     }
+}
+
+void ui_create_wifi_password(lv_obj_t * parent)
+{
+    ui_WIFI_CONT = lv_obj_create(parent);
+    lv_obj_set_size(ui_WIFI_CONT, 300, 48);
+    lv_obj_set_align(ui_WIFI_CONT, LV_ALIGN_CENTER);
+    lv_obj_set_y(ui_WIFI_CONT,-40);
+    lv_obj_clear_flag(ui_WIFI_CONT, LV_OBJ_FLAG_SCROLLABLE);
+
+    lv_obj_set_layout(ui_WIFI_CONT, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(ui_WIFI_CONT, LV_FLEX_FLOW_ROW);
+    lv_obj_set_flex_align(ui_WIFI_CONT, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER,LV_FLEX_ALIGN_CENTER);
+
+    lv_obj_set_style_pad_all(ui_WIFI_CONT, 4, 0);
+    lv_obj_set_style_bg_color(ui_WIFI_CONT, lv_color_hex(0x001A40), 0);
+    lv_obj_set_style_bg_opa(ui_WIFI_CONT, 255, 0);
+    lv_obj_set_style_border_color(ui_WIFI_CONT, lv_color_hex(0x000000), 0);
+    lv_obj_set_style_border_opa(ui_WIFI_CONT, 255, 0);
+
+    ui_WIFI_INPUT_PWD = lv_textarea_create(ui_WIFI_CONT);
+    lv_obj_set_height(ui_WIFI_INPUT_PWD, LV_SIZE_CONTENT);
+
+    lv_obj_set_flex_grow(ui_WIFI_INPUT_PWD, 1);
+
+    lv_textarea_set_one_line(ui_WIFI_INPUT_PWD, true);
+    lv_textarea_set_password_mode(ui_WIFI_INPUT_PWD, true);
+    lv_textarea_set_placeholder_text(ui_WIFI_INPUT_PWD, "Enter password...");
+    //lv_textarea_set_max_length(ui_WIFI_INPUT_PWD, 1024);
+    lv_textarea_set_max_length(ui_WIFI_INPUT_PWD, 63);//
+
+    lv_obj_set_style_text_font(ui_WIFI_INPUT_PWD,
+                               &lv_font_montserrat_20, 0);
+    lv_obj_set_style_text_color(ui_WIFI_INPUT_PWD,
+                                lv_color_hex(0xFFFFFF), 0);
+
+    lv_obj_set_style_bg_opa(ui_WIFI_INPUT_PWD, LV_OPA_TRANSP, 0);
+    lv_obj_set_style_border_opa(ui_WIFI_INPUT_PWD, LV_OPA_TRANSP, 0);
+    lv_obj_set_style_pad_left(ui_WIFI_INPUT_PWD, 6, 0);
+    lv_obj_set_style_pad_right(ui_WIFI_INPUT_PWD, 6, 0);
+
+    ui_WIFI_EYE = lv_img_create(ui_WIFI_CONT);
+    lv_img_set_src(ui_WIFI_EYE, &ui_img_eye_png);   // eye closed
+    lv_obj_set_size(ui_WIFI_EYE, 34, 20);
+
+    lv_obj_add_flag(ui_WIFI_EYE,LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_ADV_HITTEST);
+    lv_obj_clear_flag(ui_WIFI_EYE, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_add_flag(ui_WIFI_CONT, LV_OBJ_FLAG_HIDDEN);    //                                                // Initially hide the input field
+
+
+    /* Event */
+   // lv_obj_add_event_cb(ui_WIFI_EYE, eye_event_cb, LV_EVENT_CLICKED, NULL);
 }
 
 void ui_Wifi_Screen_init(void)
@@ -217,6 +274,7 @@ void ui_Wifi_Screen_init(void)
     //lv_obj_set_style_text_color(ui_WIFI_Name, lv_color_hex(0xFFA500), LV_PART_MAIN | LV_STATE_DEFAULT); // Set text color to white
     lv_obj_set_style_text_color(ui_WIFI_Name, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_WIFI_Name, 255, LV_PART_MAIN | LV_STATE_DEFAULT);                      // Set text opacity to 255 (fully opaque)
+    lv_obj_set_style_text_font(ui_WIFI_Name, &ui_font_robotothin, LV_PART_MAIN | LV_STATE_DEFAULT); // Set text font
 
     /* Create and configure Authentication mode label */
     ui_WIFI_Aurhmode = lv_label_create(ui_WIFI_Details_Win);
@@ -299,6 +357,7 @@ void ui_Wifi_Screen_init(void)
     lv_obj_set_style_text_font(ui_Connection, &lv_font_montserrat_24, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     /* Create Wi-Fi password input field */
+    /*
     ui_WIFI_INPUT_PWD = lv_textarea_create(ui_WIFI_SCAN_STA);
     lv_obj_set_width(ui_WIFI_INPUT_PWD, 300);                                                                  // Set input field width to 300
     lv_obj_set_height(ui_WIFI_INPUT_PWD, LV_SIZE_CONTENT);                                                     // Set input field height to content size
@@ -315,8 +374,9 @@ void ui_Wifi_Screen_init(void)
     lv_obj_set_style_bg_opa(ui_WIFI_INPUT_PWD, 255, LV_PART_MAIN | LV_STATE_DEFAULT);                          // Set background opacity to 255 (fully opaque)
     lv_obj_set_style_border_color(ui_WIFI_INPUT_PWD, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT); // Set border color to black
     lv_obj_set_style_border_opa(ui_WIFI_INPUT_PWD, 255, LV_PART_MAIN | LV_STATE_DEFAULT);                      // Set border opacity to 255 (fully opaque)
-
+*/
     /* Create an icon (eye) for password visibility toggle */
+    /*
     ui_WIFI_EYE = lv_img_create(ui_WIFI_INPUT_PWD);
     lv_img_set_src(ui_WIFI_EYE, &ui_img_eye_png);                                  // Set the eye icon image source
     lv_obj_set_width(ui_WIFI_EYE, 34);                                             // Set icon width to 34
@@ -325,7 +385,8 @@ void ui_Wifi_Screen_init(void)
     lv_obj_add_flag(ui_WIFI_EYE, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_ADV_HITTEST); // Add clickable and advanced hit test flags
     lv_obj_clear_flag(ui_WIFI_EYE, LV_OBJ_FLAG_SCROLLABLE);                        // Disable scrollable flag
     lv_img_set_zoom(ui_WIFI_EYE, 255);                                             // Set zoom level for the image (no zoom)
-
+*/
+    ui_create_wifi_password(ui_WIFI_SCAN_STA);
     /* Create Wi-Fi input keyboard */
     ui_WIFI_INPUT_KEYBOARD = lv_keyboard_create(ui_WIFI_SCAN_STA);
     lv_obj_set_width(ui_WIFI_INPUT_KEYBOARD, lv_pct(100));                                                        // Set keyboard width to 100% of parent container

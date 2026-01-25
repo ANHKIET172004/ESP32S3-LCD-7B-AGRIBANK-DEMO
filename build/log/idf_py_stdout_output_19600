@@ -1,136 +1,870 @@
-Command: ninja flash
-[1/10] Performing build step for 'bootloader'
-[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\bootloader\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/bootloader/bootloader.bin""
-Bootloader binary size 0x5800 bytes. 0x2800 bytes (31%) free.
-[2/10] No install step for 'bootloader'
-[3/10] Completed 'bootloader'
-[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/user/wifi/wifi_sta.c.obj
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi_sta.c:55:13: warning: 'is_waiting' defined but not used [-Wunused-variable]
-   55 | static bool is_waiting = false;
-      |             ^~~~~~~~~~
-D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/main/user/wifi/wifi_sta.c:54:18: warning: 'last_time' defined but not used [-Wunused-variable]
-   54 |  static uint32_t last_time = 0;
-      |                  ^~~~~~~~~
-[5/10] Linking C static library esp-idf\main\libmain.a
-[6/10] Generating esp-idf/esp_system/ld/sections.ld
-[7/10] Linking CXX executable 16_LVGL_UI.elf
-[8/10] Generating binary image from built executable
-esptool.py v4.9.1
-Creating esp32s3 image...
-Merged 2 ELF sections
-Successfully created esp32s3 image.
-Generated D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin
-[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D "D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI\build\esp-idf\esptool_py" && D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/partition_table/partition-table.bin" "D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build/16_LVGL_UI.bin""
-16_LVGL_UI.bin binary size 0x24fc10 bytes. Smallest app partition is 0x800000 bytes. 0x5b03f0 bytes (71%) free.
-[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\components\esptool_py && D:\ESP32_IDF\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5 -D SERIAL_TOOL=D:/ESP32_IDF/Espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=D:/ESP32/ESP32S3_LCD 7B_DEMO_3/ESP32-S3-Touch-LCD-7B-Demo/ESP32-S3-Touch-LCD-7B-Demo/ESP-IDF/16_LVGL_UI/build" -P D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.5/components/esptool_py/run_serial_tool.cmake"
-esptool.py --chip esp32s3 -p COM10 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 16_LVGL_UI.bin 0x8000 partition_table/partition-table.bin
-esptool.py v4.9.1
-Serial port COM10
-Connecting....
-Chip is ESP32-S3 (QFN56) (revision v0.2)
-Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
-Crystal is 40MHz
-MAC: 10:20:ba:01:48:a8
-Uploading stub...
-Running stub...
-Stub running...
-Changing baud rate to 460800
-Changed.
-Configuring flash size...
-Flash will be erased from 0x00000000 to 0x00005fff...
-Flash will be erased from 0x00010000 to 0x0025ffff...
-Flash will be erased from 0x00008000 to 0x00008fff...
-SHA digest in image updated
-Compressed 22528 bytes to 14318...
-Writing at 0x00000000... (100 %)
-Wrote 22528 bytes (14318 compressed) at 0x00000000 in 0.5 seconds (effective 362.7 kbit/s)...
-Hash of data verified.
-Compressed 2423824 bytes to 1293649...
-Writing at 0x00010000... (1 %)
-Writing at 0x0001d170... (2 %)
-Writing at 0x0002d82a... (3 %)
-Writing at 0x0003b21f... (5 %)
-Writing at 0x00043ff0... (6 %)
-Writing at 0x0004c3db... (7 %)
-Writing at 0x000666d2... (8 %)
-Writing at 0x00084689... (10 %)
-Writing at 0x0009c515... (11 %)
-Writing at 0x000af7c0... (12 %)
-Writing at 0x000c48aa... (13 %)
-Writing at 0x000d3878... (15 %)
-Writing at 0x000db70b... (16 %)
-Writing at 0x000e44b3... (17 %)
-Writing at 0x000ed2fa... (18 %)
-Writing at 0x000f9788... (20 %)
-Writing at 0x000febcd... (21 %)
-Writing at 0x00104bbd... (22 %)
-Writing at 0x0010a63b... (24 %)
-Writing at 0x00110d2e... (25 %)
-Writing at 0x0011684a... (26 %)
-Writing at 0x0011c430... (27 %)
-Writing at 0x00121977... (29 %)
-Writing at 0x00127235... (30 %)
-Writing at 0x0012c657... (31 %)
-Writing at 0x00131bb9... (32 %)
-Writing at 0x00137ef2... (34 %)
-Writing at 0x0013d7de... (35 %)
-Writing at 0x00143953... (36 %)
-Writing at 0x0014967d... (37 %)
-Writing at 0x0014f127... (39 %)
-Writing at 0x0015512a... (40 %)
-Writing at 0x0015a87b... (41 %)
-Writing at 0x00160470... (43 %)
-Writing at 0x00165dd4... (44 %)
-Writing at 0x0016b6c1... (45 %)
-Writing at 0x00171061... (46 %)
-Writing at 0x00176bf1... (48 %)
-Writing at 0x0017c8e2... (49 %)
-Writing at 0x00182153... (50 %)
-Writing at 0x001878cf... (51 %)
-Writing at 0x0018de7b... (53 %)
-Writing at 0x00192dc9... (54 %)
-Writing at 0x00198119... (55 %)
-Writing at 0x0019d38a... (56 %)
-Writing at 0x001a2a6e... (58 %)
-Writing at 0x001a7d99... (59 %)
-Writing at 0x001ad77a... (60 %)
-Writing at 0x001b2eef... (62 %)
-Writing at 0x001b865f... (63 %)
-Writing at 0x001bd819... (64 %)
-Writing at 0x001c2ed0... (65 %)
-Writing at 0x001c85af... (67 %)
-Writing at 0x001cda18... (68 %)
-Writing at 0x001d2cc5... (69 %)
-Writing at 0x001d7eeb... (70 %)
-Writing at 0x001dd30c... (72 %)
-Writing at 0x001e2b91... (73 %)
-Writing at 0x001e8188... (74 %)
-Writing at 0x001ed59d... (75 %)
-Writing at 0x001f2b33... (77 %)
-Writing at 0x001f8752... (78 %)
-Writing at 0x001fd9f9... (79 %)
-Writing at 0x00202a90... (81 %)
-Writing at 0x00207ce1... (82 %)
-Writing at 0x0020cf3c... (83 %)
-Writing at 0x002120c6... (84 %)
-Writing at 0x002172db... (86 %)
-Writing at 0x0021c4ec... (87 %)
-Writing at 0x00221c5a... (88 %)
-Writing at 0x00227539... (89 %)
-Writing at 0x00230d48... (91 %)
-Writing at 0x00238c27... (92 %)
-Writing at 0x0023e5fc... (93 %)
-Writing at 0x002442ee... (94 %)
-Writing at 0x0024954b... (96 %)
-Writing at 0x0024ef5a... (97 %)
-Writing at 0x00254d5d... (98 %)
-Writing at 0x0025a56d... (100 %)
-Wrote 2423824 bytes (1293649 compressed) at 0x00010000 in 29.5 seconds (effective 657.8 kbit/s)...
-Hash of data verified.
-Compressed 3072 bytes to 105...
-Writing at 0x00008000... (100 %)
-Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 792.1 kbit/s)...
-Hash of data verified.
+Command: D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM7 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI 3\build\16_LVGL_UI.elf D:\ESP32\ESP32S3_LCD 7B_DEMO_3\ESP32-S3-Touch-LCD-7B-Demo\ESP32-S3-Touch-LCD-7B-Demo\ESP-IDF\16_LVGL_UI 3\build\bootloader\bootloader.elf --force-color -m 'D:\ESP32_IDF\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM7'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Jan  8 2026 14:36:19[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=e4f34h (937780) map[0m
+[0;32mI (230) esp_image: segment 1: paddr=000f4f5c vaddr=3fca2200 size=057a0h ( 22432) load[0m
+[0;32mI (235) esp_image: segment 2: paddr=000fa704 vaddr=40374000 size=05914h ( 22804) load[0m
+[0;32mI (239) esp_image: segment 3: paddr=00100020 vaddr=42000020 size=d7aa0h (883360) map[0m
+[0;32mI (373) esp_image: segment 4: paddr=001d7ac8 vaddr=40379914 size=18864h (100452) load[0m
+[0;32mI (392) esp_image: segment 5: paddr=001f0334 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (404) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (404) boot: Disabling RNG early entropy source...[0m
+[0;33mW (414) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (414) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (421) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (429) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (433) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (437) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (442) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (447) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (451) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (455) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (459) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (464) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (469) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (474) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (479) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (488) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (488) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (491) esp_psram: Speed: 120MHz[0m
+[0;32mI (534) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (580) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (580) cpu_start: Multicore app[0m
+[0;32mI (739) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (747) cpu_start: Pro cpu start user code[0m
+[0;32mI (747) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (747) app_init: Application information:[0m
+[0;32mI (747) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (751) app_init: App version:      356cd45-dirty[0m
+[0;32mI (756) app_init: Compile time:     Jan  9 2026 14:47:59[0m
+[0;32mI (761) app_init: ELF file SHA256:  b0c7005b1...[0m
+[0;32mI (765) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (769) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (773) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (777) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (781) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (787) heap_init: At 3FCAD4B0 len 0003C260 (240 KiB): RAM[0m
+[0;32mI (793) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (798) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (803) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (808) esp_psram: Adding pool of 6336K of PSRAM memory to heap allocator[0m
+[0;32mI (815) esp_psram: Adding pool of 44K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (826) spi_flash: detected chip: generic[0m
+[0;32mI (830) spi_flash: flash io: qio[0m
+[0;32mI (833) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (839) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (845) coexist: coex firmware version: 831ec70[0m
+[0;32mI (858) coexist: coexist rom version e7ae62f[0m
+[0;32mI (859) main_task: Started on CPU0[0m
+[0;32mI (860) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (865) main_task: Calling app_main()[0m
+[0;33mW (878) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1284) GT911: Initialize I2C panel IO[0m
+[0;32mI (1284) GT911: Initialize touch controller GT911[0m
+[0;33mW (1284) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1286) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1289) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1293) example: Install RGB LCD panel driver[0m
+[0;32mI (1333) example: Initialize RGB LCD panel[0m
+[0;32mI (1335) lv_port: Create LVGL task[0m
+[0;32mI (1362) main: Display LVGL demos[0m
+[0;32mI (1380) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"00:1A:2B:3C:4D:05"},{"name":"2","device_id":"00:1A:2B:3C:4D:06"},{"name":"3","device_id":"A8:42:E3:4C:7C:BC"},{"name":"5","device_id":"02:1A:2B:3C:4D:02"},{"name":"6","device_id":"00:1A:2B:3C:4D:09"},{"name":"7","device_id":"94:E6:86:09:A4:78"},{"name":"8","device_id":"B8:D6:1A:B9:DA:A4"},{"name":"9","device_id":"00:1A:2B:3C:4D:07"},{"name":"10","device_id":"10:20:BA:01:48:A8"}][0m
+[0;32mI (1410) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1414) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1419) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1424) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1430) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1435) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1440) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1445) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1451) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1455) LVGL: Displayed 9 devices[0m
+[0;32mI (1463) MQTT_SAVE_NUMBER: Saved timeout: 5[0m
+[0;32mI (1605) main: MAC Address: 10:20:BA:05:9B:9C[0m
+[1;31mE (1605) main: read MAC adress successfuly[0m
+[0;32mI (1605) MQTT_SAVE_NUMBER: Saved timeout: 5[0m
+[0;32mI (1607) pp: pp rom version: e7ae62f[0m
+[0;32mI (1609) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1614) HEAP: Free heap: 4184748[0m
+[0;32mI (1615) wifi:wifi driver task: 3fcd4fe8, prio:23, stack:6656, core=0[0m
+[0;32mI (1631) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1631) wifi:wifi certification version: v7.0[0m
+[0;32mI (1631) wifi:config NVS flash: enabled[0m
+[0;32mI (1634) wifi:config nano formatting: disabled[0m
+[0;32mI (1639) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1644) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1647) wifi:Init management short buffer num: 32[0m
+[0;32mI (1653) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1656) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1660) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1664) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1668) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1672) wifi:Init dynamic rx buffer num: 32[0m
+[0;33mW (1676) RSSI: Not connected to any AP[0m
+[0;32mI (1676) wifi_init: rx ba win: 16[0m
+[0;32mI (1682) wifi_init: accept mbox: 6[0m
+[0;32mI (1686) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1689) wifi_init: udp mbox: 6[0m
+[0;32mI (1691) wifi_init: tcp mbox: 6[0m
+[0;32mI (1694) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1698) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1701) wifi_init: tcp mss: 1440[0m
+[0;32mI (1704) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1708) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1712) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1716) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1723) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1763) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1795) wifi:mode : sta (10:20:ba:05:9b:9c)[0m
+[0;32mI (1796) wifi:enable tsf[0m
+[0;32mI (1797) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1798) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1803) wifi:new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1809) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1819) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1824) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1849) wifi:connected with NamTrung, aid = 24, channel 2, BW20, bssid = 10:5f:02:75:27:1e[0m
+[0;32mI (1849) wifi:security: WPA2-PSK, phy: bgn, rssi: -62[0m
+[0;32mI (1852) wifi:pm start, type: 1[0m
 
-Leaving...
-Hard resetting via RTS pin...
+[0;32mI (1854) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1862) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1871) WiFi Sta: Connected to SSID:NamTrung, channel:2[0m
+[0;32mI (1875) WiFi Sta: Connected to SSID:NamTrung, channel:2[0m
+[0;32mI (1911) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2302) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2302) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2890) esp_netif_handlers: sta ip: 10.10.1.90, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2890) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2894) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2895) MQTT: Other event id:7[0m
+[0;32mI (2909) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:27:1e), tid:7, ssn:14, winSize:64[0m
+[0;32mI (2910) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:27:1e), tid:0, ssn:1, winSize:64[0m
+[0;33mW (2916) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (2917) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (2920) MQTT: Connection refused error: 0x5[0m
+[1;31mE (2924) mqtt_client: MQTT connect failed[0m
+[0;32mI (2928) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (3812) WiFi: Connected with IP: 10.10.1.90[0m
+[0;32mI (3812) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:27:1E[0m
+[0;32mI (3914) NVS: last index: -1[0m
+[0;32mI (3914) NVS: wifi index: 0[0m
+[0;33mW (3914) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (11676) HEAP: Free heap: 4051016[0m
+[0;32mI (12931) MQTT: Other event id:7[0m
+[0;33mW (12945) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (12945) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (12945) MQTT: Connection refused error: 0x5[0m
+[1;31mE (12946) mqtt_client: MQTT connect failed[0m
+[0;32mI (12950) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (21676) HEAP: Free heap: 4050992[0m
+[0;32mI (22953) MQTT: Other event id:7[0m
+[0;33mW (22960) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (22960) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (22960) MQTT: Connection refused error: 0x5[0m
+[1;31mE (22961) mqtt_client: MQTT connect failed[0m
+[0;32mI (22965) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (31676) HEAP: Free heap: 4051028[0m
+[0;32mI (32968) MQTT: Other event id:7[0m
+[0;33mW (32975) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (32975) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (32975) MQTT: Connection refused error: 0x5[0m
+[1;31mE (32976) mqtt_client: MQTT connect failed[0m
+[0;32mI (32981) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (41676) HEAP: Free heap: 4051028[0m
+[0;32mI (42984) MQTT: Other event id:7[0m
+[0;33mW (42995) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (42995) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (42995) MQTT: Connection refused error: 0x5[0m
+[1;31mE (42996) mqtt_client: MQTT connect failed[0m
+[0;32mI (43000) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (51676) HEAP: Free heap: 4050992[0m
+[0;32mI (53003) MQTT: Other event id:7[0m
+[0;33mW (53018) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (53019) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (53019) MQTT: Connection refused error: 0x5[0m
+[1;31mE (53020) mqtt_client: MQTT connect failed[0m
+[0;32mI (53024) MQTT: MQTT_EVENT_DISCONNECTED[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Jan  8 2026 14:36:19[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=e4f34h (937780) map[0m
+[0;32mI (230) esp_image: segment 1: paddr=000f4f5c vaddr=3fca2200 size=057a0h ( 22432) load[0m
+[0;32mI (235) esp_image: segment 2: paddr=000fa704 vaddr=40374000 size=05914h ( 22804) load[0m
+[0;32mI (239) esp_image: segment 3: paddr=00100020 vaddr=42000020 size=d7aa0h (883360) map[0m
+[0;32mI (373) esp_image: segment 4: paddr=001d7ac8 vaddr=40379914 size=18864h (100452) load[0m
+[0;32mI (392) esp_image: segment 5: paddr=001f0334 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (404) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (404) boot: Disabling RNG early entropy source...[0m
+[0;33mW (414) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (414) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (421) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (429) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (433) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (437) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (442) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (447) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (451) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (455) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (459) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (464) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (469) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (474) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (479) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (491) MSPI Timing: PSRAM timing tuning index: 2[0m
+[0;32mI (491) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (492) esp_psram: Speed: 120MHz[0m
+[0;32mI (534) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (580) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (580) cpu_start: Multicore app[0m
+[0;32mI (739) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (747) cpu_start: Pro cpu start user code[0m
+[0;32mI (747) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (747) app_init: Application information:[0m
+[0;32mI (748) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (752) app_init: App version:      356cd45-dirty[0m
+[0;32mI (756) app_init: Compile time:     Jan  9 2026 14:47:59[0m
+[0;32mI (761) app_init: ELF file SHA256:  b0c7005b1...[0m
+[0;32mI (765) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (770) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (773) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (777) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (781) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (788) heap_init: At 3FCAD4B0 len 0003C260 (240 KiB): RAM[0m
+[0;32mI (793) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (798) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (803) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (808) esp_psram: Adding pool of 6336K of PSRAM memory to heap allocator[0m
+[0;32mI (815) esp_psram: Adding pool of 44K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (826) spi_flash: detected chip: generic[0m
+[0;32mI (830) spi_flash: flash io: qio[0m
+[0;32mI (833) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (839) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (846) coexist: coex firmware version: 831ec70[0m
+[0;32mI (858) coexist: coexist rom version e7ae62f[0m
+[0;32mI (859) main_task: Started on CPU0[0m
+[0;32mI (860) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (865) main_task: Calling app_main()[0m
+[0;33mW (878) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1284) GT911: Initialize I2C panel IO[0m
+[0;32mI (1284) GT911: Initialize touch controller GT911[0m
+[0;33mW (1284) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1286) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1289) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1293) example: Install RGB LCD panel driver[0m
+[0;32mI (1333) example: Initialize RGB LCD panel[0m
+[0;32mI (1335) lv_port: Create LVGL task[0m
+[0;32mI (1362) main: Display LVGL demos[0m
+[0;32mI (1380) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"00:1A:2B:3C:4D:05"},{"name":"2","device_id":"00:1A:2B:3C:4D:06"},{"name":"3","device_id":"A8:42:E3:4C:7C:BC"},{"name":"5","device_id":"02:1A:2B:3C:4D:02"},{"name":"6","device_id":"00:1A:2B:3C:4D:09"},{"name":"7","device_id":"94:E6:86:09:A4:78"},{"name":"8","device_id":"B8:D6:1A:B9:DA:A4"},{"name":"9","device_id":"00:1A:2B:3C:4D:07"},{"name":"10","device_id":"10:20:BA:01:48:A8"}][0m
+[0;32mI (1410) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1414) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1419) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1424) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1430) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1435) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1440) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1445) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1451) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1455) LVGL: Displayed 9 devices[0m
+[0;32mI (1463) MQTT_SAVE_NUMBER: Saved timeout: 5[0m
+[0;32mI (1605) main: MAC Address: 10:20:BA:05:9B:9C[0m
+[1;31mE (1605) main: read MAC adress successfuly[0m
+[0;32mI (1605) MQTT_SAVE_NUMBER: Saved timeout: 5[0m
+[0;32mI (1607) pp: pp rom version: e7ae62f[0m
+[0;32mI (1609) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1614) HEAP: Free heap: 4184748[0m
+[0;32mI (1615) wifi:wifi driver task: 3fcd4fe8, prio:23, stack:6656, core=0[0m
+[0;32mI (1631) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1632) wifi:wifi certification version: v7.0[0m
+[0;32mI (1632) wifi:config NVS flash: enabled[0m
+[0;32mI (1634) wifi:config nano formatting: disabled[0m
+[0;32mI (1639) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1644) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1647) wifi:Init management short buffer num: 32[0m
+[0;32mI (1653) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1656) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1660) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1664) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1668) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1672) wifi:Init dynamic rx buffer num: 32[0m
+[0;33mW (1676) RSSI: Not connected to any AP[0m
+[0;32mI (1676) wifi_init: rx ba win: 16[0m
+[0;32mI (1682) wifi_init: accept mbox: 6[0m
+[0;32mI (1686) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1689) wifi_init: udp mbox: 6[0m
+[0;32mI (1691) wifi_init: tcp mbox: 6[0m
+[0;32mI (1694) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1698) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1701) wifi_init: tcp mss: 1440[0m
+[0;32mI (1704) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1708) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1712) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1716) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1723) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1762) wifi:mode : sta (10:20:ba:05:9b:9c)[0m
+[0;32mI (1762) wifi:enable tsf[0m
+[0;32mI (1764) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1764) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1771) wifi:new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1776) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1785) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1791) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1818) wifi:connected with NamTrung, aid = 24, channel 2, BW20, bssid = 10:5f:02:75:27:1e[0m
+[0;32mI (1818) wifi:security: WPA2-PSK, phy: bgn, rssi: -61[0m
+[0;32mI (1821) wifi:pm start, type: 1[0m
+
+[0;32mI (1823) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1831) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1840) WiFi Sta: Connected to SSID:NamTrung, channel:2[0m
+[0;32mI (1844) WiFi Sta: Connected to SSID:NamTrung, channel:2[0m
+[0;32mI (1852) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2269) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2269) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2869) esp_netif_handlers: sta ip: 10.10.1.90, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2869) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2874) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2875) MQTT: Other event id:7[0m
+[0;32mI (2884) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:27:1e), tid:7, ssn:14, winSize:64[0m
+[0;33mW (2891) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (2891) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (2891) MQTT: Connection refused error: 0x5[0m
+[0;32mI (2894) wifi:E (2895) mqtt_client: MQTT connect failed[0m
+<ba-add>idx:1 (ifx:0, 10:5f:02:75:27:1e), tid:0, ssn:4, winSize:64
+[0;32mI (2901) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (3779) WiFi: Connected with IP: 10.10.1.90[0m
+[0;32mI (3779) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:27:1E[0m
+[0;32mI (3884) NVS: last index: -1[0m
+[0;32mI (3884) NVS: wifi index: 0[0m
+[0;33mW (3884) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (11676) HEAP: Free heap: 4051020[0m
+[0;32mI (12910) MQTT: Other event id:7[0m
+[0;33mW (12918) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (12918) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (12918) MQTT: Connection refused error: 0x5[0m
+[1;31mE (12919) mqtt_client: MQTT connect failed[0m
+[0;32mI (12923) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (21676) HEAP: Free heap: 4051056[0m
+[0;32mI (22926) MQTT: Other event id:7[0m
+[0;33mW (22933) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (22933) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (22933) MQTT: Connection refused error: 0x5[0m
+[1;31mE (22934) mqtt_client: MQTT connect failed[0m
+[0;32mI (22938) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (31676) HEAP: Free heap: 4051056[0m
+[0;32mI (32941) MQTT: Other event id:7[0m
+[0;33mW (32954) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (32954) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (32954) MQTT: Connection refused error: 0x5[0m
+[1;31mE (32955) mqtt_client: MQTT connect failed[0m
+[0;32mI (32959) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (41676) HEAP: Free heap: 4051020[0m
+[0;32mI (42962) MQTT: Other event id:7[0m
+[0;33mW (42969) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (42969) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (42969) MQTT: Connection refused error: 0x5[0m
+[1;31mE (42970) mqtt_client: MQTT connect failed[0m
+[0;32mI (42975) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (51676) HEAP: Free heap: 4051056[0m
+[0;32mI (52978) MQTT: Other event id:7[0m
+[0;33mW (52985) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (52985) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (52985) MQTT: Connection refused error: 0x5[0m
+[1;31mE (52986) mqtt_client: MQTT connect failed[0m
+[0;32mI (52990) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (61676) HEAP: Free heap: 4051056[0m
+[0;32mI (62994) MQTT: Other event id:7[0m
+[0;33mW (63003) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (63003) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (63004) MQTT: Connection refused error: 0x5[0m
+[1;31mE (63004) mqtt_client: MQTT connect failed[0m
+[0;32mI (63009) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (71676) HEAP: Free heap: 4051056[0m
+[0;32mI (73012) MQTT: Other event id:7[0m
+[0;33mW (73024) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (73024) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (73024) MQTT: Connection refused error: 0x5[0m
+[1;31mE (73025) mqtt_client: MQTT connect failed[0m
+[0;32mI (73029) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (81676) HEAP: Free heap: 4051056[0m
+[0;32mI (83032) MQTT: Other event id:7[0m
+[0;33mW (83043) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (83043) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (83043) MQTT: Connection refused error: 0x5[0m
+[1;31mE (83044) mqtt_client: MQTT connect failed[0m
+[0;32mI (83048) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (91676) HEAP: Free heap: 4051056[0m
+[0;32mI (93052) MQTT: Other event id:7[0m
+[0;33mW (93065) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (93065) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (93065) MQTT: Connection refused error: 0x5[0m
+[1;31mE (93066) mqtt_client: MQTT connect failed[0m
+[0;32mI (93070) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (101676) HEAP: Free heap: 4051056[0m
+[0;32mI (103073) MQTT: Other event id:7[0m
+[0;33mW (103082) mqtt_client: Connection refused, not authorized[0m
+[0;32mI (103083) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (103083) MQTT: Connection refused error: 0x5[0m
+[1;31mE (103084) mqtt_client: MQTT connect failed[0m
+[0;32mI (103088) MQTT: MQTT_EVENT_DISCONNECTED[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1710
+load:0x403c8700,len:0xec0
+load:0x403cb700,len:0x31d4
+entry 0x403c894c
+[0;32mI (25) boot: ESP-IDF v5.5-dirty 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Jan  8 2026 14:36:19[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (36) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (61) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (68) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (74) boot:  2 factory          factory app      00 00 00010000 00800000[0m
+[0;32mI (81) boot: End of partition table[0m
+[0;32mI (84) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=e4f34h (937780) map[0m
+[0;32mI (230) esp_image: segment 1: paddr=000f4f5c vaddr=3fca2200 size=057a0h ( 22432) load[0m
+[0;32mI (235) esp_image: segment 2: paddr=000fa704 vaddr=40374000 size=05914h ( 22804) load[0m
+[0;32mI (239) esp_image: segment 3: paddr=00100020 vaddr=42000020 size=d7aa0h (883360) map[0m
+[0;32mI (373) esp_image: segment 4: paddr=001d7ac8 vaddr=40379914 size=18864h (100452) load[0m
+[0;32mI (392) esp_image: segment 5: paddr=001f0334 vaddr=600fe000 size=00020h (    32) load[0m
+[0;32mI (404) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (404) boot: Disabling RNG early entropy source...[0m
+[0;33mW (414) flash HPM: HPM mode is optional feature that depends on flash model. Read Docs First![0m
+[0;33mW (414) flash HPM: HPM mode with DC adjustment is disabled. Some flash models may not be supported. Read Docs First![0m
+[0;33mW (421) flash HPM: High performance mode of this flash model hasn't been supported.[0m
+[0;32mI (429) MSPI Timing: Flash timing tuning index: 2[0m
+[0;32mI (433) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (437) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (442) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (447) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (451) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (455) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (459) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (464) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (469) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (474) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (479) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (491) MSPI Timing: PSRAM timing tuning index: 6[0m
+[0;32mI (491) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (492) esp_psram: Speed: 120MHz[0m
+[0;32mI (534) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (580) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (580) cpu_start: Multicore app[0m
+[0;32mI (739) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (747) cpu_start: Pro cpu start user code[0m
+[0;32mI (747) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (747) app_init: Application information:[0m
+[0;32mI (748) app_init: Project name:     16_LVGL_UI[0m
+[0;32mI (752) app_init: App version:      356cd45-dirty[0m
+[0;32mI (756) app_init: Compile time:     Jan  9 2026 14:47:59[0m
+[0;32mI (761) app_init: ELF file SHA256:  b0c7005b1...[0m
+[0;32mI (765) app_init: ESP-IDF:          v5.5-dirty[0m
+[0;32mI (770) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (773) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (777) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (781) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (788) heap_init: At 3FCAD4B0 len 0003C260 (240 KiB): RAM[0m
+[0;32mI (793) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (798) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (803) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (808) esp_psram: Adding pool of 6336K of PSRAM memory to heap allocator[0m
+[0;32mI (815) esp_psram: Adding pool of 44K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (826) spi_flash: detected chip: generic[0m
+[0;32mI (830) spi_flash: flash io: qio[0m
+[0;32mI (833) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (839) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (846) coexist: coex firmware version: 831ec70[0m
+[0;32mI (858) coexist: coexist rom version e7ae62f[0m
+[0;32mI (859) main_task: Started on CPU0[0m
+[0;32mI (860) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (865) main_task: Calling app_main()[0m
+[0;33mW (878) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1284) GT911: Initialize I2C panel IO[0m
+[0;32mI (1284) GT911: Initialize touch controller GT911[0m
+[0;33mW (1284) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1286) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1289) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1293) example: Install RGB LCD panel driver[0m
+[0;32mI (1333) example: Initialize RGB LCD panel[0m
+[0;32mI (1335) lv_port: Create LVGL task[0m
+[0;32mI (1362) main: Display LVGL demos[0m
+[0;32mI (1380) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"00:1A:2B:3C:4D:05"},{"name":"2","device_id":"00:1A:2B:3C:4D:06"},{"name":"3","device_id":"A8:42:E3:4C:7C:BC"},{"name":"5","device_id":"02:1A:2B:3C:4D:02"},{"name":"6","device_id":"00:1A:2B:3C:4D:09"},{"name":"7","device_id":"94:E6:86:09:A4:78"},{"name":"8","device_id":"B8:D6:1A:B9:DA:A4"},{"name":"9","device_id":"00:1A:2B:3C:4D:07"},{"name":"10","device_id":"10:20:BA:01:48:A8"}][0m
+[0;32mI (1410) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1414) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1419) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1424) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1430) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1435) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1440) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1445) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1451) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1455) LVGL: Displayed 9 devices[0m
+[0;32mI (1463) MQTT_SAVE_NUMBER: Saved timeout: 5[0m
+[0;32mI (1605) main: MAC Address: 10:20:BA:05:9B:9C[0m
+[1;31mE (1605) main: read MAC adress successfuly[0m
+[0;32mI (1605) MQTT_SAVE_NUMBER: Saved timeout: 5[0m
+[0;32mI (1607) pp: pp rom version: e7ae62f[0m
+[0;32mI (1609) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1614) HEAP: Free heap: 4184748[0m
+[0;32mI (1615) wifi:wifi driver task: 3fcd4fe8, prio:23, stack:6656, core=0[0m
+[0;32mI (1631) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1632) wifi:wifi certification version: v7.0[0m
+[0;32mI (1632) wifi:config NVS flash: enabled[0m
+[0;32mI (1634) wifi:config nano formatting: disabled[0m
+[0;32mI (1639) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1643) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1647) wifi:Init management short buffer num: 32[0m
+[0;32mI (1652) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1656) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1660) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1664) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1668) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1672) wifi:Init dynamic rx buffer num: 32[0m
+[0;33mW (1676) RSSI: Not connected to any AP[0m
+[0;32mI (1676) wifi_init: rx ba win: 16[0m
+[0;32mI (1682) wifi_init: accept mbox: 6[0m
+[0;32mI (1686) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1689) wifi_init: udp mbox: 6[0m
+[0;32mI (1691) wifi_init: tcp mbox: 6[0m
+[0;32mI (1694) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1698) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1701) wifi_init: tcp mss: 1440[0m
+[0;32mI (1704) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1708) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1712) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1716) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1723) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1766) wifi:mode : sta (10:20:ba:05:9b:9c)[0m
+[0;32mI (1766) wifi:enable tsf[0m
+[0;32mI (1768) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1768) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1774) wifi:new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1780) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1790) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1796) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1820) wifi:connected with NamTrung, aid = 24, channel 2, BW20, bssid = 10:5f:02:75:27:1e[0m
+[0;32mI (1820) wifi:security: WPA2-PSK, phy: bgn, rssi: -60[0m
+[0;32mI (1823) wifi:pm start, type: 1[0m
+
+[0;32mI (1825) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1833) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1842) WiFi Sta: Connected to SSID:NamTrung, channel:2[0m
+[0;32mI (1846) WiFi Sta: Connected to SSID:NamTrung, channel:2[0m
+[0;32mI (1907) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2272) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2272) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2858) esp_netif_handlers: sta ip: 10.10.1.90, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2858) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2864) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2865) MQTT: Other event id:7[0m
+[0;32mI (2877) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:27:1e), tid:7, ssn:11, winSize:64[0m
+[0;32mI (2879) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:27:1e), tid:0, ssn:2, winSize:64[0m
+[0;32mI (2880) MQTT: MQTT_EVENT_CONNECTED[0m
+{"staff_id":1,"status":"online","device_id":"10:20:BA:05:9B:9C"}I (2885) LOGIN: SEND CONNECTION MESS
+[0;32mI (2893) NVS: No backup MQTT msg[0m
+[0;32mI (2897) MQTT: MQTT_EVENT_PUBLISHED, msg_id=38242[0m
+[0;32mI (2902) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=32466, return code=0x00[0m
+[0;32mI (3782) WiFi: Connected with IP: 10.10.1.90[0m
+[0;32mI (3782) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:27:1E[0m
+[0;32mI (3884) NVS: last index: -1[0m
+[0;32mI (3884) NVS: wifi index: 0[0m
+[0;33mW (3884) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (6834) Feedback: diem danh gia: 3[0m
+
+[0;32mI (11676) HEAP: Free heap: 4050344[0m
+[0;32mI (11907) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (11985) Feedback: diem danh gia: 3[0m
+
+[0;32mI (17008) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (21676) HEAP: Free heap: 4050148[0m
+[0;32mI (31676) HEAP: Free heap: 4050148[0m
+[0;32mI (37221) Feedback: diem danh gia: 2[0m
+
+[0;32mI (38689) Feedback: diem danh gia: 3[0m
+
+[0;32mI (39998) Feedback: diem danh gia : 4[0m
+
+[0;32mI (41341) Feedback: diem danh gia: 1[0m
+
+[0;32mI (41676) HEAP: Free heap: 4049908[0m
+[0;32mI (46409) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (51676) HEAP: Free heap: 4049944[0m
+[0;32mI (61676) HEAP: Free heap: 4049944[0m
+[0;32mI (65883) LOGIN STATUS: Updating login status in NVS...[0m
+[0;32mI (65885) LOGIN STATUS: login status saved successfully![0m
+[0;32mI (65887) MQTT: MQTT_EVENT_PUBLISHED, msg_id=51720[0m
+[0;32mI (71676) HEAP: Free heap: 4049620[0m
+USERNAME = kiett
+PASSWORD = 1111
+[0;32mI (72158) MQTT: login data sent successfully, msg_id=0[0m
+[0;32mI (81676) HEAP: Free heap: 4049640[0m
+[0;32mI (91676) HEAP: Free heap: 4049684[0m
+[0;32mI (101676) HEAP: Free heap: 4049684[0m
+[0;32mI (111676) HEAP: Free heap: 4049624[0m
+[0;32mI (121676) HEAP: Free heap: 4049660[0m
+[0;32mI (131676) HEAP: Free heap: 4049660[0m
+[0;32mI (141676) HEAP: Free heap: 4049660[0m
+[0;32mI (151676) HEAP: Free heap: 4049660[0m
+[0;32mI (161676) HEAP: Free heap: 4049680[0m
+[0;32mI (171676) HEAP: Free heap: 4049680[0m
+[0;32mI (181676) HEAP: Free heap: 4049680[0m
+[0;32mI (191676) HEAP: Free heap: 4049680[0m
+[0;32mI (201676) HEAP: Free heap: 4049680[0m
+[0;32mI (211676) HEAP: Free heap: 4049576[0m
+USERNAME = kiett
+PASSWORD = 1111
+[0;32mI (216346) MQTT: login data sent successfully, msg_id=0[0m
+[0;32mI (216545) MQTT_SAVE_NUMBER: Processing topic: 10:20:BA:05:9B:9C/staff_id[0m
+[0;32mI (216546) MQTT_SAVE_NUMBER: Data: {"status":"true","message":1}[0m
+[0;32mI (216547) MQTT_SAVE_NUMBER: check user cred[0m
+[0;32mI (216551) MQTT_SAVE_NUMBER: successful[0m
+[0;32mI (216554) MQTT_SAVE_NUMBER: staff_id: 1[0m
+[0;32mI (216558) LOGIN STATUS: Updating login status in NVS...[0m
+[0;32mI (216564) LOGIN STATUS: login status saved successfully![0m
+[0;32mI (216568) LAST ID: value no change, skip update[0m
+[0;32mI (221676) HEAP: Free heap: 4049680[0m
+[0;32mI (224910) Feedback: diem danh gia: 2[0m
+
+[0;32mI (226756) Feedback: diem danh gia: 3[0m
+
+[0;32mI (231676) HEAP: Free heap: 4049572[0m
+[0;32mI (231822) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (234660) Feedback: diem danh gia: 1[0m
+
+[0;32mI (236296) Feedback: diem danh gia: 3[0m
+
+[0;32mI (237816) Feedback: diem danh gia : 4[0m
+
+[0;32mI (239271) Feedback: diem danh gia: 2[0m
+
+[0;32mI (241676) HEAP: Free heap: 4049368[0m
+[0;32mI (244323) MQTT: Message sent successfully, msg_id=0[0m
+[0;32mI (251676) HEAP: Free heap: 4049332[0m
+[0;32mI (261676) HEAP: Free heap: 4049368[0m
+[0;32mI (271676) HEAP: Free heap: 4049368[0m
+[0;32mI (281676) HEAP: Free heap: 4049312[0m
+[0;32mI (291676) HEAP: Free heap: 4049332[0m
+[0;32mI (294444) LOGIN STATUS: Updating login status in NVS...[0m
+[0;32mI (294446) LOGIN STATUS: login status saved successfully![0m
+[0;32mI (294452) MQTT: MQTT_EVENT_PUBLISHED, msg_id=41661[0m
+[0;32mI (301676) HEAP: Free heap: 4049232[0m
+USERNAME = kiett
+PASSWORD = 1111
+[0;32mI (306049) MQTT: login data sent successfully, msg_id=0[0m
+[0;32mI (306350) MQTT_SAVE_NUMBER: Processing topic: 10:20:BA:05:9B:9C/staff_id[0m
+[0;32mI (306350) MQTT_SAVE_NUMBER: Data: {"status":"true","message":1}[0m
+[0;32mI (306351) MQTT_SAVE_NUMBER: check user cred[0m
+[0;32mI (306355) MQTT_SAVE_NUMBER: successful[0m
+[0;32mI (306359) MQTT_SAVE_NUMBER: staff_id: 1[0m
+[0;32mI (306362) LOGIN STATUS: Updating login status in NVS...[0m
+[0;32mI (306368) LOGIN STATUS: login status saved successfully![0m
+[0;32mI (306373) LAST ID: value no change, skip update[0m
+[0;32mI (311676) HEAP: Free heap: 4049332[0m
+[0;32mI (321676) HEAP: Free heap: 4049312[0m
+[0;32mI (331676) HEAP: Free heap: 4049276[0m
+[0;32mI (341676) HEAP: Free heap: 4049296[0m
+[0;32mI (351676) HEAP: Free heap: 4049332[0m
+[0;32mI (361676) HEAP: Free heap: 4049332[0m
+[0;32mI (371676) HEAP: Free heap: 4049168[0m
+[0;32mI (381676) HEAP: Free heap: 4049332[0m
+[0;32mI (391676) HEAP: Free heap: 4049332[0m
+[0;32mI (401676) HEAP: Free heap: 4049296[0m
+[0;32mI (411676) HEAP: Free heap: 4049296[0m
+[0;32mI (421676) HEAP: Free heap: 4049332[0m
+[0;32mI (431676) HEAP: Free heap: 4049332[0m
+[0;32mI (441676) HEAP: Free heap: 4049332[0m
+[0;32mI (451676) HEAP: Free heap: 4047736[0m
+[0;32mI (461676) HEAP: Free heap: 4049296[0m
+[0;32mI (471676) HEAP: Free heap: 4049332[0m
+[0;32mI (481676) HEAP: Free heap: 4049332[0m
+[0;32mI (491676) HEAP: Free heap: 4049332[0m
+[0;32mI (501676) HEAP: Free heap: 4049332[0m
+[0;32mI (511676) HEAP: Free heap: 4049332[0m
+[0;32mI (521676) HEAP: Free heap: 4049332[0m
+[0;32mI (531676) HEAP: Free heap: 4049296[0m
+[0;32mI (541676) HEAP: Free heap: 4049332[0m
+[0;32mI (551676) HEAP: Free heap: 4049332[0m
+[0;32mI (561676) HEAP: Free heap: 4049332[0m
+[0;32mI (571676) HEAP: Free heap: 4049332[0m
+[0;32mI (581676) HEAP: Free heap: 4049332[0m
+[0;32mI (591676) HEAP: Free heap: 4049332[0m
+[0;32mI (601676) HEAP: Free heap: 4049312[0m
+[0;32mI (611676) HEAP: Free heap: 4049312[0m
+[0;32mI (621676) HEAP: Free heap: 4049312[0m
+[0;32mI (631676) HEAP: Free heap: 4049276[0m
+[0;32mI (641676) HEAP: Free heap: 4049312[0m
+[0;32mI (651676) HEAP: Free heap: 4049312[0m
+[0;32mI (661676) HEAP: Free heap: 4049312[0m
+[0;32mI (671676) HEAP: Free heap: 4049312[0m
+[0;32mI (673293) LOGIN STATUS: Updating login status in NVS...[0m
+[0;32mI (673294) LOGIN STATUS: login status saved successfully![0m
+[0;32mI (673296) MQTT: MQTT_EVENT_PUBLISHED, msg_id=65498[0m
+@       v5.5-dirty
+[0;32mI (770) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (773) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (777) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (781) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (788) heap_init: At 3FCAD4B0 len 0003C260 (240 KiB): RAM[0m
+[0;32mI (793) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (798) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (803) heap_init: At 600FE020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (808) esp_psram: Adding pool of 6336K of PSRAM memory to heap allocator[0m
+[0;32mI (815) esp_psram: Adding pool of 44K of PSRAM memory gap generated due to end address alignment of drom to the heap allocator[0m
+[0;32mI (826) spi_flash: detected chip: generic[0m
+[0;32mI (830) spi_flash: flash io: qio[0m
+[0;32mI (833) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (839) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (846) coexist: coex firmware version: 831ec70[0m
+[0;32mI (858) coexist: coexist rom version e7ae62f[0m
+[0;32mI (859) main_task: Started on CPU0[0m
+[0;32mI (860) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (865) main_task: Calling app_main()[0m
+[0;33mW (878) i2c.master: Please check pull-up resistances whether be connected properly. Otherwise unexpected behavior would happen. For more detailed information, please read docs[0m
+[0;32mI (1284) GT911: Initialize I2C panel IO[0m
+[0;32mI (1284) GT911: Initialize touch controller GT911[0m
+[0;33mW (1284) GT911: Unable to initialize the I2C address[0m
+[0;32mI (1286) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1289) GT911: TouchPad_Config_Version:91[0m
+[0;32mI (1293) example: Install RGB LCD panel driver[0m
+[0;32mI (1333) example: Initialize RGB LCD panel[0m
+[0;32mI (1335) lv_port: Create LVGL task[0m
+[0;32mI (1362) main: Display LVGL demos[0m
+[0;32mI (1380) TAG_NVS: Loaded JSON from NVS: [{"name":"1","device_id":"00:1A:2B:3C:4D:05"},{"name":"2","device_id":"00:1A:2B:3C:4D:06"},{"name":"3","device_id":"A8:42:E3:4C:7C:BC"},{"name":"5","device_id":"02:1A:2B:3C:4D:02"},{"name":"6","device_id":"00:1A:2B:3C:4D:09"},{"name":"7","device_id":"94:E6:86:09:A4:78"},{"name":"8","device_id":"B8:D6:1A:B9:DA:A4"},{"name":"9","device_id":"00:1A:2B:3C:4D:07"},{"name":"10","device_id":"10:20:BA:01:48:A8"}][0m
+[0;32mI (1410) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1414) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1419) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1424) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1430) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1435) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1440) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1445) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1451) READ_DEVICE_ID: Read device_id: B8:D6:1A:B9:DA:A4[0m
+[0;32mI (1455) LVGL: Displayed 9 devices[0m
+[0;32mI (1463) MQTT_SAVE_NUMBER: Saved timeout: 5[0m
+[0;32mI (1605) main: MAC Address: 10:20:BA:05:9B:9C[0m
+[1;31mE (1605) main: read MAC adress successfuly[0m
+[0;32mI (1605) MQTT_SAVE_NUMBER: Saved timeout: 5[0m
+[0;32mI (1607) pp: pp rom version: e7ae62f[0m
+[0;32mI (1609) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1614) HEAP: Free heap: 4184728[0m
+[0;32mI (1615) wifi:wifi driver task: 3fcd4ffc, prio:23, stack:6656, core=0[0m
+[0;32mI (1631) wifi:wifi firmware version: f3dbad7[0m
+[0;32mI (1631) wifi:wifi certification version: v7.0[0m
+[0;32mI (1632) wifi:config NVS flash: enabled[0m
+[0;32mI (1634) wifi:config nano formatting: disabled[0m
+[0;32mI (1639) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1644) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1647) wifi:Init management short buffer num: 32[0m
+[0;32mI (1653) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1656) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1660) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1664) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1668) wifi:Init static rx buffer num: 16[0m
+[0;32mI (1672) wifi:Init dynamic rx buffer num: 32[0m
+[0;33mW (1676) RSSI: Not connected to any AP[0m
+[0;32mI (1676) wifi_init: rx ba win: 16[0m
+[0;32mI (1682) wifi_init: accept mbox: 6[0m
+[0;32mI (1686) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1689) wifi_init: udp mbox: 6[0m
+[0;32mI (1691) wifi_init: tcp mbox: 6[0m
+[0;32mI (1694) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1698) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1701) wifi_init: tcp mss: 1440[0m
+[0;32mI (1704) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1708) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1712) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1716) reconnect: Found saved WiFi: NamTrung[0m
+Wi-Fi event handler registered.
+[0;32mI (1723) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1761) wifi:mode : sta (10:20:ba:05:9b:9c)[0m
+[0;32mI (1762) wifi:enable tsf[0m
+[0;32mI (1764) reconnect: WiFi init complete, waiting for connection...[0m
+[0;32mI (1764) WiFi Sta: GET: SSID:NamTrung, password:nt@14092011[0m
+[0;32mI (1772) wifi:new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1776) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1791) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1813) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1846) wifi:connected with NamTrung, aid = 23, channel 2, BW20, bssid = 10:5f:02:75:27:1e[0m
+[0;32mI (1846) wifi:security: WPA2-PSK, phy: bgn, rssi: -69[0m
+[0;32mI (1848) wifi:pm start, type: 1[0m
+
+[0;32mI (1850) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1859) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1868) WiFi Sta: Connected to SSID:NamTrung, channel:2[0m
+[0;32mI (1872) WiFi Sta: Connected to SSID:NamTrung, channel:2[0m
+[0;32mI (1948) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2268) WiFi Sta: Failed to connect to the AP[0m
+[0;32mI (2268) WiFi Sta: Retrying to connect to the AP[0m
+[0;32mI (2891) esp_netif_handlers: sta ip: 10.10.1.90, mask: 255.255.252.0, gw: 10.10.1.1[0m
+[0;32mI (2891) WiFi Sta: WIFI GOT_IP.[0m
+[0;32mI (2894) MQTT_MANAGER: No existing client, creating new one...[0m
+[0;32mI (2896) MQTT: Other event id:7[0m
+[0;32mI (2931) wifi:<ba-add>idx:0 (ifx:0, 10:5f:02:75:27:1e), tid:7, ssn:14, winSize:64[0m
+[0;32mI (2967) wifi:<ba-add>idx:1 (ifx:0, 10:5f:02:75:27:1e), tid:0, ssn:1, winSize:64[0m
+[0;32mI (3027) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (3028) NVS: No backup MQTT msg[0m
+[0;32mI (3128) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=46491, return code=0x00[0m
+[0;32mI (3778) WiFi: Connected with IP: 10.10.1.90[0m
+[0;32mI (3778) WiFi Sta: Connected to AP SSID:NamTrung, password:nt@14092011, bssid:10:5F:02:75:27:1E[0m
+[0;32mI (3883) NVS: last index: -1[0m
+[0;32mI (3883) NVS: wifi index: 0[0m
+[0;33mW (3883) WIFI_UI: WIFI_List_Button is invalid[0m
+[0;32mI (11676) HEAP: Free heap: 4050460[0m

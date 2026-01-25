@@ -45,7 +45,7 @@ extern int cnt;
 int connect_success=0;
 
 extern lv_obj_t * ui_Image16;
-int8_t pressed=0;
+//int8_t pressed=0;
 //SemaphoreHandle_t check_sema=NULL;
 extern SemaphoreHandle_t check_sema;
 
@@ -58,11 +58,12 @@ extern esp_netif_t *sta_netif;
 extern void wifi_event_handler(void *arg, esp_event_base_t event_base,
                                int32_t event_id, void *event_data);
 
-
+/*
 char saved_ssid1[32]={0} ;
 char saved_pass1[32]={0} ;
 size_t ssid_len1=sizeof(saved_pass1);
 size_t password_len1=sizeof(saved_pass1) ;
+*/
 
 bool force_reset=false;
 
@@ -204,7 +205,7 @@ void wifi_init(void) {
 
     
 
-    // Cáº¥u hÃ¬nh WiFi
+    // cấu hình WiFi
     wifi_config_t wifi_config = {0};
     
     if (err == ESP_OK && strlen(saved_ssid) > 0) {
@@ -236,7 +237,10 @@ void wifi_init(void) {
     
  }
 
+
+ 
 // Set DNS address for the SoftAP mode
+/*
 void wifi_ap_set_dns_addr(esp_netif_t *sta_netif, esp_netif_t *ap_netif)
 {
     esp_netif_dns_info_t dns;
@@ -256,13 +260,16 @@ void wifi_ap_set_dns_addr(esp_netif_t *sta_netif, esp_netif_t *ap_netif)
     // Restart the DHCP server
     ESP_ERROR_CHECK_WITHOUT_ABORT(esp_netif_dhcps_start(ap_netif));
 }
+    */
 
 // Wi-Fi task to handle scanning, station, and AP modes
 void wifi_task(void *arg)
 {   
    
-
+    
     wifi_init();  // Initialize the Wi-Fi
+   // WIFIOPEN1();//
+    //saved_wifi_reconnect();//
 
 
 
@@ -376,6 +383,12 @@ void hide_all_icon(){
             lv_obj_add_flag(ui_Image11, LV_OBJ_FLAG_HIDDEN );
             lv_obj_add_flag(ui_Image13, LV_OBJ_FLAG_HIDDEN );
 
+            lv_obj_add_flag(ui_Image27, LV_OBJ_FLAG_HIDDEN );  
+            lv_obj_add_flag(ui_Image28, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image29, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image30, LV_OBJ_FLAG_HIDDEN );
+            lv_obj_add_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN );
+
 }
 
 
@@ -404,22 +417,32 @@ void mainscreen_wifi_rssi_task(void *pvParameters) {
             switch(current_rssi_level){
                 case 0:
                  lv_obj_clear_flag(ui_Image9, LV_OBJ_FLAG_HIDDEN ); 
+                 lv_obj_clear_flag(ui_Image27, LV_OBJ_FLAG_HIDDEN ); 
+
                  break;
 
                 case 1:
                  lv_obj_clear_flag(ui_Image10, LV_OBJ_FLAG_HIDDEN ); 
+                 lv_obj_clear_flag(ui_Image28, LV_OBJ_FLAG_HIDDEN ); 
+
                  break;
 
                 case 2:
                  lv_obj_clear_flag(ui_Image11, LV_OBJ_FLAG_HIDDEN ); 
+                 lv_obj_clear_flag(ui_Image29, LV_OBJ_FLAG_HIDDEN ); 
+
                  break; 
                 
                 case 3:
                  lv_obj_clear_flag(ui_Image12, LV_OBJ_FLAG_HIDDEN ); 
+                 lv_obj_clear_flag(ui_Image30, LV_OBJ_FLAG_HIDDEN ); 
+
                  break;
                 
                 case 4:
                  lv_obj_clear_flag(ui_Image13, LV_OBJ_FLAG_HIDDEN ); 
+                 lv_obj_clear_flag(ui_Image31, LV_OBJ_FLAG_HIDDEN ); 
+
                  break;
 
 
@@ -443,6 +466,7 @@ void mainscreen_wifi_rssi_task(void *pvParameters) {
             lv_obj_clear_flag(ui_Image16, LV_OBJ_FLAG_HIDDEN ); // không kết nối đến mqtt
 
             lv_obj_clear_flag(ui_Image9, LV_OBJ_FLAG_HIDDEN );  
+            lv_obj_clear_flag(ui_Image27, LV_OBJ_FLAG_HIDDEN );  
 
             lvgl_port_unlock();
             }
@@ -455,7 +479,7 @@ void mainscreen_wifi_rssi_task(void *pvParameters) {
 }
 
 
-
+/*
 void checktime_task1(void *pvParameters)// sau khi gọi số mới mà số hiện tại chưa được đánh giá thì chờ 10s, trong 10s nếu số cũ được đánh giá thì xóa current number, copy next vào current.
 // Nếu sau 10s số cũ không được đánh giá thì xóa current, copy next vào current number
 // tin nhắn chứa nội dung đánh giá dịch vụ bao gồm điểm đánh giá và current number
@@ -574,8 +598,8 @@ void checktime_task(void *pvParameters)
             {
                 pressed = 0;
                 ESP_LOGI("CHECKTIME", "Pressed, reset current");
-                reset_recent_number();
-                break;
+               // reset_recent_number();
+               // break;
             }
 
             // Nếu nhận sema mới, reset thời gian lại từ đầu
@@ -691,3 +715,4 @@ void checktime_task2(void *pvParameters)
         }
     }
 }
+*/

@@ -27,5 +27,9 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
 
 void mqtt_start(void);
 
+void save_login_status(const char *status);
+
+void save_last_id(uint16_t value);
+uint16_t read_last_id();
 
 #endif

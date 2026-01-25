@@ -22,7 +22,8 @@ int reconnect=0;
 extern int cnt;
 
 
-//int start_api=0;
+uint8_t manual_wifi_retry=5;// số lần retry khi nhập tay
+uint8_t auto_wifi_retry=10;// số lần retry tự động
 
 extern void api_task(void *pvParameters);
 extern void wifi_update_list_cb(lv_timer_t * timer) ;
@@ -32,7 +33,7 @@ extern esp_mqtt_client_handle_t mqttClient;
 
 extern lv_obj_t * ui_Image16;
 
-uint8_t s_retry_num=0;
+uint8_t s_retry_num1=0;
 
 //uint8_t disconnected_retry=15;
 
@@ -43,9 +44,10 @@ extern lv_obj_t *ui_WIFI_Rescan_Button;
 
 bool wifi_connected = false;
 bool wifi_need_mqtt_start = false;
+extern bool found_saved_ap;
 
-
-
+extern bool spe_case;
+extern int open_cnt;
 
 static inline bool lv_obj_valid_safe(lv_obj_t *obj)
 {
@@ -54,7 +56,7 @@ static inline bool lv_obj_valid_safe(lv_obj_t *obj)
 
 
 
-//////////////// lưu ssid,pass và bssid
+// lưu ssid,pass và bssid
 
 void save_wifi_credentials(const char *ssid, const char *password, const uint8_t* bssid)
 {
@@ -125,7 +127,7 @@ static void wifi_ok_cb(lv_timer_t * timer)
         
         if (connection_last_flag)
         {    
-            // Kiá»ƒm tra wifi_last_Button cÃ³ há»£p lá»‡ khÃ´ng
+            // Kiểm tra wifi_last_Button có hợp lệ không
             if (lv_obj_valid_safe(wifi_last_Button)) {
                 lv_obj_t *img = lv_obj_get_child(wifi_last_Button, 0);
                 if (lv_obj_valid_safe(img)) {
@@ -142,18 +144,18 @@ static void wifi_ok_cb(lv_timer_t * timer)
         }
         else
         {
-            // Kiá»ƒm tra WIFI_List_Button cÃ³ há»£p lá»‡ khÃ´ng
+            // Kiểm tra WIFI_List_Button có hợp lệ không (khác NULL)
             if (!lv_obj_valid_safe(WIFI_List_Button)) {
                 ESP_LOGW("WIFI_UI", "WIFI_List_Button is invalid");
                 return;
             }
 
-            // Update icon vÃ  IP khi káº¿t ná»‘i thá»§ cÃ´ng
+            // Update icon và IP khi kết nối thủ công
             char ip[20];
             lv_obj_t *img = lv_obj_get_child(WIFI_List_Button, 0);
             lv_obj_t *label = lv_obj_get_child(WIFI_List_Button, 1);
             
-            // Kiá»ƒm tra img vÃ  label cÃ³ há»£p lá»‡ khÃ´ng
+            // Kiểm tra img và label có hợp lệ không
             if (lv_obj_valid_safe(img)) {
                 lv_img_set_src(img, &ui_img_ok_png);
             } else {
@@ -166,24 +168,27 @@ static void wifi_ok_cb(lv_timer_t * timer)
                 ESP_LOGW("WIFI_UI", "Label child invalid in WIFI_List_Button");
             }
 
-            // Hiá»ƒn thá»‹ IP address
+            // Hiển thị IP address
+            
             snprintf(ip, sizeof(ip), "IP " IPSTR, IP2STR(&ip_info.ip));
             if (lv_obj_valid_safe(ui_WIFI_IP)) {
                 lv_label_set_text(ui_WIFI_IP, ip);
                 _ui_flag_modify(ui_WIFI_IP, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+                ESP_LOGI("WIFI_UI", "DISPLAY IP ");
+
             }
 
             lv_obj_move_to_index(WIFI_List_Button, 0);
             WIFI_CONNECTION_DONE = true;
 
-            // Cáº­p nháº­t icon WiFi cÅ© náº¿u cÃ³
+            // Cập nhật icon wifi cũ nếu có
             if (wifi_last_index != -1 && wifi_last_index != wifi_index)
             {  
                 if (lv_obj_valid_safe(wifi_last_Button)) {
                     img = lv_obj_get_child(wifi_last_Button, 0);
                     
                     if (lv_obj_valid_safe(img)) {
-                        // Cáº­p nháº­t icon dá»±a trÃªn RSSI
+                        // Cập nhật icon wifi dựa trên RSSI
                         if (ap_info[wifi_last_index].rssi > -25)
                             lv_img_set_src(img, &ui_img_wifi_4_png);
                         else if (ap_info[wifi_last_index].rssi > -50)
@@ -207,7 +212,6 @@ static void wifi_ok_cb(lv_timer_t * timer)
     }
     else
     {
-        // Xá»­ lÃ½ khi káº¿t ná»‘i tháº¥t báº¡i
         if (lv_obj_valid_safe(ui_WIFI_IP)) {
             _ui_flag_modify(ui_WIFI_IP, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         }
@@ -216,11 +220,7 @@ static void wifi_ok_cb(lv_timer_t * timer)
             _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
 
         }
-/*
-        if (user_manual==true){
-            user_manual=false;
-        }
-            */
+
         
         WIFI_CONNECTION_DONE = true;
 
@@ -252,47 +252,10 @@ static void wifi_ok_cb(lv_timer_t * timer)
 
 
 
-static void wif_disconnected_cb1()
-{ 
-    // Kiá»ƒm tra wifi_last_Button cÃ³ há»£p lá»‡ khÃ´ng
-    if (!lv_obj_valid_safe(wifi_last_Button)) {
-        ESP_LOGW("WIFI", "wifi_last_Button is NULL or invalid, skip UI update");
-        return;
-    }
 
-    if (wifi_last_index != -1)
-    {
-        WIFI_CONNECTION = -1;
-        lv_obj_t *img = lv_obj_get_child(wifi_last_Button, 0);
-        
-        // Kiá»ƒm tra img cÃ³ há»£p lá»‡ khÃ´ng
-        if (lv_obj_valid_safe(img))
-        {
-            // Cáº­p nháº­t icon WiFi dá»±a trÃªn RSSI
-            if (ap_info[wifi_last_index].rssi > -25)
-                lv_img_set_src(img, &ui_img_wifi_4_png);
-            else if (ap_info[wifi_last_index].rssi > -50)
-                lv_img_set_src(img, &ui_img_wifi_3_png);
-            else if (ap_info[wifi_last_index].rssi > -75)
-                lv_img_set_src(img, &ui_img_wifi_2_png);
-            else 
-                lv_img_set_src(img, &ui_img_wifi_1_png);
-        }
-        else
-        {
-            ESP_LOGW("WIFI_UI", "Image child invalid in disconnected callback");
-        }
-        
-        // áº¨n IP address náº¿u object há»£p lá»‡
-        if (lv_obj_valid_safe(ui_WIFI_IP)) {
-            _ui_flag_modify(ui_WIFI_IP, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        }
-    }
-}
 
 static void wif_disconnected_cb()
 { 
-    // Kiá»ƒm tra wifi_last_Button cÃ³ há»£p lá»‡ khÃ´ng
     if (!lv_obj_valid_safe(wifi_last_Button)) {
         ESP_LOGW("WIFI", "wifi_last_Button is NULL or invalid, skip UI update");
         return;
@@ -303,10 +266,8 @@ static void wif_disconnected_cb()
         WIFI_CONNECTION = -1;
         lv_obj_t *img = lv_obj_get_child(wifi_last_Button, 0);
         
-        // Kiá»ƒm tra img cÃ³ há»£p lá»‡ khÃ´ng
         if (lv_obj_valid_safe(img))
         {
-            // Cáº­p nháº­t icon WiFi dá»±a trÃªn RSSI
             if (ap_info[wifi_last_index].rssi > -25)
                 lv_img_set_src(img, &ui_img_wifi_4_png);
             else if (ap_info[wifi_last_index].rssi > -50)
@@ -321,7 +282,6 @@ static void wif_disconnected_cb()
             ESP_LOGW("WIFI_UI", "Image child invalid in disconnected callback");
         }
         
-        // áº¨n IP address náº¿u object há»£p lá»‡
         if (lv_obj_valid_safe(ui_WIFI_IP)) {
             _ui_flag_modify(ui_WIFI_IP, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         }
@@ -331,10 +291,10 @@ static void wif_disconnected_cb()
 static void wifi_ui_retry_start(void *param)
 {
     //_ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); 
-    _ui_flag_modify(ui_WIFI_Wait_CONNECTION, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+    _ui_flag_modify(ui_WIFI_Wait_CONNECTION, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);// hiển thị spinner kết nối 
 
-    _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);
-    lv_obj_clear_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);
+    _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);//ko cho tắt wifi
+    lv_obj_clear_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);// ko cho rescan wifi
 }
 
 static void wifi_ui_retry_fail(void *param)
@@ -343,150 +303,24 @@ static void wifi_ui_retry_fail(void *param)
     _ui_flag_modify(ui_WIFI_Wait_CONNECTION, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD); 
 
     _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_REMOVE);
+    if (wifi_open){
     lv_obj_add_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);
+    }
 }
 
 static void wifi_ui_retry_success(void *param)
 {
-    _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD); 
+   // _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD); 
+    _ui_flag_modify(ui_WIFI_Wait_CONNECTION, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD); //
+
     _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_REMOVE);
-    lv_obj_add_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);
-}
-
-
-// Event handler for Wi-Fi events
-void wifi_event_handler1(void *arg, esp_event_base_t event_base,
-                               int32_t event_id, void *event_data)
-
-{    
-
-
-    //wifi_event_sta_connected_t* event = (wifi_event_sta_connected_t*) event_data;//
-    wifi_config_t sta_config;
-
-    // Get the current Wi-Fi station configuration
-    ESP_ERROR_CHECK(esp_wifi_get_config(WIFI_IF_STA, &sta_config));
-
-
-     if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED)
-    {    
-        wifi_event_sta_disconnected_t* event = (wifi_event_sta_disconnected_t*) event_data;//
-        ESP_LOGI(TAG_STA, "STA disconnected, reason=%d", event->reason);
-        ESP_LOGI(TAG_STA, "WIFI STA_DISCONNECTED.");
-         wifi_connected=false;
-       
-          //  wifi_connected = false;
-            
-          //  wifi_need_mqtt_start = false;
-
-            /*
-            if  (disconnected<100){
-            disconnected++;
-            }
-            else {
-                disconnected=disconnected_retry+1;
-            }
-                */
-
-          //  if (!user_selected_wifi&&(wifi_open==true)&&(disconnected<disconnected_retry)){
-
-                
-                 if (!user_selected_wifi&&(wifi_open==true)){
-
-                    
-
-                    if (s_retry_num < 10) {
-                        if (s_retry_num==0){
-                            lv_async_call(wifi_ui_retry_start, NULL);
-
-                        /*
-                        _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); 
-                        _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);
-                        lv_obj_clear_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);
-                        */
-
-                        }
-                        esp_wifi_connect();
-                        s_retry_num++;
-                        ESP_LOGW("rety", "Wi-Fi disconnected, retrying... (%d/%d)", s_retry_num, 10);
-                    } 
-                    else if (s_retry_num==10) {
-                        ESP_LOGE("retry", "Wi-Fi failed to reconnect after %d retries", 10);
-                        s_retry_num++;
-                        //s_retry_num=0;
-                        /*
-                        _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD); 
-                         _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_REMOVE);
-
-                        lv_obj_add_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);
-                        */
-                        lv_async_call(wifi_ui_retry_fail, NULL);
-
-
-                }
-        }
-                        
-      //  }
-        /*
-        else if(!user_selected_wifi&&(wifi_open==true)&&(disconnected==disconnected_retry)){
-               // lv_async_call(wifi_ui_retry_success, NULL);
-                  ESP_LOGE("retry", "Wi-Fi failed to reconnect after %d retries", disconnected_retry);
-                //  s_retry_num=0;     
-                  lv_async_call(wifi_ui_retry_fail, NULL);
-        }
-                  */
-
-            
-
-
-        lv_timer_t *t = lv_timer_create(wif_disconnected_cb, 100, NULL); // Create a timer to handle disconnection
-        lv_timer_set_repeat_count(t, 1);  // Run the callback once
-              
-    } 
-    
-   
-    
-      else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
-        wifi_need_mqtt_start = true; 
-        wifi_connected=true;
-        //disconnected=0;
-        ESP_LOGI(TAG_STA, "WIFI GOT_IP.");  
-
-        //wifi_need_mqtt_start = true; 
-
-        if (user_selected_wifi==true){
-        user_selected_wifi=false;
-        save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,sta_config.sta.bssid);// lưu ssid, password và của wifi kết nối thành công vào nvs
-
-        }
-       
-        ////
-        //s_retry_num=0;
-        //lv_async_call(wifi_ui_retry_success, NULL);
-///
-          
-          
-         if ( (user_selected_wifi==false)&&(wifi_open==true)){
-             s_retry_num=0;
-             lv_async_call(wifi_ui_retry_success, NULL);           
-             
-         }
-
-
-        }
-
-        else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_CONNECTED) {
-        wifi_event_sta_connected_t *event = (wifi_event_sta_connected_t *) event_data;
-        ESP_LOGI(TAG_STA, "Connected to SSID:%s, channel:%d", event->ssid, event->channel);
-
-
+    if (wifi_open){
+     lv_obj_add_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);
     }
-
-     
-  
-
-
 }
+
+
+
 
  void wifi_event_handler(void *arg, esp_event_base_t event_base,
                                int32_t event_id, void *event_data)
@@ -503,25 +337,33 @@ void wifi_event_handler1(void *arg, esp_event_base_t event_base,
      if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED)
     {    
         wifi_connected=false;
+        found_saved_ap = false;//
+
         wifi_event_sta_disconnected_t* event = (wifi_event_sta_disconnected_t*) event_data;//
         ESP_LOGI(TAG_STA, "STA disconnected, reason=%d", event->reason);
         ESP_LOGI(TAG_STA, "WIFI STA_DISCONNECTED.");
+/*
+        if (!user_selected_wifi){
+            found_saved_ap = false;//
+        }
+            */
 
-        if (!user_selected_wifi&&(wifi_open==true)){
+        if( (!user_selected_wifi&&(wifi_open==true&&!spe_case)) || ((open_cnt==0&&!user_selected_wifi&&(!wifi_open&&!spe_case)))){// disconnect sau khi người dùng nhập wifi->auto connect  
+        //if (!user_selected_wifi){// disconnect sau khi người dùng nhập wifi->auto connect
+        //if (!user_selected_wifi&&(wifi_open==true)){  
 
-            if (s_retry_num < 10) {
-                if (s_retry_num==0){
+            if (s_retry_num1 < auto_wifi_retry) {
+                if (s_retry_num1==0){
                     lv_async_call(wifi_ui_retry_start, NULL);
 
 
                 }
                 esp_wifi_connect();
-                s_retry_num++;
-                ESP_LOGW("rety", "Wi-Fi disconnected, retrying... (%d/%d)", s_retry_num, 10);
+                s_retry_num1++;
+                ESP_LOGW("rety", "Wi-Fi disconnected, retrying... (%d/%d)", s_retry_num1, auto_wifi_retry);
             } 
             else {
-                ESP_LOGE("retry", "Wi-Fi failed to reconnect after %d retries", 10);
-                //s_retry_num=0;
+                ESP_LOGE("retry", "Wi-Fi failed to reconnect after %d retries", auto_wifi_retry);
 
                 lv_async_call(wifi_ui_retry_fail, NULL);
 
@@ -537,24 +379,34 @@ void wifi_event_handler1(void *arg, esp_event_base_t event_base,
     
     
       else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
-        //wifi_need_mqtt_start=true; 
         wifi_connected=true;
 
         ESP_LOGI(TAG_STA, "WIFI GOT_IP."); 
         wifi_need_mqtt_start=true; 
-        //found_saved_ap=false;//
 
-        if (user_selected_wifi==true){
+
+        if (user_selected_wifi){
             user_selected_wifi=false;
-            save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,sta_config.sta.bssid);// lÆ°u ssid, password vÃ  cá»§a wifi káº¿t ná»‘i thÃ nh cÃ´ng vÃ o nvs
+            char saved_ssid[33];
+            memcpy(saved_ssid,sta_config.sta.ssid,32);
+            saved_ssid[32]='\0';
+            //save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,sta_config.sta.bssid);
+            save_wifi_credentials(saved_ssid,(char*)sta_config.sta.password,sta_config.sta.bssid);
 
         }
 
         //mqtt_start();
-         if ( (user_selected_wifi==false)&&(wifi_open==true)){
-             s_retry_num=0;
+     //   if ( (!user_selected_wifi)&&(wifi_open)&&!spe_case){
+        if( (!user_selected_wifi&&(wifi_open==true&&!spe_case)) || ((open_cnt==0&&!user_selected_wifi&&(!wifi_open&&!spe_case)))){// disconnect sau khi người dùng nhập wifi->auto connect  
 
+        //if ( (!user_selected_wifi)&&(wifi_open)){
+        //if ( (wifi_open==true)){
+            s_retry_num1=0;
+            ESP_LOGI(TAG_STA, "RECONNECTED WIFI SUCCESSFULLY"); 
             lv_async_call(wifi_ui_retry_success, NULL); 
+          //   lv_timer_t *t = lv_timer_create(wifi_update_list_cb, 100, NULL); // Update the UI every 100ms
+           //  lv_timer_set_repeat_count(t, 2);// chỉ update 1 lần
+            wifi_scan();//
 
                 }
 
@@ -564,9 +416,7 @@ void wifi_event_handler1(void *arg, esp_event_base_t event_base,
          else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_CONNECTED) {
         wifi_event_sta_connected_t *event = (wifi_event_sta_connected_t *) event_data;
         ESP_LOGI(TAG_STA, "Connected to SSID:%s, channel:%d", event->ssid, event->channel);
-         // if (user_manual==true){
-           //  user_manual=false;
-   //}
+
          }
 
 }
@@ -621,54 +471,57 @@ void wifi_wait_connect()
                 ////
                 // If the IP is valid, call the Wi-Fi success callback and update the UI
                 lv_timer_t *t = lv_timer_create(wifi_ok_cb, 100, NULL);  // Update UI every 100ms
-                lv_timer_set_repeat_count(t, 1);
+                lv_timer_set_repeat_count(t, 1);//1
                 // Log the obtained IP address and indicate successful connection
                 ESP_LOGI("WiFi", "Connected with IP: " IPSTR, IP2STR(&ip_info.ip));
                 ESP_LOGI(TAG_STA, "Connected to AP SSID:%s, password:%s, bssid:%s", sta_config.sta.ssid, sta_config.sta.password,(uint8_t*)ap_info_bssid);
                 connection_flag = true;  // Set the connection flag to true
-                //wifi_connected = true;//
-                //wifi_need_mqtt_start = true; //
+
                 _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
-                if ((cnt==1)&&(reconnect==0)){// chip khởi động lại hoặc switch wifi on
+                /*
+                if ((cnt==1)&&(reconnect==0)){// chip khởi động lại 
                     reconnect=1;// đánh dấu đã reconnect thành công
                 }
-                /*
-                if (user_selected_wifi){// nếu connect bằng cách nhập pass thì lưu pass, ngược lại ko lưu
-                  user_selected_wifi=false;
-                 // save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,ap_info.bssid);// lưu ssid, password và của wifi kết nối thành công vào nvs
-                //  save_wifi_credentials((char*)sta_config.sta.ssid,(char*)sta_config.sta.password,sta_config.sta.bssid);
-                  ESP_LOGI(TAG_STA,"Saved AP SSID:%s, password:%s, bssid:%s",sta_config.sta.ssid, sta_config.sta.password,(uint8_t*)ap_info_bssid);
-           }  
-                  */
+*/               if (user_selected_wifi){//
+                    user_selected_wifi=false;//
 
-              //  s_retry_num = 0;  // Reset retry counter on successful connection
+                  } //
+                wifi_connected=true;//
+
+                s_retry_num1=0;//
+                s_retry_num=0;//
+                spe_case=false;
+                lv_async_call(wifi_ui_retry_success, NULL); //
 
                 break;  // Exit the loop since the connection is successful
             } else {
                 // Log the failure to connect or obtain an IP address
                 ESP_LOGI(TAG_STA, "Failed to connect to the AP");
 
-                // Retry connection if the retry counter is less than 5
-                if (s_retry_num < 5)
+                // Retry connection if the retry counter is less than n
+                if (s_retry_num < manual_wifi_retry)
                 {
                     s_retry_num++;
                     ESP_LOGI(TAG_STA, "Retrying to connect to the AP");
                     //esp_mqtt_client_stop(mqttClient);//
                 }
                 else {
-                    // Reset retry counter after 5 attempts and log the failure
+                    // Reset retry counter after n attempts and log the failure
                     s_retry_num = 0;
-                    lv_timer_t *t = lv_timer_create(wifi_ok_cb, 100, NULL);  // Update the UI every 100ms
-                    lv_timer_set_repeat_count(t, 1);
+                 //   lv_timer_t *t = lv_timer_create(wifi_ok_cb, 100, NULL);  // Update the UI every 100ms
+                 //   lv_timer_set_repeat_count(t, 1);
                     ESP_LOGI(TAG_STA, "Failed to connect to SSID:%s, password:%s",
                             sta_config.sta.ssid, sta_config.sta.password);
                      
 
-                 if (user_selected_wifi){// nếu connect bằng cách nhập pass thì lưu pass, ngược lại ko lưu
-                  user_selected_wifi=false;
+                 if (user_selected_wifi){
+                    user_selected_wifi=false;
 
-             }  
-                ////
+                  }  
+                //// 
+                    spe_case=false;
+                    lv_async_call(wifi_ui_retry_fail, NULL); //
+
                     break;  // Exit the loop after failed retries
                 }
 
@@ -724,14 +577,15 @@ void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode,  cons
     
     memset(wifi_config.sta.ssid, 0, sizeof(wifi_config.sta.ssid));//
     memset(wifi_config.sta.password, 0, sizeof(wifi_config.sta.password));//
-    memset(wifi_config.sta.bssid, 0, sizeof(wifi_config.sta.password));//
+    memset(wifi_config.sta.bssid, 0, sizeof(wifi_config.sta.bssid));//
 
     strcpy((char *)wifi_config.sta.ssid, (const char *)ssid);
 
     strcpy((char *)wifi_config.sta.password, (const char *)pwd);
 
     memcpy(wifi_config.sta.bssid, bssid, 6); 
-    wifi_config.sta.bssid_set = true;  
+   // wifi_config.sta.bssid_set = true;
+   wifi_config.sta.bssid_set = false;// 
         
         
     ESP_LOGI(TAG_STA, "Connecting to wifi network, BSSID: %02X:%02X:%02X:%02X:%02X:%02X",
@@ -743,9 +597,9 @@ void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode,  cons
     esp_wifi_get_mode(&mode);
 
     if (mode != WIFI_MODE_STA) {
-        esp_wifi_stop();                      // Dá»«ng Wi-Fi náº¿u Ä‘ang á»Ÿ cháº¿ Ä‘á»™ khÃ¡c
-        esp_wifi_set_mode(WIFI_MODE_STA);     // Chuyá»ƒn sang STA
-        esp_wifi_start();                     // Khá»Ÿi Ä‘á»™ng láº¡i Wi-Fi
+        esp_wifi_stop();                      // dừng wifi nếu đang ở chế độ khác STA
+        esp_wifi_set_mode(WIFI_MODE_STA);     // Chuyển sang STA
+        esp_wifi_start();                     // Khởi động lại Wi-Fi
     }
     ///////////
 
@@ -758,10 +612,15 @@ void wifi_sta_init(uint8_t *ssid, uint8_t *pwd, wifi_auth_mode_t authmode,  cons
     ESP_ERROR_CHECK(esp_wifi_connect());  // Attempt to connect to the WiFi
     wifi_wait_connect();  // Wait for the connection to establish
     //是否需要阻塞，会有部分wifi无法连接上
-    while (!WIFI_CONNECTION_DONE)
-    {
+    uint8_t cnt=0;//
+    while (!WIFI_CONNECTION_DONE&&cnt<5)
+    {   
+        cnt++;//
         vTaskDelay(pdMS_TO_TICKS(100));
+        ESP_LOGW("MANUAL CONNECT","CHECK CONNECTION %d/%d",cnt,5);
     }
+        ESP_LOGW("MANUAL CONNECT","CHECK CONNECTION %d/%d",cnt,5);
+
     WIFI_CONNECTION_DONE = false;
      
 
@@ -882,6 +741,6 @@ void wifi_mqtt_manager_task(void *pv)
             }
         }
 
-        vTaskDelay(pdMS_TO_TICKS(10)); // 200 tránh chiếm CPU
+        vTaskDelay(pdMS_TO_TICKS(10)); // nhường quyền cho các task khác
     }
 }

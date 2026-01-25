@@ -18,8 +18,13 @@
 
 extern esp_mqtt_client_handle_t mqttClient;
 
-bool wifi_open=false;
+bool wifi_open=false; // cờ báo đã open list wifi scan được
+extern bool found_saved_ap;
+extern lv_obj_t *ui_WIFI_Rescan_Button;
+extern int cnt;
+extern bool spe_case;
 
+extern int open_cnt;
 
 //static const char *TAG = "RECONNECT";
 
@@ -80,14 +85,48 @@ void reconnect_to_saved_wifi() {
 // Event callback for opening the WiFi STA (station) connection
 // This function opens a WiFi STA connection and modifies UI elements accordingly.
 void WIFIOPEN(lv_event_t * e)
-{  
+{    
+     
+    open_cnt++;
     wifi_open=true;
     // Open WiFi in STA mode (station mode)
     wifi_open_sta();
     
     // Disable the "Open WiFi" and "Open WiFi AP" buttons
-    _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
-    _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);
+    _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);// ẩn dòng lỗi đăng nhập
+    _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);  
+   // _ui_state_modify(ui_WIFI_AP_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);
+    
+    // Show the loading spinner while scanning for available networks
+    _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); 
+
+    lv_obj_add_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);//
+
+    // Set the WiFi scan flag to true
+    WIFI_SCAN_FLAG = true;
+
+
+
+    ////////
+    //////////
+}
+
+void WIFIOPEN1()
+{  
+
+    lv_obj_add_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);//
+    found_saved_ap=false;//
+    cnt=0;// 
+
+    _ui_flag_modify(ui_WIFI_SCAN_List, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE); 
+    _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+    wifi_open=true;
+    // Open WiFi in STA mode (station mode)
+    wifi_open_sta();
+    
+    // Disable the "Open WiFi" and "Open WiFi AP" buttons
+    _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);// ẩn dòng lỗi đăng nhập
+    _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);  
    // _ui_state_modify(ui_WIFI_AP_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);
     
     // Show the loading spinner while scanning for available networks
@@ -119,6 +158,22 @@ void WIFICLOSE(lv_event_t * e)
     _ui_flag_modify(ui_WIFI_Details_Win, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
 }
 
+void WIFICLOSE1()
+{    
+    wifi_open=false;
+
+    // Close the WiFi STA connection
+    wifi_close_sta();
+    
+    // Clean the list of available WiFi networks
+   // lv_obj_clean(ui_WIFI_SCAN_List);
+    
+    // Show the WiFi details window (in case any details need to be shown)
+    _ui_flag_modify(ui_WIFI_PWD_Error, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
+    _ui_flag_modify(ui_WIFI_Details_Win, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+}
+
+
 // Event callback for establishing a WiFi connection
 // This function connects to the WiFi using the entered password.
 void WIFIConnection(lv_event_t * e)
@@ -131,6 +186,9 @@ void WIFIConnection(lv_event_t * e)
     
     // Set the WiFi STA flag to true, indicating an active connection attempt
     //esp_mqtt_client_stop(mqttClient);//
+    lv_obj_clear_flag(ui_WIFI_Rescan_Button, LV_OBJ_FLAG_CLICKABLE);// ko cho rescan wifi//
+
+    spe_case=true;//
     WIFI_STA_FLAG = true;
 }
 

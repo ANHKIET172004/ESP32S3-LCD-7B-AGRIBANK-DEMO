@@ -4,6 +4,7 @@
 // Project name: SquareLine_Project
 
 #include "ui.h"
+#include "esp_mqtt_client/esp_mqtt_client.h"
 
 lv_obj_t * ui_Screen4 = NULL;
 lv_obj_t * ui_Panel9 = NULL;
@@ -15,6 +16,12 @@ lv_obj_t * ui_Label11 = NULL;
 lv_obj_t * ui_Image21 = NULL;
 
 extern void ui_Screen5_update_device_list(void);
+extern bool login;
+//extern bool first_publish;
+extern uint8_t staff_id;
+extern esp_mqtt_client_handle_t mqttClient;
+extern char device_mac[18];
+extern void save_login_status(const char *status);
 // event funtions
 void ui_event_Panel9(lv_event_t * e)
 
@@ -30,8 +37,16 @@ void ui_event_Panel10(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        ui_Screen5_update_device_list();//
-        _ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 0, 0, &ui_Screen5_screen_init);
+        //ui_Screen5_update_device_list();//
+        //_ui_screen_change(&ui_Screen5, LV_SCR_LOAD_ANIM_MOVE_LEFT, 0, 0, &ui_Screen5_screen_init);
+        char str[128]={0};
+        sprintf(str, "{\"staff_id\":%d,\"status\":\"offline\",\"device_id\":\"%s\"}",staff_id,device_mac);
+        esp_mqtt_client_publish(mqttClient, "staff/status", str, 0, 1, 0);
+        _ui_screen_change(&ui_Screen7, LV_SCR_LOAD_ANIM_MOVE_LEFT, 0, 0, &ui_Screen7_screen_init);
+        _ui_flag_modify(ui_Label14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        save_login_status("NO");
+        login=false;
+       // first_publish=true;
     }
 }
 
@@ -93,7 +108,8 @@ void ui_Screen4_screen_init(void)
     lv_obj_set_width(ui_Label10, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_Label10, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_align(ui_Label10, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label10, "KEYPAD");
+    //lv_label_set_text(ui_Label10, "KEYPAD");
+    lv_label_set_text(ui_Label10, "LOG OUT");
     lv_obj_set_style_text_font(ui_Label10, &lv_font_montserrat_24, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     
@@ -114,9 +130,11 @@ void ui_Screen4_screen_init(void)
     lv_label_set_text(ui_Label11, "TIMEOUT");
     lv_obj_set_style_text_font(ui_Label11, &lv_font_montserrat_24, LV_PART_MAIN | LV_STATE_DEFAULT);
     
+    
 
     ui_Image21 = lv_img_create(ui_Screen4);
-    lv_img_set_src(ui_Image21, &ui_img_turn_back2_png);
+    //lv_img_set_src(ui_Image21, &ui_img_turn_back2_png);
+    lv_img_set_src(ui_Image21, &ui_img_left_arrow_70x70_png);
     lv_obj_set_width(ui_Image21, LV_SIZE_CONTENT);   /// 70
     lv_obj_set_height(ui_Image21, LV_SIZE_CONTENT);    /// 70
     lv_obj_set_x(ui_Image21, -447);

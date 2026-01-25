@@ -4,13 +4,20 @@
 #include "nvs_flash.h"
 #include "nvs.h"
 
+#define MAX_AP 20
+
+static lv_obj_t *wifi_btn_list[MAX_AP] = {0};
+static uint8_t wifi_btn_count = 0;
+static bool wifi_list_created = false;
+
+
 static const char *TAG = "wifi_scan";
 
 wifi_ap_record_t ap_info[DEFAULT_SCAN_LIST_SIZE];
 
 extern void wifi_connection_cb(lv_timer_t *timer);//
 //extern SemaphoreHandle_t nvs_mutex;
-
+extern bool first_scan;
 
 //////////////////
 char saved_ssid[33] = {0};
@@ -49,6 +56,8 @@ typedef struct {
 
 extern bool wifi_connected;
 
+extern lv_obj_t *ui_WIFI_Rescan_Button;
+
 void wifi_set_last_button(lv_obj_t *btn) {
     wifi_last_Button = btn;
 }
@@ -76,22 +85,11 @@ int wifi_get_wifi_index(void) {
     return wifi_index;
 }
 
-static bool ascii_ssid(const uint8_t* ssid){
-       uint8_t* ptr=ssid;
-       while (*ptr){
-           if (*ptr>127){
-               return false;
-           }
-           ptr++;
-       }
-       return true;
-}
 
 
 esp_err_t read_wifi_credentials_from_nvs(char *ssid, size_t *ssid_len, char *password, size_t *password_len,uint8_t* bssid) {
     nvs_handle_t my_handle;
     esp_err_t err;
-    //xSemaphoreTake(nvs_mutex, portMAX_DELAY);  
     err = nvs_open("wifi_cred", NVS_READONLY, &my_handle);
     if (err != ESP_OK) {
         return err;
@@ -106,12 +104,14 @@ esp_err_t read_wifi_credentials_from_nvs(char *ssid, size_t *ssid_len, char *pas
         nvs_close(my_handle);
         return err;
     }
+    /*
     size_t bssid_len = 6;
     err = nvs_get_blob(my_handle, "bssid", bssid, &bssid_len);
     if (err != ESP_OK) {
         nvs_close(my_handle);
         return err;
     }
+        */
     nvs_close(my_handle);
     //xSemaphoreGive(nvs_mutex);
     return ESP_OK;
@@ -278,95 +278,71 @@ void print_cipher_type(int pairwise_cipher, int group_cipher)
 }
 
 
-void wifi_update_list_cb1(lv_timer_t * timer) {
-    lv_obj_clean(ui_WIFI_SCAN_List); // XÃ“A DANH SÃCH CÅ¨ TRÆ¯á»šC KHI THÃŠM Má»šI
+void second_list_update()
+{
+    uint32_t child_cnt = lv_obj_get_child_cnt(ui_WIFI_SCAN_List);
 
-    // Reset tráº¡ng thÃ¡i
-    found_saved_ap = false;
-    wifi_index = -1;
+    for (uint32_t n = 0; n < child_cnt; n++)
+    {
+        lv_obj_t *btn = lv_obj_get_child(ui_WIFI_SCAN_List, n);
+        int i = (int)lv_obj_get_user_data(btn);
 
-    // Äá»c SSID Ä‘Ã£ lÆ°u
-    memset(saved_ssid, 0, sizeof(saved_ssid));
-    memset(saved_password,0,sizeof(saved_password));
-    memset(saved_bssid,0,sizeof(saved_bssid));
-    ssid_len=sizeof(saved_ssid);
-    password_len=sizeof(saved_password);
-    esp_err_t err = read_wifi_credentials_from_nvs(saved_ssid, &ssid_len, saved_password, &password_len, saved_bssid);
-    if (err == ESP_OK) {
-        ESP_LOGI("NVS", "Have a saved wifi network in NVS: %s", saved_ssid);
-    }
+        lv_obj_t *img = lv_obj_get_child(btn, 0);
 
-    // Hiá»ƒn thá»‹ spinner + vÃ´ hiá»‡u hÃ³a nÃºt
-    _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-    _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);
-    _ui_state_modify(ui_WIFI_AP_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_ADD);
+        /* Ưu tiên WiFi đang kết nối */
+        if ((strcmp((char*)ap_info[i].ssid, saved_ssid) == 0) &&
+            wifi_connected&&(found_saved_ap==false))
+        {
+            lv_img_set_src(img, &ui_img_ok_png);
 
-    // Duyá»‡t danh sÃ¡ch AP
-    for (int i = 0; i < DEFAULT_SCAN_LIST_SIZE; i++) {
-        if (ap_info[i].rssi == 0 && ap_info[i].ssid[0] == '\0'&&ascii_ssid(ap_info[i].ssid)) {
-            break;
+            if (n != 0)
+                lv_obj_move_to_index(btn, 0);
+                           found_saved_ap = true;
+                 
+                wifi_set_last_button(WIFI_List_Button);
+                wifi_set_last_index(i);
+                 wifi_index=i;
+                WIFI_CONNECTION = i;//
+                lv_obj_t *img = lv_obj_get_child(WIFI_List_Button, 0);
+                lv_img_set_src(img, &ui_img_ok_png);  // Set success icon
+              //  if (i!=0){
+                //lv_obj_move_to_index(WIFI_List_Button, 0);
+               // }
+
+               
+        lv_obj_add_event_cb(WIFI_List_Button, ui_WIFI_list_event_cb, LV_EVENT_ALL, (void *)i);
+        WIFI_List_Button = wifi_get_last_button();
+        wifi_index = wifi_get_wifi_index();
+
+            continue;
         }
 
-        const char* ssid = (const char*)ap_info[i].ssid;
-        lv_obj_t* btn;
 
-        // Chá»n icon theo RSSI
+        /* Update icon RSSI */
         if (ap_info[i].rssi > -25)
-            btn = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_4_png, ssid);
+            lv_img_set_src(img, &ui_img_wifi_4_png);
         else if (ap_info[i].rssi > -50)
-            btn = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_3_png, ssid);
+            lv_img_set_src(img, &ui_img_wifi_3_png);
         else if (ap_info[i].rssi > -75)
-            btn = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_2_png, ssid);
+            lv_img_set_src(img, &ui_img_wifi_2_png);
         else
-            btn = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_1_png, ssid);
-
-        // Style chung
-        lv_obj_set_style_bg_opa(btn, 0, LV_PART_MAIN);
-        lv_obj_set_style_text_color(btn, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
-        lv_obj_set_style_text_opa(btn, 255, LV_PART_MAIN);
-
-        // Kiá»ƒm tra cÃ³ pháº£i máº¡ng Ä‘Ã£ lÆ°u khÃ´ng
-        bool is_saved = (err == ESP_OK && 
-                         strcmp(ssid, saved_ssid) == 0&&(memcmp((const uint8_t*)ap_info[i].bssid,(const uint8_t*) saved_bssid, 6) == 0) );
-
-        if (is_saved && !found_saved_ap && wifi_connected) {
-            found_saved_ap = true;
-            wifi_set_last_button(btn);
-            wifi_set_last_index(i);
-            wifi_index = i;
-            WIFI_CONNECTION = i;
-
-            // Thay icon thÃ nh "ok"
-            lv_obj_t* img = lv_obj_get_child(btn, 0);
-            if (img) lv_img_set_src(img, &ui_img_ok_png);
-
-            // ÄÆ°a lÃªn Ä‘áº§u danh sÃ¡ch
-            lv_obj_move_to_index(btn, 0);
-
-            ESP_LOGI(TAG, "Found saved AP: %s", ssid);
-        }
-
-        // GÃ¡n callback (pháº£i sau khi btn Ä‘Æ°á»£c táº¡o xong)
-        lv_obj_add_event_cb(btn, ui_WIFI_list_event_cb, LV_EVENT_ALL, (void *)i);
+            lv_img_set_src(img, &ui_img_wifi_1_png);
     }
-
-    // áº¨n spinner, báº­t láº¡i nÃºt
-    _ui_flag_modify(ui_WIFI_Spinner, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    _ui_state_modify(ui_WIFI_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_REMOVE);
-    _ui_state_modify(ui_WIFI_AP_OPEN, LV_STATE_DISABLED, _UI_MODIFY_STATE_REMOVE);
 }
+
 
 void wifi_update_list_cb(lv_timer_t * timer) {
 
-           // Ä‘á»c ssid vÃ  password cá»§a wifi Ä‘Ã£ lÆ°u trÆ°á»›c Ä‘Ã³
-          memset(saved_ssid,0,sizeof(saved_ssid));
-          esp_err_t err = read_wifi_credentials_from_nvs(saved_ssid, &ssid_len, saved_password, &password_len,saved_bssid);
+           // Đọc SSID và password của WiFi đã lưu trước đó
+       // memset(saved_ssid,0,sizeof(saved_ssid));
+       for (int i=0;i<3;i++){
+        esp_err_t err = read_wifi_credentials_from_nvs(saved_ssid, &ssid_len, saved_password, &password_len,saved_bssid);
           if (err==ESP_OK){
             ESP_LOGI("NVS", "Have a saved wifi network in NVS");
             
         }
-
-        //lv_obj_clean(ui_WIFI_SCAN_List);//
+    }
+        lv_obj_clean(ui_WIFI_SCAN_List);//
 
 
       
@@ -388,7 +364,7 @@ void wifi_update_list_cb(lv_timer_t * timer) {
         }
 
 
-            // Náº¿u khÃ´ng pháº£i AP Ä‘ang káº¿t ná»‘i â†’ hiá»ƒn thá»‹ icon theo RSSI
+            // Nếu không phải AP đang kết nối → hiển thị icon theo RSSI
             
             if (ap_info[i].rssi > -25) { // Strong signal (RSSI > -25)
                 WIFI_List_Button = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_4_png, (const char *)ap_info[i].ssid);
@@ -399,6 +375,8 @@ void wifi_update_list_cb(lv_timer_t * timer) {
             } else {// Very weak signal
                 WIFI_List_Button = lv_list_add_btn(ui_WIFI_SCAN_List, &ui_img_wifi_1_png, (const char *)ap_info[i].ssid);
             }
+             lv_obj_set_style_text_font(ui_WIFI_SCAN_List, &ui_font_robotothin, LV_PART_MAIN);//
+
                 
      //   }    
    
@@ -417,10 +395,14 @@ void wifi_update_list_cb(lv_timer_t * timer) {
           ////////////
 
    // if ((strcmp((const char *)ap_info[i].ssid,(const char *) saved_ssid) == 0)&&(found_saved_ap==false)&&(connection_flag)) {//
-    if ((strcmp((const char *)ap_info[i].ssid,(const char *) saved_ssid) == 0)&&(found_saved_ap==false)&&(wifi_connected==true)) {//
-  
+    //if ((strcmp((const char *)ap_info[i].ssid,(const char *) saved_ssid) == 0)&&(found_saved_ap==false)&&(wifi_connected==true)) {//
+    char ap_ssid[33] = {0};//
+    memcpy(ap_ssid, ap_info[i].ssid, 32);//
+    ap_ssid[32] = '\0';//
+
+    if ((strcmp((const char *)ap_ssid, (const char *)saved_ssid) == 0)&&(found_saved_ap==false)&&(wifi_connected==true)) {//
       // if (memcmp((const uint8_t*)ap_info[i].bssid,(const uint8_t*) saved_bssid, 6) == 0) {   //
-                ESP_LOGI(TAG, "" );
+               // ESP_LOGI(TAG, "" );
                 ESP_LOGI(TAG, "Found saved wifi network in scan list, ssid: %s",(const char *)ap_info[i].ssid );
                 ESP_LOGI(TAG, "BSSID %02X:%02X:%02X:%02X:%02X:%02X",ap_info[i].bssid[0],ap_info[i].bssid[1]
                     ,ap_info[i].bssid[2],ap_info[i].bssid[3],ap_info[i].bssid[4],ap_info[i].bssid[5]);
@@ -447,8 +429,11 @@ void wifi_update_list_cb(lv_timer_t * timer) {
             }
 
            
-   
+    //  second_list_update();//
+
+
 }
+
 
 
 /* Initialize Wi-Fi as STA (Station mode) and set the scan method */
@@ -480,7 +465,8 @@ void wifi_scan(void)
 
     // Create a timer to update the UI with the scanned Wi-Fi list
     lv_timer_t *t = lv_timer_create(wifi_update_list_cb, 100, NULL); // Update the UI every 100ms
-    lv_timer_set_repeat_count(t, 2);// chỉ update 1 lần
+    lv_timer_set_repeat_count(t, 1);
+    
     
 
     // Delay to allow UI update time
