@@ -185,7 +185,10 @@ void app_main()
         init_fail_hanlde(1);
     }
     else {
-        reset_retry(1);
+        if (read_retry(1)>0){
+            reset_retry(1);
+
+        }
     }
 
     // Initialize the Waveshare ESP32-S3 RGB LCD hardware
@@ -195,8 +198,10 @@ void app_main()
         init_fail_hanlde(2);
     }
     else {
-        reset_retry(2);
-    }
+        if (read_retry(2)>0){
+            reset_retry(2);
+
+        }    }
 
     // Turn on the LCD backlight
     // This ensures the display is visible.
@@ -230,8 +235,10 @@ void app_main()
          init_fail_hanlde(3);
     }
     else {
-        reset_retry(3);
-    }
+        if (read_retry(3)>0){
+            reset_retry(3);
+
+        }    }
     vTaskDelay(100); // Delay for a short period to ensure stable initialization
 
     // Initialize PWM for controlling backlight brightness (if applicable)
@@ -256,8 +263,10 @@ void app_main()
         init_fail_hanlde(4);
     }
     else {
-        reset_retry(4);
-    }
+        if (read_retry(4)>0){
+            reset_retry(4);
+
+        }    }
     if (read_mac_address(device_mac,device_mac_raw)!=ESP_OK){
         ESP_LOGE(TAG, "Failed to read MAC adress");
     }
@@ -283,8 +292,6 @@ void app_main()
 
     // xTaskCreate(mainscreen_wifi_rssi_task, "mainscreen_wifi_rssi_task", 4* 1024, NULL, 1, NULL);
     xTaskCreatePinnedToCore(mainscreen_wifi_rssi_task, "wifi_rssi_task", 4 * 1024, NULL, 1, NULL, 1);
-
-
     //xTaskCreate(wifi_mqtt_manager_task, "wifi_mqtt_manager_task", 4096, NULL, 5, NULL);
     xTaskCreatePinnedToCore(wifi_mqtt_manager_task, "wifi_mqtt_manager_task", 4 * 1024, NULL, 5, NULL, 1);
     
@@ -294,8 +301,10 @@ void app_main()
         init_fail_hanlde(5);
     }
     else {
-        reset_retry(5);
-    }
+        if (read_retry(5)>0){
+            reset_retry(5);
+
+        }    }
    
     //xSemaphoreGive(check_sema);
 
