@@ -290,6 +290,12 @@ void app_main()
     
 
     check_sema = xSemaphoreCreateBinary();//
+    if (check_sema==NULL){
+        init_fail_hanlde(5);
+    }
+    else {
+        reset_retry(5);
+    }
    
     //xSemaphoreGive(check_sema);
 
