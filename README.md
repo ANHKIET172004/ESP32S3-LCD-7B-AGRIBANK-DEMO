@@ -77,7 +77,20 @@ project/
 - Thiết bị khởi động.
 - Kiểm tra trạng thái đăng nhập đã lưu:
   - Đã đăng nhập nhưng chưa logout → hiển thị **màn hình đánh giá (Screen1)**
-  - Chưa đăng nhập → hiển thị **màn hình đăng nhập (Screen7)**
+
+<div align="center">
+  <img src="./main/photo/manhinhdanhgia.jpg" alt="Màn hình đánh giá" width="50%"/>
+  <br>
+  <em>Màn hình đánh giá</em>
+</div>
+
+- Chưa đăng nhập → hiển thị **màn hình đăng nhập (Screen7)**
+
+<div align="center">
+  <img src="./main/photo/login.jpg" alt="Màn hình đăng nhập" width="50%"/>
+  <br>
+  <em>Màn hình đăng nhập</em>
+</div>
 
 ---
 
@@ -92,6 +105,12 @@ project/
 - Khi khởi động:
   - Không hiển thị danh sách WiFi cho đến khi switch được bật
   - Tự động kết nối WiFi đã lưu trong NVS
+
+<div align="center">
+  <img src="./main/photo/wifi.jpg" alt="Màn hình cấu hình wifi" width="50%"/>
+  <br>
+  <em>Màn hình cấu hình wifi</em>
+</div>
 
 ---
 
