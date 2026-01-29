@@ -348,9 +348,10 @@ static void wifi_ui_retry_success(void *param)
         }
             */
 
-        if( (!user_selected_wifi&&(wifi_open==true&&!spe_case)) || ((open_cnt==0&&!user_selected_wifi&&(!wifi_open&&!spe_case)))){// disconnect sau khi người dùng nhập wifi->auto connect  
+        //if( (!user_selected_wifi&&(wifi_open==true&&!spe_case)) || ((open_cnt==0&&!user_selected_wifi&&(!wifi_open&&!spe_case)))){// disconnect sau khi người dùng nhập wifi->auto connect  
         //if (!user_selected_wifi){// disconnect sau khi người dùng nhập wifi->auto connect
         //if (!user_selected_wifi&&(wifi_open==true)){  
+        if( !user_selected_wifi&&!spe_case) {// disconnect sau khi người dùng nhập wifi->auto connect  
 
             if (s_retry_num1 < auto_wifi_retry) {
                 if (s_retry_num1==0){
@@ -397,7 +398,8 @@ static void wifi_ui_retry_success(void *param)
 
         //mqtt_start();
      //   if ( (!user_selected_wifi)&&(wifi_open)&&!spe_case){
-        if( (!user_selected_wifi&&(wifi_open==true&&!spe_case)) || ((open_cnt==0&&!user_selected_wifi&&(!wifi_open&&!spe_case)))){// disconnect sau khi người dùng nhập wifi->auto connect  
+        //if( (!user_selected_wifi&&(wifi_open==true&&!spe_case)) || ((open_cnt==0&&!user_selected_wifi&&(!wifi_open&&!spe_case)))){// disconnect sau khi người dùng nhập wifi->auto connect  
+        if( !user_selected_wifi&&!spe_case){// disconnect sau khi người dùng nhập wifi->auto connect  
 
         //if ( (!user_selected_wifi)&&(wifi_open)){
         //if ( (wifi_open==true)){

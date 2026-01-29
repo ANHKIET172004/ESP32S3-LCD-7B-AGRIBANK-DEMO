@@ -103,7 +103,6 @@ project/
   - `Back`: quay lại màn hình trước
   - `Switch`: bật / tắt WiFi
 - Khi khởi động:
-  - Không hiển thị danh sách WiFi cho đến khi switch được bật
   - Tự động kết nối WiFi đã lưu trong NVS
 
 <div align="center">
