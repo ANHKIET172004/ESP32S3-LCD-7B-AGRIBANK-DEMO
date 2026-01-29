@@ -70,7 +70,7 @@ uint8_t read_retry(uint8_t x){
 
 void reset_retry(uint8_t x){
     nvs_handle_t handle;
-    uint8_t cnt;
+    //uint8_t cnt;
     esp_err_t err=nvs_open("ESP_RESTART",NVS_READWRITE,&handle);
 
     if (err!=ESP_OK){       

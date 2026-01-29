@@ -45,6 +45,7 @@ static esp_lcd_touch_handle_t tp_handle = NULL;    // Handle for the touch panel
 extern int score;
 
 extern int mesh_enb;
+extern lv_obj_t* ui_Image16;
 
 //uint8_t start=0;
 
@@ -56,6 +57,22 @@ extern void checktime_task (void* pvParameters);
 
 bool spe_case=true;// reconnect khi khởi động và kết nối wifi thủ công
 SemaphoreHandle_t check_sema=NULL;
+
+/*
+typedef enum {
+    UI_EVT_LOGIN_OK,
+    UI_EVT_LOGIN_FAIL,
+    UI_EVT_MQTT_CONNECTED,
+    UI_EVT_MQTT_DISCONNECTED,
+} ui_evt_type_t;
+
+typedef struct {
+    ui_evt_type_t type;
+} ui_evt_t;
+*/
+QueueHandle_t ui_queue;
+
+//extern QueueHandle_t ui_queue;
 
 
 QueueHandle_t mqtt_queue=NULL;
@@ -74,6 +91,8 @@ extern void mqtt_process_task(void *pvParameters);
 
 extern void  mqtt_heartbeat_task(void *pvParameters);
 extern void publish_feeback_task(void* pv);
+
+extern void ui_task(void *arg);
 
 char device_mac[18] = {0};           // "AA:BB:CC:DD:EE:FF"
 uint8_t device_mac_raw[6] = {0};     //   {0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF}
@@ -101,6 +120,49 @@ int open_cnt=0;
  * @return None
  */
 
+void ui_task(void *arg)
+{
+    ui_evt_t evt;
+
+    while (1) {
+        if (xQueueReceive(ui_queue, &evt, portMAX_DELAY)) {
+
+            if (!lvgl_port_lock(0)) continue;
+
+            switch (evt.type) {
+
+            case UI_EVT_LOGIN_OK:
+                _ui_flag_modify(ui_Label14,
+                                LV_OBJ_FLAG_HIDDEN,
+                                _UI_MODIFY_FLAG_ADD);
+
+                _ui_screen_change(&ui_Screen1,
+                                  LV_SCR_LOAD_ANIM_MOVE_LEFT,
+                                  50, 0,
+                                  &ui_Screen1_screen_init);
+                break;
+
+            case UI_EVT_LOGIN_FAIL:
+                _ui_flag_modify(ui_Label14,
+                                LV_OBJ_FLAG_HIDDEN,
+                                _UI_MODIFY_FLAG_REMOVE);
+                break;
+
+            case UI_EVT_MQTT_CONNECTED:
+                lv_obj_add_flag(ui_Image16, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_add_flag(ui_Image26, LV_OBJ_FLAG_HIDDEN);
+                break;
+
+            case UI_EVT_MQTT_DISCONNECTED:
+                lv_obj_clear_flag(ui_Image16, LV_OBJ_FLAG_HIDDEN);
+                lv_obj_clear_flag(ui_Image26, LV_OBJ_FLAG_HIDDEN);
+                break;
+            }
+
+            lvgl_port_unlock();
+        }
+    }
+}
 
 
 esp_err_t read_mac_address(char *mac_str, uint8_t *mac_raw) {
@@ -251,7 +313,7 @@ void app_main()
 
     // Start the WIFI task to handle Wi-Fi functionality
     // This task manages Wi-Fi connections and hotspot creation.
-    nvs_mutex = xSemaphoreCreateMutex();
+   // nvs_mutex = xSemaphoreCreateMutex();
 
     mqtt_queue = xQueueCreate(10, sizeof(mqtt_message_t));
 /*
@@ -267,6 +329,20 @@ void app_main()
             reset_retry(4);
 
         }    }
+
+    ui_queue = xQueueCreate(8, sizeof(ui_evt_t));
+    assert(ui_queue);
+    if (mqtt_queue==NULL){
+        init_fail_hanlde(6);
+    }
+    else {
+        if (read_retry(6)>0){
+            reset_retry(6);
+
+        }    }
+
+    // tạo UI task
+    xTaskCreate(ui_task, "ui_task", 4096, NULL, 5, NULL);
     if (read_mac_address(device_mac,device_mac_raw)!=ESP_OK){
         ESP_LOGE(TAG, "Failed to read MAC adress");
     }
@@ -294,6 +370,9 @@ void app_main()
     xTaskCreatePinnedToCore(mainscreen_wifi_rssi_task, "wifi_rssi_task", 4 * 1024, NULL, 1, NULL, 1);
     //xTaskCreate(wifi_mqtt_manager_task, "wifi_mqtt_manager_task", 4096, NULL, 5, NULL);
     xTaskCreatePinnedToCore(wifi_mqtt_manager_task, "wifi_mqtt_manager_task", 4 * 1024, NULL, 5, NULL, 1);
+
+    xTaskCreate(ui_task, "ui_task", 4096, NULL, 5, NULL);
+
     
 
     check_sema = xSemaphoreCreateBinary();//

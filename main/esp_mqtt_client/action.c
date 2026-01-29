@@ -228,7 +228,7 @@ void save_current_number(const char* number){
         return;
     }
 
-    char temp[16];
+    //char temp[16];
     //size_t required_size = sizeof(temp);
 
      err = nvs_set_str(nvs_handle, "current_number", number);
@@ -271,7 +271,7 @@ void save_next_number(const char* number){
         return;
     }
 
-    char temp[16];
+    //char temp[16];
     //size_t required_size = sizeof(temp);
 
      err = nvs_set_str(nvs_handle, "next_number", number);

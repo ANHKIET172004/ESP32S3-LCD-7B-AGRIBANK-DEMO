@@ -26,9 +26,31 @@ extern "C" {
 #include "ui_Screen6.h"
 #include "ui_Screen7.h"
 
+#include "freertos/FreeRTOS.h"
+
 ///////////////////// VARIABLES ////////////////////
 
 
+#pragma once
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/queue.h"
+
+/* ==== UI EVENT TYPE ==== */
+typedef enum {
+    UI_EVT_LOGIN_OK,
+    UI_EVT_LOGIN_FAIL,
+    UI_EVT_MQTT_CONNECTED,
+    UI_EVT_MQTT_DISCONNECTED,
+} ui_evt_type_t;
+
+/* ==== UI EVENT ==== */
+typedef struct {
+    ui_evt_type_t type;
+} ui_evt_t;
+
+/* ==== UI QUEUE ==== */
+extern QueueHandle_t ui_queue;
 
 
 
@@ -169,6 +191,8 @@ LV_FONT_DECLARE(ui_font_BOLD_VN80);
 LV_FONT_DECLARE(ui_font_robotothin);//21
 
 LV_FONT_DECLARE(ui_font_Chinese_Font);
+
+
 
 
 // UI INIT

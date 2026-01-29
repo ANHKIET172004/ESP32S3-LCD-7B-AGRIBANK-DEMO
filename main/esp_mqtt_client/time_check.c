@@ -73,7 +73,8 @@ esp_err_t read_time(uint8_t* time)
     //size_t required_size = 0;
     err=nvs_get_u8(nvs_handle,"timeout",time);
     if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to get size for number: %s", esp_err_to_name(err));
+        ESP_LOGE(TAG, "Failed to get timeout: %s", esp_err_to_name(err));
+
         nvs_close(nvs_handle);
         return err;
     }

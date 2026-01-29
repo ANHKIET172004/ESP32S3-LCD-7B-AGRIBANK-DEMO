@@ -114,6 +114,8 @@ extern bool wifi_need_mqtt_stop;
 extern lv_obj_t* ui_WIFI_Rescan_Button;
 extern lv_obj_t* ui_WIFI_CONT;
 
+extern lv_obj_t * ui_Image16;
+
 
 extern bool login;
 //extern int reconnect2;
@@ -148,6 +150,9 @@ const lv_img_dsc_t * ui_imgset_wifi_[4] = {&ui_img_wifi_1_png, &ui_img_wifi_2_pn
 
 
 /******************WIFI*********************** */
+
+
+
 
 // Event handler for the Wifi button (WiFi settings screen)
 void ui_event_Wifi(lv_event_t * e)
@@ -532,6 +537,8 @@ void ui_event_WIFI_AP_OPEN(lv_event_t * e)
 }
     */
 //////////////// WIFI AP
+
+
 
 bool check_login_status()
 {

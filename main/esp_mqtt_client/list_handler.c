@@ -11,7 +11,7 @@ static int extract_counter_number(const char *name) {
     
     if (ptr) {
         //while (*ptr == ' ' || *ptr == ':' || *ptr == '-'||*ptr < '0' || *ptr > '9') {
-        while (*ptr < '0' || *ptr > '9') {
+        while (*ptr&&(*ptr < '0' || *ptr > '9')) {
             ptr++;
         }
         if (!*ptr) return -1;
@@ -36,6 +36,11 @@ int device_compare_by_counter(const void *a, const void *b)
     int c1 = extract_counter_number(da->name);
     int c2 = extract_counter_number(db->name);
 
+    if (c1 < 0 && c2 < 0) return 0;
+    if (c1 < 0) return 1;   
+    if (c2 < 0) return -1;
+
+
     return c1 - c2; // tăng dần
 }
 
@@ -52,6 +57,7 @@ int device_compare_by_counter(const void *a, const void *b)
 }
 
 
+/*
 static void sort_device_list_by_counter(int count)
 {
     for (int i = 0; i < count - 1; i++) {
@@ -79,6 +85,7 @@ static void sort_device_list_by_counter(int count)
         }
     }
 }
+*/
 
 void parse_json_and_store(const char *json_data)
 {
@@ -105,7 +112,11 @@ void parse_json_and_store(const char *json_data)
         &&cJSON_IsString(id) && id->valuestring)
         {
             strncpy(device_list[count].name, name->valuestring, sizeof(device_list[count].name) - 1);
+            device_list[count].name[sizeof(device_list[count].name) - 1] = '\0';
+
             strncpy(device_list[count].device_id, id->valuestring, sizeof(device_list[count].device_id) - 1);
+            device_list[count].device_id[sizeof(device_list[count].device_id) - 1] = '\0';
+
             count++;
         }
     }
@@ -210,7 +221,11 @@ esp_err_t load_device_list_from_nvs(void)
         cJSON *id = cJSON_GetObjectItem(item, "device_id");
         if (cJSON_IsString(name) && cJSON_IsString(id)) {
             strncpy(device_list[count].name, name->valuestring, MAX_NAME_LEN - 1);
+            device_list[count].name[sizeof(device_list[count].name) - 1] = '\0';
+
             strncpy(device_list[count].device_id, id->valuestring, MAX_ID_LEN - 1);
+            device_list[count].device_id[sizeof(device_list[count].device_id) - 1] = '\0';
+
             count++;
         }
     }
@@ -309,7 +324,13 @@ esp_err_t load_device_list_from_nvs_to_buffer(device_info_t *list, int *count)
 
         if (cJSON_IsString(name) && cJSON_IsString(id)) {
             strncpy(list[cnt].name, name->valuestring, MAX_NAME_LEN - 1);
+            list[cnt].name[sizeof(list[cnt].name) - 1] = '\0';
+
             strncpy(list[cnt].device_id, id->valuestring, MAX_ID_LEN - 1);
+            list[cnt].device_id[sizeof(list[cnt].device_id) - 1] = '\0';
+
+
+
             cnt++;
         }
     }
@@ -360,7 +381,11 @@ esp_err_t parse_json_to_device_list(const char *json,
         }
 
         strncpy(list[idx].name, name->valuestring, MAX_NAME_LEN - 1);
+        list[idx].name[sizeof(list[idx].name) - 1] = '\0';
+
         strncpy(list[idx].device_id, id->valuestring, MAX_ID_LEN - 1);
+        list[idx].device_id[sizeof(list[idx].device_id) - 1] = '\0';
+
 
         idx++;
     }

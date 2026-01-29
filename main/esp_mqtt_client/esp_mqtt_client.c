@@ -65,6 +65,10 @@ char login_topic[32]={0};
 
 extern bool login;
 
+extern QueueHandle_t ui_queue;
+
+//ui_evt_t evt;
+
 void publish_backup_mqtt_msg(esp_mqtt_client_handle_t mqttClient)
 {
     nvs_handle_t nvs;
@@ -145,6 +149,7 @@ void save_login_status(const char *status)
     }
     if (!status_update){
         ESP_LOGI("LOGIN STATUS", "status no change, skip update");
+        nvs_close(nvs_handle);
         return;
     }
 
@@ -216,9 +221,11 @@ void save_last_id(uint16_t value)
 
     err=nvs_get_u16(nvs_handle,"value",&value);
     if (err==ESP_OK){
+        nvs_close(nvs_handle);
         return value;
     }
     else {
+        nvs_close(nvs_handle);
         return 0;
     }
 }
@@ -381,6 +388,13 @@ void mqtt_process_task(void *pvParameters)
                 cJSON *id_item    = cJSON_GetObjectItem(root, "message");
                
                 ESP_LOGI(TAG, "check user cred");
+
+                if (!cJSON_IsString(status_item) || !cJSON_IsNumber(id_item)) {
+                    ESP_LOGE(TAG, "Invalid login JSON");
+                    cJSON_Delete(root);
+                    continue;
+                }
+
                 if (strcmp(status_item->valuestring,"true")==0){
                   
 
@@ -394,10 +408,18 @@ void mqtt_process_task(void *pvParameters)
                    //char str[128]={0};
                    //sprintf(str, "{\"device_id\":%d,\"status\":\"online\"}",staff_id);
                    //esp_mqtt_client_publish(mqttClient, "staff/status", str, 0, 1, 0);
-                  _ui_flag_modify(ui_Label14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
+                   /*
+                   if (lvgl_port_lock(-1)) {
 
-                  _ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen1_screen_init);//
-                  
+                    _ui_flag_modify(ui_Label14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);//
+
+                    _ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_MOVE_LEFT, 50, 0, &ui_Screen1_screen_init);//
+                     lvgl_port_unlock();
+                   }                 
+*/
+                    ui_evt_t evt;
+                     evt.type = UI_EVT_LOGIN_OK ;
+                    xQueueSend(ui_queue, &evt, 0);
 
 
 
@@ -406,7 +428,16 @@ void mqtt_process_task(void *pvParameters)
                 else {
                     ESP_LOGI(TAG, "ERROR");
                     save_login_status("NO");
-                   _ui_flag_modify(ui_Label14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+                    /*
+                    if (lvgl_port_lock(-1)) {
+
+                    _ui_flag_modify(ui_Label14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+                    lvgl_port_unlock();
+                   }
+                    */
+                   ui_evt_t evt;
+                     evt  .type = UI_EVT_LOGIN_FAIL ;
+                    xQueueSend(ui_queue, &evt, 0);
 
                 }        
 
@@ -458,21 +489,7 @@ void mqtt_process_task(void *pvParameters)
     }
 }
 
-/*
-void mqtt_heartbeat_task(void *pvParameters){
-    while(1){
 
-        if (!login){
-            vTaskDelay(pdMS_TO_TICKS(1000));
-            continue;
-        }
-            
-        esp_mqtt_client_publish(mqttClient, "staff/heartbeat", "connected", 0, 1, 0);
-        vTaskDelay(pdMS_TO_TICKS(5000));
-    }
-
-}
-*/
 
 void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
 {
@@ -504,14 +521,18 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
             vTaskDelay(pdMS_TO_TICKS(1000));
         }
             */
+        ui_evt_t evt;
+        evt.type = UI_EVT_MQTT_CONNECTED ;
+        xQueueSend(ui_queue, &evt, 0);
 
-
+/*
         if (lvgl_port_lock(-1)) {
             lv_obj_add_flag(ui_Image16, LV_OBJ_FLAG_HIDDEN ); // ẩn icon lỗi kết nối
             lv_obj_add_flag(ui_Image26, LV_OBJ_FLAG_HIDDEN ); // ẩn icon lỗi kết nối
             
             lvgl_port_unlock();
         }
+            */
         //char login_topic[32]={0};
         sprintf(login_topic,"%s/staff_id",device_mac);
         //msg_id = esp_mqtt_client_subscribe(client, "number", 0);
@@ -532,6 +553,7 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
         //esp_mqtt_client_subscribe(event->client, "reset_number", 0);
         //esp_mqtt_client_subscribe(event->client, "transfer_number", 0);
         esp_mqtt_client_subscribe(event->client, login_topic, 0);
+        vTaskDelay(pdMS_TO_TICKS(500));
         publish_backup_mqtt_msg(mqttClient);//
 
 
@@ -540,12 +562,16 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
         
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_DISCONNECTED");
-        
+       /* 
         if (lvgl_port_lock(-1)) {
         lv_obj_clear_flag(ui_Image16, LV_OBJ_FLAG_HIDDEN ); 
         lv_obj_clear_flag(ui_Image26, LV_OBJ_FLAG_HIDDEN ); 
         lvgl_port_unlock();
         }
+        */
+        evt.type = UI_EVT_MQTT_DISCONNECTED;
+
+        xQueueSend(ui_queue, &evt, 0);
         
         break;
 
